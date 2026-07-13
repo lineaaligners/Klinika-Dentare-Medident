@@ -25,8 +25,8 @@ const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyCli
     title: lang === 'en' ? 'SURGICAL' : 'KIRURGJI',
     subtitle: lang === 'en' ? 'PRECISION.' : 'PRECIZE.',
     desc: lang === 'en' 
-      ? 'Medident Clinical Center in Peja, Kosovo. Specialized in advanced surgical protocols led by our Turkish-trained Chief Oral Surgeon.' 
-      : 'Qendra Klinike Medident në Pejë, Kosovë. Specializuar në protokolle kirurgjikale të udhëhequra nga Kryekirurgja jonë e trajnuar në Turqi.',
+      ? 'Medident Clinical Center in Peja, Kosovo. 27 years of advanced oral surgery and implantology, led by our Chief Oral Surgeon.' 
+      : 'Qendra Klinike Medident në Pejë, Kosova. 27 vite kirurgji orale e avancuar dhe implantologji, nën udhëheqjen e Kryekirurges sonë Orale.',
     cta: lang === 'en' ? 'Request Case Review' : 'Kërkoni Rishikim të Rastit',
     play: lang === 'en' ? 'Observe Practice Standards' : 'Vëzhgoni Standardet e Praktikës',
     serv: lang === 'en' ? 'Explore Services' : 'Eksploroni Shërbimet',
