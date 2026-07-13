@@ -119,7 +119,7 @@ const PatientGuideModal: React.FC<PatientGuideModalProps> = ({ isOpen, onClose, 
                   <h4 className="text-xl font-display font-black text-slate-900 mb-8 tracking-tight">{lang === 'en' ? 'Institutional Benefits' : 'Përfitimet Institucionale'}</h4>
                   <ul className="space-y-6">
                     {[
-                      { icon: <Shield size={18} />, text: lang === 'en' ? 'Turkish Surgical Standards' : 'Standardet Kirurgjikale Turke' },
+                      { icon: <Shield size={18} />, text: lang === 'en' ? 'European Surgical Standards' : 'Standardet Evropiane Kirurgjikale' },
                       { icon: <Hotel size={18} />, text: lang === 'en' ? 'Premium Accommodation Access' : 'Qasje në Akomodim Premium' },
                       { icon: <Phone size={18} />, text: lang === 'en' ? '24/7 Surgical Support Line' : 'Mbështetje Kirurgjikale 24/7' },
                       { icon: <Landmark size={18} />, text: lang === 'en' ? 'Multilingual Patient Coordinators' : 'Koordinatorë Shumëgjuhësh' }
@@ -171,11 +171,11 @@ const PatientGuideModal: React.FC<PatientGuideModalProps> = ({ isOpen, onClose, 
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="p-8 bg-white/5 border border-white/10 rounded-2xl">
                       <p className="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-2">WhatsApp / Phone</p>
-                      <p className="text-2xl font-bold">+383 44 123 456</p>
+                      <p className="text-2xl font-bold">+383 49 772 307</p>
                     </div>
                     <div className="p-8 bg-white/5 border border-white/10 rounded-2xl">
                       <p className="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-2">Official Email</p>
-                      <p className="text-2xl font-bold">care@medident-ks.com</p>
+                      <p className="text-2xl font-bold">medident-ks@gmail.com</p>
                     </div>
                   </div>
                 </div>
