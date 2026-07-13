@@ -91,7 +91,7 @@ const TourismSection: React.FC<TourismSectionProps> = ({ onOpenGuide, onServices
                     <span className="text-[9px] font-black uppercase tracking-[0.3em]">International Standards</span>
                   </div>
                   <p className="text-white text-xl font-bold mb-8 tracking-tight leading-relaxed">
-                    VIP Transfers to Peja, Institutional Stays & Turkish Clinical Excellence.
+                    Private Transfers to Peja, Partner Hotels & 27 Years of Clinical Excellence.
                   </p>
                   <div className="flex items-center space-x-8">
                     <div className="flex items-center text-slate-400 text-[8px] font-black uppercase tracking-widest">
