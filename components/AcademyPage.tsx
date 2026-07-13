@@ -70,7 +70,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, lang }) => {
 
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const prompt = `Chief Oral Surgeon Dr. Lendita Islami Nallbani: Welcome to the Medident Clinical Academy in Peja. Our surgical modules are informed by my experience practicing in top Turkish hospitals. We focus on high-fidelity clinical outcomes. Join us to transform your surgical career.`;
+      const prompt = `Chief Oral Surgeon Dr. Lendita Islami Nallbani: Welcome to the Medident Clinical Academy in Peja. Our surgical modules are built on 27 years of clinical practice. We focus on high-fidelity clinical outcomes. Join us to transform your surgical career.`;
 
       const response = await ai.models.generateContent({
         model: "gemini-2.5-flash-preview-tts",
@@ -148,7 +148,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, lang }) => {
                 </h1>
                 <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed mb-12 max-w-xl">
                   {lang === 'en' 
-                    ? 'Advanced clinical training protocols led by Turkish-trained Chief Surgeon Dr. Lendita Islami Nallbani and our multidisciplinary board.'
+                    ? 'Advanced clinical training protocols led by Chief Oral Surgeon Dr. Lendita Islami Nallbani and our multidisciplinary board.'
                     : 'Protokolle të avancuara të trajnimit klinik të udhëhequra nga Kryekirurgja Dr. Lendita Islami Nallbani dhe bordi ynë multidisiplinar.'}
                 </p>
                 <div className="flex flex-wrap gap-8 items-center">
