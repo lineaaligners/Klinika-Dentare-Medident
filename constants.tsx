@@ -46,109 +46,144 @@ export const SERVICES: Service[] = [
   }
 ];
 
+// Staff order: Dr. Lendita, Dr. Faton, Dr. Muharrem, then the rest.
+// NOTE: Upload the 3 new photos (Muharrem, Fjolla, Arbresha) to the same
+// Supabase "medident1" bucket with the filenames referenced below.
 export const DOCTORS: Doctor[] = [
   {
     id: '1',
     name: 'Dr. Lendita Islami Nallbani',
     role: { en: 'Chief Oral Surgeon', sq: 'Kryekirurge Orale' },
     bio: {
-      en: 'Senior specialist in Oral Surgery with a distinguished 27-year legacy. Trained in top-tier Turkish university hospitals, bringing advanced surgical protocols to Peja.',
-      sq: 'Specialiste e lartë në Kirurgjinë Orale me një trashëgimi 27-vjeçare. E trajnuar në spitalet më të mira universitare turke.'
+      en: 'Specialist in Oral Surgery and Implantology with 27 years of clinical practice. Leads the surgical board at Medident, founded in 1999.',
+      sq: 'Specialiste e Kirurgjisë Orale dhe Implantologe me 27 vite praktikë klinike. Udhëheq bordin kirurgjikal të Medident, themeluar në vitin 1999.'
     },
     image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/519508741_18258447043303287_5432944367248736037_n.jpg',
-    specialties: ['Oral Surgery', 'Advanced Implantology', 'Bone Augmentation'],
+    specialties: ['Oral Surgery', 'Implantology', 'Bone Augmentation'],
     education: {
-      en: ['Faculty of Medicine, University of Prishtina', 'Specialization in Oral Surgery', 'Advanced Surgical Fellowship (Istanbul, Turkey)'],
-      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës', 'Specializimi në Kirurgjinë Orale', 'Trajnim i Avancuar Kirurgjikal (Stamboll, Turqi)']
+      en: ['Faculty of Medicine, University of Prishtina', 'Specialization in Oral Surgery'],
+      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës', 'Specializimi në Kirurgjinë Orale']
     },
     experience: { en: '27+ Years Clinical Practice', sq: '27+ Vite Praktikë Klinike' },
-    languages: ['Albanian', 'English', 'German', 'Turkish'],
-    certifications: ['ISO 9001 Clinical Auditor', 'ITI Member', 'Expert in Zygomatic Implants'],
-    research: {
-      en: ['Comparative analysis of immediate load vs traditional protocols in edentulous patients.', 'Bone augmentation techniques in the atrophic posterior maxilla: A 10-year longitudinal study.', 'Clinical evaluation of Turkish surgical protocols in Balkan patient demographics.'],
-      sq: ['Analiza krahasimore e ngarkesës së menjëhershme kundrejt protokolleve tradicionale.', 'Teknikat e shtimit të kockave në maksilën e pasme atrofike: Studim 10-vjeçar.', 'Vlerësimi klinik i protokolleve kirurgjikale turke në demografinë e Ballkanit.']
-    },
-    links: [
-      { label: 'ResearchGate Profile', url: '#' },
-      { label: 'PubMed Bibliography', url: '#' }
-    ]
+    languages: ['Albanian', 'English', 'German'],
+    certifications: ['Specialist in Oral Surgery', 'Implantology']
   },
   {
     id: '2',
     name: 'Dr. Faton Loci',
-    role: { en: 'Restorative & CAD/CAM Specialist', sq: 'Specialist i Restaurimit & CAD/CAM' },
+    role: { en: 'Implantologist', sq: 'Implantolog' },
     bio: {
-      en: 'Leading expert in digital dentistry and aesthetic design. Specializes in intraoral scanning protocols and monolithic restorations.',
-      sq: 'Ekspert udhëheqës në stomatologjinë digjitale dhe dizajnin estetik. Specializohet në protokollet e skanimit intraoral.'
+      en: 'Implantologist with 15+ years of experience and advanced implantology training.',
+      sq: 'Implantolog me 15+ vite përvojë dhe trajnim të avancuar në implantologji.'
     },
     image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/520120059_18258447091303287_3697667781056904147_n.jpg',
-    specialties: ['Aesthetic Dentistry', 'CAD/CAM Prosthetics', 'Digital Smile Design'],
+    specialties: ['Implantology', 'Restorative Dentistry'],
     education: {
-      en: ['Faculty of Medicine, University of Prishtina', 'Advanced Training in Digital Dentistry (Germany)'],
-      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës', 'Trajnim i Avancuar në Stomatologjinë Digjitale (Gjermani)']
+      en: ['Faculty of Medicine, University of Prishtina', 'Advanced Implantology Training'],
+      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës', 'Trajnim i Avancuar në Implantologji']
     },
     experience: { en: '15+ Years Clinical Practice', sq: '15+ Vite Praktikë Klinike' },
     languages: ['Albanian', 'English'],
-    certifications: ['Certified Exocad Designer', 'Advanced Aesthetic Composite Specialist'],
-    research: {
-      en: ['Digital workflow optimization for monolithic zirconia rehabilitations.', 'Accuracy comparison of intraoral scanners in full-arch digital impressions.', 'Color stability of modern CAD/CAM ceramic systems: A clinical review.'],
-      sq: ['Optimizimi i rrjedhës digjitale për rehabilitimet monolitike të zirkonit.', 'Krahasimi i saktësisë së skanerëve intraoralë në përshtypjet digjitale.', 'Stabiliteti i ngjyrës i sistemeve moderne qeramike CAD/CAM.']
+    certifications: ['Advanced Implantology Training']
+  },
+  {
+    id: '3',
+    name: 'Dr. Muharrem Thaqi',
+    role: { en: 'Dentist', sq: 'Stomatolog' },
+    bio: {
+      en: 'General dentist at Medident, focused on restorative dentistry and everyday patient care.',
+      sq: 'Stomatolog në Medident, i fokusuar në stomatologjinë restauruese dhe kujdesin e përditshëm ndaj pacientëve.'
     },
-    links: [
-      { label: 'Academic Portfolio', url: '#' },
-      { label: 'LinkedIn Profile', url: '#' }
-    ]
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/520224741_18258447415303287_7439654276461004636_n.jpg',
+    specialties: ['General Dentistry', 'Restorative Dentistry'],
+    education: {
+      en: ['Faculty of Medicine, University of Prishtina'],
+      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës']
+    },
+    experience: { en: 'Clinical Practice at Medident', sq: 'Praktikë Klinike në Medident' },
+    languages: ['Albanian', 'English'],
+    certifications: ['Doctor of Dental Medicine']
+  },
+  {
+    id: '4',
+    name: 'Dr. Fjolla Kelmendi',
+    role: { en: 'Dentist', sq: 'Stomatologe' },
+    bio: {
+      en: 'General dentist at Medident, dedicated to preventive care and patient comfort.',
+      sq: 'Stomatologe në Medident, e përkushtuar ndaj kujdesit parandalues dhe komoditetit të pacientëve.'
+    },
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/520249730_18258447649303287_7074860732315032093_n.jpg',
+    specialties: ['General Dentistry', 'Preventive Care'],
+    education: {
+      en: ['Faculty of Medicine, University of Prishtina'],
+      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës']
+    },
+    experience: { en: 'Clinical Practice at Medident', sq: 'Praktikë Klinike në Medident' },
+    languages: ['Albanian', 'English'],
+    certifications: ['Doctor of Dental Medicine']
+  },
+  {
+    id: '5',
+    name: 'Dr. Arbresha Nila',
+    role: { en: 'Dentist', sq: 'Stomatologe' },
+    bio: {
+      en: 'General dentist at Medident, focused on aesthetic and restorative treatments.',
+      sq: 'Stomatologe në Medident, e fokusuar në trajtimet estetike dhe restauruese.'
+    },
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/518903917_18258447679303287_8056766841269486250_n.jpg',
+    specialties: ['General Dentistry', 'Aesthetic Dentistry'],
+    education: {
+      en: ['Faculty of Medicine, University of Prishtina'],
+      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës']
+    },
+    experience: { en: 'Clinical Practice at Medident', sq: 'Praktikë Klinike në Medident' },
+    languages: ['Albanian', 'English'],
+    certifications: ['Doctor of Dental Medicine']
   },
   {
     id: '6',
-    name: 'Dr. Arjeta Muhaxheri Morina',
-    role: { en: 'Clinical Director & Manager', sq: 'Drejtoreshë Klinike & Menaxhere' },
+    name: 'Arjeta Muhaxheri Morina',
+    role: { en: 'Clinic Manager', sq: 'Menaxhere' },
     bio: {
-      en: 'Coordinates the clinical board and leads the institutional management department, ensuring seamless patient journeys and operational excellence.',
-      sq: 'Koordinon bordin klinik dhe udhëheq departamentin e menaxhimit institucional, duke siguruar rrugëtim të qetë të pacientit.'
+      en: 'Manages clinic operations and coordinates every patient journey at Medident, from first contact to follow-up.',
+      sq: 'Menaxhon operacionet e klinikës dhe koordinon rrugëtimin e çdo pacienti në Medident, nga kontakti i parë deri te kontrollet pas trajtimit.'
     },
     image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/520877630_18258447793303287_6370335904948863904_n.jpg',
-    specialties: ['Orthodontics', 'Clinical Management', 'Patient Coordination'],
+    specialties: ['Clinic Operations', 'Patient Coordination'],
     education: {
-      en: ['Faculty of Medicine, University of Prishtina', 'Specialization in Orthodontics', 'Master of Healthcare Management'],
-      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës', 'Specializimi në Ortodonci', 'Master në Menaxhim Shëndetësor']
+      en: ['Clinic Management, Medident'],
+      sq: ['Menaxhimi i Klinikës, Medident']
     },
-    experience: { en: '14+ Years Clinical & Administrative Practice', sq: '14+ Vite Praktikë Klinike dhe Administrative' },
-    languages: ['Albanian', 'English', 'German'],
-    certifications: ['Invisalign Gold Provider', 'Health Management Specialist', 'ISO Clinical Coordinator'],
-    research: {
-      en: ['Patient journey optimization in high-volume surgical dental tourism.', 'Efficacy of digital monitoring in orthodontic clear aligner therapy.', 'Institutional management of ISO 9001 standards in dental clinical environments.'],
-      sq: ['Optimizimi i rrugëtimit të pacientit në turizmin dentar kirurgjikal.', 'Efikasiteti i monitorimit digjital në terapinë ortodontike me aligners.', 'Menaxhimi institucional i standardeve ISO 9001 në klinikat dentare.']
-    },
-    links: [
-      { label: 'Management Insights', url: '#' }
-    ]
+    experience: { en: 'Clinic Management at Medident', sq: 'Menaxhimi i Klinikës në Medident' },
+    languages: ['Albanian', 'English'],
+    certifications: ['Patient Care Coordination']
   }
 ];
 
 export const TOURISM_STEPS = (lang: 'en' | 'sq') => [
   {
-    title: lang === 'en' ? 'Clinical Assessment' : 'Vlerësimi Klinik',
-    description: lang === 'en' ? 'Radiographic data review by our surgical board led by Dr. Lendita.' : 'Rishikimi i të dhënave radiografike nga bordi ynë kirurgjikal i udhëhequr nga Dr. Lendita.',
+    title: lang === 'en' ? 'Case Review' : 'Vlerësimi i Rastit',
+    description: lang === 'en' ? 'Your X-rays are reviewed by our surgical team led by Dr. Lendita.' : 'Radiografitë tuaja rishikohen nga ekipi ynë kirurgjikal i udhëhequr nga Dr. Lendita.',
     icon: <Sparkles className="w-8 h-8 text-blue-600" />
   },
   {
-    title: lang === 'en' ? 'Logistical Protocol' : 'Protokolli Logjistik',
-    description: lang === 'en' ? 'VIP transit from PRN Airport to Peja.' : 'Transit VIP nga Aeroporti i PRN në Pejë.',
+    title: lang === 'en' ? 'Airport Pickup' : 'Pritja në Aeroport',
+    description: lang === 'en' ? 'Private transfer from Prishtina Airport (PRN) to Peja.' : 'Transfer privat nga Aeroporti i Prishtinës (PRN) në Pejë.',
     icon: <Plane className="w-8 h-8 text-blue-600" />
   },
   {
-    title: lang === 'en' ? 'Institutional Stay' : 'Qëndrimi Institucional',
-    description: lang === 'en' ? 'Luxury partner hotels in the heart of Peja.' : 'Hotele partnere luksoze në zemër të Pejës.',
+    title: lang === 'en' ? 'Hotel & Stay' : 'Hoteli & Qëndrimi',
+    description: lang === 'en' ? 'Comfortable partner hotels in the heart of Peja.' : 'Hotele partnere komode në zemër të Pejës.',
     icon: <Hotel className="w-8 h-8 text-blue-600" />
   },
   {
-    title: lang === 'en' ? 'Surgical Execution' : 'Ekzekutimi Kirurgjikal',
-    description: lang === 'en' ? 'Specialized surgery in an ISO-certified environment.' : 'Kirurgji e specializuar në një mjedis të certifikuar ISO.',
+    title: lang === 'en' ? 'Your Treatment' : 'Trajtimi Juaj',
+    description: lang === 'en' ? 'Specialized surgery in a modern, sterile clinical environment.' : 'Kirurgji e specializuar në një mjedis klinik modern dhe steril.',
     icon: <Shield className="w-8 h-8 text-blue-600" />
   }
 ];
 
+// TODO: Replace with real before/after cases (with patient consent) or hide this section.
 export const GALLERY: BeforeAfter[] = [
   { id: '1', category: { en: 'Surgical Case', sq: 'Rast Kirurgjikal' }, before: 'https://picsum.photos/seed/b1/400/300', after: 'https://picsum.photos/seed/a1/400/300' },
   { id: '2', category: { en: 'Implantology', sq: 'Implantologjia' }, before: 'https://picsum.photos/seed/b2/400/300', after: 'https://picsum.photos/seed/a2/400/300' }
@@ -157,16 +192,16 @@ export const GALLERY: BeforeAfter[] = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'b1',
-    title: { en: 'Advanced Surgical Protocols', sq: 'Protokollet e Avancuara Kirurgjikale' },
-    excerpt: { en: 'A review of structural integrity and surgical outcomes.', sq: 'Një rishikim i integritetit strukturor dhe rezultateve kirurgjikale.' },
+    title: { en: 'What to Expect From Dental Implant Treatment', sq: 'Çfarë të Prisni nga Trajtimi me Implante Dentare' },
+    excerpt: { en: 'A practical overview of the implant journey at Medident, from first scan to final crown.', sq: 'Një përmbledhje praktike e rrugëtimit me implante në Medident, nga skanimi i parë deri te kurora finale.' },
     content: { 
-      en: 'Institutional report on surgical integration... Full research following Turkish clinical protocols brought by Chief Surgeon Dr. Lendita.',
-      sq: 'Raport institucional mbi integrimin kirurgjikal... Kërkimi i plotë sipas protokolleve klinike turke të sjella nga Kryekirurgja Dr. Lendita.'
+      en: 'Dental implants are the modern standard for replacing missing teeth. At Medident, every case starts with a clinical assessment and X-ray review by our surgical team, led by our Chief Oral Surgeon Dr. Lendita. From there, we plan your treatment, place the implant in a sterile surgical environment, and complete the restoration with a custom crown.',
+      sq: 'Implantet dentare janë standardi modern për zëvendësimin e dhëmbëve që mungojnë. Në Medident, çdo rast fillon me një vlerësim klinik dhe rishikim të radiografive nga ekipi ynë kirurgjikal, i udhëhequr nga Kryekirurgja jonë Orale Dr. Lendita. Më pas, planifikojmë trajtimin tuaj, vendosim implantin në një mjedis kirurgjikal steril dhe përfundojmë restaurimin me një kurorë të personalizuar.'
     },
     authorId: '1',
     date: 'Oct 24, 2024',
     image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop',
-    category: { en: 'Surgical Protocols', sq: 'Protokollet Kirurgjikale' },
+    category: { en: 'Implantology', sq: 'Implantologjia' },
     readTime: { en: '6 min read', sq: '6 min lexim' }
   }
 ];
@@ -176,14 +211,14 @@ export const ACADEMY_COURSES: Course[] = [
     id: 'c1',
     title: { en: 'Advanced Surgical All-on-X', sq: 'All-on-X Kirurgjikal i Avancuar' },
     description: { 
-      en: 'Comprehensive surgical mastery for edentulous rehabilitation led by our Turkish-trained Chief Surgeon. Focusing on complex anatomical challenges.',
-      sq: 'Mjeshtëri gjithëpërfshirëse kirurgjikale për rehabilitimin pa dhëmbë e udhëhequr nga kryekirurgja jonë e trajnuar në Turqi.'
+      en: 'Comprehensive surgical mastery for edentulous rehabilitation led by our Chief Oral Surgeon. Focusing on complex anatomical challenges.',
+      sq: 'Mjeshtëri gjithëpërfshirëse kirurgjikale për rehabilitimin pa dhëmbë e udhëhequr nga Kryekirurgja jonë Orale.'
     },
     duration: { en: '4 Days', sq: '4 Ditë' },
-    curriculum: ['Surgical Templates', 'Immediate Load', 'Turkish Clinical Protocols', 'Live Surgery'],
+    curriculum: ['Surgical Templates', 'Immediate Load', 'Digital Planning', 'Live Surgery'],
     keyTakeaways: {
-      en: ['Master complex anatomical assessments', 'Navigate full-arch surgical templates', 'Implement immediate load protocols', 'Apply Turkish clinical standards'],
-      sq: ['Mjeshtëroni vlerësimet anatomike komplekse', 'Navigoni shabllonet kirurgjikale të harkut të plotë', 'Zbatoni protokolle të ngarkesës së menjëhershme', 'Zbatoni standardet klinike turke']
+      en: ['Master complex anatomical assessments', 'Navigate full-arch surgical templates', 'Implement immediate load protocols', 'Apply evidence-based surgical standards'],
+      sq: ['Mjeshtëroni vlerësimet anatomike komplekse', 'Navigoni shabllonet kirurgjikale të harkut të plotë', 'Zbatoni protokolle të ngarkesës së menjëhershme', 'Zbatoni standarde kirurgjikale të bazuara në evidencë']
     },
     image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=800&auto=format&fit=crop',
     category: 'Surgical'
@@ -224,7 +259,7 @@ export const ACADEMY_COURSES: Course[] = [
     id: 'c4',
     title: { en: 'Digital Smile Design & CAD/CAM', sq: 'Dizajni Digjital i Buzëqeshjes & CAD/CAM' },
     description: { 
-      en: 'Integrating intraoral scanning and CAD/CAM workflows to ensure 100% predictable aesthetic outcomes and perfect fit.',
+      en: 'Integrating intraoral scanning and CAD/CAM workflows to ensure predictable aesthetic outcomes and perfect fit.',
       sq: 'Integrimi i skanimit intraoral dhe rrjedhës CAD/CAM për të siguruar rezultate estetike të parashikueshme.'
     },
     duration: { en: '3 Days', sq: '3 Ditë' },
