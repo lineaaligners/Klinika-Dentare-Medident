@@ -18,11 +18,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
   const labels = {
     title: lang === 'en' ? "Let's Design Your Smile Together" : "Le të Dizajnojmë Buzëqeshjen tuaj Së bashku",
     desc: lang === 'en' 
-      ? "Fill out the form for a free surgical assessment. Our Turkish-trained Chief Oral Surgeon will review your case." 
-      : "Plotësoni formularin për një vlerësim kirurgjikal falas. Kryekirurgja jonë e trajnuar në Turqi do të rishikojë rastin tuaj.",
+      ? "Fill out the form for a free surgical assessment. Our Chief Oral Surgeon will review your case." 
+      : "Plotësoni formularin për një vlerësim kirurgjikal falas. Kryekirurgja jonë Orale do të rishikojë rastin tuaj.",
     call: lang === 'en' ? "Call/WhatsApp" : "Telefon/WhatsApp",
     location: lang === 'en' ? "Location" : "Lokacioni",
-    prishtina: lang === 'en' ? "Peja, Kosovo" : "Pejë, Kosovë",
+    prishtina: lang === 'en' ? "Peja, Kosovo" : "Pejë, Kosova",
     successTitle: lang === 'en' ? "Message Sent!" : "Mesazhi u Dërgua!",
     successDesc: lang === 'en' ? "Our patient coordinator will contact you shortly." : "Koordinatori ynë i pacientëve do t'ju kontaktojë së shpejti.",
     nameLabel: lang === 'en' ? "Full Name" : "Emri dhe Mbiemri",
@@ -54,7 +54,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-black mb-1">{labels.call}</p>
-                  <p className="text-xl font-bold">+383 44 123 456</p>
+                  <p className="text-xl font-bold">+383 49 772 307</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -63,7 +63,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-black mb-1">Email</p>
-                  <p className="text-xl font-bold">care@medident-ks.com</p>
+                  <p className="text-xl font-bold">medident-ks@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
