@@ -41,7 +41,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="bg-slate-900 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row border border-white/10">
           {/* Info Side */}
-          <div className="lg:w-2/5 bg-slate-800 p-12 text-white">
+          <div className="lg:w-2/5 bg-slate-800 p-6 sm:p-12 text-white">
             <h3 className="text-4xl font-display font-black mb-8 tracking-tight">{labels.title}</h3>
             <p className="text-slate-300 mb-12 text-lg font-medium leading-relaxed">
               {labels.desc}
@@ -79,7 +79,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
           </div>
 
           {/* Form Side */}
-          <div className="lg:w-3/5 p-12 bg-white">
+          <div className="lg:w-3/5 p-6 sm:p-12 bg-white">
             {submitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center space-y-6 py-20">
                 <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600">

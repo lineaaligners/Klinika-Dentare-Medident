@@ -180,14 +180,14 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
 
       <main className="relative z-10 pt-40 pb-32">
         {/* Elite Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 mb-40">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-20 md:mb-40">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             <div className="lg:col-span-7">
               <div className="inline-flex items-center space-x-3 bg-blue-50 text-blue-700 px-4 py-2 rounded-lg mb-10 border border-blue-100">
                 <GraduationCap size={16} />
                 <span className="text-[10px] font-black uppercase tracking-widest">Institutional Masterclass Registry</span>
               </div>
-              <h1 className="text-6xl md:text-[90px] font-display font-black leading-[0.85] tracking-tighter text-slate-900 mb-10">
+              <h1 className="text-5xl sm:text-6xl md:text-[90px] font-display font-black leading-[0.9] md:leading-[0.85] tracking-tighter text-slate-900 mb-10">
                 Precision <br />
                 <span className="text-blue-600 italic">Redefined.</span>
               </h1>
@@ -240,7 +240,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
         </section>
 
         {/* Learning Journey Process */}
-        <section className="max-w-7xl mx-auto px-6 mb-40">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-20 md:mb-40">
           <div className="grid md:grid-cols-4 gap-8">
             {[
               { id: '01', title: 'Diagnostic Rigor', icon: <Binary className="text-blue-600" />, desc: 'Mastering 3D planning & anatomical mapping.' },
@@ -261,7 +261,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
         </section>
 
         {/* Refined Courses Section */}
-        <section className="max-w-7xl mx-auto px-6 mb-40">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-20 md:mb-40">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
             <div className="max-w-2xl">
               <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Academic Catalog</h2>
@@ -306,9 +306,9 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                   </div>
                 </div>
                 
-                <div className="p-12 md:p-16 flex-1 flex flex-col">
+                <div className="p-6 sm:p-10 md:p-16 flex-1 flex flex-col">
                   <div className="flex justify-between items-start mb-6">
-                    <h4 className="text-3xl font-display font-black text-slate-900 tracking-tight leading-tight group-hover:text-blue-600 transition-colors">{course.title[lang]}</h4>
+                    <h4 className="text-2xl sm:text-3xl font-display font-black text-slate-900 tracking-tight leading-tight group-hover:text-blue-600 transition-colors">{course.title[lang]}</h4>
                     <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all">
                       <Plus size={20} />
                     </div>
@@ -316,7 +316,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                   
                   <p className="text-slate-500 text-lg font-medium mb-12 leading-relaxed">{course.description[lang]}</p>
                   
-                  <div className="grid sm:grid-cols-2 gap-12 mb-12">
+                  <div className="grid sm:grid-cols-2 gap-8 sm:gap-12 mb-10 sm:mb-12">
                     <div>
                       <h5 className="text-[10px] font-black text-slate-900 uppercase tracking-[0.2em] mb-6 flex items-center">
                         <Target size={14} className="mr-2 text-blue-600" />
@@ -390,10 +390,10 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
             <h3 className="text-4xl md:text-6xl font-display font-black text-slate-900 tracking-tighter">The Institutional <span className="text-blue-600">Chair.</span></h3>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
             {academicFaculty.map((instructor) => (
-              <div key={instructor.id} className="group bg-slate-50 rounded-[4rem] p-12 md:p-16 border border-slate-200 hover:border-blue-500 transition-all duration-700">
-                <div className="flex flex-col md:flex-row gap-12">
+              <div key={instructor.id} className="group bg-slate-50 rounded-[2rem] md:rounded-[4rem] p-6 sm:p-10 md:p-16 border border-slate-200 hover:border-blue-500 transition-all duration-700">
+                <div className="flex flex-col md:flex-row gap-8 md:gap-12">
                   <div className="md:w-1/2">
                     <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-slate-200 mb-8 shadow-xl">
                       <img src={instructor.image} className="w-full h-full object-cover" alt={instructor.name} />
@@ -414,7 +414,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                   <div className="md:w-1/2 flex flex-col">
                     <div className="mb-10">
                       <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-2">{instructor.role[lang]}</p>
-                      <h4 className="text-3xl font-display font-black text-slate-900 tracking-tight leading-none mb-6">{instructor.name}</h4>
+                      <h4 className="text-2xl sm:text-3xl font-display font-black text-slate-900 tracking-tight leading-none mb-6">{instructor.name}</h4>
                       <p className="text-slate-500 text-sm font-medium leading-relaxed">{instructor.bio[lang]}</p>
                     </div>
 
@@ -443,8 +443,8 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
         </section>
 
         {/* Material Registry Callout */}
-        <section className="max-w-7xl mx-auto px-6 mb-40">
-           <div className="bg-slate-50 border border-slate-200 rounded-[3rem] p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-20 md:mb-40">
+           <div className="bg-slate-50 border border-slate-200 rounded-[2rem] md:rounded-[3rem] p-6 sm:p-12 md:p-20 flex flex-col md:flex-row items-center justify-between gap-12">
               <div className="max-w-xl">
                  <h4 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Standardized Practice</h4>
                  <h3 className="text-3xl font-display font-black text-slate-900 tracking-tight mb-6">World-Class Materials Registry</h3>
@@ -465,7 +465,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
 
         {/* Benefits section refined */}
         <section className="max-w-7xl mx-auto px-6">
-          <div className="bg-slate-900 rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden">
+          <div className="bg-slate-900 rounded-[2rem] md:rounded-[4rem] p-6 sm:p-12 md:p-24 text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 blur-[100px] -z-0"></div>
             <div className="relative z-10 grid lg:grid-cols-2 gap-24 items-center">
               <div>

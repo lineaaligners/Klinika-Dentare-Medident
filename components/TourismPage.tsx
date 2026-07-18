@@ -126,10 +126,10 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
       </header>
 
       <main className="pt-32 pb-32">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Manifesto Header */}
           <div className="mb-32 text-center max-w-4xl mx-auto">
-            <h1 className="text-6xl md:text-8xl font-display font-black text-slate-900 tracking-tighter mb-8 leading-[0.85]">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-display font-black text-slate-900 tracking-tighter mb-8 leading-[0.9] md:leading-[0.85]">
               {lang === 'en' ? (
                 <>YOUR SMILE,<br /><span className="text-blue-600">REIMAGINED IN THE ALPS.</span></>
               ) : (
@@ -144,7 +144,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
           </div>
 
           {/* Core Journey Sections */}
-          <section className="grid lg:grid-cols-12 gap-16 mb-40 items-start">
+          <section className="grid lg:grid-cols-12 gap-10 lg:gap-16 mb-20 md:mb-40 items-start">
             <div className="lg:col-span-8">
               <div className="bg-slate-50 rounded-[4rem] p-8 md:p-16 border border-slate-200 shadow-sm relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/5 blur-3xl rounded-full"></div>
@@ -186,7 +186,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                       </div>
                     </div>
 
-                    <div className="bg-white rounded-[2.5rem] p-12 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center group hover:border-blue-500 transition-all cursor-pointer relative shadow-inner">
+                    <div className="bg-white rounded-[2rem] md:rounded-[2.5rem] p-6 sm:p-12 border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center group hover:border-blue-500 transition-all cursor-pointer relative shadow-inner">
                       <input 
                         type="file" 
                         multiple 
@@ -266,7 +266,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                           </div>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-12 mb-16">
+                        <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-10 md:mb-16">
                           <div className="space-y-6">
                             <p className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Surgical Protocol</p>
                             <div className="bg-white/5 border border-white/10 p-6 rounded-2xl">
@@ -400,8 +400,8 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
           </section>
 
           {/* Material Comparison Transparency */}
-          <section className="mb-40">
-             <div className="bg-slate-50 border border-slate-200 rounded-[3.5rem] p-12 md:p-20 relative overflow-hidden">
+          <section className="mb-20 md:mb-40">
+             <div className="bg-slate-50 border border-slate-200 rounded-[2rem] md:rounded-[3.5rem] p-6 sm:p-12 md:p-20 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[120px]"></div>
                 <div className="max-w-3xl mb-16">
                    <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Clinical Transparency</h3>
@@ -447,7 +447,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
           </section>
 
           {/* Rugova Adventure & Healing */}
-          <section className="mb-40">
+          <section className="mb-20 md:mb-40">
              <div className="text-center mb-24">
                 <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Post-Surgical Healing</h3>
                 <h2 className="text-5xl font-display font-black text-slate-900 tracking-tighter">The Rugova <span className="text-blue-600">Immersion.</span></h2>
@@ -483,7 +483,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
           </section>
 
           {/* Timeline Section Enhanced */}
-          <section className="mb-40">
+          <section className="mb-20 md:mb-40">
              <div className="text-center mb-24">
                 <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Surgical Chronology</h3>
                 <h2 className="text-5xl font-display font-black text-slate-900 tracking-tighter">Your Trip, <span className="text-blue-600">Day by Day.</span></h2>
@@ -516,7 +516,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
           </section>
 
           {/* Hospitality Section Enhanced */}
-          <section className="mb-40">
+          <section className="mb-20 md:mb-40">
              <div className="grid lg:grid-cols-2 gap-32 items-center">
                 <div className="relative">
                    <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-600/10 rounded-full blur-3xl"></div>

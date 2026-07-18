@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyCli
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-6xl md:text-[7rem] font-display font-black text-white leading-[0.9] mb-12 tracking-tighter"
+            className="text-5xl sm:text-6xl md:text-[7rem] font-display font-black text-white leading-[0.95] md:leading-[0.9] mb-8 md:mb-12 tracking-tighter"
           >
             {content.title} <br />
             <span className="text-blue-600 block">{content.subtitle}</span>

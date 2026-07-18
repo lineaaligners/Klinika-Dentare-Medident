@@ -30,7 +30,7 @@ const LegacySection: React.FC<LegacySectionProps> = ({ lang }) => {
               <Landmark size={16} className="text-blue-500" />
               <span className="text-slate-300 text-[10px] font-black uppercase tracking-widest">{content.badge}</span>
             </div>
-            <h2 className="text-5xl md:text-8xl font-display font-black text-white leading-[0.9] mb-12 tracking-tighter">
+            <h2 className="text-4xl sm:text-5xl md:text-8xl font-display font-black text-white leading-[0.95] md:leading-[0.9] mb-8 md:mb-12 tracking-tighter">
               {content.title} <br />
               <span className="text-blue-600">{content.subtitle}</span>
             </h2>
@@ -40,25 +40,25 @@ const LegacySection: React.FC<LegacySectionProps> = ({ lang }) => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/5">
-            <div className="bg-slate-950 p-12 hover:bg-slate-900 transition-colors">
+            <div className="bg-slate-950 p-8 sm:p-12 hover:bg-slate-900 transition-colors">
               <Users className="text-blue-600 mb-8" size={32} />
               <p className="text-5xl font-display font-black text-white mb-2 tracking-tighter">13,000</p>
               <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em]">{content.stat1}</p>
             </div>
             
-            <div className="bg-slate-950 p-12 hover:bg-slate-900 transition-colors">
+            <div className="bg-slate-950 p-8 sm:p-12 hover:bg-slate-900 transition-colors">
               <Award className="text-blue-600 mb-8" size={32} />
               <p className="text-5xl font-display font-black text-white mb-2 tracking-tighter">27</p>
               <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em]">{content.stat2}</p>
             </div>
 
-            <div className="bg-slate-950 p-12 hover:bg-slate-900 transition-colors">
+            <div className="bg-slate-950 p-8 sm:p-12 hover:bg-slate-900 transition-colors">
               <Globe className="text-blue-600 mb-8" size={32} />
               <p className="text-5xl font-display font-black text-white mb-2 tracking-tighter">45</p>
               <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em]">{content.stat3}</p>
             </div>
 
-            <div className="bg-slate-950 p-12 hover:bg-slate-900 transition-colors">
+            <div className="bg-slate-950 p-8 sm:p-12 hover:bg-slate-900 transition-colors">
                <div className="h-full flex flex-col justify-end">
                   <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em] mb-4">{content.quality}</p>
                   <p className="text-white font-display font-black text-2xl tracking-tight leading-none uppercase">{content.certified}</p>

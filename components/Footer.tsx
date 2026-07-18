@@ -11,7 +11,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenMaterials, onBlogClick, lang }) => {
   return (
-    <footer className="bg-slate-50 pt-24 pb-12 border-t border-slate-200">
+    <footer className="bg-slate-50 pt-24 pb-36 md:pb-12 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
