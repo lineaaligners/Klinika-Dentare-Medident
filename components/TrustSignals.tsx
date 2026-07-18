@@ -171,7 +171,7 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
             </div>
             <div>
               <div className="flex items-center gap-1">
-                <span className="text-xl font-black text-slate-900">4.9 / 5</span>
+                <a href="https://www.google.com/maps/search/?api=1&query=Klinika+Dentare+Medident+Pej%C3%AB" target="_blank" rel="noopener noreferrer" className="text-xl font-black text-slate-900 hover:text-blue-600 transition-colors">Google Reviews</a>
                 <div className="flex text-yellow-400 ml-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={15} className="fill-current text-yellow-400" />
@@ -179,7 +179,7 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
                 </div>
               </div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">
-                Google Reviews
+                Read what our patients say →
               </p>
             </div>
           </motion.div>
