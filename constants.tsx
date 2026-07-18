@@ -271,19 +271,36 @@ export const TECHNOLOGIES: Technology[] = [
 export const ACADEMY_COURSES: Course[] = [
   {
     id: 'c1',
-    title: { en: 'Advanced Surgical All-on-X', sq: 'All-on-X Kirurgjikal i Avancuar' },
-    description: { 
-      en: 'Intensive, practical, workshop-based surgical mastery for edentulous rehabilitation led by Dr. Lendita Islami Nallbani.',
-      sq: 'Mjeshtëri intensive, praktike kirurgjikale e bazuar në punëtori për rehabilitimin pa dhëmbë e udhëhequr nga Dr. Lendita Islami Nallbani.'
+    title: { en: 'Implantology & Sinus Lift', sq: 'Implantologji & Sinus Lift' },
+    description: {
+      en: 'Hands-on course in implantology and sinus lift techniques, led by Dr. Lendita Islami Nallbani, oral surgery specialist with 27 years of clinical experience.',
+      sq: 'Kurs praktik në implantologji dhe teknikat e sinus lift, i udhëhequr nga Dr. Lendita Islami Nallbani, specialiste e kirurgjisë orale me 27 vite përvojë klinike.'
     },
-    duration: { en: '4 Days', sq: '4 Ditë' },
-    curriculum: ['Surgical Templates', 'Immediate Load', 'Advanced Clinical Protocols', 'Live Surgery'],
+    duration: { en: 'Contact for schedule', sq: 'Kontaktoni për orarin' },
+    curriculum: ['Implant Placement', 'Sinus Lift Techniques', 'Case Planning', 'Live Clinical Observation'],
     keyTakeaways: {
-      en: ['Master complex anatomical assessments', 'Navigate full-arch surgical templates', 'Implement immediate load protocols', 'Apply advanced clinical standards'],
-      sq: ['Mjeshtëroni vlerësimet anatomike komplekse', 'Navigoni shabllonet kirurgjikale të harkut të plotë', 'Zbatoni protokolle të ngarkesës së menjëhershme', 'Zbatoni standardet klinike të avancuara']
+      en: ['Plan and place dental implants with confidence', 'Perform sinus lift procedures safely', 'Assess bone and anatomical considerations', 'Observe live cases in a working clinic'],
+      sq: ['Planifikoni dhe vendosni implante dentare me siguri', 'Kryeni procedurat e sinus lift në mënyrë të sigurt', 'Vlerësoni kockën dhe konsideratat anatomike', 'Vëzhgoni raste live në një klinikë aktive']
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/unnamed.jpg',
+    image: '/team/lendita-nallbani.jpg',
     category: 'Hands-on',
     instructorId: '1'
+  },
+  {
+    id: 'c2',
+    title: { en: 'Zirconia Crowns', sq: 'Kurora Zirkoni' },
+    description: {
+      en: 'Practical course in zirconia crown preparation and placement, led by Dr. Faton Loci.',
+      sq: 'Kurs praktik në përgatitjen dhe vendosjen e kurorave të zirkonit, i udhëhequr nga Dr. Faton Loci.'
+    },
+    duration: { en: 'Contact for schedule', sq: 'Kontaktoni për orarin' },
+    curriculum: ['Tooth Preparation', 'Digital Impressions', 'Cementation Protocols', 'Aesthetic Finishing'],
+    keyTakeaways: {
+      en: ['Prepare teeth correctly for zirconia restorations', 'Work with digital impression workflows', 'Apply reliable cementation protocols', 'Achieve natural aesthetic results'],
+      sq: ['Përgatitni dhëmbët saktë për restaurime zirkoni', 'Punoni me rrjedhat digjitale të masave', 'Zbatoni protokolle të besueshme çimentimi', 'Arrini rezultate estetike natyrale']
+    },
+    image: '/team/faton-loci.jpg',
+    category: 'Hands-on',
+    instructorId: '2'
   }
 ];
