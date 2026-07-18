@@ -214,7 +214,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group">
                 <img 
-                  src="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/freepik__recreate-the-locations-more-modern-bright-natural-__5205.jpeg" 
+                  src="https://d8j0ntlcm91z4.cloudfront.net/user_3GK4EvYC3RV3gOLAljSryk8hjDQ/hf_20260718_133908_b52c062d-7da1-40ab-b788-c04d82d7d493.png" 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
                   alt="Clinical Training Environment" 
                 />
@@ -291,7 +291,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
             {filteredCourses.map((course) => (
               <div key={course.id} className="group bg-white border border-slate-100 rounded-[3.5rem] overflow-hidden flex flex-col hover:shadow-2xl hover:border-blue-200 transition-all duration-700">
                 <div className="aspect-[16/10] relative overflow-hidden">
-                  <img src={course.image} className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" alt={course.title[lang]} />
+                  <img src={course.image} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000" alt={course.title[lang]} />
                   <div className="absolute top-10 left-10">
                     <span className="bg-slate-900/90 backdrop-blur-md text-white text-[9px] font-black px-5 py-2.5 rounded-full uppercase tracking-widest border border-white/10 flex items-center space-x-2">
                       {getCategoryIcon(course.category)}
@@ -346,6 +346,20 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                     </div>
                   </div>
 
+                  {(() => {
+                    const instructor = DOCTORS.find(d => d.id === course.instructorId);
+                    return instructor ? (
+                      <div className="flex items-center space-x-4 mb-10 bg-slate-50 border border-slate-100 rounded-2xl p-4">
+                        <img src={instructor.image} alt={instructor.name} className="w-14 h-14 rounded-xl object-cover object-top border border-slate-200" />
+                        <div>
+                          <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">{lang === 'en' ? 'Led by' : 'Udhëhequr nga'}</p>
+                          <p className="text-sm font-display font-black text-slate-900 tracking-tight">{instructor.name}</p>
+                          <p className="text-[10px] font-bold text-blue-600">{instructor.role[lang]}</p>
+                        </div>
+                      </div>
+                    ) : null;
+                  })()}
+
                   <div className="mt-auto grid sm:grid-cols-2 gap-4">
                     <button 
                       onClick={() => setSelectedCourse(course)}
@@ -372,7 +386,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
         {/* Academic Faculty refined */}
         <section className="max-w-7xl mx-auto px-6 mb-32">
           <div className="text-center mb-24">
-            <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Board of Directors</h2>
+            <h2 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Academy Instructors</h2>
             <h3 className="text-4xl md:text-6xl font-display font-black text-slate-900 tracking-tighter">The Institutional <span className="text-blue-600">Chair.</span></h3>
           </div>
 
@@ -381,7 +395,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               <div key={instructor.id} className="group bg-slate-50 rounded-[4rem] p-12 md:p-16 border border-slate-200 hover:border-blue-500 transition-all duration-700">
                 <div className="flex flex-col md:flex-row gap-12">
                   <div className="md:w-1/2">
-                    <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden grayscale border border-slate-200 mb-8 shadow-xl">
+                    <div className="aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-slate-200 mb-8 shadow-xl">
                       <img src={instructor.image} className="w-full h-full object-cover" alt={instructor.name} />
                     </div>
                     <div className="flex flex-wrap gap-2">

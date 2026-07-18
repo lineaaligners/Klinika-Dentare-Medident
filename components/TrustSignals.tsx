@@ -63,8 +63,8 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
     },
     {
       id: 'savings',
-      title: '60-70% Savings vs UK Prices',
-      desc: 'Harley Street Quality, Peja Value',
+      title: 'Significant Savings vs UK Prices',
+      desc: 'European Standards, Peja Value',
       icon: <DollarSign className="w-6 h-6 text-blue-600" />
     },
     {
@@ -140,7 +140,7 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
               Smile Reconstructions <span className="text-blue-600">You Can Trust</span>
             </h2>
             <p className="text-slate-600 text-lg max-w-2xl font-medium mt-1">
-              Join hundreds of patients from across London, Manchester, and Birmingham who unlocked dental savings of 60-70% without compromising on world-class surgical mastery.
+              International patients travel to Medident for quality dental care at significantly lower prices than Western Europe — without compromising on standards.
             </p>
           </div>
 

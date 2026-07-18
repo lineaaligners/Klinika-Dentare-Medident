@@ -21,7 +21,7 @@ const Services: React.FC<ServicesProps> = ({ lang, onOpenMaterials }) => {
           </div>
           <div className="max-w-sm mt-8 md:mt-0">
             <p className="text-slate-500 text-lg font-medium leading-relaxed mb-6">
-              Employing world-class diagnostics and digital workflows to ensure 100% predictable surgical outcomes.
+              Employing world-class diagnostics and digital workflows to plan every case with precision and safety.
             </p>
             <button 
               onClick={onOpenMaterials}

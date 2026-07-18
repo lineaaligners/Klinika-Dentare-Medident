@@ -282,7 +282,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                             <p className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Next Stages</p>
                             <div className="space-y-4">
                               {[
-                                { step: '1', title: 'Board Diagnosis', desc: 'Surgical board reviews your uploaded OPG/CT scans.' },
+                                { step: '1', title: 'Board Diagnosis', desc: 'Dr. Lendita Nallbani reviews your uploaded OPG/CT scans.' },
                                 { step: '2', title: 'Concierge Pairing', desc: 'A dedicated liaison will WhatsApp you for a video call.' },
                                 { step: '3', title: 'Travel Dossier', desc: 'Final proposal and logistics guide delivered via PDF.' }
                               ].map((item) => (
@@ -530,8 +530,8 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                    
                    <div className="space-y-6">
                       {[
-                        { title: 'The Dukagjini Wellness', icon: <Hotel size={18} />, text: '5-star institutional accommodation in Peja center.' },
-                        { title: 'Rugova Healing Air', icon: <Mountain size={18} />, text: 'Scientifically beneficial altitude for recovery.' },
+                        { title: 'The Dukagjini Wellness', icon: <Hotel size={18} />, text: 'Comfortable partner accommodation in Peja center.' },
+                        { title: 'Rugova Healing Air', icon: <Mountain size={18} />, text: 'Fresh mountain air and calm surroundings for recovery.' },
                         { title: 'Bespoke Logistics', icon: <Car size={18} />, text: 'Private PRN transfers and local coordination.' }
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-center space-x-4 p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:border-blue-500 transition-colors">
@@ -550,7 +550,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                 <div className="grid grid-cols-2 gap-6">
                    <div className="space-y-6 pt-12">
                       <div className="aspect-[3/4] rounded-[3rem] overflow-hidden border border-slate-100 shadow-xl">
-                         <img src="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/rugova-canyon-trail-28km.jpg" className="w-full h-full object-cover" alt="Rugova Nature" />
+                         <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GK4EvYC3RV3gOLAljSryk8hjDQ/hf_20260718_133913_01f8f549-e092-48f0-82fa-783955ccc833.png" className="w-full h-full object-cover" alt="Rugova Nature" />
                       </div>
                       <div className="p-8 bg-slate-900 rounded-[2.5rem] text-white">
                          <p className="text-2xl font-display font-black mb-2">Oxygen Rich</p>

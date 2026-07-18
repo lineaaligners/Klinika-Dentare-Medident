@@ -91,7 +91,7 @@ const PatientGuideModal: React.FC<PatientGuideModalProps> = ({ isOpen, onClose, 
                     <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
                       <h4 className="text-xs font-black uppercase tracking-widest text-slate-900 mb-2">PRN Airport Greeting</h4>
                       <p className="text-slate-600 text-sm font-medium leading-relaxed">
-                        A Medident VIP Liaison will wait at the arrivals hall with a tablet displaying your name. We handle all baggage and direct transit to Peja.
+                        A Medident team member will meet you at the arrivals hall and drive you directly to Peja.
                       </p>
                     </div>
                     <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100">
@@ -120,7 +120,7 @@ const PatientGuideModal: React.FC<PatientGuideModalProps> = ({ isOpen, onClose, 
                 <div className="grid md:grid-cols-2 gap-8">
                   {[
                     {
-                      name: 'Hotel Dukagjini (5★)',
+                      name: 'Hotel Dukagjini',
                       desc: 'Luxury landmark in Peja city center. Optimal for high-end recovery with premium spa facilities.',
                       img: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/images%20(4).jpg'
                     },

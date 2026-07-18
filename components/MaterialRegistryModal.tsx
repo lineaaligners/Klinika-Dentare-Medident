@@ -74,7 +74,7 @@ const MaterialRegistryModal: React.FC<MaterialRegistryModalProps> = ({ isOpen, o
   const comparisonData = [
     { metric: 'Digital Scanning', medident: 'Sirona Primescan (HD)', local: 'Analog Impressions', impact: 'Zero Gag Reflex / Perfect Fit' },
     { metric: 'Prosthetic Milling', medident: 'Deprag / Ivoclar e.max', local: 'Non-branded Zirconia', impact: 'Natural Light Reflection' },
-    { metric: '3D Surgical Guides', medident: 'SprintRay Precision', local: 'Free-hand Placement', impact: '100% Predictable Surgery' },
+    { metric: '3D Surgical Guides', medident: 'SprintRay Precision', local: 'Free-hand Placement', impact: 'Guided, Planned Surgery' },
     { metric: 'Moulding Tech', medident: 'Scheu Dental (DE)', local: 'Standard Vacuum', impact: 'Institutional Durability' }
   ];
 
