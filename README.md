@@ -1,20 +1,18 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Klinika Dentare Medident
 
-# Run and deploy your AI Studio app
+Website for Klinika Dentare Medident — family dental clinic in Pejë, Kosovo, since 1999.
 
-This contains everything you need to run your app locally.
+**Live:** https://medident-ks.com
 
-View your app in AI Studio: https://ai.studio/apps/5afcbf04-6773-449e-8df5-c04182a4ce87
+## Stack
+- Vite + React + TypeScript + Tailwind
+- Vercel (static build + serverless functions in `/api`)
 
-## Run Locally
+## Environment variables (Vercel)
+- `GEMINI_API_KEY` — server-side only, used by `/api/chat` (AI assistant) and `/api/tts` (Academy audio briefing). Never expose in client code.
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Development
+```bash
+npm install
+npm run dev
+```

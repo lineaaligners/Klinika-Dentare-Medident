@@ -48,6 +48,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     localStorage.setItem('medident_lang', lang);
+    document.documentElement.lang = lang;
   }, [lang]);
 
   useEffect(() => {
