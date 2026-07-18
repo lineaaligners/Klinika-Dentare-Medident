@@ -1,14 +1,15 @@
 
 import React from 'react';
-import { Facebook, Instagram, Twitter, Youtube, Download, Newspaper } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Youtube, Download, Newspaper, Microscope } from 'lucide-react';
 
 interface FooterProps {
   onOpenGuide?: () => void;
+  onOpenMaterials?: () => void;
   onBlogClick?: () => void;
   lang: 'en' | 'sq';
 }
 
-const Footer: React.FC<FooterProps> = ({ onOpenGuide, onBlogClick, lang }) => {
+const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenMaterials, onBlogClick, lang }) => {
   return (
     <footer className="bg-slate-50 pt-24 pb-12 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,15 +50,18 @@ const Footer: React.FC<FooterProps> = ({ onOpenGuide, onBlogClick, lang }) => {
             <ul className="space-y-4 text-slate-500 font-medium text-sm">
               <li><a href="#gallery" className="hover:text-blue-600 transition-colors">Before & After</a></li>
               <li><a href="#tourism" className="hover:text-blue-600 transition-colors">Your Journey</a></li>
-              <li><button onClick={onBlogClick} className="hover:text-blue-600 transition-colors flex items-center space-x-2">
+              <li><button onClick={onBlogClick} className="hover:text-blue-600 transition-colors flex items-center space-x-2 text-left">
                 <Newspaper size={14} />
                 <span>Clinical Blog</span>
               </button></li>
-              <li><button onClick={onOpenGuide} className="hover:text-blue-600 transition-colors flex items-center space-x-2">
+              <li><button onClick={onOpenMaterials} className="hover:text-blue-600 transition-colors flex items-center space-x-2 text-left text-blue-600">
+                <Microscope size={14} />
+                <span>Material Comparison Registry</span>
+              </button></li>
+              <li><button onClick={onOpenGuide} className="hover:text-blue-600 transition-colors flex items-center space-x-2 text-left">
                 <Download size={14} />
                 <span>Download Travel Guide</span>
               </button></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Patient Privacy</a></li>
             </ul>
           </div>
 
@@ -77,7 +81,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenGuide, onBlogClick, lang }) => {
         </div>
         
         <div className="pt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-slate-400 text-[10px] font-black uppercase tracking-widest">
-          <p>© 2024 Medident Clinic. All rights reserved.</p>
+          <p>© 2026 Medident Clinic. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-blue-600">Privacy Policy</a>
             <a href="#" className="hover:text-blue-600">Terms</a>

@@ -1,25 +1,16 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { TOURISM_STEPS } from '../constants';
-import { Plane, Star, Shield, MapPin, Download, BriefcaseMedical, ArrowRight, Stethoscope } from 'lucide-react';
+import { Plane, Star, Shield, MapPin, Download, BriefcaseMedical, ArrowRight, Smile } from 'lucide-react';
 
 interface TourismSectionProps {
   onOpenGuide?: () => void;
   onServicesClick?: () => void;
+  onExploreTourism?: () => void;
   lang: 'en' | 'sq';
 }
 
-const TourismSection: React.FC<TourismSectionProps> = ({ onOpenGuide, onServicesClick, lang }) => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
+const TourismSection: React.FC<TourismSectionProps> = ({ onOpenGuide, onServicesClick, onExploreTourism, lang }) => {
   return (
     <section id="tourism" className="py-32 bg-slate-950 text-white relative overflow-hidden scroll-mt-24">
       <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500 via-transparent to-transparent"></div>
@@ -48,23 +39,30 @@ const TourismSection: React.FC<TourismSectionProps> = ({ onOpenGuide, onServices
               ))}
             </div>
 
-            <div className="mt-20 pt-16 border-t border-white/5 flex flex-wrap gap-6">
-              <button 
-                onClick={onOpenGuide}
-                className="inline-flex items-center space-x-3 bg-white/5 hover:bg-blue-600 border border-white/10 text-white px-8 py-4 rounded-lg text-[9px] font-black uppercase tracking-[0.2em] transition-all"
-              >
-                <Download size={14} />
-                <span>Travel Guide to Peja (PDF)</span>
-              </button>
-              
-              <button 
-                onClick={onServicesClick}
-                className="inline-flex items-center space-x-3 bg-blue-600 hover:bg-white hover:text-slate-950 text-white px-8 py-4 rounded-lg text-[9px] font-black uppercase tracking-[0.2em] transition-all group"
-              >
-                <Stethoscope size={14} />
-                <span>Explore Surgical Services</span>
-                <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
-              </button>
+            <div className="mt-20 pt-16 border-t border-white/5 flex flex-col gap-6">
+              <p className="text-blue-500 text-xs font-black uppercase tracking-[0.2em] italic">
+                {lang === 'en' 
+                  ? "This isn't just a dental job; it's a transformative life experience." 
+                  : "Kjo nuk është vetëm një punë dentare; është një përvojë jetësore transformuese."}
+              </p>
+              <div className="flex flex-wrap gap-6">
+                <button 
+                  onClick={onOpenGuide}
+                  className="inline-flex items-center space-x-3 bg-white/5 hover:bg-blue-600 border border-white/10 text-white px-8 py-4 rounded-lg text-[9px] font-black uppercase tracking-[0.2em] transition-all"
+                >
+                  <Download size={14} />
+                  <span>Travel Guide (PDF)</span>
+                </button>
+                
+                <button 
+                  onClick={onExploreTourism}
+                  className="inline-flex items-center space-x-3 bg-blue-600 hover:bg-white hover:text-slate-950 text-white px-8 py-4 rounded-lg text-[9px] font-black uppercase tracking-[0.2em] transition-all group"
+                >
+                  <Smile size={14} />
+                  <span>Explore the Hub</span>
+                  <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
             </div>
           </div>
           
@@ -73,32 +71,33 @@ const TourismSection: React.FC<TourismSectionProps> = ({ onOpenGuide, onServices
               <h2 className="text-blue-500 font-black tracking-[0.3em] uppercase text-[9px] mb-8">Surgical Logistics</h2>
               <h3 className="text-5xl md:text-7xl font-display font-black mb-12 tracking-tighter leading-[0.9]">
                 Structured <br />
-                <span className="text-slate-500">Support.</span>
+                <span className="text-slate-500">Immersion.</span>
               </h3>
               
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-                <img 
-                  src="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/shutterstock_2336983021-64c16f11-1920w.webp" 
-                  alt="Clinical Patient Coordination" 
-                  className="w-full aspect-[4/5] object-cover mix-blend-multiply opacity-60 scale-110 transition-transform duration-100 ease-out"
-                  style={{ transform: `translateY(${(scrollY - 2000) * 0.15}px)` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90"></div>
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl group bg-slate-900">
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <img 
+                    src="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/shutterstock_2336983021-64c16f11-1920w.webp" 
+                    alt="International Patient Logistics - Clinical Standards" 
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                </div>
                 
-                <div className="absolute bottom-10 left-10 right-10 p-10 bg-slate-900/80 backdrop-blur-2xl border border-white/10 rounded-xl">
-                  <div className="flex items-center space-x-3 text-blue-500 mb-6">
+                <div className="absolute bottom-6 left-6 right-6 p-8 bg-slate-900/40 backdrop-blur-3xl border border-white/10 rounded-2xl">
+                  <div className="flex items-center space-x-3 text-blue-500 mb-5">
                     <BriefcaseMedical size={16} />
-                    <span className="text-[9px] font-black uppercase tracking-[0.3em]">International Standards</span>
+                    <span className="text-[9px] font-black uppercase tracking-[0.3em]">Institutional Protocol</span>
                   </div>
-                  <p className="text-white text-xl font-bold mb-8 tracking-tight leading-relaxed">
-                    Private Transfers to Peja, Partner Hotels & 27 Years of Clinical Excellence.
+                  <p className="text-white text-lg font-bold mb-6 tracking-tight leading-snug">
+                    Where nature meets medical precision. Your recovery is as vital as the surgery.
                   </p>
-                  <div className="flex items-center space-x-8">
-                    <div className="flex items-center text-slate-400 text-[8px] font-black uppercase tracking-widest">
-                      <Plane size={12} className="mr-2 text-blue-500" /> Adem Jashari PRN
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 border-t border-white/10 pt-6">
+                    <div className="flex items-center text-slate-300 text-[8px] font-black uppercase tracking-widest">
+                      <Plane size={12} className="mr-2 text-blue-500" /> VIP PRN Pickup
                     </div>
-                    <div className="flex items-center text-slate-400 text-[8px] font-black uppercase tracking-widest">
-                      <MapPin size={12} className="mr-2 text-blue-500" /> Peja, KS
+                    <div className="flex items-center text-slate-300 text-[8px] font-black uppercase tracking-widest">
+                      <MapPin size={12} className="mr-2 text-blue-500" /> Rugova Gorge
                     </div>
                   </div>
                 </div>

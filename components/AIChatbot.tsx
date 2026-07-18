@@ -1,6 +1,6 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, X, Bot, User, Loader2, ShieldCheck } from 'lucide-react';
+import { getClaudeResponse } from '../services/claudeService';
 import { getGeminiChatResponse } from '../services/geminiService';
 import { ChatMessage } from '../types';
 
@@ -11,7 +11,7 @@ interface AIChatbotProps {
 const AIChatbot: React.FC<AIChatbotProps> = ({ lang }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Institutional Medical Assistant active. Please specify your inquiry regarding clinical protocols or international patient logistics.' }
+    { role: 'model', text: lang === 'en' ? 'MEDIDENT SUPPORT active. How can I assist with your clinical inquiry?' : 'MEDIDENT SUPPORT aktiv. Si mund t\'ju ndihmoj me kërkesën tuaj klinike?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -32,10 +32,21 @@ const AIChatbot: React.FC<AIChatbotProps> = ({ lang }) => {
     setIsLoading(true);
 
     try {
-      const response = await getGeminiChatResponse(userMessage, messages);
+      let response: string;
+      try {
+        const claudeChatMessages = messages.map(m => ({
+          role: m.role === 'user' ? 'user' : 'assistant' as const,
+          content: m.text
+        }));
+        claudeChatMessages.push({ role: 'user', content: userMessage });
+        response = await getClaudeResponse(claudeChatMessages as any);
+      } catch (e) {
+        console.warn('Claude failed, falling back to Gemini', e);
+        response = await getGeminiChatResponse(userMessage, messages);
+      }
       setMessages(prev => [...prev, { role: 'model', text: response }]);
     } catch (error) {
-      setMessages(prev => [...prev, { role: 'model', text: "Liaison system offline. Please use the clinical contact form for urgent inquiries." }]);
+      setMessages(prev => [...prev, { role: 'model', text: lang === 'en' ? "Liaison system offline. Please use the clinical contact form." : "Sistemi offline. Ju lutem përdorni formën e kontaktit." }]);
     } finally {
       setIsLoading(false);
     }
@@ -52,7 +63,7 @@ const AIChatbot: React.FC<AIChatbotProps> = ({ lang }) => {
                 <ShieldCheck size={20} />
               </div>
               <div>
-                <h3 className="text-xs font-black uppercase tracking-widest leading-none mb-1.5">Medical Liaison</h3>
+                <h3 className="text-xs font-black uppercase tracking-widest leading-none mb-1.5 text-white">MEDIDENT SUPPORT</h3>
                 <p className="text-[10px] text-slate-400 flex items-center font-bold">
                   <span className="w-1.5 h-1.5 bg-green-500 rounded-full mr-2"></span>
                   SYSTEMS OPERATIONAL

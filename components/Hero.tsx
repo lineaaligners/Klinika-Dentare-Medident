@@ -1,6 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play, ShieldCheck, Activity, MapPin } from 'lucide-react';
+import React from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ArrowRight, Play, ShieldCheck, Activity, MapPin, Calendar } from 'lucide-react';
 
 interface HeroProps {
   onWatchStory: () => void;
@@ -10,24 +11,17 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyClick, lang }) => {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, 400]);
 
   const content = {
     badge: lang === 'en' ? 'GLOBAL SURGICAL EXCELLENCE' : 'EKSELENCA KIRURGJIKALE GLOBALE',
     title: lang === 'en' ? 'SURGICAL' : 'KIRURGJI',
-    subtitle: lang === 'en' ? 'PRECISION.' : 'PRECIZE.',
+    subtitle: lang === 'en' ? 'EXPERIENCE.' : 'EKSPERIENCE.',
     desc: lang === 'en' 
-      ? 'Medident Clinical Center in Peja, Kosovo. 27 years of advanced oral surgery and implantology, led by our Chief Oral Surgeon.' 
-      : 'Qendra Klinike Medident në Pejë, Kosova. 27 vite kirurgji orale e avancuar dhe implantologji, nën udhëheqjen e Kryekirurges sonë Orale.',
-    cta: lang === 'en' ? 'Request Case Review' : 'Kërkoni Rishikim të Rastit',
+      ? 'More than dentistry. A transformative surgical journey in Peja, Kosovo, combining specialist mastery with world-class hospitality.' 
+      : 'Më shumë se stomatologji. Një rrugëtim kirurgjikal transformues në Pejë, duke kombinuar mjeshtërinë e lartë me mikpritjen e nivelit botëror.',
+    cta: lang === 'en' ? 'Book Free Consultation' : 'Cakto Konsultë Falas',
     play: lang === 'en' ? 'Observe Practice Standards' : 'Vëzhgoni Standardet e Praktikës',
     serv: lang === 'en' ? 'Explore Services' : 'Eksploroni Shërbimet',
     jour: lang === 'en' ? 'Start Journey' : 'Filloni Rrugëtimin'
@@ -35,37 +29,56 @@ const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyCli
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
-      <div className="absolute inset-0 z-0">
+      <motion.div className="absolute inset-0 z-0" style={{ y }}>
         <img 
           src="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/freepik__recreate-the-locations-more-modern-bright-natural-__5205.jpeg" 
-          className="w-full h-full object-cover opacity-50 scale-110 transition-transform duration-100 ease-out" 
-          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+          className="w-full h-full object-cover opacity-50 scale-110" 
           alt="Medident Modern Clinical Interior" 
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent"></div>
-      </div>
+      </motion.div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-3 bg-white/5 backdrop-blur-md text-slate-300 px-5 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-[0.25em] mb-12 border border-white/10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center space-x-3 bg-white/5 backdrop-blur-md text-slate-300 px-5 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-[0.25em] mb-12 border border-white/10"
+          >
             <ShieldCheck size={14} className="text-blue-500" />
             <span>{content.badge}</span>
-          </div>
+          </motion.div>
           
-          <h1 className="text-6xl md:text-8xl font-display font-black text-white leading-[0.95] mb-12 tracking-tight">
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-6xl md:text-[7rem] font-display font-black text-white leading-[0.9] mb-12 tracking-tighter"
+          >
             {content.title} <br />
-            <span className="text-blue-600">{content.subtitle}</span>
-          </h1>
+            <span className="text-blue-600 block">{content.subtitle}</span>
+          </motion.h1>
           
-          <p className="text-slate-400 text-lg md:text-xl font-medium max-w-xl leading-relaxed mb-16">
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-slate-400 text-lg md:text-xl font-medium max-w-xl leading-relaxed mb-16"
+          >
             {content.desc}
-          </p>
+          </motion.p>
           
           <div className="flex flex-col sm:flex-row gap-8 items-stretch sm:items-center mb-20">
-            <a href="#contact" className="group flex items-center justify-center bg-blue-600 hover:bg-white hover:text-slate-950 text-white px-12 py-5 rounded-lg text-[11px] font-black transition-all shadow-2xl uppercase tracking-[0.2em]">
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#contact" 
+              className="group flex items-center justify-center bg-blue-600 hover:bg-white hover:text-slate-950 text-white px-12 py-5 rounded-lg text-[11px] font-black transition-all shadow-2xl shadow-blue-600/20 uppercase tracking-[0.2em] relative overflow-hidden"
+            >
+              <Calendar className="mr-3" size={16} />
               {content.cta}
               <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={16} />
-            </a>
+            </motion.a>
             <button onClick={onWatchStory} className="flex items-center space-x-4 text-white group text-left">
               <div className="w-14 h-14 rounded-full bg-white/5 backdrop-blur-md flex items-center justify-center border border-white/10 group-hover:bg-blue-600 group-hover:border-blue-500 transition-all">
                 <Play size={18} fill="currentColor" />

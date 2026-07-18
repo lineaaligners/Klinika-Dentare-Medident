@@ -63,5 +63,21 @@ export interface Course {
   curriculum: string[];
   keyTakeaways: Record<string, string[]>;
   image: string;
-  category: 'Surgical' | 'Prosthetic' | 'Digital';
+  category: 'Hands-on' | 'Online' | '1-on-1';
+  instructorId: string;
+}
+
+export interface FAQ {
+  id: string;
+  question: Record<string, string>;
+  answer: Record<string, string>;
+  category: 'clinical' | 'logistics' | 'finance';
+}
+
+export interface Technology {
+  id: string;
+  name: string;
+  description: Record<string, string>;
+  icon: string;
+  image: string;
 }

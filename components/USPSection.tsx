@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { History, Users, Monitor, Globe, ShieldCheck, Zap, ArrowRight } from 'lucide-react';
+import { History, Users, Monitor, Globe, ShieldCheck, Zap, ArrowRight, Compass, Gem } from 'lucide-react';
 
 interface USPSectionProps {
   lang: 'en' | 'sq';
@@ -8,46 +8,46 @@ interface USPSectionProps {
 
 const getUSPs = (lang: 'en' | 'sq') => [
   {
-    icon: <History size={28} />,
-    title: lang === 'en' ? "27 Years of Clinical Mastery" : "27 Vite Mjeshtëri Klinike",
+    icon: <Gem size={28} />,
+    title: lang === 'en' ? "Luxury Clinical Experience" : "Përvojë Klinike Luksoze",
     description: lang === 'en' 
-      ? "Operating at the forefront of dental innovation since 1997." 
-      : "Duke operuar në ballë të inovacionit stomatologjik që nga viti 1997."
+      ? "This isn't just a dental job. It's a transformative surgical journey curated for global patients." 
+      : "Kjo nuk është vetëm një punë dentare. Është një rrugëtim kirurgjikal transformues i kuruar."
   },
   {
-    icon: <Users size={28} />,
-    title: lang === 'en' ? "13,000+ Case Studies" : "13,000+ Raste Studimore",
+    icon: <Compass size={28} />,
+    title: lang === 'en' ? "Holistic Recovery Nature" : "Natyrë Restauruese Holistike",
     description: lang === 'en' 
-      ? "An extensive clinical database of successful international rehabilitations." 
-      : "Një bazë të dhënash klinike e gjerë e rehabilitimeve ndërkombëtare të suksesshme."
+      ? "Recovery at the foot of Rugova Mountains, utilizing pure air to accelerate clinical healing." 
+      : "Shërimi rrëzë Bjeshkëve të Rugovës, duke shfrytëzuar ajrin e pastër për shërim klinik."
   },
   {
     icon: <Monitor size={28} />,
-    title: lang === 'en' ? "Digital Workflow Integration" : "Integrimi i Rrjedhës Digjitale",
+    title: lang === 'en' ? "Integrated Digital Workflow" : "Rrjedha e Integruar Digjitale",
     description: lang === 'en' 
       ? "Full digital smile design and 3D diagnostics for absolute precision." 
       : "Dizajn i plotë digjital i buzëqeshjes dhe diagnostikë 3D për precizitet absolut."
   },
   {
     icon: <Globe size={28} />,
-    title: lang === 'en' ? "Multilingual Patient Liaisons" : "Koordinatorë Shumëgjuhësh",
+    title: lang === 'en' ? "Concierge Liaison" : "Lidhja Concierge",
     description: lang === 'en' 
-      ? "Specialized support for international patients including VIP logistics." 
-      : "Mbështetje e specializuar për pacientët ndërkombëtarë duke përfshirë logjistikën VIP."
+      ? "Personalized support including VIP transfers, 5-star hospitality, and cultural curation." 
+      : "Mbështetje e personalizuar duke përfshirë transferta VIP dhe mikpritje me 5 yje."
   },
   {
     icon: <ShieldCheck size={28} />,
-    title: lang === 'en' ? "Premium Component Warranty" : "Garanci për Komponentët Premium",
+    title: lang === 'en' ? "Global Material Passport" : "Pasaporta Globale e Materialeve",
     description: lang === 'en' 
-      ? "We utilize exclusively premium-grade materials with extensive warranties." 
-      : "Ne përdorim ekskluzivisht materiale të shkallës premium me garanci të gjera."
+      ? "Every component of your experience is traceable to elite global manufacturers." 
+      : "Çdo komponent i përvojës suaj është i gjurmueshëm deri te prodhuesit elitarë."
   },
   {
-    icon: <Zap size={28} />,
-    title: lang === 'en' ? "Accelerated Loading Protocols" : "Protokolle të Ngarkimit të Shpejtë",
+    icon: <History size={28} />,
+    title: lang === 'en' ? "27 Years of Mastery" : "27 Vite Mjeshtëri",
     description: lang === 'en' 
-      ? "Optimized surgical workflows for efficient full-mouth restoration." 
-      : "Rrjedha pune kirurgjikale të optimizuara për restaurim efikas të plotë të gojës."
+      ? "A deep legacy of clinical excellence that ensures your journey is safe and predictable." 
+      : "Një trashëgimi e thellë e ekselencës klinike që siguron që rrugëtimi juaj të jetë i sigurt."
   }
 ];
 
@@ -57,10 +57,10 @@ const USPSection: React.FC<USPSectionProps> = ({ lang }) => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-24">
           <h2 className="text-blue-600 font-black tracking-[0.3em] uppercase text-[10px] mb-4">
-            {lang === 'en' ? 'Institutional Standard' : 'Standardi Institucional'}
+            {lang === 'en' ? 'The Medident Standard' : 'Standardi Medident'}
           </h2>
           <h3 className="text-4xl md:text-6xl font-display font-black text-slate-900 tracking-tight">
-            {lang === 'en' ? 'Our Foundation of ' : 'Themeli ynë i '}<span className="text-blue-600">{lang === 'en' ? 'Trust.' : 'Besimit.'}</span>
+            {lang === 'en' ? 'A Foundation of ' : 'Një Themeli i '}<span className="text-blue-600">{lang === 'en' ? 'Experience.' : 'Përvojës.'}</span>
           </h3>
         </div>
 
@@ -68,9 +68,9 @@ const USPSection: React.FC<USPSectionProps> = ({ lang }) => {
           {getUSPs(lang).map((usp, index) => (
             <div 
               key={index} 
-              className="group p-10 rounded-3xl bg-slate-50 border border-slate-200 hover:bg-white hover:border-blue-500 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500"
+              className="group p-10 rounded-[3rem] bg-slate-50 border border-slate-200 hover:bg-white hover:border-blue-500 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500"
             >
-              <div className="w-14 h-14 rounded-2xl bg-blue-600/5 text-blue-600 flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500">
+              <div className="w-14 h-14 rounded-2xl bg-blue-600/5 text-blue-600 flex items-center justify-center mb-8 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shadow-sm shadow-blue-600/5">
                 {usp.icon}
               </div>
               <h4 className="text-xl font-display font-black text-slate-900 mb-4 tracking-tight">
@@ -80,7 +80,7 @@ const USPSection: React.FC<USPSectionProps> = ({ lang }) => {
                 {usp.description}
               </p>
               <a href="#contact" className="inline-flex items-center space-x-2 text-[9px] font-black uppercase tracking-widest text-slate-300 group-hover:text-blue-600 transition-colors">
-                <span>{lang === 'en' ? 'Inquire' : 'Pyetni'}</span>
+                <span>{lang === 'en' ? 'Learn More' : 'Mëso më shumë'}</span>
                 <ArrowRight size={14} />
               </a>
             </div>

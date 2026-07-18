@@ -6,8 +6,8 @@ You are the Medident Clinic AI Assistant. Your goal is to provide helpful, profe
 Key facts to mention when relevant:
 - Medident Clinic is located in Peja, Kosovo.
 - We have 27 years of experience and specialize primarily in SURGERY.
-- Our Chief Oral Surgeon, Dr. Lendita Islami Nallbani, is an expert in Oral Surgery (trained in the best hospitals in TURKEY). 
-- Note: Dr. Lendita is our primary specialist with Turkish training; the rest of the board consists of local and European-trained specialists.
+- Our Chief Oral Surgeon, Dr. Lendita Islami Nallbani, is an expert in Oral Surgery (trained in the best hospitals in Europe). 
+- Note: Dr. Lendita is our primary specialist; the rest of the board consists of local and European-trained specialists.
 - We have treated over 13,000 satisfied patients.
 - We specialize in Advanced Oral Surgery, Dental Implants, and Full Mouth Restoration.
 - We provide a full dental tourism package: VIP transfers from PRN airport to Peja, luxury accommodation, and multilingual patient coordinators.
@@ -38,13 +38,13 @@ export const getGeminiChatResponse = async (userMessage: string, history: { role
         temperature: 0.7,
         topP: 0.95,
         topK: 40,
-        maxOutputTokens: 500,
+        // Fix: Removed maxOutputTokens to follow guidelines for Gemini 3 models which require thinkingBudget when maxOutputTokens is set.
       }
     });
 
     return response.text || "I'm sorry, I couldn't process that. Please try calling our clinic directly.";
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "Our surgical assistant is currently busy. Please leave your contact details, and we'll get back to you!";
+    return "Our dental assistant is currently busy. Please leave your contact details, and we'll get back to you!";
   }
 };

@@ -14,6 +14,8 @@ import {
   ShieldCheck 
 } from 'lucide-react';
 
+import { motion } from 'framer-motion';
+
 interface DoctorsProps {
   lang: 'en' | 'sq';
 }
@@ -24,17 +26,25 @@ const Doctors: React.FC<DoctorsProps> = ({ lang }) => {
   return (
     <section id="doctors" className="py-32 bg-white relative overflow-hidden scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-24">
-          <div className="inline-flex items-center space-x-2 bg-slate-100 border border-slate-200 px-4 py-1.5 rounded text-slate-900 mb-8">
+        <div className="mb-24 px-4">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="inline-flex items-center space-x-2 bg-slate-100 border border-slate-200 px-4 py-1.5 rounded-lg text-slate-900 mb-8"
+          >
             <GraduationCap size={16} className="text-blue-600" />
             <span className="text-[10px] font-black uppercase tracking-[0.2em]">
               {lang === 'en' ? 'Clinical Board' : 'Bordi Klinik'}
             </span>
-          </div>
-          <h2 className="text-5xl md:text-7xl font-display font-black text-slate-900 leading-[0.9] tracking-tighter mb-10">
-            {lang === 'en' ? 'Medical' : 'Specialistët'}<br />
-            <span className="text-blue-600">{lang === 'en' ? 'Specialists.' : 'Mjekësorë.'}</span>
-          </h2>
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-7xl font-display font-black text-slate-900 leading-[0.9] tracking-tighter mb-10"
+          >
+            {lang === 'en' ? 'Dental' : 'Specialistët'}<br />
+            <span className="text-blue-600">{lang === 'en' ? 'Specialists.' : 'Dentare.'}</span>
+          </motion.h2>
           <p className="text-slate-500 text-xl font-medium max-w-2xl leading-relaxed">
             {lang === 'en' 
               ? 'Our multi-disciplinary team is composed of internationally certified specialists with extensive research and surgical background.'
@@ -42,25 +52,36 @@ const Doctors: React.FC<DoctorsProps> = ({ lang }) => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-          {DOCTORS.map((doctor) => (
-            <div key={doctor.id} className="group flex flex-col border-b border-slate-100 pb-12">
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden mb-8 bg-slate-100">
+        {/* Desktop Grid / Mobile Swipeable Container */}
+        <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 pb-12 sm:pb-0 px-4 sm:px-0 -mx-4 sm:mx-0 snap-x snap-mandatory scrollbar-hide">
+          {DOCTORS.map((doctor, idx) => (
+            <motion.div 
+              key={doctor.id} 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="group flex-shrink-0 w-[85vw] sm:w-auto snap-center flex flex-col border-b border-slate-100 pb-12 perspective-1000"
+            >
+              <motion.div 
+                whileHover={{ rotateY: 5, rotateX: -5 }}
+                className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-8 bg-slate-100 shadow-xl transition-shadow group-hover:shadow-blue-600/10"
+              >
                 <img 
                   src={doctor.image} 
                   alt={doctor.name} 
-                  className="w-full h-full object-cover transition-all duration-700 ease-out"
+                  className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <button 
                   onClick={() => setSelectedDoctor(doctor)}
-                  className="absolute bottom-6 left-6 right-6 bg-white text-slate-900 py-4 rounded-xl text-[9px] font-black uppercase tracking-widest translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all shadow-2xl"
+                  className="absolute bottom-6 left-6 right-6 bg-white text-slate-900 py-4 rounded-xl text-[9px] font-black uppercase tracking-widest translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all shadow-2xl active:scale-95"
                 >
                   {lang === 'en' ? 'View Full Clinical Profile' : 'Shiko Profilin e Plotë Klinik'}
                 </button>
-              </div>
+              </motion.div>
               
-              <div className="flex flex-col flex-1">
+              <div className="flex flex-col flex-1 px-4 sm:px-0">
                 <div className="mb-6">
                   <h3 className="text-2xl font-display font-black text-slate-900 tracking-tight leading-none mb-2">{doctor.name}</h3>
                   <p className="text-blue-600 text-[10px] font-black uppercase tracking-widest">{doctor.role[lang]}</p>
@@ -72,7 +93,7 @@ const Doctors: React.FC<DoctorsProps> = ({ lang }) => {
 
                 <div className="flex flex-wrap gap-2 mb-10">
                   {doctor.specialties.map((spec, i) => (
-                    <span key={i} className="text-slate-400 text-[8px] font-black uppercase tracking-widest border border-slate-100 px-3 py-1.5 rounded-full bg-slate-50">
+                    <span key={i} className="text-slate-400 text-[8px] font-black uppercase tracking-widest border border-slate-200 px-3 py-1.5 rounded-full bg-slate-50">
                       {spec}
                     </span>
                   ))}
@@ -88,7 +109,7 @@ const Doctors: React.FC<DoctorsProps> = ({ lang }) => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         
@@ -191,7 +212,7 @@ const Doctors: React.FC<DoctorsProps> = ({ lang }) => {
 
                     <div className="pt-12 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-8">
                       <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest text-center sm:text-left">
-                        © 2024 MEDIDENT CLINICAL BOARD • OFFICIAL FACULTY PROFILE
+                        © 2026 MEDIDENT CLINICAL BOARD • OFFICIAL FACULTY PROFILE
                       </p>
                       <a href="#contact" onClick={() => setSelectedDoctor(null)} className="bg-slate-900 text-white px-10 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-xl">
                         Schedule Consultation

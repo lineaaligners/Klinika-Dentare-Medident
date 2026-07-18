@@ -5,9 +5,10 @@ import { SERVICES } from '../constants';
 
 interface ServicesProps {
   lang: 'en' | 'sq';
+  onOpenMaterials?: () => void;
 }
 
-const Services: React.FC<ServicesProps> = ({ lang }) => {
+const Services: React.FC<ServicesProps> = ({ lang, onOpenMaterials }) => {
   return (
     <section id="services" className="py-32 bg-white relative overflow-hidden scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6">
@@ -15,13 +16,20 @@ const Services: React.FC<ServicesProps> = ({ lang }) => {
           <div className="max-w-2xl">
             <h2 className="text-blue-600 font-black tracking-[0.3em] uppercase text-[10px] mb-4">Clinical Disciplines</h2>
             <h3 className="text-4xl md:text-6xl font-display font-black text-slate-900 leading-[1.1] tracking-tight">
-              Evidence-Based<br />Medical Excellence.
+              Evidence-Based<br />Dental Excellence.
             </h3>
           </div>
           <div className="max-w-sm mt-8 md:mt-0">
             <p className="text-slate-500 text-lg font-medium leading-relaxed mb-6">
               Employing world-class diagnostics and digital workflows to ensure 100% predictable surgical outcomes.
             </p>
+            <button 
+              onClick={onOpenMaterials}
+              className="flex items-center space-x-2 text-[10px] font-black uppercase tracking-widest text-blue-600 hover:text-slate-900 transition-colors"
+            >
+              <Icons.Microscope size={14} />
+              <span>Verify Clinical Material Standards</span>
+            </button>
           </div>
         </div>
 

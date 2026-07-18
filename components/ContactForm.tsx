@@ -18,11 +18,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
   const labels = {
     title: lang === 'en' ? "Let's Design Your Smile Together" : "Le të Dizajnojmë Buzëqeshjen tuaj Së bashku",
     desc: lang === 'en' 
-      ? "Fill out the form for a free surgical assessment. Our Chief Oral Surgeon will review your case." 
-      : "Plotësoni formularin për një vlerësim kirurgjikal falas. Kryekirurgja jonë Orale do të rishikojë rastin tuaj.",
+      ? "Fill out the form for a free surgical assessment. Our world-class Chief Oral Surgeon will review your case." 
+      : "Plotësoni formularin për një vlerësim kirurgjikal falas. Kryekirurgja jonë specialiste do të rishikojë rastin tuaj.",
     call: lang === 'en' ? "Call/WhatsApp" : "Telefon/WhatsApp",
     location: lang === 'en' ? "Location" : "Lokacioni",
-    prishtina: lang === 'en' ? "Peja, Kosovo" : "Pejë, Kosova",
+    prishtina: lang === 'en' ? "Peja, Kosovo" : "Pejë, Kosovë",
     successTitle: lang === 'en' ? "Message Sent!" : "Mesazhi u Dërgua!",
     successDesc: lang === 'en' ? "Our patient coordinator will contact you shortly." : "Koordinatori ynë i pacientëve do t'ju kontaktojë së shpejti.",
     nameLabel: lang === 'en' ? "Full Name" : "Emri dhe Mbiemri",
@@ -54,7 +54,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-black mb-1">{labels.call}</p>
-                  <p className="text-xl font-bold">+383 49 772 307</p>
+                  <p className="text-xl font-bold">+383 44 123 456</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -63,7 +63,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-black mb-1">Email</p>
-                  <p className="text-xl font-bold">medident-ks@gmail.com</p>
+                  <p className="text-xl font-bold">care@medident-ks.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -102,6 +102,26 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
                     <input required type="tel" placeholder="+383 44 000 000" className="w-full bg-slate-50 border-slate-200 border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 transition-all font-medium" />
                   </div>
                 </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{lang === 'en' ? 'Urgency' : 'Urgjenca'}</label>
+                    <select className="w-full bg-slate-50 border-slate-200 border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 transition-all font-medium appearance-none">
+                      <option>{lang === 'en' ? 'As soon as possible' : 'Sa më shpejt'}</option>
+                      <option>{lang === 'en' ? 'Within 1-3 months' : 'Brenda 1-3 muajsh'}</option>
+                      <option>{lang === 'en' ? 'Just exploring' : 'Vetëm po eksploroj'}</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{lang === 'en' ? 'Preferred Contact' : 'Mënyra e Kontaktit'}</label>
+                    <select className="w-full bg-slate-50 border-slate-200 border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 transition-all font-medium appearance-none">
+                      <option>WhatsApp</option>
+                      <option>Email</option>
+                      <option>{lang === 'en' ? 'Phone Call' : 'Thirrje Telefonike'}</option>
+                    </select>
+                  </div>
+                </div>
+
                 <div className="space-y-2">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{labels.interestLabel}</label>
                   <select className="w-full bg-slate-50 border-slate-200 border rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-500 transition-all appearance-none font-medium">

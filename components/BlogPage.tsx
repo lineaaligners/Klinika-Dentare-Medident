@@ -101,6 +101,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
                     <p className="text-[10px] text-slate-500 font-medium leading-relaxed">
                       {author?.bio[lang]}
                     </p>
+                    <div className="mt-8 pt-8 border-t border-slate-100">
+                       <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest text-center">© 2026 MEDIDENT CLINICAL BOARD</p>
+                    </div>
                   </div>
                   <button className="w-full flex items-center justify-center space-x-3 bg-slate-900 text-white py-4 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all">
                     <Share2 size={16} />

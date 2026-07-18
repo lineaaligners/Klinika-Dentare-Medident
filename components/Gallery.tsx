@@ -1,7 +1,8 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { GALLERY } from '../constants';
-import { Eye, Microscope } from 'lucide-react';
+import { Eye, Microscope, ShieldCheck } from 'lucide-react';
 
 interface GalleryProps {
   lang: 'en' | 'sq';
@@ -9,66 +10,82 @@ interface GalleryProps {
 
 const Gallery: React.FC<GalleryProps> = ({ lang }) => {
   return (
-    <section id="gallery" className="py-32 bg-slate-50 scroll-mt-24">
+    <section id="gallery" className="py-32 bg-slate-50 scroll-mt-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded text-[9px] font-black uppercase tracking-widest mb-6">
-              <Microscope size={14} />
-              <span>Clinical Blog</span>
-            </div>
-            <h3 className="text-4xl md:text-6xl font-display font-black text-slate-900 mb-8 tracking-tight">
-              Clinical Outcomes & <br /><span className="text-blue-600">Transformations.</span>
-            </h3>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="inline-flex items-center space-x-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest mb-6"
+            >
+              <ShieldCheck size={14} />
+              <span>{lang === 'en' ? 'Clinical Excellence' : 'Ekselenca Klinike'}</span>
+            </motion.div>
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="text-4xl md:text-6xl font-display font-black text-slate-900 mb-8 tracking-tight leading-[0.95]"
+            >
+              Outcome-Based <br /><span className="text-blue-600">Surgical Mastery.</span>
+            </motion.h3>
           </div>
           <div className="max-w-md">
-            <p className="text-slate-500 text-base font-medium leading-relaxed mb-6">
-              A peer-reviewed archive of reconstructive dentistry and aesthetic rehabilitations. All cases displayed represent actual patient results verified by our clinical board.
+            <p className="text-slate-500 text-lg font-medium leading-relaxed mb-6">
+              {lang === 'en' 
+                ? 'Behold actual transformations verified by our clinical board. We focus on structural integrity and natural aesthetics.' 
+                : 'Vëzhgoni transformimet reale të verifikuara nga bordi ynë klinike. Ne fokusohemi në integritetin strukturor dhe estetikën natyrale.'}
             </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {GALLERY.map((item) => (
-            <div key={item.id} className="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-blue-500 transition-all shadow-sm">
-              <div className="relative aspect-[4/5] overflow-hidden bg-slate-200">
+        <div className="grid md:grid-cols-2 gap-12">
+          {GALLERY.map((item, idx) => (
+            <motion.div 
+              key={item.id} 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:border-blue-500 transition-all duration-500 shadow-sm"
+            >
+              <div className="flex flex-col sm:flex-row h-[500px]">
                 {/* Before Image */}
-                <div className="absolute inset-0 z-0">
-                  <img src={item.before} alt="Before" className="w-full h-full object-cover mix-blend-multiply opacity-80" />
-                  <div className="absolute top-6 left-6 bg-slate-900/80 text-white text-[8px] px-3 py-1 rounded font-black tracking-widest uppercase">Clinical: Pre-Op</div>
+                <div className="relative flex-1 bg-slate-100 group-hover:scale-[1.02] transition-transform duration-700 overflow-hidden">
+                  <img src={item.before} alt="Before" className="w-full h-full object-cover grayscale" />
+                  <div className="absolute top-6 left-6 bg-slate-900/60 backdrop-blur-md text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase">Pre-Op</div>
                 </div>
                 
-                {/* After Image Overlay */}
-                <div className="absolute inset-0 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                {/* After Image */}
+                <div className="relative flex-1 bg-slate-200 group-hover:scale-[1.05] transition-transform duration-700 overflow-hidden border-t sm:border-t-0 sm:border-l border-white/20">
                   <img src={item.after} alt="After" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>
-                  <div className="absolute top-6 left-6 bg-blue-600 text-white text-[8px] px-3 py-1 rounded font-black tracking-widest uppercase shadow-lg">Clinical: Post-Op</div>
-                </div>
-
-                <div className="absolute bottom-6 left-6 right-6 z-20 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  <a href="#contact" className="w-full bg-slate-900 text-white py-3.5 rounded-lg text-[9px] font-black uppercase tracking-widest flex items-center justify-center space-x-2 hover:bg-blue-600 transition-all">
-                    <Eye size={14} />
-                    <span>View Clinical Case</span>
-                  </a>
+                  <div className="absolute top-6 left-6 bg-blue-600 text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase shadow-lg">Post-Op</div>
                 </div>
               </div>
               
-              <div className="p-8">
-                {/* Fixed Record access */}
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-3">{item.category[lang]}</p>
-                <h4 className="text-xl font-display font-black text-slate-900 mb-4 tracking-tight leading-none">Patient Case #{item.id}142</h4>
-                <div className="flex items-center text-slate-400 text-[9px] font-bold uppercase tracking-widest">
-                  <span>Prosthetic Restoration • 8-Day Protocol</span>
+              <div className="p-10 border-t border-slate-100">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-3">{item.category[lang]}</p>
+                    <h4 className="text-2xl font-display font-black text-slate-900 tracking-tight leading-none">Case 0{item.id}</h4>
+                  </div>
+                  <button className="bg-slate-50 hover:bg-blue-600 hover:text-white p-4 rounded-2xl transition-all group/btn">
+                    <Eye size={20} className="group-hover/btn:scale-110 transition-transform" />
+                  </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         <div className="mt-24 text-center">
-          <a href="#contact" className="inline-block bg-slate-900 text-white px-10 py-4 rounded-lg text-[10px] font-black uppercase tracking-[0.2em] hover:bg-blue-600 transition-all shadow-lg">
-            Access Full Results Archive
-          </a>
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block bg-slate-900 text-white px-12 py-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] hover:bg-blue-600 transition-all shadow-2xl"
+          >
+            {lang === 'en' ? 'View 100+ Professional Cases' : 'Shiko 100+ Raste Profesionale'}
+          </motion.button>
         </div>
       </div>
     </section>

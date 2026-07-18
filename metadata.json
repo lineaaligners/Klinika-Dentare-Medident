@@ -2,6 +2,7 @@
   "name": "Medident Clinic - Global Surgical Excellence",
   "description": "Premium surgical dental tourism platform for Medident Clinic Peja, featuring 27 years of expertise, Turkish-trained specialists, and 13,000+ successful transformations.",
   "requestFramePermissions": [
-    "microphone"
+    "microphone",
+    "camera"
   ]
 }

@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { X, Printer, GraduationCap, Clock, CheckCircle2, Award, BookOpen, ShieldCheck, Microscope } from 'lucide-react';
 import { Course, Doctor } from '../types';
 import { DOCTORS } from '../constants';
@@ -8,18 +8,25 @@ interface SyllabusModalProps {
   course: Course | null;
   onClose: () => void;
   lang: 'en' | 'sq';
+  autoPrint?: boolean;
 }
 
-const SyllabusModal: React.FC<SyllabusModalProps> = ({ course, onClose, lang }) => {
-  if (!course) return null;
-
-  const leadSurgeon = DOCTORS.find(d => d.id === '1'); // Dr. Lendita
-
+const SyllabusModal: React.FC<SyllabusModalProps> = ({ course, onClose, lang, autoPrint = false }) => {
   const handlePrint = () => {
     setTimeout(() => {
       window.print();
     }, 100);
   };
+
+  useEffect(() => {
+    if (course && autoPrint) {
+      handlePrint();
+    }
+  }, [course, autoPrint]);
+
+  if (!course) return null;
+
+  const leadInstructor = DOCTORS.find(d => d.id === course.instructorId);
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 backdrop-blur-md p-4 md:p-10 animate-in fade-in duration-300">
@@ -36,10 +43,10 @@ const SyllabusModal: React.FC<SyllabusModalProps> = ({ course, onClose, lang }) 
           <div className="flex items-center space-x-4">
             <button 
               onClick={handlePrint}
-              className="flex items-center space-x-2 bg-slate-900 hover:bg-blue-600 text-white px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all"
+              className="flex items-center space-x-2 bg-slate-900 hover:bg-blue-600 text-white px-6 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all shadow-lg"
             >
               <Printer size={16} />
-              <span>{lang === 'en' ? 'Download PDF' : 'Shkarko si PDF'}</span>
+              <span>{lang === 'en' ? 'Save as PDF / Print' : 'Ruaj si PDF / Printo'}</span>
             </button>
             <button onClick={onClose} className="p-2 hover:bg-slate-100 rounded-full text-slate-400 transition-colors">
               <X size={24} />
@@ -91,7 +98,7 @@ const SyllabusModal: React.FC<SyllabusModalProps> = ({ course, onClose, lang }) 
             {/* Modules Grid */}
             <section className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
-                <h4 className="text-[9px] font-black text-blue-600 uppercase tracking-widest">Surgical Modules</h4>
+                <h4 className="text-[9px] font-black text-blue-600 uppercase tracking-widest">Training Modules</h4>
                 <div className="space-y-4">
                   {course.curriculum.map((item, idx) => (
                     <div key={idx} className="flex items-start space-x-4 p-5 bg-slate-50 border border-slate-100 rounded-2xl">
@@ -115,7 +122,7 @@ const SyllabusModal: React.FC<SyllabusModalProps> = ({ course, onClose, lang }) 
                     </li>
                     <li className="flex items-center text-xs font-bold text-slate-600">
                       <div className="w-1.5 h-1.5 bg-slate-300 rounded-full mr-3"></div>
-                      Experience in basic oral surgery
+                      Experience in basic oral medicine
                     </li>
                     <li className="flex items-center text-xs font-bold text-slate-600">
                       <div className="w-1.5 h-1.5 bg-slate-300 rounded-full mr-3"></div>
@@ -137,13 +144,13 @@ const SyllabusModal: React.FC<SyllabusModalProps> = ({ course, onClose, lang }) 
             {/* Faculty Section */}
             <section className="pt-16 border-t border-slate-100 flex flex-col md:flex-row items-center gap-8">
               <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-slate-100 grayscale shrink-0">
-                <img src={leadSurgeon?.image} alt={leadSurgeon?.name} className="w-full h-full object-cover" />
+                <img src={leadInstructor?.image} alt={leadInstructor?.name} className="w-full h-full object-cover" />
               </div>
               <div className="flex-1">
                 <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-1">Lead Academic Faculty</p>
-                <h5 className="text-2xl font-display font-black text-slate-900 mb-2">{leadSurgeon?.name}</h5>
+                <h5 className="text-2xl font-display font-black text-slate-900 mb-2">{leadInstructor?.name}</h5>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                  Turkish-trained Chief Oral Surgeon with over 27 years of clinical practice. Specialist in {course.category} disciplines and complex rehabilitations.
+                  {leadInstructor?.bio[lang]} Specialist in {course.category} disciplines and complex rehabilitations.
                 </p>
               </div>
               <div className="shrink-0">
