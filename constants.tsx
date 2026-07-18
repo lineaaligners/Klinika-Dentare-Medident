@@ -72,100 +72,93 @@ export const SERVICES: Service[] = [
 export const DOCTORS: Doctor[] = [
   {
     id: '1',
-    name: 'Dr. Lendita Islami Nallbani',
-    role: { en: 'Chief Oral Surgeon', sq: 'Kryekirurge Orale' },
+    name: 'Dr. Lendita Nallbani',
+    role: { en: 'Oral Surgery Specialist & Implantologist', sq: 'Specialiste e Kirurgjisë Orale, Implantologe' },
     bio: {
-      en: 'Senior specialist in Oral Surgery with a distinguished 27-year legacy. Trained in top-tier European university hospitals, bringing advanced surgical protocols to Peja.',
-      sq: 'Specialiste e lartë në Kirurgjinë Orale me një trashëgimi 27-vjeçare. E trajnuar në spitalet më të mira universitare evropiane.'
+      en: 'Oral surgery specialist and implantologist leading the surgical team at Klinika Medident, a family dental clinic founded in Pejë in 1999.',
+      sq: 'Specialiste e Kirurgjisë Orale dhe Implantologe, udhëheqëse e ekipit kirurgjik në Klinikën Dentare Medident, klinikë familjare e themeluar në Pejë në vitin 1999.'
     },
     image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/519508741_18258447043303287_5432944367248736037_n.jpg',
-    specialties: ['Oral Surgery', 'Advanced Implantology', 'Bone Augmentation'],
+    specialties: ['Oral Surgery', 'Implantology'],
     education: {
-      en: ['Faculty of Medicine, University of Prishtina', 'Specialization in Oral Surgery', 'Advanced Surgical Fellowship (Vienna, Austria)'],
-      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës', 'Specializimi në Kirurgjinë Orale', 'Trajnim i Avancuar Kirurgjikal (Vjenë, Austri)']
+      en: ['Faculty of Medicine, University of Prishtina', 'Specialization in Oral Surgery'],
+      sq: ['Fakulteti i Mjekësisë, Universiteti i Prishtinës', 'Specializimi në Kirurgji Orale']
     },
-    experience: { en: '27+ Years Clinical Practice', sq: '27+ Vite Praktikë Klinike' },
-    languages: ['Albanian', 'English', 'German'],
-    certifications: ['ISO 9001 Clinical Auditor', 'ITI Member', 'Expert in Zygomatic Implants'],
-    research: {
-      en: ['Comparative analysis of immediate load vs traditional protocols in edentulous patients.', 'Bone augmentation techniques in the atrophic posterior maxilla.'],
-      sq: ['Analiza krahasimore e ngarkesës e menjëhershme kundrejt protokolleve tradicionale.', 'Teknikat e shtimit të kockave në maksilën e pasme atrofike.']
-    }
+    experience: { en: 'Founder & Chief Oral Surgeon', sq: 'Themeluese & Kryekirurge Orale' },
+    languages: ['Albanian', 'English'],
+    certifications: ['Licensed Oral Surgery Specialist']
   },
   {
     id: '2',
-    name: 'Dr. Muharrem Loci',
-    role: { en: 'Oral Surgeon & Implantologist', sq: 'Kirurg Oral & Implantolog' },
+    name: 'Dr. Faton Loci',
+    role: { en: 'Dentist', sq: 'Stomatolog' },
     bio: {
-      en: 'Specialist in dental implantology and complex oral rehabilitation. Expert in advanced bone regeneration and navigated surgery.',
-      sq: 'Specialist në implantologjinë dentare dhe rehabilitimin kompleks oral. Ekspert në rigjenerimin e avancuar të kockave.'
+      en: 'Dentist and part of the clinical leadership at Klinika Medident, working alongside Dr. Lendita Nallbani on day-to-day clinical care.',
+      sq: 'Stomatolog dhe pjesë e udhëheqjes klinike në Klinikën Dentare Medident, duke punuar krah për krah me Dr. Lendita Nallbani në kujdesin klinik ditor.'
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/518903332_18258447133303287_3174152709192455431_n.jpg',
-    specialties: ['Dental Implants', 'Guided Surgery', 'Full Arch Rehab'],
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/520120059_18258447091303287_3697667781056904147_n.jpg',
+    specialties: ['General Dentistry'],
     education: {
-      en: ['University of Prishtina', 'Surgical Residency (Vienna, Austria)'],
-      sq: ['Universiteti i Prishtinës', 'Rezidenca Kirurgjikale (Vjenë, Austri)']
+      en: ['Faculty of Dental Medicine'],
+      sq: ['Fakulteti i Mjekësisë Dentare']
     },
-    experience: { en: '18+ Years Experience', sq: '18+ Vite Përvojë' },
-    languages: ['Albanian', 'English', 'German'],
-    certifications: ['International Congress of Oral Implantologists (ICOI)']
+    experience: { en: 'Clinical practice at Klinika Medident', sq: 'Praktikë klinike në Klinikën Dentare Medident' },
+    languages: ['Albanian', 'English'],
+    certifications: ['Licensed Dentist']
   },
   {
     id: '3',
-    name: 'Dr. Faton Loci',
-    role: { en: 'Restorative & CAD/CAM Specialist', sq: 'Specialist i Restaurimit & CAD/CAM' },
+    name: 'Dr. Muharrem Thaqi',
+    role: { en: 'Dentist', sq: 'Stomatolog' },
     bio: {
-      en: 'Leading expert in digital dentistry and aesthetic design. Specializes in intraoral scanning protocols and monolithic restorations.',
-      sq: 'Ekspert udhëheqës në stomatologjinë digjitale dhe dizajnin estetik. Specializohet në protokollet e skanimit intraoral.'
+      en: 'Dentist at Klinika Medident, providing general dental care to patients in Pejë and the surrounding region.',
+      sq: 'Stomatolog në Klinikën Dentare Medident, duke ofruar kujdes stomatologjik të përgjithshëm për pacientët në Pejë dhe rajonin përreth.'
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/520120059_18258447091303287_3697667781056904147_n.jpg',
-    specialties: ['Aesthetic Dentistry', 'CAD/CAM Prosthetics', 'Digital Smile Design'],
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/518903332_18258447133303287_3174152709192455431_n.jpg',
+    specialties: ['General Dentistry'],
     education: {
-      en: ['University of Prishtina', 'Digital Workflow Certification (Germany)'],
-      sq: ['Universiteti i Prishtinës', 'Certifikimi i Rrjedhës Digjitale (Gjermani)']
+      en: ['Faculty of Dental Medicine'],
+      sq: ['Fakulteti i Mjekësisë Dentare']
     },
-    experience: { en: '15+ Years Experience', sq: '15+ Vite Përvojë' },
+    experience: { en: 'Clinical practice at Klinika Medident', sq: 'Praktikë klinike në Klinikën Dentare Medident' },
     languages: ['Albanian', 'English'],
-    // Added missing mandatory certifications property to fix type error
-    certifications: ['Certified Digital Smile Designer', 'Advanced CAD/CAM Workflow']
+    certifications: ['Licensed Dentist']
   },
   {
     id: '4',
-    name: 'Dr. Arbresha Zeneli',
-    role: { en: 'Endodontist (Root Canal Specialist)', sq: 'Endodontologe (Specialiste e Kanaleve)' },
+    name: 'Dr. Fjolla Kelmendi',
+    role: { en: 'Dentist', sq: 'Stomatologe' },
     bio: {
-      en: 'Specialized in microscopic endodontics and saving complex natural teeth using advanced rotary instrumentation.',
-      sq: 'Specializuar në endodontinë mikroskopike dhe shpëtimin e dhëmbëve natyralë komplekse.'
+      en: 'Dentist at Klinika Medident, providing general dental care to patients in Pejë and the surrounding region.',
+      sq: 'Stomatologe në Klinikën Dentare Medident, duke ofruar kujdes stomatologjik të përgjithshëm për pacientët në Pejë dhe rajonin përreth.'
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/437433800_18241513221303287_7521098675127606308_n.jpg',
-    specialties: ['Microscopic Endodontics', 'Retreatments', 'Apicoectomy'],
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/435131804_18241513110303287_3179261311034035659_n.jpg',
+    specialties: ['General Dentistry'],
     education: {
-      en: ['University of Prishtina', 'Endodontic Masterclass (Europe)'],
-      sq: ['Universiteti i Prishtinës', 'Masterklas Endodontik (Evropë)']
+      en: ['Faculty of Dental Medicine'],
+      sq: ['Fakulteti i Mjekësisë Dentare']
     },
-    experience: { en: '11+ Years Experience', sq: '11+ Vite Përvojë' },
+    experience: { en: 'Clinical practice at Klinika Medident', sq: 'Praktikë klinike në Klinikën Dentare Medident' },
     languages: ['Albanian', 'English'],
-    // Added missing mandatory certifications property to fix type error
-    certifications: ['Specialist in Micro-Endodontics', 'Advanced Endodontic Techniques']
+    certifications: ['Licensed Dentist']
   },
   {
     id: '5',
-    name: 'Dr. Fjolla Mulliqi',
-    role: { en: 'Orthodontist', sq: 'Ortodontologe' },
+    name: 'Dr. Arbresha Nila',
+    role: { en: 'Dentist', sq: 'Stomatologe' },
     bio: {
-      en: 'Expert in smile alignment using both traditional and invisible aligner technology. Specialized in pediatric and adult functional aesthetics.',
-      sq: 'Eksperte në rregullimin e buzëqeshjes duke përdorur teknologjinë tradicionale dhe atë të padukshme.'
+      en: 'Dentist at Klinika Medident, providing general dental care to patients in Pejë and the surrounding region.',
+      sq: 'Stomatologe në Klinikën Dentare Medident, duke ofruar kujdes stomatologjik të përgjithshëm për pacientët në Pejë dhe rajonin përreth.'
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/435131804_18241513110303287_3179261311034035659_n.jpg',
-    specialties: ['Clear Aligners', 'Braces', 'Functional Orthodontics'],
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/437433800_18241513221303287_7521098675127606308_n.jpg',
+    specialties: ['General Dentistry'],
     education: {
-      en: ['University of Prishtina', 'Specialization in Orthodontics'],
-      sq: ['Universiteti i Prishtinës', 'Specializimi në Ortodonci']
+      en: ['Faculty of Dental Medicine'],
+      sq: ['Fakulteti i Mjekësisë Dentare']
     },
-    experience: { en: '9+ Years Experience', sq: '9+ Vite Përvojë' },
+    experience: { en: 'Clinical practice at Klinika Medident', sq: 'Praktikë klinike në Klinikën Dentare Medident' },
     languages: ['Albanian', 'English'],
-    // Added missing mandatory certifications property to fix type error
-    certifications: ['Invisalign Certified Provider', 'Functional Aesthetics Specialist']
+    certifications: ['Licensed Dentist']
   }
 ];
 
