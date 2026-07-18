@@ -1,7 +1,6 @@
 
 import React, { useState, useRef, useMemo, useEffect } from 'react';
 import { ACADEMY_COURSES, DOCTORS, ACADEMY_BENEFITS } from '../constants';
-import { GoogleGenAI, Modality } from "@google/genai";
 import { 
   ArrowLeft, 
   GraduationCap, 
@@ -89,24 +88,11 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
     setIsPlayingAudio(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const prompt = `Chief Oral Surgeon Dr. Lendita Islami Nallbani: Welcome to the Medident Clinical Academy in Peja. Our surgical modules are informed by my experience practicing in top international hospitals. We focus on high-fidelity clinical outcomes. Join us to transform your surgical career.`;
+      const ttsRes = await fetch('/api/tts', { method: 'POST' });
+      if (!ttsRes.ok) throw new Error(`TTS API ${ttsRes.status}`);
+      const ttsData = await ttsRes.json();
 
-      // Corrected model for TTS task and fixed responseModalities typo
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash-preview-tts",
-        contents: [{ parts: [{ text: prompt }] }],
-        config: {
-          responseModalities: [Modality.AUDIO],
-          speechConfig: {
-            voiceConfig: {
-              prebuiltVoiceConfig: { voiceName: 'Kore' },
-            },
-          },
-        },
-      });
-
-      const base64Audio = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+      const base64Audio = ttsData.audio;
       if (base64Audio) {
         if (!audioContextRef.current) {
           audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });

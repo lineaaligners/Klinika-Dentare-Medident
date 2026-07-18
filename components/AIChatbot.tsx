@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, Send, X, Bot, User, Loader2, ShieldCheck } from 'lucide-react';
-import { getClaudeResponse } from '../services/claudeService';
 import { getGeminiChatResponse } from '../services/geminiService';
 import { ChatMessage } from '../types';
 
@@ -32,18 +31,7 @@ const AIChatbot: React.FC<AIChatbotProps> = ({ lang }) => {
     setIsLoading(true);
 
     try {
-      let response: string;
-      try {
-        const claudeChatMessages = messages.map(m => ({
-          role: m.role === 'user' ? 'user' : 'assistant' as const,
-          content: m.text
-        }));
-        claudeChatMessages.push({ role: 'user', content: userMessage });
-        response = await getClaudeResponse(claudeChatMessages as any);
-      } catch (e) {
-        console.warn('Claude failed, falling back to Gemini', e);
-        response = await getGeminiChatResponse(userMessage, messages);
-      }
+      const response = await getGeminiChatResponse(userMessage, messages);
       setMessages(prev => [...prev, { role: 'model', text: response }]);
     } catch (error) {
       setMessages(prev => [...prev, { role: 'model', text: lang === 'en' ? "Liaison system offline. Please use the clinical contact form." : "Sistemi offline. Ju lutem përdorni formën e kontaktit." }]);
