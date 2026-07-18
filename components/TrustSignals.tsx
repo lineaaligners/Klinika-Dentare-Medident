@@ -52,7 +52,7 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
     {
       id: 'exp',
       title: '27 Years Experience',
-      desc: 'Surgical Mastery Since 1999',
+      desc: 'Caring for Smiles Since 1999',
       icon: <Award className="w-6 h-6 text-blue-600" />
     },
     {
@@ -109,7 +109,7 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
     {
       step: '5',
       title: 'Return Home With Your New Smile',
-      desc: 'Complete your surgical dental protocol under expert world-class clinical care, saving thousands while gaining total confidence.',
+      desc: 'Get the smile you came for, in caring expert hands — and go home with total confidence.',
       icon: <Sparkles className="w-5 h-5" />
     }
   ];

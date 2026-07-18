@@ -10,7 +10,7 @@ const LegacySection: React.FC<LegacySectionProps> = ({ lang }) => {
   const content = {
     badge: lang === 'en' ? 'Clinical Foundation Est. 1999' : 'Fondacioni Klinik i themeluar më 1999',
     title: lang === 'en' ? 'TWENTY-SEVEN YEARS' : 'NJËZET E SHTATË VITE',
-    subtitle: lang === 'en' ? 'EXCELLENCE.' : 'EKSELENCË.',
+    subtitle: lang === 'en' ? 'OF SMILES.' : 'BUZËQESHJE.',
     desc: lang === 'en' 
       ? 'Medident Clinic serves as a primary reference for advanced dentistry in the region. Our history is defined by clinical precision.' 
       : 'Klinika Medident shërben si një referencë primare për stomatologjinë e avancuar në rajon. Historia jonë përcaktohet nga preciziteti klinik.',

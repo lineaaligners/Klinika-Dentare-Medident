@@ -119,7 +119,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
               <button 
                 onClick={() => handleNavClick(onConsultationClick)}
-                className="bg-blue-600 hover:bg-slate-900 text-white px-6 py-2.5 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all shadow-lg shadow-blue-600/20 flex items-center space-x-2 group"
+                className="bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold text-[13px] transition-all duration-300 shadow-md shadow-blue-600/25 flex items-center space-x-2 group"
               >
                 <Calendar size={14} className="group-hover:scale-110 transition-transform" />
                 <span>{labels.consultation}</span>
@@ -163,16 +163,16 @@ const Navbar: React.FC<NavbarProps> = ({
 
           <div className="mt-auto space-y-4">
              <div className="grid grid-cols-2 gap-4">
-               <a href="tel:+38349272803" className="bg-white/10 border border-white/15 text-white px-4 py-4 rounded-2xl font-black text-center text-sm">
+               <a href="tel:+38349272803" className="bg-white/10 backdrop-blur border border-white/15 text-white px-4 py-3.5 rounded-full font-semibold text-center text-[15px] active:bg-white/20 transition-all">
                  {lang === 'en' ? 'Call Us' : 'Na Telefononi'}
                </a>
-               <a href="https://wa.me/38349772307" target="_blank" rel="noopener" className="bg-emerald-600 text-white px-4 py-4 rounded-2xl font-black text-center text-sm">
+               <a href="https://wa.me/38349772307" target="_blank" rel="noopener" className="bg-emerald-500 hover:bg-emerald-400 text-white px-4 py-3.5 rounded-full font-semibold text-center text-[15px] transition-all">
                  WhatsApp
                </a>
              </div>
              <button 
                onClick={() => handleNavClick(onConsultationClick)} 
-               className="w-full bg-blue-600 text-white px-8 py-5 rounded-2xl font-black text-center text-lg shadow-xl shadow-blue-600/20"
+               className="w-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white px-8 py-4 rounded-full font-semibold text-center text-[17px] shadow-lg shadow-blue-600/25 transition-all duration-300"
              >
                {labels.consultation}
              </button>

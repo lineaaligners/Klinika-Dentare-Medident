@@ -177,7 +177,7 @@ export const RUGOVA_EXPERIENCES = (lang: 'en' | 'sq') => [
   },
   {
     title: lang === 'en' ? 'Hiking Kuqishta Lakes' : 'Liqenet e Kuqishtës',
-    desc: lang === 'en' ? 'A serene trek to the glacial lakes at 1,900m altitude. The pure oxygen levels here accelerate post-surgical healing.' : 'Një ecje qetësuese drejt liqeneve akullnajore në 1,900m lartësi. Nivelet e larta të oksigjenit përshpejtojnë shërimin.',
+    desc: lang === 'en' ? 'A serene trek to the glacial lakes at 1,900m altitude. Fresh mountain air, perfect for gentle recovery days.' : 'Një ecje qetësuese drejt liqeneve akullnajore në 1,900m lartësi. Nivelet e larta të oksigjenit përshpejtojnë shërimin.',
     icon: <Compass className="w-6 h-6" />,
     image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/rugova-canyon-trail-28km.jpg'
   },
@@ -192,7 +192,7 @@ export const RUGOVA_EXPERIENCES = (lang: 'en' | 'sq') => [
 export const TOURISM_STEPS = (lang: 'en' | 'sq') => [
   {
     title: lang === 'en' ? 'Clinical Assessment' : 'Vlerësimi Klinik',
-    description: lang === 'en' ? 'Radiographic data review by our surgical board led by Dr. Lendita.' : 'Rishikimi i të dhënave radiografike nga bordi ynë kirurgjikal i udhëhequr nga Dr. Lendita.',
+    description: lang === 'en' ? 'Dr. Lendita personally reviews your X-rays and plans your new smile.' : 'Dr. Lendita i rishikon personalisht radiografitë tuaja dhe planifikon buzëqeshjen tuaj të re.',
     icon: <Sparkles className="w-8 h-8 text-blue-600" />
   },
   {

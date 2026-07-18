@@ -15,14 +15,14 @@ const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyCli
   const y = useTransform(scrollY, [0, 1000], [0, 400]);
 
   const content = {
-    badge: lang === 'en' ? 'GLOBAL SURGICAL EXCELLENCE' : 'EKSELENCA KIRURGJIKALE GLOBALE',
-    title: lang === 'en' ? 'SURGICAL' : 'KIRURGJI',
-    subtitle: lang === 'en' ? 'EXPERIENCE.' : 'EKSPERIENCE.',
+    badge: lang === 'en' ? 'FAMILY DENTAL CLINIC · SINCE 1999' : 'KLINIKË FAMILJARE DENTARE · QYSH 1999',
+    title: lang === 'en' ? 'YOUR SMILE,' : 'BUZËQESHJA JUAJ,',
+    subtitle: lang === 'en' ? 'IN GOOD HANDS.' : 'NË DUAR TË SIGURTA.',
     desc: lang === 'en' 
-      ? 'More than dentistry. A transformative surgical journey in Peja, Kosovo, combining specialist mastery with world-class hospitality.' 
-      : 'Më shumë se stomatologji. Një rrugëtim kirurgjikal transformues në Pejë, duke kombinuar mjeshtërinë e lartë me mikpritjen e nivelit botëror.',
+      ? 'A smile you love, made with care. Modern 3D-planned dentistry in Peja, from a family clinic that has looked after smiles since 1999.' 
+      : 'Një buzëqeshje që e doni, e krijuar me kujdes. Stomatologji moderne e planifikuar në 3D në Pejë, nga një klinikë familjare që kujdeset për buzëqeshjet qysh nga 1999.',
     cta: lang === 'en' ? 'Book Free Consultation' : 'Cakto Konsultë Falas',
-    play: lang === 'en' ? 'Observe Practice Standards' : 'Vëzhgoni Standardet e Praktikës',
+    play: lang === 'en' ? 'See Our Clinic' : 'Shihni Klinikën Tonë',
     serv: lang === 'en' ? 'Explore Services' : 'Eksploroni Shërbimet',
     jour: lang === 'en' ? 'Start Journey' : 'Filloni Rrugëtimin'
   };
@@ -73,7 +73,7 @@ const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyCli
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#contact" 
-              className="group flex items-center justify-center bg-blue-600 hover:bg-white hover:text-slate-950 text-white px-12 py-5 rounded-lg text-[11px] font-black transition-all shadow-2xl shadow-blue-600/20 uppercase tracking-[0.2em] relative overflow-hidden"
+              className="group flex items-center justify-center bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white px-9 py-4 rounded-full text-[15px] font-semibold transition-all duration-300 shadow-lg shadow-blue-600/25 relative overflow-hidden"
             >
               <Calendar className="mr-3" size={16} />
               {content.cta}
@@ -92,7 +92,7 @@ const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyCli
               <Activity size={18} className="text-blue-500" />
               <div>
                 <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">{content.serv}</p>
-                <p className="text-xs font-bold text-white uppercase tracking-wider group-hover:text-blue-500 transition-colors">{lang === 'en' ? 'Surgical Disciplines' : 'Disciplinat Kirurgjikale'}</p>
+                <p className="text-xs font-bold text-white uppercase tracking-wider group-hover:text-blue-500 transition-colors">{lang === 'en' ? 'Smile Services' : 'Shërbimet e Buzëqeshjes'}</p>
               </div>
             </button>
             <button onClick={onJourneyClick} className="flex items-center space-x-3 bg-white/5 hover:bg-white/10 px-6 py-4 rounded-xl border border-white/10 transition-all group text-left">
