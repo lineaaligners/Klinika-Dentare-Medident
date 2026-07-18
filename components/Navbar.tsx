@@ -136,7 +136,7 @@ const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-[60] bg-slate-950 p-8 flex flex-col space-y-8 animate-in fade-in duration-300">
+        <div className="md:hidden fixed inset-0 z-[60] bg-slate-950 p-8 flex flex-col space-y-8 animate-in fade-in duration-300 overflow-y-auto">
           <div className="flex justify-between items-center mb-8">
             <span className="text-xl font-display font-black tracking-tighter text-white">
               MEDIDENT<span className="text-blue-500">.</span>
@@ -146,16 +146,30 @@ const Navbar: React.FC<NavbarProps> = ({
             </button>
           </div>
           
-          <button onClick={toggleLang} className="text-left text-slate-500 text-sm font-black uppercase tracking-widest mb-4">Switch to {lang === 'en' ? 'Shqip' : 'English'}</button>
-          
+          <button
+            onClick={() => setLang(lang === 'en' ? 'sq' : 'en')}
+            className="text-left text-slate-400 text-sm font-black uppercase tracking-widest mb-4 flex items-center space-x-2"
+          >
+            <Globe size={16} className="text-blue-500" />
+            <span>{lang === 'en' ? '🇦🇱 Kalo në Shqip' : '🇬🇧 Switch to English'}</span>
+          </button>
+
           <div className="flex flex-col space-y-6">
-            <button onClick={() => handleNavClick(onServicesClick)} className="text-left text-white text-3xl font-display font-black">{labels.services}</button>
-            <button onClick={() => handleNavClick(onAcademyClick)} className="text-left text-white text-3xl font-display font-black">{labels.academy}</button>
-            <button onClick={() => handleNavClick(onJourneyClick)} className="text-left text-white text-3xl font-display font-black">{labels.tourism}</button>
-            <button onClick={() => handleNavClick(onBlogClick)} className="text-left text-white text-3xl font-display font-black">{labels.blog}</button>
+            <button onClick={() => handleNavClick(onServicesClick)} className="text-left text-white text-3xl font-display font-black flex items-center space-x-4"><Smile size={24} className="text-blue-500 shrink-0" /><span>{labels.services}</span></button>
+            <button onClick={() => handleNavClick(onAcademyClick)} className="text-left text-white text-3xl font-display font-black flex items-center space-x-4"><GraduationCap size={24} className="text-blue-500 shrink-0" /><span>{labels.academy}</span></button>
+            <button onClick={() => handleNavClick(onJourneyClick)} className="text-left text-white text-3xl font-display font-black flex items-center space-x-4"><Plane size={24} className="text-blue-500 shrink-0" /><span>{labels.tourism}</span></button>
+            <button onClick={() => handleNavClick(onBlogClick)} className="text-left text-white text-3xl font-display font-black flex items-center space-x-4"><Newspaper size={24} className="text-blue-500 shrink-0" /><span>{labels.blog}</span></button>
           </div>
 
-          <div className="mt-auto">
+          <div className="mt-auto space-y-4">
+             <div className="grid grid-cols-2 gap-4">
+               <a href="tel:+38349272803" className="bg-white/10 border border-white/15 text-white px-4 py-4 rounded-2xl font-black text-center text-sm">
+                 {lang === 'en' ? 'Call Us' : 'Na Telefononi'}
+               </a>
+               <a href="https://wa.me/38349772307" target="_blank" rel="noopener" className="bg-emerald-600 text-white px-4 py-4 rounded-2xl font-black text-center text-sm">
+                 WhatsApp
+               </a>
+             </div>
              <button 
                onClick={() => handleNavClick(onConsultationClick)} 
                className="w-full bg-blue-600 text-white px-8 py-5 rounded-2xl font-black text-center text-lg shadow-xl shadow-blue-600/20"
