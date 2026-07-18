@@ -5,9 +5,9 @@ import { Star, ShieldCheck, Award, Globe } from 'lucide-react';
 const TrustBar: React.FC<{ lang: 'en' | 'sq' }> = ({ lang }) => {
   const logos = [
     { name: 'ISO 9001', icon: <ShieldCheck className="w-5 h-5 text-blue-500" /> },
-    { name: 'ITI Member', icon: <Award className="w-5 h-5 text-blue-500" /> },
-    { name: 'Global Patents', icon: <Globe className="w-5 h-5 text-blue-500" /> },
-    { name: 'Clinical Board', icon: <Star className="w-5 h-5 text-blue-500" /> }
+    { name: lang === 'en' ? 'Since 1999' : 'Qysh 1999', icon: <Award className="w-5 h-5 text-blue-500" /> },
+    { name: lang === 'en' ? '13,000+ Patients' : '13,000+ Pacientë', icon: <Star className="w-5 h-5 text-blue-500" /> },
+    { name: lang === 'en' ? 'Medident Academy' : 'Akademia Medident', icon: <Globe className="w-5 h-5 text-blue-500" /> }
   ];
 
   return (
