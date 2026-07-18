@@ -214,7 +214,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group">
                 <img 
-                  src="https://d8j0ntlcm91z4.cloudfront.net/user_3GK4EvYC3RV3gOLAljSryk8hjDQ/hf_20260718_133908_b52c062d-7da1-40ab-b788-c04d82d7d493.png" 
+                  src="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/freepik__recreate-the-locations-more-modern-bright-natural-__5205.jpeg" 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
                   alt="Clinical Training Environment" 
                 />

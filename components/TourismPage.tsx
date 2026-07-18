@@ -550,7 +550,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                 <div className="grid grid-cols-2 gap-6">
                    <div className="space-y-6 pt-12">
                       <div className="aspect-[3/4] rounded-[3rem] overflow-hidden border border-slate-100 shadow-xl">
-                         <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3GK4EvYC3RV3gOLAljSryk8hjDQ/hf_20260718_133913_01f8f549-e092-48f0-82fa-783955ccc833.png" className="w-full h-full object-cover" alt="Rugova Nature" />
+                         <img src="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/rugova-canyon-trail-28km.jpg" className="w-full h-full object-cover" alt="Rugova Nature" />
                       </div>
                       <div className="p-8 bg-slate-900 rounded-[2.5rem] text-white">
                          <p className="text-2xl font-display font-black mb-2">Oxygen Rich</p>
