@@ -77,21 +77,21 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
   };
 
   const labels = {
-    title: lang === 'en' ? 'Surgical Tourism Experience' : 'Përvoja e Turizmit Kirurgjikal',
-    subtitle: lang === 'en' ? 'More than dentistry. A curated lifestyle transformation in Peja.' : 'Më shumë se stomatologji. Një transformim i kuruar në Pejë.',
+    title: lang === 'en' ? 'Your Journey to Medident' : 'Rrugëtimi Juaj drejt Medident',
+    subtitle: lang === 'en' ? 'One doctor who knows your case by name. 3D-planned surgery in a family clinic trusted since 1999.' : 'Një mjeke që e njeh rastin tuaj me emër. Kirurgji e planifikuar në 3D, në një klinikë familjare të besuar që nga 1999.',
     uploadTab: lang === 'en' ? 'Clinical Assessment' : 'Vlerësimi Klinik',
-    quoteTab: lang === 'en' ? 'Concierge Quote' : 'Ofertë Concierge',
+    quoteTab: lang === 'en' ? 'Your Personal Quote' : 'Oferta Juaj Personale',
     reserveTab: lang === 'en' ? 'Book Dates' : 'Rezervoni Datat',
     uploadTitle: lang === 'en' ? 'Diagnostic Submission' : 'Dërgimi i Diagnostikës',
-    uploadDesc: lang === 'en' ? 'Upload your OPG or 3D Tomography for our surgical board to review.' : 'Ngarkoni Panoramen ose Tomografinë 3D për rishikim nga bordi.',
+    uploadDesc: lang === 'en' ? 'Upload your OPG or 3D scan. Dr. Lendita reviews every case personally.' : 'Ngarkoni Panoramen ose skanimin 3D. Dr. Lendita e rishikon çdo rast personalisht.',
     quoteTitle: lang === 'en' ? 'Your Personal Protocol' : 'Protokolli juaj Personal',
     reserveTitle: lang === 'en' ? 'Secure Your Slot' : 'Siguroni Datën tuaj',
   };
 
   const timelineStepsPhase1 = [
-    { day: 'Day 1', task: 'Arrival & Clinical Consultation', detail: 'Airport greeting, clinical exam, and 3D diagnostics.' },
-    { day: 'Day 2', task: 'Surgical Intervention', detail: 'Surgical execution led by Dr. Lendita.' },
-    { day: 'Day 3-5', task: 'Nature & Healing', detail: 'Curated recovery in Rugova and clinical checks.' },
+    { day: 'Day 1', task: 'Arrival & Meeting Your Doctor', detail: 'We pick you up at the airport. Clinical exam and 3D CBCT diagnostics the same day.' },
+    { day: 'Day 2', task: 'Your Surgery', detail: 'Performed personally by Dr. Lendita, guided by your 3D surgical plan.' },
+    { day: 'Day 3-5', task: 'Rest & Healing', detail: 'Recover in Peja and Rugova. Daily check-ins with your doctor.' },
     { day: 'Day 6-8', task: 'Temporary Loading', detail: 'Fitting of aesthetic temporary restorations.' },
   ];
 
@@ -99,7 +99,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
     { day: 'Day 1', task: 'Return Arrival', detail: 'Post-osseointegration return for final phase.' },
     { day: 'Day 2-3', task: 'HD Digital Scanning', detail: 'Precision scanning for permanent zirconia.' },
     { day: 'Day 5-6', task: 'The Reveal', detail: 'Final adjustments and permanent prosthetic loading.' },
-    { day: 'Day 7', task: 'Final Checkout', detail: 'Institutional sign-off and transfer to airport.' },
+    { day: 'Day 7', task: 'Goodbye — For Now', detail: 'Final check with Dr. Lendita, aftercare plan in hand, and transfer to the airport.' },
   ];
 
   return (
@@ -282,8 +282,8 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                             <p className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Next Stages</p>
                             <div className="space-y-4">
                               {[
-                                { step: '1', title: 'Board Diagnosis', desc: 'Dr. Lendita Nallbani reviews your uploaded OPG/CT scans.' },
-                                { step: '2', title: 'Concierge Pairing', desc: 'A dedicated liaison will WhatsApp you for a video call.' },
+                                { step: '1', title: 'Doctor Review', desc: 'Dr. Lendita Nallbani personally reviews your uploaded OPG/CT scans.' },
+                                { step: '2', title: 'Personal Contact', desc: 'We WhatsApp you directly to schedule a video call — a real person, not a call center.' },
                                 { step: '3', title: 'Travel Dossier', desc: 'Final proposal and logistics guide delivered via PDF.' }
                               ].map((item) => (
                                 <div key={item.step} className="flex items-start space-x-4">
@@ -405,7 +405,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                 <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[120px]"></div>
                 <div className="max-w-3xl mb-16">
                    <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Clinical Transparency</h3>
-                   <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 tracking-tighter mb-8">World-Class <span className="text-blue-600">Material Registry.</span></h2>
+                   <h2 className="text-4xl md:text-6xl font-display font-black text-slate-900 tracking-tighter mb-8">You See Exactly <span className="text-blue-600">What We Use.</span></h2>
                    <p className="text-slate-500 text-lg font-medium leading-relaxed">
                       We explicitly list our supply chain. Unlike generic clinics that use economy non-branded parts, Medident uses exclusively verified implants and ceramics from Sweden, Germany, and the USA.
                    </p>
@@ -486,7 +486,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
           <section className="mb-40">
              <div className="text-center mb-24">
                 <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Surgical Chronology</h3>
-                <h2 className="text-5xl font-display font-black text-slate-900 tracking-tighter">The Transformative <span className="text-blue-600">Timeline.</span></h2>
+                <h2 className="text-5xl font-display font-black text-slate-900 tracking-tighter">Your Trip, <span className="text-blue-600">Day by Day.</span></h2>
              </div>
 
              <div className="flex justify-center space-x-6 mb-16">

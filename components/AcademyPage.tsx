@@ -214,9 +214,9 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
             <div className="lg:col-span-5 relative">
               <div className="relative aspect-[4/5] rounded-[4rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group">
                 <img 
-                  src="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/freepik__recreate-the-locations-more-modern-bright-natural-__5205.jpeg" 
+                  src="/team/lendita-nallbani.jpg" 
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-                  alt="Clinical Training Environment" 
+                  alt="Dr. Lendita Islami Nallbani — Academy Lead Instructor" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
                 <div className="absolute bottom-10 left-10 flex items-center space-x-4 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-3xl text-white">
@@ -224,8 +224,8 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                     <Microscope size={20} />
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-widest opacity-70">Facility Standard</p>
-                    <p className="text-xs font-black">ISO 9001:2015 Hub</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest opacity-70">Lead Instructor</p>
+                    <p className="text-xs font-black">Dr. Lendita Islami Nallbani</p>
                   </div>
                 </div>
               </div>
