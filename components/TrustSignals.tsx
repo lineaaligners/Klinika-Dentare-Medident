@@ -46,41 +46,7 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
     3: 'after'
   });
 
-  const testimonials: Testimonial[] = [
-    {
-      id: 1,
-      name: "David Sterling",
-      city: "London",
-      treatment: "Full Arch Dental Implants",
-      stars: 5,
-      savings: "Saved £12,000 vs London clinic quotes",
-      quote: "I saved over £12,000 on my full arch reconstruction compared to the Harley Street quotes. The travel from London to Pristina was flawless, and Medident’s driver met me immediately. The Peja clinic's technology is light years ahead of my local dentist, and the warm care made me feel completely at ease.",
-      beforeImg: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=600", // Clinical consultation setup
-      afterImg: "https://images.unsplash.com/photo-1543664188-410032e545be?auto=format&fit=crop&q=80&w=600" // Confident glowing smile
-    },
-    {
-      id: 2,
-      name: "Sarah Jenkins",
-      city: "Manchester",
-      treatment: "Full Hollywood Smile Restoration",
-      stars: 5,
-      savings: "Saved 65% compared to North-West UK pricing",
-      quote: "Getting my Hollywood Smile at Medident Clinic was the best decision of my life. Even with flight bookings and hotel stays, it was about 65% cheaper than the Manchester quotes. The English spoken by Dr. Geno and her board of specialists was absolutely pristine, and the Peja scenery was stunning.",
-      beforeImg: "https://images.unsplash.com/photo-1579684389782-64d84b5e9053?auto=format&fit=crop&q=80&w=600", // Dentist chair / diagnostic
-      afterImg: "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=600" // Beautiful smiling woman
-    },
-    {
-      id: 3,
-      name: "Michael Cole",
-      city: "Birmingham",
-      treatment: "Premium Reconstructive Veneers",
-      stars: 5,
-      savings: "Saved over £8,500 on full package",
-      quote: "The free video consultation made everything so transparent. They mapped out the entire plan and guaranteed the quote before I booked my flight to Pristina. Their premium E-Max veneers have literally put the clock back 15 years on my smile. Superior UK standard at a fraction of the cost.",
-      beforeImg: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&q=80&w=600", // Clinical laboratory setup
-      afterImg: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=600" // Happy mature gentleman
-    }
-  ];
+  const testimonials: Testimonial[] = [];
 
   const trustBadges = [
     {
@@ -213,7 +179,7 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
                 </div>
               </div>
               <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mt-0.5">
-                Verified Google Reviews (120+ UK patients)
+                Google Reviews
               </p>
             </div>
           </motion.div>
@@ -245,124 +211,6 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
         </div>
 
 
-        {/* PATIENT TESTIMONIALS WITH BEFORE/AFTER COMPARISON */}
-        <div className="mb-28">
-          <div className="flex items-center justify-between mb-12">
-            <div>
-              <span className="text-blue-600 font-extrabold text-xs uppercase tracking-widest block mb-1">True Transformations</span>
-              <h3 className="text-3xl font-display font-black text-slate-900 tracking-tight">Verified UK Patient Outcomes</h3>
-            </div>
-            <div className="hidden md:flex items-center gap-1.5 text-slate-400 text-xs font-bold">
-              <span>Interactive Switchers Enabled</span>
-              <Sparkles size={14} className="text-blue-500 animate-pulse" />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((t) => {
-              const currentToggle = toggleStates[t.id] || 'after';
-
-              return (
-                <motion.div
-                  key={t.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-[2.5rem] border border-slate-200/80 p-8 shadow-sm flex flex-col justify-between hover:shadow-xl transition-shadow duration-300 relative group"
-                >
-                  <div>
-                    {/* Top Stats Detail */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="bg-slate-50 border border-slate-100 rounded-2xl px-4 py-2 flex items-center gap-2">
-                        <MapPin size={14} className="text-blue-600" />
-                        <span className="text-[11px] font-black text-slate-700 tracking-tight">{t.name}, {t.city}</span>
-                      </div>
-                      <div className="flex text-yellow-400">
-                        {[...Array(t.stars)].map((_, i) => (
-                          <Star key={i} size={14} className="fill-current text-yellow-400" />
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Custom before/after interactive placeholder slot */}
-                    <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden bg-slate-100 border border-slate-200 mb-8 select-none">
-                      <AnimatePresence mode="wait">
-                        <motion.div
-                          key={currentToggle}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="w-full h-full"
-                        >
-                          <img 
-                            src={currentToggle === 'before' ? t.beforeImg : t.afterImg} 
-                            alt={`${t.name} - ${currentToggle}`} 
-                            className="w-full h-full object-cover grayscale-0"
-                            referrerPolicy="no-referrer"
-                          />
-                        </motion.div>
-                      </AnimatePresence>
-
-                      {/* Sliding Badges Overlay */}
-                      <div className="absolute top-4 left-4 flex gap-2">
-                        <span className="bg-slate-900/80 backdrop-blur-md text-white text-[9px] px-3 py-1.5 rounded-xl font-bold uppercase tracking-widest shadow-sm">
-                          {currentToggle === 'before' ? 'Patient Pre-Op Setup' : 'Full Dental Restore'}
-                        </span>
-                      </div>
-
-                      {/* Before / After toggle controls built into the image frame */}
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-md p-1.5 rounded-full flex gap-1 shadow-lg border border-white/20">
-                        <button
-                          onClick={() => handleToggle(t.id, 'before')}
-                          className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest transition-all ${
-                            currentToggle === 'before' 
-                              ? 'bg-blue-600 text-white shadow-sm' 
-                              : 'text-slate-500 hover:text-slate-900'
-                          }`}
-                        >
-                          Before
-                        </button>
-                        <button
-                          onClick={() => handleToggle(t.id, 'after')}
-                          className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest transition-all ${
-                            currentToggle === 'after' 
-                              ? 'bg-blue-600 text-white shadow-sm' 
-                              : 'text-slate-500 hover:text-slate-900'
-                          }`}
-                        >
-                          After
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Quote and Details */}
-                    <div className="mb-8">
-                      <div className="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest mb-4">
-                        <CheckCircle size={12} />
-                        <span>{t.treatment}</span>
-                      </div>
-                      <p className="text-slate-600 text-sm font-medium leading-relaxed italic mb-4">
-                        &ldquo;{t.quote}&rdquo;
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Savings Note footer */}
-                  <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                    <div>
-                      <p className="text-[9px] text-slate-400 font-black uppercase tracking-widest">Financial Benefit</p>
-                      <p className="text-sm font-display font-black text-slate-900 tracking-tight">{t.savings}</p>
-                    </div>
-                    <div className="w-10 h-10 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 border border-blue-100">
-                      <Heart className="w-5 h-5 text-blue-600 animate-pulse" />
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
 
 
         {/* UK PATIENT JOURNEY STEPS (Horizontal) */}

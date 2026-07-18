@@ -11,7 +11,7 @@ const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ lang, onBookClick }) 
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-[100] px-4 pb-4">
       <div className="bg-slate-950/90 backdrop-blur-xl rounded-2xl border border-white/10 p-3 shadow-2xl flex items-center justify-between gap-2">
         <a 
-          href="tel:+38349123456" 
+          href="tel:+38349772307" 
           className="flex-1 bg-white/5 hover:bg-white/10 text-white rounded-xl py-3 flex flex-col items-center justify-center gap-1 transition-colors"
         >
           <Phone size={20} className="text-blue-500" />

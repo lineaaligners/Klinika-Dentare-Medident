@@ -196,7 +196,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               </p>
               
               <div className="flex flex-wrap gap-6 items-center">
-                <a href="mailto:academy@medident-ks.com" className="bg-slate-900 hover:bg-blue-600 text-white px-12 py-6 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] transition-all shadow-2xl hover:scale-105 active:scale-95">
+                <a href="https://wa.me/38349772307" target="_blank" rel="noopener" className="bg-slate-900 hover:bg-blue-600 text-white px-12 py-6 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] transition-all shadow-2xl hover:scale-105 active:scale-95">
                   Secure Academic Slot
                 </a>
                 <button onClick={playBriefing} className="flex items-center space-x-4 px-6 py-4 rounded-2xl bg-white border border-slate-100 hover:border-blue-200 transition-all group">

@@ -78,7 +78,7 @@ export const DOCTORS: Doctor[] = [
       en: 'Oral surgery specialist and implantologist leading the surgical team at Klinika Medident, a family dental clinic founded in Pejë in 1999.',
       sq: 'Specialiste e Kirurgjisë Orale dhe Implantologe, udhëheqëse e ekipit kirurgjik në Klinikën Dentare Medident, klinikë familjare e themeluar në Pejë në vitin 1999.'
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/519508741_18258447043303287_5432944367248736037_n.jpg',
+    image: '/team/lendita-nallbani.jpg',
     specialties: ['Oral Surgery', 'Implantology'],
     education: {
       en: ['Faculty of Medicine, University of Prishtina', 'Specialization in Oral Surgery'],
@@ -96,7 +96,7 @@ export const DOCTORS: Doctor[] = [
       en: 'Dentist and part of the clinical leadership at Klinika Medident, working alongside Dr. Lendita Nallbani on day-to-day clinical care.',
       sq: 'Stomatolog dhe pjesë e udhëheqjes klinike në Klinikën Dentare Medident, duke punuar krah për krah me Dr. Lendita Nallbani në kujdesin klinik ditor.'
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/520120059_18258447091303287_3697667781056904147_n.jpg',
+    image: '/team/faton-loci.jpg',
     specialties: ['General Dentistry'],
     education: {
       en: ['Faculty of Dental Medicine'],
@@ -114,7 +114,7 @@ export const DOCTORS: Doctor[] = [
       en: 'Dentist at Klinika Medident, providing general dental care to patients in Pejë and the surrounding region.',
       sq: 'Stomatolog në Klinikën Dentare Medident, duke ofruar kujdes stomatologjik të përgjithshëm për pacientët në Pejë dhe rajonin përreth.'
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/518903332_18258447133303287_3174152709192455431_n.jpg',
+    image: '/team/muharrem-thaqi.jpg',
     specialties: ['General Dentistry'],
     education: {
       en: ['Faculty of Dental Medicine'],
@@ -132,7 +132,7 @@ export const DOCTORS: Doctor[] = [
       en: 'Dentist at Klinika Medident, providing general dental care to patients in Pejë and the surrounding region.',
       sq: 'Stomatologe në Klinikën Dentare Medident, duke ofruar kujdes stomatologjik të përgjithshëm për pacientët në Pejë dhe rajonin përreth.'
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/435131804_18241513110303287_3179261311034035659_n.jpg',
+    image: '/team/fjolla-kelmendi.jpg',
     specialties: ['General Dentistry'],
     education: {
       en: ['Faculty of Dental Medicine'],
@@ -150,7 +150,7 @@ export const DOCTORS: Doctor[] = [
       en: 'Dentist at Klinika Medident, providing general dental care to patients in Pejë and the surrounding region.',
       sq: 'Stomatologe në Klinikën Dentare Medident, duke ofruar kujdes stomatologjik të përgjithshëm për pacientët në Pejë dhe rajonin përreth.'
     },
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/437433800_18241513221303287_7521098675127606308_n.jpg',
+    image: '/team/arbresha-nila.jpg',
     specialties: ['General Dentistry'],
     education: {
       en: ['Faculty of Dental Medicine'],
@@ -234,32 +234,7 @@ export const BLOG_POSTS: BlogPost[] = [
   }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: '1',
-    name: 'Sarah Jenkins',
-    country: 'United Kingdom',
-    text: 'The surgical expertise at Medident is world-class. I saved 60% compared to London prices and received better care than I ever imagined.',
-    rating: 5,
-    image: 'https://i.pravatar.cc/150?u=sarah'
-  },
-  {
-    id: '2',
-    name: 'Hans Müller',
-    country: 'Germany',
-    text: 'Highly skilled surgeons in Peja are true masters. My full-arch restoration was painless and the results are perfect. Highly recommended.',
-    rating: 5,
-    image: 'https://i.pravatar.cc/150?u=hans'
-  },
-  {
-    id: '3',
-    name: 'Elena Rossi',
-    country: 'Italy',
-    text: 'A clean, modern clinic with state-of-the-art technology. The team was professional and the journey through Rugova was the cherry on top.',
-    rating: 5,
-    image: 'https://i.pravatar.cc/150?u=elena'
-  }
-];
+export const TESTIMONIALS: Testimonial[] = [];
 
 export const FAQS: FAQ[] = [
   {

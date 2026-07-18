@@ -9,6 +9,8 @@ const Testimonials: React.FC<{ lang: 'en' | 'sq' }> = ({ lang }) => {
   const next = () => setIndex((prev) => (prev + 1) % TESTIMONIALS.length);
   const prev = () => setIndex((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
 
+  if (TESTIMONIALS.length === 0) return null;
+
   return (
     <section className="py-24 bg-slate-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
