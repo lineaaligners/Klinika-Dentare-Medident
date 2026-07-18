@@ -214,7 +214,7 @@ const PatientGuideModal: React.FC<PatientGuideModalProps> = ({ isOpen, onClose, 
                          <div className="space-y-6">
                             <div className="flex items-center space-x-4">
                                <Phone size={20} />
-                               <span className="text-xl font-bold">+383 49 772 307</span>
+                               <span className="text-xl font-bold">+383 49 272 803</span>
                             </div>
                             <div className="flex items-center space-x-4">
                                <MapPin size={20} />

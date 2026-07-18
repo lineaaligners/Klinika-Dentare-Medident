@@ -48,7 +48,7 @@ const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ onClose, lang }) => {
 
           <div className="space-y-4">
             <a 
-              href="https://wa.me/38349123456" 
+              href="https://wa.me/38349772307" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-full bg-blue-600 hover:bg-slate-900 text-white py-5 rounded-2xl font-black text-lg tracking-wide transition-all shadow-xl shadow-blue-600/20 flex items-center justify-center gap-3"

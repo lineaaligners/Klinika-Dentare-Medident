@@ -54,7 +54,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-400 uppercase tracking-[0.2em] font-black mb-1">{labels.call}</p>
-                  <p className="text-xl font-bold">+383 49 772 307</p>
+                  <p className="text-xl font-bold">+383 49 272 803</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
