@@ -353,8 +353,8 @@ Nëse po mendoni për implante, ose nëse ju është thënë se rasti juaj ësht
 {
     id: 'b2',
     title: {
-      en: 'A Tooth Is Not a White Rectangle. On Natural Aesthetics in Dentistry.',
-      sq: 'Një Dhëmb Nuk Është një Drejtkëndësh i Bardhë. Mbi Estetikën Natyrale në Stomatologji.'
+      en: 'Dr. Faton Loci: A Tooth Is Not a White Rectangle. On Natural Aesthetics.',
+      sq: 'Dr. Faton Loci: Një Dhëmb Nuk Është Drejtkëndësh i Bardhë. Mbi Estetikën Natyrale.'
     },
     excerpt: {
       en: 'I spend a lot of time outside. Mountains, rivers, forests — nothing in nature is perfectly symmetrical, perfectly uniform, perfectly white. That observation is the foundation of everything I do in the clinic.',
