@@ -345,11 +345,15 @@ Nëse po mendoni për implante, ose nëse ju është thënë se rasti juaj ësht
     content: {
       en: `I spend a lot of time outside. Mountains, rivers, forests — nothing in nature is perfectly symmetrical, perfectly uniform, perfectly white. A pine tree does not grow in a straight line. A river stone is not a perfect oval. And a natural tooth is not a white rectangle.
 
-That sounds obvious. But walk into many dental clinics and you will see exactly that: a row of identical, blindingly white crowns that look nothing like real teeth. The patient leaves happy because their teeth are "fixed." Six months later they do not smile in photos because something feels off, even if they cannot explain what.
+That sounds obvious. And yet it is easy to lose sight of when the pressure is to make teeth look "done."
 
-I have been thinking about this for as long as I have been practising dentistry. And it comes back, always, to the same thing — I am a person who pays attention to nature. Not just in the mountains on a weekend. In the way light falls on a leaf. In the way shadows create depth. In the way nothing living is ever perfectly even.
+I have been thinking about this for as long as I have been practising dentistry. It comes back, always, to the same thing — I am a person who pays attention to nature. Not just in the mountains on a weekend. In the way light falls on a leaf. In the way shadows create depth. In the way nothing living is ever perfectly even.
 
-That thinking directly shapes how I work.
+That thinking directly shapes how I work. And it starts long before I pick up an instrument — it starts with communication.
+
+I spend a great deal of time talking with my patients and with the dental lab. More than most people expect. Before any aesthetic case, I want to understand the person sitting in front of me. How they talk. What kind of smile they have naturally — wide and open, or subtle and closed. Whether they are someone who wants to be noticed or someone who wants to blend in. Whether they spend time outdoors, under natural light, or mostly indoors. All of that informs the final result.
+
+With the lab, I do not send a shade number and wait. I send photographs — in window light, in clinical light, in natural daylight outside. I write notes. I call. I ask for samples. The back-and-forth takes time, but it is the difference between a restoration that fits a mouth and one that fits a person.
 
 When I plan an aesthetic rehabilitation — whether it is a single crown or a full smile — the first thing I look at is the patient's existing teeth. Not to copy what is damaged, but to understand what was there. The natural shape, the slight translucency at the edges, the way the centrals are a fraction wider than the laterals, the way the canines catch light differently. These small imperfections are not flaws. They are what makes a smile look real.
 
@@ -367,11 +371,15 @@ Not white rectangles. Something that looks like it grew there.
 Klinika Dentare Medident, Pejë`,
       sq: `Kaloj shumë kohë jashtë. Male, lumenj, pyje — asgjë në natyrë nuk është perfektisht simetrike, perfektisht uniforme, perfektisht e bardhë. Një pishë nuk rritet në vijë të drejtë. Një gur lumi nuk është oval i përsosur. Dhe një dhëmb natyral nuk është një drejtkëndësh i bardhë.
 
-Kjo tingëllon e qartë. Por hy në shumë klinika dentare dhe do të shohësh saktësisht atë: një rresht kurorave identike, të bardha verbëruese, që nuk ngjajnë aspak me dhëmbët e vërtetë. Pacienti largohet i lumtur sepse dhëmbët janë "rregulluar." Gjashtë muaj më vonë nuk buzëqesh në foto sepse diçka ndihet keq, edhe nëse nuk mund ta shpjegojë.
+Kjo tingëllon e qartë. Dhe megjithatë është e lehtë ta humbësh nga sytë kur presioni është të bësh dhëmbët të duken "gati."
 
-Kam menduar për këtë gjatë gjithë kohës që ushtroj stomatologjinë. Dhe kthehet gjithmonë te e njëjta gjë — jam person që i kushton vëmendje natyrës. Jo vetëm në male të dielave. Në mënyrën se si drita bie mbi një gjethe. Në mënyrën se si hijet krijojnë thellësi. Në mënyrën se si asgjë e gjallë nuk është kurrë plotësisht e njëtrajtshme.
+Kam menduar për këtë gjatë gjithë kohës që ushtroj stomatologjinë. Kthehet gjithmonë te e njëjta gjë — jam person që i kushton vëmendje natyrës. Jo vetëm në male të dielave. Në mënyrën se si drita bie mbi një gjethe. Në mënyrën se si hijet krijojnë thellësi. Në mënyrën se si asgjë e gjallë nuk është kurrë plotësisht e njëtrajtshme.
 
-Ky mendim ndikon drejtpërdrejt mënyrën se si punoj.
+Ky mendim ndikon drejtpërdrejt mënyrën se si punoj. Dhe fillon shumë para se të marr ndonjë instrument — fillon me komunikim.
+
+Kaloj shumë kohë duke folur me pacientët e mi dhe me laboratorin dentar. Më shumë sesa shumica e njerëzve presin. Para çdo rasti estetik, dua të kuptoj personin që qëndron përpara meje. Si flasin. Çfarë lloj buzëqeshjeje kanë natyrshëm — të gjerë dhe të hapur, ose delikate dhe të mbyllur. Nëse janë dikush që dëshiron të vihet re ose dikush që dëshiron të përzihet. Nëse kalojnë kohë jashtë, nën dritë natyrale, ose kryesisht brenda. E gjithë kjo informon rezultatin final.
+
+Me laboratorin, nuk dërgoj vetëm një numër ngjyre dhe pres. Dërgoj fotografi — në dritë dritareje, në dritë klinike, në dritë natyrale jashtë. Shkruaj shënime. Telefonoj. Kërkoj mostra. Shkëmbimi merr kohë, por është dallimi midis një restaurimi që i përshtatet një goje dhe njërit që i përshtatet një personi.
 
 Kur planifikoj një rehabilitim estetik — qoftë një kurorë e vetme ose një buzëqeshje e plotë — gjëja e parë që shoh janë dhëmbët ekzistues të pacientit. Jo për të kopjuar atë që është dëmtuar, por për të kuptuar çfarë ka qenë aty. Forma natyrale, lehtë translucença në skajet, mënyra se si qendralet janë paksa më të gjera se lateralet, mënyra se si kuninjtë kapin dritën ndryshe. Këto papërsosuri të vogla nuk janë defekte. Janë ato që e bëjnë një buzëqeshje të duket reale.
 
