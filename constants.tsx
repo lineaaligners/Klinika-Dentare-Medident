@@ -487,6 +487,70 @@ Që nga 1999`
     image: '/team/arjeta-manager.jpg',
     category: { en: 'Our Story', sq: 'Historia Jonë' },
     readTime: { en: '5 min read', sq: '5 min lexim' }
+  },
+{
+    id: 'b4',
+    title: {
+      en: 'I Did Not Plan to Be Here. But I Chose to Stay.',
+      sq: 'Nuk E Kisha Planifikuar të Jem Këtu. Por Zgjodha të Qëndroj.'
+    },
+    excerpt: {
+      en: 'I was a dental student in Sarajevo when the war started. I finished my degree in Istanbul, came back to Kosovo, and built a clinic from nothing — while raising two children alone. This is not a story about success. It is a story about not stopping.',
+      sq: 'Isha studentë stomatologjie në Sarajevë kur filloi lufta. E mbarova diplomën në Istanbul, u ktheva në Kosovë dhe ndërtova një klinikë nga hiçi — ndërkohë që rrija dy fëmijë vetëm. Kjo nuk është një histori suksesi. Është një histori rreth mosndalesës.'
+    },
+    content: {
+      en: `I was a dental student in Sarajevo when the war started. I was young, I was in the middle of my studies, and suddenly everything stopped. The city I had gone to in order to build a future became a place I had to leave. That is not a moment you plan for. That is a moment that plans you.
+
+I finished my dental degree at Çapa University in Istanbul — one of the best medical faculties in Turkey, and one of the most demanding places I have ever been. I was not supposed to be there. I had not chosen Istanbul. But I worked, I passed, I graduated. And I learned something that no curriculum teaches: that the circumstances that interrupt your plan are often the ones that build your character.
+
+I came back to Kosovo and I opened this clinic in 1999. Sixteen square metres. One room. No equipment to speak of. The country was just beginning to find itself after everything it had been through. I was just beginning to find myself after everything I had been through.
+
+In the early years, I lost the father of my two children. I will not write more than that, except to say that it happened, and that I had to keep going. Two children. A clinic that had just started. Staff who depended on me. Patients who were coming through the door. There was no version of this where I stopped.
+
+I do not say this for sympathy. I say it because I think it is important for people to know that the person treating them, the person planning their surgery, the person who stays calm when something unexpected happens in the chair — that person has been tested. Not in a classroom. In life.
+
+What kept me going? My children, always. The patients — because when someone trusts you with their health, that trust is not something you can put down. And this clinic. Because a place that carries 25 years of your life is not just a business. It is proof that you did not stop.
+
+In 2004 I placed the first dental implant ever performed by a woman in Kosovo. I remember the day. I remember being aware of what it meant — not for my ego, but because representation matters. If one young woman in Kosovo saw that and thought it was possible for her too, then it was worth doing.
+
+I have two children who watched their mother run a clinic, perform surgery, hire people, fire people, make decisions, carry responsibility, and keep going through things that could have stopped her. I hope they saw something useful in that. I hope they know that the point is not to have a life without difficulties. The point is to decide that the difficulties do not have the last word.
+
+I am still here. Still operating. Still planning every case in 3D, still learning, still building this place into what it can be.
+
+I did not plan to be here. But I chose to stay. Every single day.
+
+— Dr. Lendita Islami Nallbani
+Oral Surgery Specialist & Implantologist
+Founder, Klinika Dentare Medident, Pejë`,
+      sq: `Isha studentë stomatologjie në Sarajevë kur filloi lufta. Isha e re, isha në mes të studimeve dhe papritur gjithçka u ndal. Qyteti ku kisha shkuar për të ndërtuar një të ardhme u bë një vend nga ku duhej të largohej. Ai nuk është moment që e planifikon. Është moment që të planifikon ty.
+
+E mbarova diplomën time stomatologjike në Universitetin Çapa në Istanbul — një nga fakultetet mjekësore më të mira në Turqi dhe një nga vendet më kërkuese ku kam qenë ndonjëherë. Nuk duhej të isha atje. Nuk e kisha zgjedhur Stambollin. Por punova, kalova, u diplomova. Dhe mësova diçka që asnjë kurrikul nuk e mëson: rrethanat që ndërpresin planin tënd janë shpesh ato që ndërtojnë karakterin tënd.
+
+U ktheva në Kosovë dhe hapa këtë klinikë në vitin 1999. Gjashtëmbëdhjetë metra katrorë. Një dhomë. Pothuajse asnjë pajisje. Vendi sapo po fillonte të gjente veten pas gjithçkaje që kishte kaluar. Unë sapo po filloja të gjeja veten pas gjithçkaje që kisha kaluar.
+
+Në vitet e para humba babanë e dy fëmijëve të mi. Nuk do të shkruaj më shumë se kaq, përveçse të them se ndodhi, dhe se duhej të vazhdoja. Dy fëmijë. Një klinikë që sapo kishte filluar. Staf që varej nga unë. Pacientë që vinin nëpër derë. Nuk kishte version i kësaj ku unë ndaloja.
+
+Nuk e them këtë për simpati. E them sepse mendoj se është e rëndësishme që njerëzit të dinë se personi që i trajton, personi që planifikon kirurgjinë e tyre, personi që qëndron i qetë kur ndodh diçka e papritur në karrige — ai person është testuar. Jo në klasë. Në jetë.
+
+Çfarë më mbajti? Fëmijët e mi, gjithmonë. Pacientët — sepse kur dikush të beson me shëndetin e tij, ajo besim nuk është diçka që mund ta lësh poshtë. Dhe kjo klinikë. Sepse një vend që mban 25 vite të jetës tënde nuk është vetëm biznes. Është dëshmi se nuk ndalove.
+
+Në vitin 2004 vendosa implantin e parë dentar që u krye ndonjëherë nga një grua në Kosovë. E mbaj mend ditën. Mbaj mend që isha e vetëdijshme për çfarë do të thotë — jo për egon time, por sepse përfaqësimi ka rëndësi. Nëse një vajzë e re në Kosovë e pa atë dhe mendoi se ishte e mundur edhe për të, atëherë ia vlente ta bëje.
+
+Kam dy fëmijë që panë nënën e tyre të drejtonte një klinikë, kryente kirurgji, punësonte njerëz, shkarkonte njerëz, merrte vendime, mbante përgjegjësi dhe vazhdonte nëpër gjëra që mund ta kishin ndaluar. Shpresoj që panë diçka të dobishme në atë. Shpresoj që dinë se poenti nuk është të kesh një jetë pa vështirësi. Poenti është të vendosësh se vështirësitë nuk kanë fjalën e fundit.
+
+Jam ende këtu. Akoma operoj. Akoma planifikoj çdo rast në 3D, akoma mësoj, akoma e ndërtoj këtë vend në atë që mund të jetë.
+
+Nuk e kisha planifikuar të jem këtu. Por zgjodha të qëndroj. Çdo ditë të vetme.
+
+— Dr. Lendita Islami Nallbani
+Specialiste e Kirurgjisë Orale & Implantologe
+Themeluese, Klinika Dentare Medident, Pejë`
+    },
+    authorId: '1',
+    date: 'Jul 19, 2025',
+    image: '/photos/lendita-operating.jpg',
+    category: { en: 'Personal', sq: 'Personale' },
+    readTime: { en: '5 min read', sq: '5 min lexim' }
   }
 ];
 
