@@ -45,22 +45,26 @@ const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyCli
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
 
-      {/* ── Background: Ken Burns clinic photo ── */}
+      {/* ── Background: Higgsfield cinematic video + photo fallback ── */}
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
-        {/* Ken Burns scale animation */}
-        <motion.div
-          className="absolute inset-0"
-          initial={{ scale: 1.08 }}
-          animate={{ scale: 1.0 }}
-          transition={{ duration: 8, ease: 'easeOut' }}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/photos/clinic-hero.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: 'center 30%' }}
         >
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3GK4EvYC3RV3gOLAljSryk8hjDQ/hf_20260719_225047_4f449993-916c-4e09-ab9a-884086fe9c35.mp4" type="video/mp4" />
+          {/* Fallback: Ken Burns still */}
           <img
             src="/photos/clinic-hero.jpg"
             className="w-full h-full object-cover"
             alt="Medident Clinic Reception — Pejë"
             style={{ objectPosition: 'center 30%' }}
           />
-        </motion.div>
+        </video>
 
         {/* Gradient overlays for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/20" />
