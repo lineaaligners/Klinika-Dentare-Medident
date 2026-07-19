@@ -291,7 +291,7 @@ export const BLOG_POSTS: BlogPost[] = [
       sq: 'Pas 27 vitesh në kirurgji orale, ndryshimi më i madh në praktikën time nuk ka qenë një sistem i ri implantesh — ka qenë momenti kur ndalova së punuari nga një radiografi 2D dhe fillova të planifikoj në tre dimensione.'
     },
     content: {
-      en: `I still remember the first implant I placed in 1999, the year I opened this clinic with my family. We had a periapical radiograph, a probe, and experience. That was the standard — and it worked. But "working" and "optimal" are two different things.
+      en: `I still remember the first implant I placed in 2004. I was the first woman in Kosovo to perform the procedure. We had a periapical radiograph, a probe, and a great deal of determination. That was the standard at the time — and it worked. But "working" and "optimal" are two different things.
 
 Today, before any implant surgery at Medident, I sit down with a CBCT scan — a full 3D image of the patient's jaw — and I plan the entire procedure digitally. I decide the exact angle, depth, and diameter of the implant before I have picked up a single instrument. I see where the nerve runs. I see the available bone height. I see the anatomy in ways a flat X-ray simply cannot show.
 
@@ -308,7 +308,7 @@ Technology does not replace experience — it amplifies it. A 3D plan is only as
 If you are considering implants, or if you have been told your case is complicated, I would like to see your scan personally. We can talk through the plan together before anything else happens.
 
 — Dr. Lendita Islami Nallbani, Oral Surgery Specialist & Implantologist, Klinika Dentare Medident, Pejë`,
-      sq: `E kujtoj ende implantin e parë që vendosa në vitin 1999, vitin kur hapa këtë klinikë me familjen time. Kishim një radiografi periapikale, një sondë dhe përvojë. Ai ishte standardi — dhe funksiononte. Por "funksionon" dhe "optimal" janë dy gjëra të ndryshme.
+      sq: `E kujtoj ende implantin e parë që vendosa në vitin 2004. Isha gruaja e parë në Kosovë që kreu këtë procedurë. Kishim një radiografi periapikale, një sondë dhe shumë vendosmëri. Ai ishte standardi i kohës — dhe funksiononte. Por "funksionon" dhe "optimal" janë dy gjëra të ndryshme.
 
 Sot, para çdo kirurgjie implantesh në Medident, ulem me një skanim CBCT — një imazh i plotë 3D i nofullës së pacientit — dhe e planifikoj të gjithë procedurën digjitalisht. Vendos këndin e saktë, thellësinë dhe diametrin e implantit para se të kem marrë ndonjë instrument. E shoh se ku kalon nervi. E shoh lartësinë e kockës disponibël. E shoh anatominë në mënyra që një radiografi e sheshtë thjesht nuk mund ta tregojë.
 
