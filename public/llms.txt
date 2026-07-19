@@ -60,6 +60,20 @@ Active courses:
 2. Aesthetic Preparation & Crown Placement — led by Dr. Faton Loci
 Contact for schedule: +383 49 772 307
 
+## Montenegro market (Rožaje, Plav, Gusinje)
+
+Klinika Dentare Medident serves patients from Montenegro:
+- Rožaje → Peć: ~60 km, 1 hour drive
+- Plav → Peć: ~45 km, 45 minutes
+- Gusinje → Peć: ~50 km, 50 minutes
+- Berane → Peć: ~80 km, 1.5 hours
+
+Staff speaks Bosnian, Albanian, and English.
+Dedicated pages for Montenegro patients:
+- https://medident-ks.com/crna-gora.html (Bosnian)
+- https://medident-ks.com/rozaje.html (Bosnian)
+- https://medident-ks.com/plav-gucia.html (Albanian)
+
 ## Static crawlable pages
 
 https://medident-ks.com/about.html — About the clinic, team, and history
