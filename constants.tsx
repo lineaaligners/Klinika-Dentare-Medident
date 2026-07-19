@@ -282,17 +282,55 @@ export const GALLERY: BeforeAfter[] = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'b1',
-    title: { en: 'Advanced Surgical Protocols', sq: 'Protokollet e Avancuara Kirurgjikale' },
-    excerpt: { en: 'A review of structural integrity and surgical outcomes.', sq: 'Një rishikim i integritetit strukturor dhe rezultateve kirurgjikale.' },
-    content: { 
-      en: 'Institutional report on surgical integration... Full research following advanced clinical protocols brought by Chief Surgeon Dr. Lendita.',
-      sq: 'Raport institucional mbi integrimin kirurgjikal... Kërkimi i plotë sipas protokolleve klinike të avancuara të sjella nga Kryekirurgja Dr. Lendita.'
+    title: {
+      en: 'Why I Plan Every Implant in 3D Before I Touch the Patient',
+      sq: 'Pse e Planifikoj Çdo Implant në 3D Para se të Filloj'
+    },
+    excerpt: {
+      en: 'After 27 years in oral surgery, the single biggest shift in my practice has not been a new implant system — it has been the moment I stopped working from a 2D X-ray and started planning in three dimensions.',
+      sq: 'Pas 27 vitesh në kirurgji orale, ndryshimi më i madh në praktikën time nuk ka qenë një sistem i ri implantesh — ka qenë momenti kur ndalova së punuari nga një radiografi 2D dhe fillova të planifikoj në tre dimensione.'
+    },
+    content: {
+      en: `I still remember the first implant I placed in 1999, the year I opened this clinic with my family. We had a periapical radiograph, a probe, and experience. That was the standard — and it worked. But "working" and "optimal" are two different things.
+
+Today, before any implant surgery at Medident, I sit down with a CBCT scan — a full 3D image of the patient's jaw — and I plan the entire procedure digitally. I decide the exact angle, depth, and diameter of the implant before I have picked up a single instrument. I see where the nerve runs. I see the available bone height. I see the anatomy in ways a flat X-ray simply cannot show.
+
+The result is a 3D-printed surgical guide, made specifically for that patient. During surgery, I place the implant through that guide — which means the drill follows the exact path I planned on screen. There is no estimation. No guesswork.
+
+What this means in practice: for the patient, it means a shorter surgical time — often under 45 minutes for a single implant. It means a smaller incision or sometimes no incision at all (what we call flapless surgery). It means less swelling, less discomfort, and a faster recovery.
+
+For me as a surgeon, it means I can take on more complex cases safely — patients with limited bone, patients who have had previous failures elsewhere, patients who were told they were not candidates for implants. With a proper 3D plan, many of those cases become possible.
+
+The systems I trust: I work with Hiossen (USA) and MegaGen implants. I chose them because of their surface technology and their documented osseointegration rates — the process by which the implant fuses with the bone. A well-placed implant in well-prepared bone, with the right surface treatment, should last a lifetime. That is what I aim for with every patient.
+
+Technology does not replace experience — it amplifies it. A 3D plan is only as good as the surgeon interpreting it. After 27 years and more than 4,000 implants placed, I have learned to read anatomy, anticipate complications, and make decisions under pressure. The digital workflow gives me more information. My experience tells me what to do with it.
+
+If you are considering implants, or if you have been told your case is complicated, I would like to see your scan personally. We can talk through the plan together before anything else happens.
+
+— Dr. Lendita Islami Nallbani, Oral Surgery Specialist & Implantologist, Klinika Dentare Medident, Pejë`,
+      sq: `E kujtoj ende implantin e parë që vendosa në vitin 1999, vitin kur hapa këtë klinikë me familjen time. Kishim një radiografi periapikale, një sondë dhe përvojë. Ai ishte standardi — dhe funksiononte. Por "funksionon" dhe "optimal" janë dy gjëra të ndryshme.
+
+Sot, para çdo kirurgjie implantesh në Medident, ulem me një skanim CBCT — një imazh i plotë 3D i nofullës së pacientit — dhe e planifikoj të gjithë procedurën digjitalisht. Vendos këndin e saktë, thellësinë dhe diametrin e implantit para se të kem marrë ndonjë instrument. E shoh se ku kalon nervi. E shoh lartësinë e kockës disponibël. E shoh anatominë në mënyra që një radiografi e sheshtë thjesht nuk mund ta tregojë.
+
+Rezultati është një udhëzues kirurgjikal i printuar 3D, bërë posaçërisht për atë pacient. Gjatë kirurgjisë, e vendos implantin nëpërmjet atij udhëzuesi — që do të thotë se burimi ndjek saktësisht rrugën që kam planifikuar në ekran. Nuk ka vlerësim. Nuk ka hamendje.
+
+Çfarë do të thotë kjo në praktikë: për pacientin, do të thotë një kohë kirurgjikale më e shkurtër — shpesh nën 45 minuta për një implant të vetëm. Do të thotë një prerje më e vogël ose ndonjëherë asnjë prerje fare (kirurgji flapless). Do të thotë më pak ënjtje, më pak shqetësim dhe rikuperim më të shpejtë.
+
+Për mua si kirurge, do të thotë se mund të marr raste më komplekse me siguri — pacientë me kockë të kufizuar, pacientë me dështime të mëparshme, pacientë që u është thënë se nuk ishin kandidatë për implante. Me një plan të duhur 3D, shumë prej atyre rasteve bëhen të mundshme.
+
+Sistemet që besoj: punoj me implantet Hiossen (SHBA) dhe MegaGen. I zgjodha për shkak të teknologjisë së sipërfaqes dhe shkallëve të dokumentuara të osseointegrimid. Një implant i vendosur mirë në kockë të përgatitur mirë, me trajtimin e duhur të sipërfaqes, duhet të zgjasë gjithë jetën. Ky është qëllimi im me çdo pacient.
+
+Teknologjia nuk zëvendëson përvojën — e amplikon atë. Një plan 3D është aq i mirë sa kirurgu që e interpreton. Pas 27 vitesh dhe mbi 4,000 implantesh të vendosura, kam mësuar të lexoj anatominë, të parashikoj komplikimet dhe të marr vendime nën presion.
+
+Nëse po mendoni për implante, ose nëse ju është thënë se rasti juaj është i komplikuar, dua ta shoh skanimin tuaj personalisht. Mund ta diskutojmë planin bashkë para se të ndodhë çdo gjë tjetër.
+
+— Dr. Lendita Islami Nallbani, Specialiste e Kirurgjisë Orale & Implantologe, Klinika Dentare Medident, Pejë`
     },
     authorId: '1',
-    date: 'Oct 24, 2024',
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop',
-    category: { en: 'Surgical Protocols', sq: 'Protokollet Kirurgjikale' },
-    readTime: { en: '6 min read', sq: '6 min lexim' }
+    date: 'Jul 19, 2025',
+    image: '/photos/lendita-surgical-bw.jpg',
+    category: { en: 'Implantology', sq: 'Implantologji' },
+    readTime: { en: '5 min read', sq: '5 min lexim' }
   }
 ];
 

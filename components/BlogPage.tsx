@@ -82,7 +82,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
                   <div className="text-slate-700 leading-loose space-y-8 font-medium">
                     {activePost.content[lang]}
                     {/* Simulated extended content for readable look */}
-                    <p>Clinical observations indicate that the precision of CAD/CAM milled zirconia structures significantly improves gingival biotype adaptation compared to traditional casting methods. The Medident medical board rigorously verifies each patient transformation before final prosthetic loading.</p>
+
                   </div>
                 </div>
               </div>
@@ -90,9 +90,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
               <div className="lg:col-span-4">
                 <div className="sticky top-40 space-y-12">
                   <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200">
-                    <h4 className="text-[10px] font-black text-slate-900 uppercase tracking-[0.2em] mb-6">{lang === 'en' ? 'Institutional Author' : 'Autori Institucional'}</h4>
+                    <h4 className="text-[10px] font-black text-slate-900 uppercase tracking-[0.2em] mb-6">{lang === 'en' ? 'Author' : 'Autori'}</h4>
                     <div className="flex items-center space-x-4 mb-6">
-                      <img src={author?.image} className="w-14 h-14 rounded-xl object-cover grayscale" alt={author?.name} />
+                      <img src={author?.image} className="w-14 h-14 rounded-xl object-cover object-top" alt={author?.name} />
                       <div>
                         <p className="text-xs font-black text-slate-900 leading-none mb-1.5">{author?.name}</p>
                         <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest">{author?.role[lang]}</p>
