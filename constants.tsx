@@ -290,16 +290,34 @@ export const ACADEMY_COURSES: Course[] = [
   },
   {
     id: 'c2',
-    title: { en: 'Zirconia Crowns', sq: 'Kurora Zirkoni' },
+    title: { en: 'Aesthetic Preparation & Crown Placement', sq: 'Preparimi Estetik & Vendosja e Kurorave' },
     description: {
-      en: 'Practical course in zirconia crown preparation and placement, led by Dr. Faton Loci.',
-      sq: 'Kurs praktik në përgatitjen dhe vendosjen e kurorave të zirkonit, i udhëhequr nga Dr. Faton Loci.'
+      en: 'A hands-on course covering the full aesthetic workflow — from tooth preparation and shade selection through to crown cementation and polishing. Led by Dr. Faton Loci, with real clinical cases.',
+      sq: 'Kurs praktik që mbulon të gjithë rrjedhën estetike — nga preparimi i dhëmbëve dhe zgjedhja e ngjyrës deri tek çimentimi i kurorave dhe polierimi. I udhëhequr nga Dr. Faton Loci, me raste reale klinike.'
     },
     duration: { en: 'Contact for schedule', sq: 'Kontaktoni për orarin' },
-    curriculum: ['Tooth Preparation', 'Digital Impressions', 'Cementation Protocols', 'Aesthetic Finishing'],
+    curriculum: [
+      'Aesthetic Tooth Preparation Principles',
+      'Shade Selection & Communication with Lab',
+      'Temporary Crown Fabrication',
+      'Zirconia & Emax Crown Cementation',
+      'Finishing, Polishing & Occlusal Check'
+    ],
     keyTakeaways: {
-      en: ['Prepare teeth correctly for zirconia restorations', 'Work with digital impression workflows', 'Apply reliable cementation protocols', 'Achieve natural aesthetic results'],
-      sq: ['Përgatitni dhëmbët saktë për restaurime zirkoni', 'Punoni me rrjedhat digjitale të masave', 'Zbatoni protokolle të besueshme çimentimi', 'Arrini rezultate estetike natyrale']
+      en: [
+        'Master aesthetic preparation techniques for anterior and posterior teeth',
+        'Select and communicate shade accurately with the dental lab',
+        'Fabricate functional temporaries chair-side',
+        'Apply the correct cementation protocol for zirconia and Emax',
+        'Achieve a natural, balanced aesthetic result'
+      ],
+      sq: [
+        'Zotëroni teknikat estetike të preparimit për dhëmbët anterior dhe posterior',
+        'Zgjidhni dhe komunikoni ngjyrën saktë me laboratorin dentar',
+        'Fabrikoni temporare funksionale pranë karrigës',
+        'Zbatoni protokollin e duhur të çimentimit për zirkon dhe Emax',
+        'Arrini një rezultat estetik natyral dhe të balancuar'
+      ]
     },
     image: '/photos/faton-aesthetic-closeup.jpg',
     category: 'Hands-on',
