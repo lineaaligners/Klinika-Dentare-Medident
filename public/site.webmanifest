@@ -1,0 +1,13 @@
+{
+  "name": "Klinika Dentare Medident",
+  "short_name": "Medident",
+  "description": "Dental implants, oral surgery, and aesthetic dentistry in Pejë, Kosovo. Since 1999.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

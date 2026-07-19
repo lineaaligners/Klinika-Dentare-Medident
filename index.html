@@ -1,38 +1,85 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ═══════════════════════════════════════════
+         FAVICONS
+    ═══════════════════════════════════════════ -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <title>Klinika Dentare Medident | Family Dental Clinic in Pejë, Kosovo</title>
-    <meta name="description" content="Klinika Dentare Medident in Pejë, Kosovo. Family dental clinic since 1999, led by Dr. Lendita Nallbani. Oral surgery, implants, and general dentistry.">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://medident-ks.com/">
-    <meta property="og:title" content="Klinika Dentare Medident | Pejë, Kosovo">
-    <meta property="og:description" content="Klinika Dentare Medident in Pejë, Kosovo. Family dental clinic since 1999. Oral surgery, implants, and general dentistry.">
-    <meta property="og:image" content="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/freepik__recreate-the-locations-more-modern-bright-natural-__5205.jpeg">
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#2563eb" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://medident-ks.com/">
-    <meta property="twitter:title" content="Klinika Dentare Medident | Pejë, Kosovo">
-    <meta property="twitter:description" content="Klinika Dentare Medident in Pejë, Kosovo. Family dental clinic since 1999. Oral surgery, implants, and general dentistry.">
-    <meta property="twitter:image" content="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/freepik__recreate-the-locations-more-modern-bright-natural-__5205.jpeg">
+    <!-- ═══════════════════════════════════════════
+         PRIMARY META
+    ═══════════════════════════════════════════ -->
+    <title>Klinika Dentare Medident | Dental Implants & Oral Surgery — Pejë, Kosovo</title>
+    <meta name="description" content="Klinika Dentare Medident in Pejë, Kosovo. Led by Dr. Lendita Islami Nallbani — oral surgery specialist, implantologist, and the first woman to place a dental implant in Kosovo (2004). Hiossen & MegaGen implants. Family clinic since 1999. 13,000+ patients. +383 49 272 803." />
+    <meta name="keywords" content="dental clinic Kosovo, dental implants Peja, dentist Peja Kosovo, klinika dentare Peje, implante dentare Kosove, oral surgery Kosovo, Dr Lendita Nallbani, zirconia crowns Kosovo, All-on-4 Kosovo, dental tourism Kosovo, Medident Peja, stomatolog Peje, kirurgji orale Kosove" />
+    <meta name="author" content="Klinika Dentare Medident" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://medident-ks.com/" />
 
+    <!-- Hreflang: English + Albanian -->
+    <link rel="alternate" hreflang="en" href="https://medident-ks.com/" />
+    <link rel="alternate" hreflang="sq" href="https://medident-ks.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://medident-ks.com/" />
+
+    <!-- ═══════════════════════════════════════════
+         OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
+    ═══════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://medident-ks.com/" />
+    <meta property="og:site_name" content="Klinika Dentare Medident" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="sq_AL" />
+    <meta property="og:title" content="Klinika Dentare Medident — Dental Implants & Oral Surgery, Pejë, Kosovo" />
+    <meta property="og:description" content="Family dental clinic in Pejë since 1999. Led by Dr. Lendita Islami Nallbani, oral surgery specialist. Hiossen & MegaGen implants, zirconia crowns, All-on-4. International patients welcome." />
+    <meta property="og:image" content="https://medident-ks.com/photos/clinic-hero.jpg" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1401" />
+    <meta property="og:image:alt" content="Medident Clinic reception — Pejë, Kosovo" />
+
+    <!-- ═══════════════════════════════════════════
+         TWITTER / X
+    ═══════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://medident-ks.com/" />
+    <meta name="twitter:title" content="Klinika Dentare Medident — Pejë, Kosovo" />
+    <meta name="twitter:description" content="Dental implants, oral surgery, and aesthetic dentistry in Pejë, Kosovo. Since 1999." />
+    <meta name="twitter:image" content="https://medident-ks.com/photos/clinic-hero.jpg" />
+
+    <!-- ═══════════════════════════════════════════
+         GEO TAGS (helps local search engines)
+    ═══════════════════════════════════════════ -->
+    <meta name="geo.region" content="XK-PE" />
+    <meta name="geo.placename" content="Pejë, Kosovo" />
+    <meta name="geo.position" content="42.6603;20.2917" />
+    <meta name="ICBM" content="42.6603, 20.2917" />
+
+    <!-- ═══════════════════════════════════════════
+         SCHEMA.ORG — Dentist (primary)
+    ═══════════════════════════════════════════ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Dentist",
+      "@id": "https://medident-ks.com/#dentist",
       "name": "Klinika Dentare Medident",
-      "image": "https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/freepik__recreate-the-locations-more-modern-bright-natural-__5205.jpeg",
-      "@id": "",
+      "alternateName": ["Medident Peja", "Medident Pejë", "Klinika Dentare Medident Pejë"],
+      "description": "Family dental clinic in Pejë, Kosovo, founded in 1999 by Dr. Lendita Islami Nallbani. Oral surgery, dental implants (Hiossen USA and MegaGen), zirconia crowns, All-on-4/6, sinus lift, bone graft, and general dentistry. Dr. Lendita was the first woman in Kosovo to place a dental implant (2004). 13,000+ patients treated.",
       "url": "https://medident-ks.com",
+      "logo": "https://medident-ks.com/favicon.svg",
+      "image": [
+        "https://medident-ks.com/photos/clinic-hero.jpg",
+        "https://medident-ks.com/team/lendita-nallbani.jpg"
+      ],
       "telephone": "+38349272803",
+      "email": "medident-ks@gmail.com",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Rr. Bajram Kelmendi",
@@ -46,110 +93,275 @@
         "latitude": 42.6603,
         "longitude": 20.2917
       },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Klinika+Dentare+Medident+Pej%C3%AB",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday"],
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Cash, Credit Card",
+      "foundingDate": "1999",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": 15
       },
+      "areaServed": [
+        {"@type": "City", "name": "Pejë"},
+        {"@type": "City", "name": "Gjakovë"},
+        {"@type": "City", "name": "Prizren"},
+        {"@type": "City", "name": "Prishtinë"},
+        {"@type": "Country", "name": "Kosovo"},
+        {"@type": "City", "name": "Rožaje"}
+      ],
+      "medicalSpecialty": [
+        "Oral Surgery",
+        "Implantology",
+        "Aesthetic Dentistry",
+        "Prosthodontics"
+      ],
       "sameAs": [
         "https://www.facebook.com/medidentks",
         "https://www.instagram.com/medidentks"
+      ],
+      "employee": [
+        {
+          "@type": "Person",
+          "name": "Dr. Lendita Islami Nallbani",
+          "jobTitle": "Oral Surgery Specialist & Implantologist",
+          "description": "Founder of Klinika Dentare Medident (1999). First woman in Kosovo to place a dental implant (2004). 27+ years of clinical experience. 4,000+ implants placed.",
+          "image": "https://medident-ks.com/team/lendita-nallbani.jpg"
+        },
+        {
+          "@type": "Person",
+          "name": "Dr. Faton Loci",
+          "jobTitle": "Dentist",
+          "description": "Dentist specializing in aesthetic dentistry, zirconia crowns, and smile rehabilitation at Klinika Dentare Medident.",
+          "image": "https://medident-ks.com/team/faton-loci.jpg"
+        }
       ]
     }
     </script>
+
+    <!-- ═══════════════════════════════════════════
+         SCHEMA.ORG — MedicalOrganization
+    ═══════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "@id": "https://medident-ks.com/#medorg",
+      "name": "Klinika Dentare Medident",
+      "url": "https://medident-ks.com",
+      "logo": "https://medident-ks.com/favicon.svg",
+      "medicalSpecialty": [
+        {"@type": "MedicalSpecialty", "name": "Dentistry"},
+        {"@type": "MedicalSpecialty", "name": "Oral Surgery"},
+        {"@type": "MedicalSpecialty", "name": "Implantology"}
+      ],
+      "availableService": [
+        {"@type": "MedicalProcedure", "name": "Dental Implants", "description": "Hiossen (USA) and MegaGen implant systems. 3D-planned guided surgery."},
+        {"@type": "MedicalProcedure", "name": "All-on-4 / All-on-6", "description": "Full arch implant-supported rehabilitation."},
+        {"@type": "MedicalProcedure", "name": "Sinus Lift", "description": "Bone augmentation for posterior implant placement."},
+        {"@type": "MedicalProcedure", "name": "Bone Graft", "description": "Guided bone regeneration for implant site preparation."},
+        {"@type": "MedicalProcedure", "name": "Zirconia Crowns", "description": "Monolithic and layered zirconia restorations."},
+        {"@type": "MedicalProcedure", "name": "Smile Makeover", "description": "Full aesthetic rehabilitation combining crowns, veneers and bonding."},
+        {"@type": "MedicalProcedure", "name": "Aesthetic Preparation and Crown Placement", "description": "Conservative prep, shade matching, and crown cementation by Dr. Faton Loci."}
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rr. Bajram Kelmendi",
+        "addressLocality": "Pejë",
+        "postalCode": "30000",
+        "addressCountry": "XK"
+      }
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════
+         SCHEMA.ORG — FAQPage (AI search snippet)
+    ═══════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where is Klinika Dentare Medident located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Klinika Dentare Medident is located on Rr. Bajram Kelmendi in Pejë (Peja), Kosovo. Phone: +383 49 272 803. WhatsApp: +383 49 772 307."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is the lead doctor at Medident?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dr. Lendita Islami Nallbani is the founder and lead oral surgery specialist at Klinika Dentare Medident. She is an oral surgeon and implantologist with 27 years of experience and was the first woman in Kosovo to place a dental implant in 2004. She personally reviews every implant case."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What implant brands does Medident use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Medident uses Hiossen (USA, FDA-cleared) and MegaGen (South Korea, CE-certified) implant systems. All cases are 3D-planned with CBCT imaging and a printed surgical guide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Medident treat international patients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Medident has a dental tourism programme for patients from the UK, Germany, Switzerland, Scandinavia, and the Balkans. Services include airport transfer from Prishtina, partner accommodation at Hotel Dukagjini in Pejë, and full treatment coordination. Contact us on WhatsApp at +383 49 772 307."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long has Medident been open?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Klinika Dentare Medident was founded in 1999 by Dr. Lendita Islami Nallbani. It has grown from a 16 m² single-room practice to a 200 m² full-service dental clinic with 15 staff members and 13,000+ patients treated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Medident offer dental implants in Kosovo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Medident is one of Kosovo's leading dental implant clinics, based in Pejë. Dr. Lendita Islami Nallbani has placed over 4,000 implants since 2004 when she became the first woman in Kosovo to perform the procedure. The clinic uses Hiossen (USA) and MegaGen implant systems with 3D surgical planning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Si mund të kontaktoj Medident Pejë?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Klinika Dentare Medident ndodhet në Rr. Bajram Kelmendi, Pejë, Kosovë. Telefon: +383 49 272 803. WhatsApp: +383 49 772 307. Email: medident-ks@gmail.com."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════
+         SCHEMA.ORG — BreadcrumbList
+    ═══════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://medident-ks.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Dental Implants Kosovo", "item": "https://medident-ks.com/#services"},
+        {"@type": "ListItem", "position": 3, "name": "Dental Tourism Peja", "item": "https://medident-ks.com/#tourism"},
+        {"@type": "ListItem", "position": 4, "name": "Medident Academy", "item": "https://medident-ks.com/#academy"}
+      ]
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════
+         SCHEMA.ORG — BlogPosting (signals for AI)
+    ═══════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Medident Clinical Blog",
+      "url": "https://medident-ks.com/#blog",
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "Why I Plan Every Implant in 3D Before I Touch the Patient",
+          "author": {"@type": "Person", "name": "Dr. Lendita Islami Nallbani"},
+          "datePublished": "2025-07-19",
+          "image": "https://medident-ks.com/photos/lendita-surgical-bw.jpg",
+          "description": "After 27 years in oral surgery, Dr. Lendita Nallbani explains how 3D CBCT planning and surgical guides changed implant outcomes — and why she was the first woman in Kosovo to place an implant in 2004.",
+          "keywords": "dental implants Kosovo, 3D implant planning, guided surgery, Hiossen implant, oral surgery Peja"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "I Did Not Plan to Be Here. But I Chose to Stay.",
+          "author": {"@type": "Person", "name": "Dr. Lendita Islami Nallbani"},
+          "datePublished": "2025-07-19",
+          "image": "https://medident-ks.com/photos/lendita-operating.jpg",
+          "description": "Dr. Lendita Islami Nallbani shares her personal story: studying in Sarajevo when war started, finishing her degree at Çapa University Istanbul, founding Medident in 1999, and continuing through personal loss in 2017.",
+          "keywords": "dentist Kosovo, Medident founder, Dr Lendita Nallbani, dental clinic Peja"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "A Tooth Is Not a White Rectangle. On Natural Aesthetics in Dentistry.",
+          "author": {"@type": "Person", "name": "Dr. Faton Loci"},
+          "datePublished": "2025-07-19",
+          "image": "https://medident-ks.com/photos/faton-clinical.jpg",
+          "description": "Dr. Faton Loci on natural aesthetic dentistry — why he spends more time with the dental lab than most, and why nothing in dentistry should look like a white rectangle.",
+          "keywords": "aesthetic dentistry Kosovo, zirconia crowns Peja, smile makeover Kosovo, natural aesthetics dentist"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "From 16 Square Metres to 200. What 25 Years of Running This Clinic Taught Me.",
+          "author": {"@type": "Person", "name": "Arjeta Muhaxheri Morina"},
+          "datePublished": "2025-07-19",
+          "image": "https://medident-ks.com/team/arjeta-manager.jpg",
+          "description": "Clinic manager Arjeta Muhaxheri Morina reflects on 25 years at Medident — from a 16m² single-room practice in 1999 to a 200m² clinic with 15 staff.",
+          "keywords": "Medident Peja history, dental clinic Kosovo, Klinika Dentare Medident"
+        }
+      ]
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════
+         PRECONNECT / PERFORMANCE
+    ═══════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="dns-prefetch" href="https://gwzvtrikxkudostserwe.supabase.co" />
+
+    <!-- Preload hero assets -->
+    <link rel="preload" as="image" href="/photos/clinic-hero.jpg" fetchpriority="high" />
+    <link rel="preload" as="video" href="/videos/hero.mp4" />
+
+    <!-- Fonts -->
+    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
+
     <style>
-      body {
-        font-family: 'Satoshi', sans-serif;
-        -webkit-font-smoothing: antialiased;
-      }
-      .font-display {
-        font-family: 'Cabinet Grotesk', sans-serif;
-      }
-      .glass-morphism {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-      }
-      h1, h2, h3, h4, .logo-text {
-        font-family: 'Cabinet Grotesk', sans-serif;
-      }
-
-      /* Professional PDF/Print Styles */
+      body { font-family: 'Satoshi', sans-serif; -webkit-font-smoothing: antialiased; }
+      .font-display { font-family: 'Cabinet Grotesk', sans-serif; }
+      .glass-morphism { background: rgba(255,255,255,0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); }
+      h1, h2, h3, h4, .logo-text { font-family: 'Cabinet Grotesk', sans-serif; }
       @media print {
-        @page {
-          margin: 1cm;
-          size: A4;
-        }
-        body {
-          background-color: white !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-        }
-        #root > *:not(.fixed) {
-          display: none !important;
-        }
-        
-        /* Hide everything except the printable areas */
-        .fixed:not(:has(#printable-guide)):not(:has(#syllabus-printable)) {
-          display: none !important;
-        }
-
-        .fixed:has(#printable-guide), .fixed:has(#syllabus-printable) {
-          position: relative !important;
-          background: white !important;
-          padding: 0 !important;
-          height: auto !important;
-          display: block !important;
-        }
-
-        .fixed:has(#printable-guide) > div, .fixed:has(#syllabus-printable) > div {
-          box-shadow: none !important;
-          max-height: none !important;
-          height: auto !important;
-          width: 100% !important;
-          max-width: none !important;
-          border: none !important;
-          border-radius: 0 !important;
-        }
-
-        .print-hidden, .print\:hidden {
-          display: none !important;
-        }
-
-        .custom-scrollbar {
-          overflow: visible !important;
-        }
-
-        /* Ensure text visibility */
-        p, h1, h2, h3, h4, span, li {
-          color: black !important;
-        }
-        .text-blue-600 {
-          color: #2563eb !important;
-        }
-        .bg-slate-50 {
-          background-color: #f8fafc !important;
-        }
-        .bg-blue-600 {
-          background-color: #2563eb !important;
-        }
-        .text-white {
-          color: white !important;
-        }
+        @page { margin: 1cm; size: A4; }
+        body { background-color: white !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        #root > *:not(.fixed) { display: none !important; }
+        .fixed:not(:has(#printable-guide)):not(:has(#syllabus-printable)) { display: none !important; }
+        .fixed:has(#printable-guide), .fixed:has(#syllabus-printable) { position: relative !important; background: white !important; padding: 0 !important; height: auto !important; display: block !important; }
+        .fixed:has(#printable-guide) > div, .fixed:has(#syllabus-printable) > div { box-shadow: none !important; max-height: none !important; height: auto !important; width: 100% !important; max-width: none !important; border: none !important; border-radius: 0 !important; }
+        .print-hidden, .print\:hidden { display: none !important; }
+        .custom-scrollbar { overflow: visible !important; }
+        p, h1, h2, h3, h4, span, li { color: black !important; }
+        .text-blue-600 { color: #2563eb !important; }
+        .bg-slate-50 { background-color: #f8fafc !important; }
+        .bg-blue-600 { background-color: #2563eb !important; }
+        .text-white { color: white !important; }
       }
     </style>
-  <script type="importmap">
+
+    <script type="importmap">
 {
   "imports": {
     "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
@@ -160,10 +372,10 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
-</head>
+    <link rel="stylesheet" href="/index.css">
+  </head>
   <body class="bg-slate-50 text-slate-900">
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
