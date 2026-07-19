@@ -214,7 +214,9 @@ export const TOURISM_STEPS = (lang: 'en' | 'sq') => [
 
 export const GALLERY: BeforeAfter[] = [
   { id: '1', category: { en: 'Aesthetic Rehabilitation — Zirconia Crowns', sq: 'Rehabilitim Estetik — Kurora Zirkoni' }, before: '/photos/case-smile-view.jpg', after: '/photos/case-clinical-view.jpg', labelBefore: 'Smile View', labelAfter: 'Clinical Detail' },
-  { id: '2', category: { en: 'Guided Implant Surgery — 3D Planned', sq: 'Kirurgji e Udhëhequr Implantesh — Planifikuar në 3D' }, before: '/photos/guided-plan-3d.jpg', after: '/photos/implant-placed.jpg', labelBefore: '3D Surgical Plan', labelAfter: 'Implant Placed' }
+  { id: '2', category: { en: 'Guided Implant Surgery — 3D Planned', sq: 'Kirurgji e Udhëhequr Implantesh — Planifikuar në 3D' }, before: '/photos/guided-plan-3d.jpg', after: '/photos/implant-placed.jpg', labelBefore: '3D Surgical Plan', labelAfter: 'Implant Placed' },
+  { id: '3', category: { en: 'Smile Makeover — Dr. Faton Loci', sq: 'Transformim i Buzëqeshjes — Dr. Faton Loci' }, before: '/photos/faton-smile-before.jpg', after: '/photos/faton-smile-after.jpg', labelBefore: 'Before', labelAfter: 'After' },
+  { id: '4', category: { en: 'Zirconia Crowns — Dr. Faton Loci', sq: 'Kurora Zirkoni — Dr. Faton Loci' }, before: '/photos/faton-crowns-before.jpg', after: '/photos/faton-crowns-after.jpg', labelBefore: 'Before', labelAfter: 'After' }
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -299,7 +301,7 @@ export const ACADEMY_COURSES: Course[] = [
       en: ['Prepare teeth correctly for zirconia restorations', 'Work with digital impression workflows', 'Apply reliable cementation protocols', 'Achieve natural aesthetic results'],
       sq: ['Përgatitni dhëmbët saktë për restaurime zirkoni', 'Punoni me rrjedhat digjitale të masave', 'Zbatoni protokolle të besueshme çimentimi', 'Arrini rezultate estetike natyrale']
     },
-    image: '/team/faton-loci.jpg',
+    image: '/photos/faton-aesthetic-closeup.jpg',
     category: 'Hands-on',
     instructorId: '2'
   }
