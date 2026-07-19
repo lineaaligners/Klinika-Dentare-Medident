@@ -31,9 +31,9 @@ const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyCli
     <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
         <img 
-          src="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/freepik__recreate-the-locations-more-modern-bright-natural-__5205.jpeg" 
+          src="/photos/surgery-lendita.jpg" 
           className="w-full h-full object-cover opacity-50 scale-110" 
-          alt="Medident Modern Clinical Interior" 
+          alt="Dr. Lendita Nallbani during oral surgery at Medident" 
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent"></div>
       </motion.div>

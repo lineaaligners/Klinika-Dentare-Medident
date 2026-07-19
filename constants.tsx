@@ -213,8 +213,7 @@ export const TOURISM_STEPS = (lang: 'en' | 'sq') => [
 ];
 
 export const GALLERY: BeforeAfter[] = [
-  { id: '1', category: { en: 'Surgical Case', sq: 'Rast Kirurgjikal' }, before: 'https://picsum.photos/seed/b1/400/300', after: 'https://picsum.photos/seed/a1/400/300' },
-  { id: '2', category: { en: 'Implantology', sq: 'Implantologjia' }, before: 'https://picsum.photos/seed/b2/400/300', after: 'https://picsum.photos/seed/a2/400/300' }
+  { id: '1', category: { en: 'Aesthetic Rehabilitation — Zirconia Crowns', sq: 'Rehabilitim Estetik — Kurora Zirkoni' }, before: '/photos/case-smile-view.jpg', after: '/photos/case-clinical-view.jpg' }
 ];
 
 export const BLOG_POSTS: BlogPost[] = [

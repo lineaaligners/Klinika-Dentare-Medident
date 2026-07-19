@@ -33,8 +33,8 @@ const Gallery: React.FC<GalleryProps> = ({ lang }) => {
           <div className="max-w-md">
             <p className="text-slate-500 text-lg font-medium leading-relaxed mb-6">
               {lang === 'en' 
-                ? 'Behold actual transformations verified by our clinical board. We focus on structural integrity and natural aesthetics.' 
-                : 'Vëzhgoni transformimet reale të verifikuara nga bordi ynë klinike. Ne fokusohemi në integritetin strukturor dhe estetikën natyrale.'}
+                ? 'Real results from our clinic. We focus on structural integrity and natural aesthetics.' 
+                : 'Rezultate reale nga klinika jonë. Ne fokusohemi në integritetin strukturor dhe estetikën natyrale.'}
             </p>
           </div>
         </div>
@@ -52,14 +52,14 @@ const Gallery: React.FC<GalleryProps> = ({ lang }) => {
               <div className="flex flex-col sm:flex-row h-[500px]">
                 {/* Before Image */}
                 <div className="relative flex-1 bg-slate-100 group-hover:scale-[1.02] transition-transform duration-700 overflow-hidden">
-                  <img src={item.before} alt="Before" className="w-full h-full object-cover grayscale" />
-                  <div className="absolute top-6 left-6 bg-slate-900/60 backdrop-blur-md text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase">Pre-Op</div>
+                  <img src={item.before} alt="Smile view" className="w-full h-full object-cover" />
+                  <div className="absolute top-6 left-6 bg-slate-900/60 backdrop-blur-md text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase">Smile View</div>
                 </div>
                 
                 {/* After Image */}
                 <div className="relative flex-1 bg-slate-200 group-hover:scale-[1.05] transition-transform duration-700 overflow-hidden border-t sm:border-t-0 sm:border-l border-white/20">
-                  <img src={item.after} alt="After" className="w-full h-full object-cover" />
-                  <div className="absolute top-6 left-6 bg-blue-600 text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase shadow-lg">Post-Op</div>
+                  <img src={item.after} alt="Clinical detail" className="w-full h-full object-cover" />
+                  <div className="absolute top-6 left-6 bg-blue-600 text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase shadow-lg">Clinical Detail</div>
                 </div>
               </div>
               
@@ -79,13 +79,16 @@ const Gallery: React.FC<GalleryProps> = ({ lang }) => {
         </div>
 
         <div className="mt-24 text-center">
-          <motion.button 
+          <motion.a 
+            href="https://wa.me/38349772307"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-block bg-slate-900 text-white px-12 py-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] hover:bg-blue-600 transition-all shadow-2xl"
           >
-            {lang === 'en' ? 'View 100+ Professional Cases' : 'Shiko 100+ Raste Profesionale'}
-          </motion.button>
+            {lang === 'en' ? 'Ask to See More Cases on WhatsApp' : 'Kërkoni Më Shumë Raste në WhatsApp'}
+          </motion.a>
         </div>
       </div>
     </section>
