@@ -203,7 +203,7 @@ export const RUGOVA_EXPERIENCES = (lang: 'en' | 'sq') => [
     title: lang === 'en' ? 'Traditional Slow-Food' : 'Ushqimi Tradicional',
     desc: lang === 'en' ? 'Taste the famous "Fli" and organic mountain cheese. A culinary heritage that supports recovery with pure nutrition.' : 'Shijoni "Flinë" e famshme dhe djathin organik të bjeshkëve. Një trashëgimi kulinare që mbështet shërimin.',
     icon: <Utensils className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800&auto=format&fit=crop'
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/rugova-canyon-trail-28km.jpg'
   }
 ];
 
@@ -472,14 +472,38 @@ export const TESTIMONIALS: Testimonial[] = [];
 export const FAQS: FAQ[] = [
   {
     id: '1',
-    question: { en: 'Is dental tourism safe in Kosovo?', sq: 'A është i sigurt turizmi dentar në Kosovë?' },
-    answer: { en: 'Absolutely. We follow strict ISO 9001 protocols and our surgeons are internationally trained with decades of experience.', sq: 'Absolutisht po. Ne ndjekim protokolle të rrepta ISO 9001 dhe kirurgët tanë janë të trajnuar ndërkombëtarisht me dekada përvojë.' },
+    question: { en: 'Is it safe to have dental treatment in Kosovo?', sq: 'A është e sigurt të kryhet trajtimi dentar në Kosovë?' },
+    answer: { en: 'Yes. Klinika Dentare Medident is ISO 9001 certified and has been operating since 1999. Dr. Lendita Islami Nallbani, our lead surgeon, has placed 4,000+ implants. We use FDA-cleared (Hiossen) and CE-certified (MegaGen) implant systems, and every surgical case is 3D-planned before the procedure.', sq: 'Po. Klinika Dentare Medident është e çertifikuar ISO 9001 dhe është operative që nga 1999. Ne përdorim sisteme implantesh të aprovuara nga FDA dhe CE, dhe çdo rast kirurgjikal planifikohet në 3D para procedurës.' },
     category: 'clinical'
   },
   {
     id: '2',
-    question: { en: 'Do you provide airport transfers?', sq: 'A ofroni transferta nga aeroporti?' },
-    answer: { en: 'Yes, we provide VIP transit from Prishtina International Airport (PRN) directly to Peja for all our international patients.', sq: 'Po, ne ofrojmë transit VIP nga Aeroporti Ndërkombëtar i Prishtinës direkt në Pejë.' },
+    question: { en: 'Do you provide airport transfers?', sq: 'A ofroni transport nga aeroporti?' },
+    answer: { en: 'Yes. We pick up international patients from Prishtina International Airport (PRN) and drive them directly to Pejë — around 1 hour. Just send us your flight details on WhatsApp (+383 49 772 307) before you travel.', sq: 'Po. I marrim pacientët ndërkombëtarë nga Aeroporti Ndërkombëtar i Prishtinës dhe i çojmë direkt në Pejë — rreth 1 orë. Na dërgoni detajet e fluturimit në WhatsApp (+383 49 772 307) para se të udhëtoni.' },
+    category: 'logistics'
+  },
+  {
+    id: '3',
+    question: { en: 'How do I send my X-ray or scan for a review?', sq: 'Si mund të dërgoj radiografinë ose skanimin tim për rishikim?' },
+    answer: { en: 'Simply send your OPG panoramic X-ray or CBCT scan on WhatsApp to +383 49 772 307. Dr. Lendita reviews every incoming case personally and will respond with a plan — before you commit to anything.', sq: 'Dërgojeni thjesht panoramen OPG ose skanimin CBCT në WhatsApp te +383 49 772 307. Dr. Lendita rishikon çdo rast personalisht dhe do të përgjigjet me një plan — para se të angazhoheni për diçka.' },
+    category: 'logistics'
+  },
+  {
+    id: '4',
+    question: { en: 'What implant brands do you use?', sq: 'Çfarë markash implantesh përdorni?' },
+    answer: { en: 'We use Hiossen (USA, FDA-cleared) and MegaGen (South Korea, CE-certified) implant systems. Both are documented, traceable systems with strong long-term osseointegration records. We do not use unbranded or budget implants.', sq: 'Përdorim sistemet e implanteve Hiossen (SHBA, FDA) dhe MegaGen (Kore e Jugut, CE). Të dyja janë sisteme të dokumentuara me rekorde të forta të osseointegrimid afatgjatë.' },
+    category: 'clinical'
+  },
+  {
+    id: '5',
+    question: { en: 'How many visits do I need?', sq: 'Sa vizita nevojiten?' },
+    answer: { en: 'For implants, typically two visits: the first for surgery and temporaries (5–7 days), and the second 3–6 months later for final restorations (5–7 days). For crowns and smile rehabilitation, usually 2 appointments within the same week.', sq: 'Për implante, zakonisht dy vizita: e para për kirurgji dhe temporare (5–7 ditë), dhe e dyta 3–6 muaj më vonë për restaurimet finale (5–7 ditë). Për kurora dhe rehabilitim estetik, zakonisht 2 takime brenda të njëjtës javë.' },
+    category: 'logistics'
+  },
+  {
+    id: '6',
+    question: { en: 'Where can I stay while I am in Pejë?', sq: 'Ku mund të qëndroj ndërkohë që jam në Pejë?' },
+    answer: { en: 'We work with Hotel Dukagjini in central Pejë, a short walk from the clinic. We can coordinate your booking on request. Pejë also sits at the edge of Rugova Canyon — a beautiful area to rest and recover during your stay.', sq: 'Bashkëpunojmë me Hotel Dukagjini në qendër të Pejës, pak minuta larg klinikës. Mund të koordinojmë rezervimin tuaj me kërkesë. Peja ndodhet gjithashtu pranë Kanionit të Rugovës — një zonë e bukur për të pushuar.' },
     category: 'logistics'
   }
 ];

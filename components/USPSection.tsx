@@ -9,45 +9,45 @@ interface USPSectionProps {
 const getUSPs = (lang: 'en' | 'sq') => [
   {
     icon: <Gem size={28} />,
-    title: lang === 'en' ? "Luxury Clinical Experience" : "Përvojë Klinike Luksoze",
+    title: lang === 'en' ? "27 Years. One Family Clinic." : "27 Vite. Një Klinikë Familjare.",
     description: lang === 'en' 
-      ? "This isn't just a dental job. It's a transformative surgical journey curated for global patients." 
-      : "Kjo nuk është vetëm një punë dentare. Është një rrugëtim kirurgjikal transformues i kuruar."
+      ? "Since 1999, Dr. Lendita Islami Nallbani has led this clinic through every chapter — from a 16m² room to a full surgical centre." 
+      : "Që nga 1999, Dr. Lendita Islami Nallbani e ka drejtuar këtë klinikë nëpër çdo kapitull — nga një dhomë 16m² deri në një qendër kirurgjikale."
   },
   {
     icon: <Compass size={28} />,
-    title: lang === 'en' ? "Holistic Recovery Nature" : "Natyrë Restauruese Holistike",
+    title: lang === 'en' ? "Rugova Is Outside Your Window" : "Rugova Është Jashtë Dritares Suaj",
     description: lang === 'en' 
-      ? "Recovery at the foot of Rugova Mountains, utilizing pure air to accelerate clinical healing." 
-      : "Shërimi rrëzë Bjeshkëve të Rugovës, duke shfrytëzuar ajrin e pastër për shërim klinik."
+      ? "Pejë sits next to one of Kosovo's most beautiful natural areas. Recover with mountain air and quiet surroundings 30 minutes from the clinic." 
+      : "Peja ndodhet pranë njërit prej mjediseve natyrore më të bukura të Kosovës. Rikuperohuni me ajër malor 30 minuta nga klinika."
   },
   {
     icon: <Monitor size={28} />,
-    title: lang === 'en' ? "Integrated Digital Workflow" : "Rrjedha e Integruar Digjitale",
+    title: lang === 'en' ? "3D-Planned Surgery" : "Kirurgji e Planifikuar në 3D",
     description: lang === 'en' 
-      ? "Full digital smile design and 3D diagnostics for absolute precision." 
-      : "Dizajn i plotë digjital i buzëqeshjes dhe diagnostikë 3D për precizitet absolut."
+      ? "Every implant case is planned with a CBCT 3D scan and a printed surgical guide before Dr. Lendita makes a single incision." 
+      : "Çdo rast implanti planifikohet me skanim 3D CBCT dhe udhëzues kirurgjikal të printuar para se Dr. Lendita të bëjë ndonjë prerje."
   },
   {
     icon: <Globe size={28} />,
-    title: lang === 'en' ? "Concierge Liaison" : "Lidhja Concierge",
+    title: lang === 'en' ? "A Real Person Coordinates Your Trip" : "Një Person i Vërtetë Koordinon Udhëtimin Tuaj",
     description: lang === 'en' 
-      ? "Personalized support including VIP transfers, 5-star hospitality, and cultural curation." 
-      : "Mbështetje e personalizuar duke përfshirë transferta VIP dhe mikpritje me 5 yje."
+      ? "Airport pickup from Prishtina, Hotel Dukagjini in Pejë, and a team member who answers on WhatsApp — not a call centre." 
+      : "Marrje nga aeroporti i Prishtinës, Hotel Dukagjini në Pejë dhe një anëtar ekipi që përgjigjet në WhatsApp — jo qendër thirrjesh."
   },
   {
     icon: <ShieldCheck size={28} />,
-    title: lang === 'en' ? "Global Material Passport" : "Pasaporta Globale e Materialeve",
+    title: lang === 'en' ? "You See Exactly What We Use" : "Shihni Saktësisht Çfarë Përdorim",
     description: lang === 'en' 
-      ? "Every component of your experience is traceable to elite global manufacturers." 
-      : "Çdo komponent i përvojës suaj është i gjurmueshëm deri te prodhuesit elitarë."
+      ? "Hiossen (USA) and MegaGen implants. Ivoclar ceramics. We list our materials openly so you can verify them yourself." 
+      : "Implantet Hiossen (SHBA) dhe MegaGen. Qeramikë Ivoclar. I listojmë materialet tona hapur që të mund t'i verifikoni vetë."
   },
   {
     icon: <History size={28} />,
-    title: lang === 'en' ? "27 Years of Mastery" : "27 Vite Mjeshtëri",
+    title: lang === 'en' ? "First Implant in Kosovo by a Woman" : "Implanti i Parë në Kosovë nga një Grua",
     description: lang === 'en' 
-      ? "A deep legacy of clinical excellence that ensures your journey is safe and predictable." 
-      : "Një trashëgimi e thellë e ekselencës klinike që siguron që rrugëtimi juaj të jetë i sigurt."
+      ? "In 2004, Dr. Lendita Islami Nallbani placed the first dental implant ever performed by a woman in Kosovo. 4,000+ implants since." 
+      : "Në vitin 2004, Dr. Lendita Islami Nallbani vendosi implantin e parë dentar të kryer ndonjëherë nga një grua në Kosovë. 4,000+ implante që atëherë."
   }
 ];
 

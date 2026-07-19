@@ -57,7 +57,7 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
     },
     {
       id: 'patients',
-      title: '500+ International Patients',
+      title: '13,000+ Patients',
       desc: 'Trusted UK & EU Dental Tourists',
       icon: <Users className="w-6 h-6 text-blue-600" />
     },
@@ -217,9 +217,9 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
         <div>
           <div className="text-center mb-16">
             <span className="text-blue-600 font-extrabold text-xs uppercase tracking-widest block mb-2">Straightforward Process</span>
-            <h3 className="text-4xl font-display font-black text-slate-900 tracking-tight">Your 5-Step Smile Journey</h3>
+            <h3 className="text-4xl font-display font-black text-slate-900 tracking-tight">Your Journey to Medident</h3>
             <p className="text-slate-500 text-base max-w-xl mx-auto mt-2 font-medium">
-              We coordinate every single stage for our UK patients. Leaving the UK for premium care has never been so clean and simple.
+              We handle every step for international patients — scan review, airport pickup, accommodation, and aftercare.
             </p>
           </div>
 

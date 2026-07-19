@@ -1,6 +1,6 @@
-
 import React from 'react';
-import { X, ShieldCheck, Activity } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, MessageSquare, Play } from 'lucide-react';
 
 interface VideoModalProps {
   isOpen: boolean;
@@ -8,49 +8,86 @@ interface VideoModalProps {
 }
 
 const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-950/95 backdrop-blur-2xl p-4 md:p-10 animate-in fade-in duration-500">
-      {/* Header Info - Non-intrusive */}
-      <div className="absolute top-8 left-10 hidden md:flex items-center space-x-4 z-[120]">
-        <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-600/20">
-          <Activity size={20} />
-        </div>
-        <div>
-          <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 leading-none mb-1.5">Live Practice Observation</h3>
-          <p className="text-xl font-display font-black text-white tracking-tight leading-none">Clinical Standards & Protocols</p>
-        </div>
-      </div>
-
-      <button 
-        onClick={onClose}
-        className="absolute top-6 right-6 p-4 bg-white/5 hover:bg-white/20 text-white rounded-full transition-all z-[120] border border-white/10"
-      >
-        <X size={24} />
-      </button>
-      
-      <div className="w-full max-w-6xl aspect-video rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(37,99,235,0.15)] relative border border-white/10 bg-black">
-        <video 
-          className="w-full h-full object-cover"
-          controls
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/freepik__recreate-the-locations-more-modern-bright-natural-__5205.jpeg"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-[200] flex items-center justify-center px-4"
+          onClick={onClose}
         >
-          <source src="https://i.imgur.com/MwS5YXy.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+          <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-md" />
+          <motion.div
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.95, opacity: 0 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+            className="relative w-full max-w-4xl bg-white rounded-[2rem] overflow-hidden shadow-2xl"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={onClose}
+              className="absolute top-5 right-5 z-10 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors text-white"
+            >
+              <X size={20} />
+            </button>
 
-        {/* Clinical Overlay Label */}
-        <div className="absolute bottom-8 right-8 flex items-center space-x-3 bg-slate-950/60 backdrop-blur-md border border-white/10 px-4 py-2 rounded-lg pointer-events-none">
-          <ShieldCheck size={14} className="text-blue-500" />
-          <span className="text-[9px] font-black text-white uppercase tracking-widest">Verified Surgical Environment PRN-01</span>
-        </div>
-      </div>
-    </div>
+            {/* Clinic photo with overlay */}
+            <div className="relative aspect-video overflow-hidden">
+              <img
+                src="/photos/clinic-hero.jpg"
+                alt="Klinika Dentare Medident"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent" />
+
+              {/* Center content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+                <div className="w-20 h-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center mb-6">
+                  <Play size={32} className="text-white fill-white ml-1" />
+                </div>
+                <p className="text-white/60 text-[10px] font-black uppercase tracking-[0.3em] mb-3">Klinika Dentare Medident</p>
+                <h3 className="text-3xl md:text-4xl font-display font-black text-white tracking-tighter mb-2">
+                  Pejë, Kosovë
+                </h3>
+                <p className="text-white/60 font-medium text-sm">Since 1999 · 13,000+ patients</p>
+              </div>
+            </div>
+
+            {/* Bottom CTA */}
+            <div className="p-8 md:p-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div>
+                <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Want to see more?</p>
+                <p className="text-xl font-display font-black text-slate-900 tracking-tight">
+                  Visit us on Instagram — <span className="text-blue-600">@medidentks</span>
+                </p>
+              </div>
+              <div className="flex gap-3 flex-shrink-0">
+                <a
+                  href="https://www.instagram.com/medidentks"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all"
+                >
+                  Instagram
+                </a>
+                <a
+                  href="https://wa.me/38349772307"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all"
+                >
+                  <MessageSquare size={14} />
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

@@ -103,7 +103,7 @@ const PatientGuideModal: React.FC<PatientGuideModalProps> = ({ isOpen, onClose, 
                   </div>
                 </div>
                 <div className="space-y-8">
-                  <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?q=80&w=800&auto=format&fit=crop" alt="Airport Transit" className="rounded-3xl shadow-xl w-full aspect-video object-cover" />
+                  <img src="/photos/clinic-hero.jpg" alt="Klinika Dentare Medident" className="rounded-3xl shadow-xl w-full aspect-video object-cover" />
                   <div className="flex items-center space-x-4 p-6 border border-slate-100 rounded-2xl">
                     <Info size={20} className="text-blue-500" />
                     <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Flight tracking required 24h before arrival.</p>
@@ -127,7 +127,7 @@ const PatientGuideModal: React.FC<PatientGuideModalProps> = ({ isOpen, onClose, 
                     {
                       name: 'Boutique Stay Karagaq',
                       desc: 'Quiet, modern boutique environment located near the park. Ideal for serenity and post-op rest.',
-                      img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop'
+                      img: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/rugova-canyon-trail-28km.jpg'
                     }
                   ].map((hotel, i) => (
                     <div key={i} className="group bg-white border border-slate-100 rounded-3xl overflow-hidden hover:shadow-xl transition-all">
@@ -201,7 +201,7 @@ const PatientGuideModal: React.FC<PatientGuideModalProps> = ({ isOpen, onClose, 
                         <div className="space-y-6">
                            <div className="flex items-start space-x-4">
                               <Shield size={24} className="shrink-0" />
-                              <p className="text-blue-100 font-medium leading-relaxed">Medident operates under ISO 9001:2015 clinical standards with world-class surgical leadership.</p>
+                              <p className="text-blue-100 font-medium leading-relaxed">Medident is ISO 9001 certified and has operated since 1999 under Dr. Lendita Islami Nallbani.</p>
                            </div>
                            <div className="flex items-start space-x-4">
                               <Landmark size={24} className="shrink-0" />

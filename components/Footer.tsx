@@ -19,17 +19,17 @@ const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenMaterials, onBlogCli
               MEDIDENT<span className="text-blue-600">.</span>
             </span>
             <p className="text-slate-500 leading-relaxed mb-8 font-medium">
-              A legacy of 27 years in elite dentistry. We bridge the gap between world-class medical expertise and luxury travel.
+              Family dental clinic in Pejë, Kosova, since 1999. Led by Dr. Lendita Islami Nallbani — oral surgery specialist and implantologist.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-white p-2 rounded-lg text-slate-400 hover:text-blue-600 shadow-sm border border-slate-100 transition-colors">
+              <a href="https://www.instagram.com/medidentks" target="_blank" rel="noopener" className="bg-white p-2 rounded-lg text-slate-400 hover:text-blue-600 shadow-sm border border-slate-100 transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="bg-white p-2 rounded-lg text-slate-400 hover:text-blue-600 shadow-sm border border-slate-100 transition-colors">
+              <a href="https://www.facebook.com/medidentks" target="_blank" rel="noopener" className="bg-white p-2 rounded-lg text-slate-400 hover:text-blue-600 shadow-sm border border-slate-100 transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="bg-white p-2 rounded-lg text-slate-400 hover:text-blue-600 shadow-sm border border-slate-100 transition-colors">
-                <Youtube size={20} />
+              <a href="https://www.instagram.com/medidentks" target="_blank" rel="noopener" className="bg-white p-2 rounded-lg text-slate-400 hover:text-blue-600 shadow-sm border border-slate-100 transition-colors">
+                <Instagram size={20} />
               </a>
             </div>
           </div>

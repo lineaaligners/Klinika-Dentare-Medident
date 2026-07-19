@@ -18,7 +18,7 @@ const TechnologyShowcase: React.FC<{ lang: 'en' | 'sq' }> = ({ lang }) => {
           </div>
           <p className="text-slate-500 max-w-sm text-lg leading-relaxed">
             {lang === 'en' 
-              ? 'Our surgical protocols are powered by the same cutting-edge systems found in top European and global university hospitals.' 
+              ? '3D CBCT scanning, digital impressions, and printed surgical guides — the same digital workflow used in modern implant clinics across Europe.' 
               : 'Protokollet tona kirurgjikale fuqizohen nga sistemet më moderne që gjenden në spitalet më të mira evropiane dhe ndërkombëtare.'}
           </p>
         </div>

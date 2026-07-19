@@ -11,6 +11,23 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const name = (form.querySelector('input[type=text]') as HTMLInputElement)?.value || '';
+    const phone = (form.querySelector('input[type=tel]') as HTMLInputElement)?.value || '';
+    const service = (form.querySelector('select') as HTMLSelectElement)?.value || '';
+    const message = (form.querySelector('textarea') as HTMLTextAreaElement)?.value || '';
+    const text = encodeURIComponent(
+      `Hello Dr. Lendita,
+
+My name is ${name}.
+Phone: ${phone}
+Service interested in: ${service}
+
+${message}
+
+I found you on medident-ks.com`
+    );
+    window.open(`https://wa.me/38349772307?text=${text}`, '_blank');
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
   };
@@ -18,7 +35,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ lang }) => {
   const labels = {
     title: lang === 'en' ? "Let's Design Your Smile Together" : "Le të Dizajnojmë Buzëqeshjen tuaj Së bashku",
     desc: lang === 'en' 
-      ? "Fill out the form for a free surgical assessment. Our world-class Chief Oral Surgeon will review your case." 
+      ? "Fill out the form and we will contact you on WhatsApp. Dr. Lendita reviews every case personally." 
       : "Plotësoni formularin për një vlerësim kirurgjikal falas. Kryekirurgja jonë specialiste do të rishikojë rastin tuaj.",
     call: lang === 'en' ? "Call/WhatsApp" : "Telefon/WhatsApp",
     location: lang === 'en' ? "Location" : "Lokacioni",
