@@ -159,6 +159,24 @@ export const DOCTORS: Doctor[] = [
     experience: { en: 'Clinical practice at Klinika Medident', sq: 'Praktikë klinike në Klinikën Dentare Medident' },
     languages: ['Albanian', 'English'],
     certifications: ['Licensed Dentist']
+  },
+  {
+    id: '6',
+    name: 'Arjeta Muhaxheri Morina',
+    role: { en: 'Clinic Manager', sq: 'Menaxhere e Klinikës' },
+    bio: {
+      en: 'Arjeta has been at Medident since 1999 — since the very first day, when the clinic was just one doctor and a shared determination to build something lasting. She has seen every chapter of this clinic: the growth, the new faces, the new equipment, the thousands of patients who have walked through the door. She holds everything together so the doctors can do their work.',
+      sq: 'Arjeta është në Medident që nga viti 1999 — që nga dita e parë, kur klinika ishte vetëm një mjeke dhe një vendosmëri e përbashkët për të ndërtuar diçka të qëndrueshme. Ajo ka parë çdo kapitull të kësaj klinike: rritjen, fytyrat e reja, pajisjet e reja, mijëra pacientët që kanë kaluar nëpër derë. Ajo mban gjithçka bashkë që mjekët të mund të bëjnë punën e tyre.'
+    },
+    image: '/team/arjeta-manager.jpg',
+    specialties: ['Clinic Operations', 'Patient Coordination', 'Team Management'],
+    education: {
+      en: ['Klinika Dentare Medident — since 1999'],
+      sq: ['Klinika Dentare Medident — që nga 1999']
+    },
+    experience: { en: '25+ years running Medident alongside Dr. Lendita', sq: '25+ vite duke drejtuar Medidentin krah Dr. Lenditës' },
+    languages: ['Albanian'],
+    certifications: ['Clinic Manager — Klinika Dentare Medident']
   }
 ];
 

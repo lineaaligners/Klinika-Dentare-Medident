@@ -47,7 +47,7 @@ const Doctors: React.FC<DoctorsProps> = ({ lang }) => {
           </motion.h2>
           <p className="text-slate-500 text-xl font-medium max-w-2xl leading-relaxed">
             {lang === 'en' 
-              ? 'Our multi-disciplinary team is composed of internationally certified specialists with extensive research and surgical background.'
+              ? 'Our team has grown from one doctor and one manager in 1999 to a full clinic — surgeons, dentists, and the people who make it all work.'
               : 'Ekipi ynë multidisiplinar përbëhet nga specialistë të certifikuar ndërkombëtarisht me përvojë të gjerë kërkimore dhe kirurgjikale.'}
           </p>
         </div>
