@@ -495,8 +495,8 @@ Që nga 1999`
       sq: 'Nuk E Kisha Planifikuar të Jem Këtu. Por Zgjodha të Qëndroj.'
     },
     excerpt: {
-      en: 'I was a dental student in Sarajevo when the war started. I finished my degree in Istanbul, came back to Kosovo, and built a clinic from nothing — while raising two children alone. This is not a story about success. It is a story about not stopping.',
-      sq: 'Isha studentë stomatologjie në Sarajevë kur filloi lufta. E mbarova diplomën në Istanbul, u ktheva në Kosovë dhe ndërtova një klinikë nga hiçi — ndërkohë që rrija dy fëmijë vetëm. Kjo nuk është një histori suksesi. Është një histori rreth mosndalesës.'
+      en: 'I was a dental student in Sarajevo when the war started. I finished my degree in Istanbul, came back to Kosovo, built a clinic from nothing, and in 2017 lost my husband to cancer. I kept going. This is not a story about success. It is a story about not stopping.',
+      sq: 'Isha studentë stomatologjie në Sarajevë kur filloi lufta. E mbarova diplomën në Istanbul, u ktheva në Kosovë dhe ndërtova një klinikë nga hiçi. Në vitin 2017 humba burrin nga kanceri. Vazhdova. Kjo nuk është një histori suksesi. Është një histori rreth mosndalesës.'
     },
     content: {
       en: `I was a dental student in Sarajevo when the war started. I was young, I was in the middle of my studies, and suddenly everything stopped. The city I had gone to in order to build a future became a place I had to leave. That is not a moment you plan for. That is a moment that plans you.
@@ -505,7 +505,7 @@ I finished my dental degree at Çapa University in Istanbul — one of the best 
 
 I came back to Kosovo and I opened this clinic in 1999. Sixteen square metres. One room. No equipment to speak of. The country was just beginning to find itself after everything it had been through. I was just beginning to find myself after everything I had been through.
 
-In the early years, I lost the father of my two children. I will not write more than that, except to say that it happened, and that I had to keep going. Two children. A clinic that had just started. Staff who depended on me. Patients who were coming through the door. There was no version of this where I stopped.
+In 2017, I lost my husband to cancer. The clinic was already eighteen years old by then. The children were growing up. And still, it was one of the hardest things I have ever had to carry — because grief does not wait for a good moment, and life does not pause while you go through it. I had a clinic to run, patients booked, staff who needed direction, and two children who needed their mother to hold it together. So I did.
 
 I do not say this for sympathy. I say it because I think it is important for people to know that the person treating them, the person planning their surgery, the person who stays calm when something unexpected happens in the chair — that person has been tested. Not in a classroom. In life.
 
@@ -528,7 +528,7 @@ E mbarova diplomën time stomatologjike në Universitetin Çapa në Istanbul —
 
 U ktheva në Kosovë dhe hapa këtë klinikë në vitin 1999. Gjashtëmbëdhjetë metra katrorë. Një dhomë. Pothuajse asnjë pajisje. Vendi sapo po fillonte të gjente veten pas gjithçkaje që kishte kaluar. Unë sapo po filloja të gjeja veten pas gjithçkaje që kisha kaluar.
 
-Në vitet e para humba babanë e dy fëmijëve të mi. Nuk do të shkruaj më shumë se kaq, përveçse të them se ndodhi, dhe se duhej të vazhdoja. Dy fëmijë. Një klinikë që sapo kishte filluar. Staf që varej nga unë. Pacientë që vinin nëpër derë. Nuk kishte version i kësaj ku unë ndaloja.
+Në vitin 2017, humba burrin tim nga kanceri. Klinika ishte tashmë tetëmbëdhjetë vjeçe atëherë. Fëmijët po rriteshin. Dhe megjithatë, ishte një nga gjërat më të vështira që kam mbajtur ndonjëherë — sepse dhimbja nuk pret një moment të mirë dhe jeta nuk ndalet ndërkohë që kalon nëpër të. Kisha një klinikë për të drejtuar, pacientë të rezervuar, staf që kishte nevojë për udhëzim dhe dy fëmijë që kishin nevojë që nëna e tyre ta mbante bashkë. Kështu që e bëra.
 
 Nuk e them këtë për simpati. E them sepse mendoj se është e rëndësishme që njerëzit të dinë se personi që i trajton, personi që planifikon kirurgjinë e tyre, personi që qëndron i qetë kur ndodh diçka e papritur në karrige — ai person është testuar. Jo në klasë. Në jetë.
 
