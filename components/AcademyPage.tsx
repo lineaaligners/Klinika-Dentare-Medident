@@ -435,7 +435,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                  <h4 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-4">Standardized Practice</h4>
                  <h3 className="text-3xl font-display font-black text-slate-900 tracking-tight mb-6">World-Class Materials Registry</h3>
                  <p className="text-slate-500 font-medium leading-relaxed">
-                    Our clinical training is exclusively performed using the same elite materials we use for our patients: Astra Tech, Osstem, and Ivoclar. Explore our transparent comparison registry.
+                    Our clinical training uses the same materials we use for our patients: Hiossen, MegaGen, and Ivoclar. Explore our transparent comparison registry.
                  </p>
               </div>
               <button 

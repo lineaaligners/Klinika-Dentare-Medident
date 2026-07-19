@@ -41,8 +41,8 @@ export const SERVICES: Service[] = [
     id: '2',
     title: { en: 'Implantology', sq: 'Implantologjia' },
     description: {
-      en: 'Surgical placement of titanium and zirconia fixtures utilizing navigated surgery protocols for long-term stability.',
-      sq: 'Vendosja kirurgjikale e fiksuesve të titanit dhe zirkonit duke përdorur protokolle të navigimit kirurgjikal.'
+      en: 'Surgical placement of Hiossen (USA) and MegaGen implant systems, using guided surgery protocols for long-term stability.',
+      sq: 'Vendosja kirurgjikale e sistemeve të implanteve Hiossen (SHBA) dhe MegaGen, me protokolle të kirurgjisë së udhëhequr.'
     },
     icon: 'Activity',
     image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/487392382_1282806653292502_7830483863337131816_n.jpg'

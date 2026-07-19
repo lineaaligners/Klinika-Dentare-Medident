@@ -16,18 +16,18 @@ const MaterialRegistryModal: React.FC<MaterialRegistryModalProps> = ({ isOpen, o
   const materials = {
     Implants: [
       { 
-        name: 'Astra Tech (Dentsply Sirona)', 
-        origin: 'Sweden / USA', 
-        success: '99.4%', 
-        warranty: 'Lifetime', 
-        features: ['OsseoSpeed® Surface', 'Microthread® Neck', 'Conical Seal Design™', 'Bone Maintenance'] 
+        name: 'Hiossen (ET III)', 
+        origin: 'USA', 
+        success: 'FDA Cleared', 
+        warranty: 'Manufacturer Warranty', 
+        features: ['SA Surface Treatment', 'Grade 4 Titanium', 'Tapered Design', 'High Primary Stability'] 
       },
       { 
-        name: 'Osstem Implant (TSIII)', 
+        name: 'MegaGen (AnyRidge)', 
         origin: 'South Korea', 
-        success: '98.9%', 
-        warranty: 'Lifetime', 
-        features: ['SA Surface Technology', 'High Primary Stability', 'Grade 4 Titanium', 'Fast Osseointegration'] 
+        success: 'CE Certified', 
+        warranty: 'Manufacturer Warranty', 
+        features: ['KnifeThread® Design', 'XPEED® Surface', 'High Initial Stability', 'Strong Bone Integration'] 
       }
     ],
     'Ceramics & Zirconia': [

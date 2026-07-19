@@ -413,7 +413,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
 
                 <div className="grid md:grid-cols-3 gap-8 mb-16">
                    {[
-                     { brand: 'Astra Tech (Sweden)', type: 'Titanium Implants', why: 'Lifetime stability and minimal bone loss protocol.' },
+                     { brand: 'Hiossen (USA)', type: 'Titanium Implants', why: 'FDA-cleared system with high primary stability.' },
                      { brand: 'Deprag (Germany)', type: 'High-Translucency Zirconia', why: 'Industrial-grade strength with natural light optics.' },
                      { brand: 'Ivoclar (Liechtenstein)', type: 'e.max® Lithium Disilicate', why: 'The global standard for aesthetic bonding and veneers.' }
                    ].map((item, idx) => (
