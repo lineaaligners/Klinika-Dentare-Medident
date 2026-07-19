@@ -16,6 +16,14 @@ export interface Testimonial {
   image: string;
 }
 
+export interface CaseProcedure {
+  title: Record<string, string>;
+  steps: Record<string, string[]>;
+  doctor: string;
+  duration: Record<string, string>;
+  materials?: Record<string, string>;
+}
+
 export interface BeforeAfter {
   id: string;
   category: Record<string, string>;
@@ -23,6 +31,7 @@ export interface BeforeAfter {
   after: string;
   labelBefore?: string;
   labelAfter?: string;
+  procedure?: CaseProcedure;
 }
 
 export interface ChatMessage {
