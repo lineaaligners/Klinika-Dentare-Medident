@@ -53,13 +53,13 @@ const Gallery: React.FC<GalleryProps> = ({ lang }) => {
                 {/* Before Image */}
                 <div className="relative flex-1 bg-slate-100 group-hover:scale-[1.02] transition-transform duration-700 overflow-hidden">
                   <img src={item.before} alt="Smile view" className="w-full h-full object-cover" />
-                  <div className="absolute top-6 left-6 bg-slate-900/60 backdrop-blur-md text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase">Smile View</div>
+                  <div className="absolute top-6 left-6 bg-slate-900/60 backdrop-blur-md text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase">{item.labelBefore || 'Before'}</div>
                 </div>
                 
                 {/* After Image */}
                 <div className="relative flex-1 bg-slate-200 group-hover:scale-[1.05] transition-transform duration-700 overflow-hidden border-t sm:border-t-0 sm:border-l border-white/20">
                   <img src={item.after} alt="Clinical detail" className="w-full h-full object-cover" />
-                  <div className="absolute top-6 left-6 bg-blue-600 text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase shadow-lg">Clinical Detail</div>
+                  <div className="absolute top-6 left-6 bg-blue-600 text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase shadow-lg">{item.labelAfter || 'After'}</div>
                 </div>
               </div>
               

@@ -21,6 +21,8 @@ export interface BeforeAfter {
   category: Record<string, string>;
   before: string;
   after: string;
+  labelBefore?: string;
+  labelAfter?: string;
 }
 
 export interface ChatMessage {

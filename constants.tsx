@@ -213,7 +213,8 @@ export const TOURISM_STEPS = (lang: 'en' | 'sq') => [
 ];
 
 export const GALLERY: BeforeAfter[] = [
-  { id: '1', category: { en: 'Aesthetic Rehabilitation — Zirconia Crowns', sq: 'Rehabilitim Estetik — Kurora Zirkoni' }, before: '/photos/case-smile-view.jpg', after: '/photos/case-clinical-view.jpg' }
+  { id: '1', category: { en: 'Aesthetic Rehabilitation — Zirconia Crowns', sq: 'Rehabilitim Estetik — Kurora Zirkoni' }, before: '/photos/case-smile-view.jpg', after: '/photos/case-clinical-view.jpg', labelBefore: 'Smile View', labelAfter: 'Clinical Detail' },
+  { id: '2', category: { en: 'Guided Implant Surgery — 3D Planned', sq: 'Kirurgji e Udhëhequr Implantesh — Planifikuar në 3D' }, before: '/photos/guided-plan-3d.jpg', after: '/photos/implant-placed.jpg', labelBefore: '3D Surgical Plan', labelAfter: 'Implant Placed' }
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -276,12 +277,12 @@ export const ACADEMY_COURSES: Course[] = [
       sq: 'Kurs praktik në implantologji dhe teknikat e sinus lift, i udhëhequr nga Dr. Lendita Islami Nallbani, specialiste e kirurgjisë orale me 27 vite përvojë klinike.'
     },
     duration: { en: 'Contact for schedule', sq: 'Kontaktoni për orarin' },
-    curriculum: ['Implant Placement', 'Sinus Lift Techniques', 'Case Planning', 'Live Clinical Observation'],
+    curriculum: ['Implant Placement', 'Sinus Lift Techniques', '3D Case Planning & Surgical Guides', 'Guided Surgery Protocol', 'Live Clinical Observation'],
     keyTakeaways: {
-      en: ['Plan and place dental implants with confidence', 'Perform sinus lift procedures safely', 'Assess bone and anatomical considerations', 'Observe live cases in a working clinic'],
-      sq: ['Planifikoni dhe vendosni implante dentare me siguri', 'Kryeni procedurat e sinus lift në mënyrë të sigurt', 'Vlerësoni kockën dhe konsideratat anatomike', 'Vëzhgoni raste live në një klinikë aktive']
+      en: ['Plan and place dental implants with confidence', 'Design and use 3D-printed surgical guides', 'Perform sinus lift procedures safely', 'Assess bone and anatomical considerations', 'Observe live cases in a working clinic'],
+      sq: ['Planifikoni dhe vendosni implante dentare me siguri', 'Dizajnoni dhe përdorni udhëzues kirurgjikal të printuar në 3D', 'Kryeni procedurat e sinus lift në mënyrë të sigurt', 'Vlerësoni kockën dhe konsideratat anatomike', 'Vëzhgoni raste live në një klinikë aktive']
     },
-    image: '/team/lendita-nallbani.jpg',
+    image: '/photos/guided-kit.jpg',
     category: 'Hands-on',
     instructorId: '1'
   },
