@@ -60,6 +60,12 @@ Active courses:
 2. Aesthetic Preparation & Crown Placement — led by Dr. Faton Loci
 Contact for schedule: +383 49 772 307
 
+## Static crawlable pages
+
+https://medident-ks.com/about.html — About the clinic, team, and history
+https://medident-ks.com/implants.html — Dental implants in Peja Kosovo
+https://medident-ks.com/dental-tourism.html — Dental tourism Kosovo
+
 ## Website
 
 https://medident-ks.com
