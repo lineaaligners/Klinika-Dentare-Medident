@@ -331,6 +331,68 @@ Nëse po mendoni për implante, ose nëse ju është thënë se rasti juaj ësht
     image: '/photos/lendita-surgical-bw.jpg',
     category: { en: 'Implantology', sq: 'Implantologji' },
     readTime: { en: '5 min read', sq: '5 min lexim' }
+  },
+{
+    id: 'b2',
+    title: {
+      en: 'A Tooth Is Not a White Rectangle. On Natural Aesthetics in Dentistry.',
+      sq: 'Një Dhëmb Nuk Është një Drejtkëndësh i Bardhë. Mbi Estetikën Natyrale në Stomatologji.'
+    },
+    excerpt: {
+      en: 'I spend a lot of time outside. Mountains, rivers, forests — nothing in nature is perfectly symmetrical, perfectly uniform, perfectly white. That observation is the foundation of everything I do in the clinic.',
+      sq: 'Kaloj shumë kohë jashtë. Male, lumenj, pyje — asgjë në natyrë nuk është perfektisht simetrike, perfektisht uniforme, perfektisht e bardhë. Ky vëzhgim është themeli i gjithçkaje që bëj në klinikë.'
+    },
+    content: {
+      en: `I spend a lot of time outside. Mountains, rivers, forests — nothing in nature is perfectly symmetrical, perfectly uniform, perfectly white. A pine tree does not grow in a straight line. A river stone is not a perfect oval. And a natural tooth is not a white rectangle.
+
+That sounds obvious. But walk into many dental clinics and you will see exactly that: a row of identical, blindingly white crowns that look nothing like real teeth. The patient leaves happy because their teeth are "fixed." Six months later they do not smile in photos because something feels off, even if they cannot explain what.
+
+I have been thinking about this for as long as I have been practising dentistry. And it comes back, always, to the same thing — I am a person who pays attention to nature. Not just in the mountains on a weekend. In the way light falls on a leaf. In the way shadows create depth. In the way nothing living is ever perfectly even.
+
+That thinking directly shapes how I work.
+
+When I plan an aesthetic rehabilitation — whether it is a single crown or a full smile — the first thing I look at is the patient's existing teeth. Not to copy what is damaged, but to understand what was there. The natural shape, the slight translucency at the edges, the way the centrals are a fraction wider than the laterals, the way the canines catch light differently. These small imperfections are not flaws. They are what makes a smile look real.
+
+The second thing I look at is the patient's face. The width of their smile should relate to the width of their jaw. The curve of the upper teeth should follow the curve of the lower lip. Shade should match skin tone and eye colour. A very fair person with extremely white crowns can look theatrical. A darker complexion can carry a brighter result. There is no universal formula — only observation.
+
+On materials: I work with zirconia and Emax. Both can be milled or pressed to precise tolerances. But the specification I give the lab is not just a shade number. I send photographs in natural light, in window light, in the operatory light. I communicate the translucency I want at the incisal edge. I ask for texture — a surface that catches light the way enamel does, with micro-ridges rather than a polished flat surface. A flat surface reflects light uniformly. Enamel does not. And that difference, invisible to most people, is what separates a crown that looks like a crown from one that disappears into a smile.
+
+Preparation matters enormously. Conservative preparation — removing as little natural tooth structure as possible — is both better for the patient long-term and better aesthetically. The remaining tooth is what gives the restoration its base, its depth, its colour from underneath. Remove too much and the crown sits on a prep that cannot support natural-looking translucency.
+
+The last thing I will say is this: I ask my patients to trust the process. The temporary crowns we place while the lab works often look rough — not the final shape, not the final shade. Patients sometimes worry. But it is the final try-in, when I seat the restorations dry, in natural light, and ask the patient to look in a hand mirror, that I know whether we got it right. When the answer is that they cannot find their crowns in the mirror because they blend in so well — that is the result I am working toward.
+
+Not white rectangles. Something that looks like it grew there.
+
+— Dr. Faton Loci, Dentist
+Klinika Dentare Medident, Pejë`,
+      sq: `Kaloj shumë kohë jashtë. Male, lumenj, pyje — asgjë në natyrë nuk është perfektisht simetrike, perfektisht uniforme, perfektisht e bardhë. Një pishë nuk rritet në vijë të drejtë. Një gur lumi nuk është oval i përsosur. Dhe një dhëmb natyral nuk është një drejtkëndësh i bardhë.
+
+Kjo tingëllon e qartë. Por hy në shumë klinika dentare dhe do të shohësh saktësisht atë: një rresht kurorave identike, të bardha verbëruese, që nuk ngjajnë aspak me dhëmbët e vërtetë. Pacienti largohet i lumtur sepse dhëmbët janë "rregulluar." Gjashtë muaj më vonë nuk buzëqesh në foto sepse diçka ndihet keq, edhe nëse nuk mund ta shpjegojë.
+
+Kam menduar për këtë gjatë gjithë kohës që ushtroj stomatologjinë. Dhe kthehet gjithmonë te e njëjta gjë — jam person që i kushton vëmendje natyrës. Jo vetëm në male të dielave. Në mënyrën se si drita bie mbi një gjethe. Në mënyrën se si hijet krijojnë thellësi. Në mënyrën se si asgjë e gjallë nuk është kurrë plotësisht e njëtrajtshme.
+
+Ky mendim ndikon drejtpërdrejt mënyrën se si punoj.
+
+Kur planifikoj një rehabilitim estetik — qoftë një kurorë e vetme ose një buzëqeshje e plotë — gjëja e parë që shoh janë dhëmbët ekzistues të pacientit. Jo për të kopjuar atë që është dëmtuar, por për të kuptuar çfarë ka qenë aty. Forma natyrale, lehtë translucença në skajet, mënyra se si qendralet janë paksa më të gjera se lateralet, mënyra se si kuninjtë kapin dritën ndryshe. Këto papërsosuri të vogla nuk janë defekte. Janë ato që e bëjnë një buzëqeshje të duket reale.
+
+Gjëja e dytë që shoh është fytyra e pacientit. Gjerësia e buzëqeshjes duhet të lidhet me gjerësinë e nofullës. Kurbatura e dhëmbëve të sipërm duhet të ndjekë kurbaturën e buzës së poshtme. Nuanci duhet të përputhet me ngjyrën e lëkurës dhe syve. Nuk ka formulë universale — vetëm vëzhgim.
+
+Për materialet: punoj me zirkon dhe Emax. Por specifikimi që i jap laboratorit nuk është vetëm një numër ngjyre. Dërgoj fotografi në dritë natyrale, në dritë dritareje, në dritën e dhomës operative. Komunikoj translucencën që dua në skajin incisal. Kërkoj teksturë — një sipërfaqe që kap dritën siç bën smaltoja, me mikro-brazda sesa një sipërfaqe të lëmuar. Një sipërfaqe e lëmuar reflekton dritën në mënyrë uniforme. Smaltoja nuk e bën. Dhe ajo dallim, i padukshëm për shumicën e njerëzve, është ajo që ndan një kurorë që duket si kurorë nga ajo që zhduket në një buzëqeshje.
+
+Preparimi është jashtëzakonisht i rëndësishëm. Preparimi konservativ — heqja e sa më pak strukturës natyrale të dhëmbit — është si më i mirë për pacientin afatgjatë ashtu edhe estetikisht më i mirë. Dhëmbi i mbetur është ai që i jep restaurimit bazën, thellësinë, ngjyrën nga poshtë. Hiq shumë dhe kurorja ulet mbi një prep që nuk mund të mbështesë translucencë me pamje natyrale.
+
+Gjëja e fundit që do të them është kjo: u kërkoj pacientëve të mi ta besojnë procesin. Kurorat temporare janë shpesh të papërkryera — jo forma finale, jo nuansi final. Pacientët ndonjëherë shqetësohen. Por është prova finale, kur vendos restaurimet e thata, në dritë natyrale, dhe i kërkoj pacientit të shikojë në pasqyrë, kur di nëse e kemi bërë siç duhet. Kur përgjigja është se nuk mund t'i gjejë kurorat sepse përzihen aq mirë — ai është rezultati drejt të cilit po punoj.
+
+Jo drejtkëndësha të bardhë. Diçka që duket sikur ka rritur aty.
+
+— Dr. Faton Loci, Stomatolog
+Klinika Dentare Medident, Pejë`
+    },
+    authorId: '2',
+    date: 'Jul 19, 2025',
+    image: '/photos/faton-clinical.jpg',
+    category: { en: 'Aesthetic Dentistry', sq: 'Stomatologji Estetike' },
+    readTime: { en: '5 min read', sq: '5 min lexim' }
   }
 ];
 
