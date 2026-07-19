@@ -61,7 +61,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
                 {activePost.category[lang]}
               </span>
               <h1 className="text-4xl md:text-6xl font-display font-black text-slate-900 leading-[1.1] tracking-tight mb-8">
-                {activePost.title[lang]}
+                {activePost.title[lang] || activePost.title['en']}
               </h1>
               <div className="flex items-center justify-center space-x-8 text-[9px] font-black text-slate-400 uppercase tracking-widest">
                 <span className="flex items-center space-x-2"><Calendar size={12} /> <span>{activePost.date}</span></span>
@@ -70,17 +70,17 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
             </div>
 
             <div className="aspect-video rounded-3xl overflow-hidden mb-16 shadow-2xl">
-              <img src={activePost.image} className="w-full h-full object-cover" alt={activePost.title[lang]} />
+              <img src={activePost.image} className="w-full h-full object-cover" alt={activePost.title[lang] || activePost.title['en']} />
             </div>
 
             <div className="grid lg:grid-cols-12 gap-16">
               <div className="lg:col-span-8">
                 <div className="prose prose-slate prose-lg max-w-none">
                   <p className="text-xl font-medium text-slate-600 leading-relaxed mb-12 border-l-4 border-blue-600 pl-8 italic">
-                    {activePost.excerpt[lang]}
+                    {activePost.excerpt[lang] || activePost.excerpt['en']}
                   </p>
                   <div className="text-slate-700 leading-loose space-y-8 font-medium">
-                    {activePost.content[lang]}
+                    {activePost.content[lang] || activePost.content['en']}
                     {/* Simulated extended content for readable look */}
 
                   </div>
@@ -157,14 +157,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
                   <article key={post.id} className="group border-b border-slate-50 pb-20 last:border-0">
                     <div className="grid md:grid-cols-2 gap-10 items-start">
                       <div className="aspect-[16/10] rounded-xl overflow-hidden shadow-sm bg-slate-100 cursor-pointer" onClick={() => setActivePost(post)}>
-                        <img src={post.image} className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" alt={post.title[lang]} />
+                        <img src={post.image} className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" alt={post.title[lang] || post.title['en']} />
                       </div>
                       <div className="flex flex-col h-full">
                         <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600 bg-blue-50 px-3 py-1 rounded w-fit mb-4">{post.category[lang]}</span>
                         <h2 className="text-2xl font-display font-black text-slate-900 mb-4 tracking-tight leading-tight group-hover:text-blue-600 transition-colors cursor-pointer" onClick={() => setActivePost(post)}>
-                          {post.title[lang]}
+                          {post.title[lang] || post.title['en']}
                         </h2>
-                        <p className="text-slate-500 text-sm font-medium mb-6 line-clamp-3">{post.excerpt[lang]}</p>
+                        <p className="text-slate-500 text-sm font-medium mb-6 line-clamp-3">{post.excerpt[lang] || post.excerpt['en']}</p>
                         <div className="mt-auto pt-6 flex items-center justify-between border-t border-slate-50">
                           <div className="flex items-center space-x-3">
                             <img src={author?.image} className="w-6 h-6 rounded-full object-cover object-top" alt={author?.name} />
