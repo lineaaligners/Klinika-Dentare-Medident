@@ -167,7 +167,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
                         <p className="text-slate-500 text-sm font-medium mb-6 line-clamp-3">{post.excerpt[lang]}</p>
                         <div className="mt-auto pt-6 flex items-center justify-between border-t border-slate-50">
                           <div className="flex items-center space-x-3">
-                            <img src={author?.image} className="w-6 h-6 rounded-full grayscale" alt={author?.name} />
+                            <img src={author?.image} className="w-6 h-6 rounded-full object-cover object-top" alt={author?.name} />
                             <span className="text-[9px] font-black text-slate-900 uppercase tracking-widest">{author?.name}</span>
                           </div>
                           <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">{post.readTime[lang]}</span>

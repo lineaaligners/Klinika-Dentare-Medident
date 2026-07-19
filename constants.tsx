@@ -419,6 +419,74 @@ Klinika Dentare Medident, Pejë`
     image: '/photos/faton-clinical.jpg',
     category: { en: 'Aesthetic Dentistry', sq: 'Stomatologji Estetike' },
     readTime: { en: '5 min read', sq: '5 min lexim' }
+  },
+{
+    id: 'b3',
+    title: {
+      en: 'From 16 Square Metres to 200. What 25 Years of Running This Clinic Taught Me.',
+      sq: 'Nga 16 Metra Katrorë në 200. Çfarë më Mësuan 25 Vite Drejtimi i Kësaj Klinike.'
+    },
+    excerpt: {
+      en: 'In 1999 we had one dentist, one room, and a waiting area barely big enough for three chairs. I did not know then that I would still be here 25 years later — or that the clinic would grow into something none of us had dared to imagine.',
+      sq: 'Në vitin 1999 kishim një mjeke, një dhomë dhe një dhomë pritjeje që mbante me vështirësi tre karrige. Nuk e dija atëherë se do të isha ende këtu 25 vite më vonë — ose se klinika do të rritej në diçka që asnjë prej nesh nuk kishte guxuar ta imagjinonte.'
+    },
+    content: {
+      en: `In 1999 we had 16 square metres. One dentist. A waiting area barely big enough for three chairs. No system, no software, no staff manual. Just Dr. Lendita, me, and the determination that we were going to make this work.
+
+I was not a clinic manager then. I did not have that title or that training. I was someone who showed up every day, answered the phone, kept the appointment book, made sure the sterilisation was done, and learned — slowly, sometimes painfully — what it meant to run a medical practice.
+
+The first years were the hardest. Not because we did not have patients. We did, from very early on, because Dr. Lendita is the kind of doctor people talk about. But managing growth when you do not yet have the structure to support it — that is where things get difficult. Every problem that appeared, I had to solve for the first time. There was no one to ask. There was no template.
+
+I remember the first time we hired a second person. I thought: now it will be easier. And in some ways it was. But in other ways it became more complicated, because now I was responsible not just for the work but for another person, their schedule, their questions, their mistakes, their learning. That is when I understood that managing a clinic is not really about systems. It is about people.
+
+Today we are 200 square metres. Fifteen people on staff. Multiple treatment rooms running at the same time. A full surgical suite. An academy. Patients who travel from other countries. When I walk through the clinic in the morning before anyone arrives and I see what this place has become, I still find it difficult to connect to those 16 square metres in 1999.
+
+What made the growth possible? Honestly, three things.
+
+The first was Dr. Lendita. A clinic is only as good as its lead doctor, and she has never stopped. Not when it was hard, not when equipment failed, not when we lost patients to circumstances beyond our control. She set the standard, and everything else had to meet it.
+
+The second was the team we built, slowly, carefully. I have always believed that the wrong person in the wrong role costs you more than the empty chair. I have made hiring mistakes — everyone does. But over time we found people who understood what kind of clinic this was trying to be, and who wanted to be part of that.
+
+The third was stubbornness. There is no more honest word for it. There were moments — more than a few — when the easier thing would have been to stay small, to not take the risk, to not sign the lease, to not buy the equipment. We did it anyway. Not because we were certain it would work. Because we believed it should.
+
+I am still learning. The clinic at 200 square metres has problems the clinic at 16 square metres never imagined. But I would not trade any of it.
+
+If you have ever walked through our door and felt that this was a place that cared — that was not an accident. That was 25 years of work.
+
+— Arjeta Muhaxheri Morina
+Clinic Manager, Klinika Dentare Medident
+Since 1999`,
+      sq: `Në vitin 1999 kishim 16 metra katrorë. Një mjeke. Një dhomë pritjeje që mbante me vështirësi tre karrige. Asnjë sistem, asnjë software, asnjë manual stafi. Vetëm Dr. Lendita, unë dhe vendosmëria se do ta bënim këtë punë.
+
+Nuk isha menaxhere klinike atëherë. Nuk e kisha atë titull apo atë trajnim. Isha dikush që vinte çdo ditë, përgjigjja në telefon, mbaja librin e takimeve, siguroja që sterilizimi ishte bërë dhe mësoja — ngadalë, ndonjëherë me dhimbje — çfarë do të thotë të drejtosh një praktikë mjekësore.
+
+Vitet e para ishin më të vështirat. Jo sepse nuk kishim pacientë. Kishim, shumë herët, sepse Dr. Lendita është lloji i mjekut për të cilin njerëzit flasin. Por menaxhimi i rritjes kur nuk ke ende strukturën për ta mbështetur — aty bëhen gjërat të vështira. Çdo problem që shfaqej, duhej ta zgjidja për herë të parë. Nuk kishte kush të pyetje. Nuk kishte model.
+
+E mbaj mend herën e parë që punësuam një person të dytë. Mendova: tani do të jetë më lehtë. Dhe në disa mënyra ishte. Por në mënyra të tjera u bë më e ndërlikuar, sepse tani isha përgjegjëse jo vetëm për punën por edhe për një person tjetër, orarin e tij, pyetjet e tij, gabimet e tij, të mësuarit e tij. Atëherë kuptova se menaxhimi i një klinike nuk ka të bëjë me sistemet. Ka të bëjë me njerëzit.
+
+Sot jemi 200 metra katrorë. Pesëmbëdhjetë persona staf. Dhoma të shumta trajtimi që punojnë njëkohësisht. Një suitë e plotë kirurgjikale. Një akademi. Pacientë që udhëtojnë nga vende të tjera. Kur shëtis nëpër klinikë në mëngjes para se të vijë njeri dhe shoh çfarë është bërë ky vend, ende e gjej të vështirë ta lidh me ato 16 metra katrorë të vitit 1999.
+
+Çfarë e bëri të mundur rritjen? Sinqerisht, tre gjëra.
+
+E para ishte Dr. Lendita. Një klinikë është aq e mirë sa mjekja kryesore, dhe ajo nuk ka ndaluar kurrë. Jo kur ishte e vështirë, jo kur pajisjet dështuan, jo kur humbëm pacientë nga rrethanat jashtë kontrollit tonë. Ajo vendosi standardin, dhe gjithçka tjetër duhej ta plotësonte atë.
+
+E dyta ishte ekipi që ndërtuam, ngadalë, me kujdes. Kam besuar gjithmonë se personi i gabuar në rolin e gabuar të kushton më shumë se karrigia e zbrazët. Kam bërë gabime në punësim — të gjithë bëjnë. Por me kalimin e kohës gjetëm njerëz që kuptonin çfarë lloji klinike po përpiqej të bëhej, dhe që dëshironin të ishin pjesë e kësaj.
+
+E treta ishte kokëfortësia. Nuk ka fjalë më të sinqertë për të. Kishte momente — më shumë se disa — kur gjëja më e lehtë do të kishte qenë të qëndronim të vegjël, të mos marrim rrezikun, të mos nënshkruajmë qiranë, të mos blejmë pajisjet. E bëmë algjesi. Jo sepse ishim të sigurt se do të funksiononte. Sepse besojmë se duhej.
+
+Jam ende duke mësuar. Klinika me 200 metra katrorë ka probleme që klinika me 16 metra katrorë kurrë nuk i imagjinoi. Por nuk do t'i ndërroja për asgjë.
+
+Nëse keni hyrë ndonjëherë nëpër derën tonë dhe keni ndjerë se ky ishte një vend që kujdesej — ai nuk ishte rastësi. Ato ishin 25 vite punë.
+
+— Arjeta Muhaxheri Morina
+Menaxhere e Klinikës, Klinika Dentare Medident
+Që nga 1999`
+    },
+    authorId: '6',
+    date: 'Jul 19, 2025',
+    image: '/team/arjeta-manager.jpg',
+    category: { en: 'Our Story', sq: 'Historia Jonë' },
+    readTime: { en: '5 min read', sq: '5 min lexim' }
   }
 ];
 
