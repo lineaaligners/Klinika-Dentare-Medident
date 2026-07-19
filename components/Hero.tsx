@@ -1,7 +1,6 @@
-
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Play, ShieldCheck, Activity, MapPin, Calendar } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useScroll, useTransform, useMotionValue, animate } from 'framer-motion';
+import { ArrowRight, Play, ShieldCheck, Activity, MapPin, Calendar, ChevronDown } from 'lucide-react';
 
 interface HeroProps {
   onWatchStory: () => void;
@@ -10,101 +9,216 @@ interface HeroProps {
   lang: 'en' | 'sq';
 }
 
+// Animated counter
+const Counter: React.FC<{ to: number; suffix?: string }> = ({ to, suffix = '' }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const controls = animate(0, to, {
+      duration: 2,
+      delay: 0.8,
+      ease: 'easeOut',
+      onUpdate(v) { if (ref.current) ref.current.textContent = Math.round(v).toLocaleString() + suffix; }
+    });
+    return controls.stop;
+  }, [to, suffix]);
+  return <span ref={ref}>0{suffix}</span>;
+};
+
 const Hero: React.FC<HeroProps> = ({ onWatchStory, onServicesClick, onJourneyClick, lang }) => {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1000], [0, 400]);
+  // Parallax: image moves down slower than scroll
+  const y = useTransform(scrollY, [0, 800], [0, 160]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   const content = {
-    badge: lang === 'en' ? 'FAMILY DENTAL CLINIC · SINCE 1999' : 'KLINIKË FAMILJARE DENTARE · QYSH 1999',
+    badge: lang === 'en' ? 'Family Dental Clinic · Pejë · Since 1999' : 'Klinikë Familjare Dentare · Pejë · Qysh 1999',
     title: lang === 'en' ? 'YOUR SMILE,' : 'BUZËQESHJA JUAJ,',
     subtitle: lang === 'en' ? 'IN GOOD HANDS.' : 'NË DUAR TË SIGURTA.',
-    desc: lang === 'en' 
-      ? 'A smile you love, made with care. Modern 3D-planned dentistry in Peja, from a family clinic that has looked after smiles since 1999.' 
-      : 'Një buzëqeshje që e doni, e krijuar me kujdes. Stomatologji moderne e planifikuar në 3D në Pejë, nga një klinikë familjare që kujdeset për buzëqeshjet qysh nga 1999.',
+    desc: lang === 'en'
+      ? 'Modern 3D-planned dentistry in a clinic your family has trusted since 1999. Led by Dr. Lendita Islami Nallbani.'
+      : 'Stomatologji moderne e planifikuar në 3D në një klinikë të cilën familja juaj e ka besuar qysh nga 1999. E udhëhequr nga Dr. Lendita Islami Nallbani.',
     cta: lang === 'en' ? 'Book Free Consultation' : 'Cakto Konsultë Falas',
-    play: lang === 'en' ? 'See Our Clinic' : 'Shihni Klinikën Tonë',
-    serv: lang === 'en' ? 'Explore Services' : 'Eksploroni Shërbimet',
-    jour: lang === 'en' ? 'Start Journey' : 'Filloni Rrugëtimin'
+    play: lang === 'en' ? 'Our Story' : 'Historia Jonë',
+    scroll: lang === 'en' ? 'Scroll to explore' : 'Rrëshqit për të eksploruar',
   };
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
+
+      {/* ── Background: Ken Burns clinic photo ── */}
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
-        <img 
-          src="/photos/surgery-lendita.jpg" 
-          className="w-full h-full object-cover opacity-50 scale-110" 
-          alt="Dr. Lendita Nallbani during oral surgery at Medident" 
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent"></div>
+        {/* Ken Burns scale animation */}
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.08 }}
+          animate={{ scale: 1.0 }}
+          transition={{ duration: 8, ease: 'easeOut' }}
+        >
+          <img
+            src="/photos/clinic-hero.jpg"
+            className="w-full h-full object-cover"
+            alt="Medident Clinic Reception — Pejë"
+            style={{ objectPosition: 'center 30%' }}
+          />
+        </motion.div>
+
+        {/* Gradient overlays for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/30" />
+
+        {/* Subtle vignette */}
+        <div className="absolute inset-0" style={{
+          background: 'radial-gradient(ellipse at center, transparent 40%, rgba(2,6,23,0.6) 100%)'
+        }} />
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 w-full">
+      {/* ── Ambient light leak top-right ── */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/5 blur-[120px] pointer-events-none z-0" />
+
+      {/* ── Content ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-20 w-full">
         <div className="max-w-3xl">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center space-x-3 bg-white/5 backdrop-blur-md text-slate-300 px-5 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-[0.25em] mb-12 border border-white/10"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="inline-flex items-center space-x-2 bg-white/8 backdrop-blur-md text-slate-300 px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-[0.25em] mb-10 border border-white/10"
           >
-            <ShieldCheck size={14} className="text-blue-500" />
+            <ShieldCheck size={12} className="text-blue-400" />
             <span>{content.badge}</span>
           </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl sm:text-6xl md:text-[7rem] font-display font-black text-white leading-[0.95] md:leading-[0.9] mb-8 md:mb-12 tracking-tighter"
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="text-5xl sm:text-6xl md:text-[7rem] font-display font-black text-white leading-[0.92] tracking-tighter mb-8"
           >
-            {content.title} <br />
-            <span className="text-blue-600 block">{content.subtitle}</span>
+            {content.title}
+            <br />
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="text-blue-500"
+            >
+              {content.subtitle}
+            </motion.span>
           </motion.h1>
-          
-          <motion.p 
+
+          {/* Description */}
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-slate-400 text-lg md:text-xl font-medium max-w-xl leading-relaxed mb-16"
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-slate-300 text-lg md:text-xl font-medium max-w-xl leading-relaxed mb-12"
           >
             {content.desc}
           </motion.p>
-          
-          <div className="flex flex-col sm:flex-row gap-8 items-stretch sm:items-center mb-20">
-            <motion.a 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="#contact" 
-              className="group flex items-center justify-center bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white px-9 py-4 rounded-full text-[15px] font-semibold transition-all duration-300 shadow-lg shadow-blue-600/25 relative overflow-hidden"
-            >
-              <Calendar className="mr-3" size={16} />
-              {content.cta}
-              <ArrowRight className="ml-3 group-hover:translate-x-1 transition-transform" size={16} />
-            </motion.a>
-            <button onClick={onWatchStory} className="flex items-center space-x-4 text-white group text-left">
-              <div className="w-14 h-14 rounded-full bg-white/5 backdrop-blur-md flex items-center justify-center border border-white/10 group-hover:bg-blue-600 group-hover:border-blue-500 transition-all">
-                <Play size={18} fill="currentColor" />
-              </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-white transition-colors">{content.play}</span>
-            </button>
-          </div>
 
-          <div className="flex flex-wrap gap-4 pt-10 border-t border-white/10">
-            <button onClick={onServicesClick} className="flex items-center space-x-3 bg-white/5 hover:bg-white/10 px-6 py-4 rounded-xl border border-white/10 transition-all group text-left">
-              <Activity size={18} className="text-blue-500" />
-              <div>
-                <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">{content.serv}</p>
-                <p className="text-xs font-bold text-white uppercase tracking-wider group-hover:text-blue-500 transition-colors">{lang === 'en' ? 'Smile Services' : 'Shërbimet e Buzëqeshjes'}</p>
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-16"
+          >
+            <a
+              href="#contact"
+              className="group flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] transition-all shadow-2xl shadow-blue-600/30 hover:shadow-blue-500/40 active:scale-95"
+            >
+              <Calendar size={15} />
+              <span>{content.cta}</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <button
+              onClick={onWatchStory}
+              className="group flex items-center gap-4 text-white"
+            >
+              <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-500 transition-all">
+                <Play size={16} fill="currentColor" />
               </div>
+              <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-white transition-colors">
+                {content.play}
+              </span>
             </button>
-            <button onClick={onJourneyClick} className="flex items-center space-x-3 bg-white/5 hover:bg-white/10 px-6 py-4 rounded-xl border border-white/10 transition-all group text-left">
-              <MapPin size={18} className="text-blue-500" />
-              <div>
-                <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mb-1">{content.jour}</p>
-                <p className="text-xs font-bold text-white uppercase tracking-wider group-hover:text-blue-500 transition-colors">{lang === 'en' ? 'Patient Roadmap to Peja' : 'Rrugëtimi në Pejë'}</p>
-              </div>
+          </motion.div>
+
+          {/* Quick nav */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.9 }}
+            className="flex flex-wrap gap-3 pt-8 border-t border-white/10"
+          >
+            <button
+              onClick={onServicesClick}
+              className="flex items-center gap-3 bg-white/5 hover:bg-white/10 px-5 py-3 rounded-xl border border-white/10 transition-all group text-left"
+            >
+              <Activity size={16} className="text-blue-400" />
+              <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest group-hover:text-white transition-colors">
+                {lang === 'en' ? 'Services' : 'Shërbime'}
+              </span>
             </button>
-          </div>
+            <button
+              onClick={onJourneyClick}
+              className="flex items-center gap-3 bg-white/5 hover:bg-white/10 px-5 py-3 rounded-xl border border-white/10 transition-all group text-left"
+            >
+              <MapPin size={16} className="text-blue-400" />
+              <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest group-hover:text-white transition-colors">
+                {lang === 'en' ? 'Dental Tourism' : 'Turizëm Dentar'}
+              </span>
+            </button>
+          </motion.div>
         </div>
+
+        {/* ── Floating stats bottom-right ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.0 }}
+          className="absolute bottom-20 right-6 hidden lg:flex flex-col gap-3"
+        >
+          {[
+            { num: <Counter to={13000} suffix="+" />, label: lang === 'en' ? 'Patients' : 'Pacientë' },
+            { num: <Counter to={4000} suffix="+" />, label: lang === 'en' ? 'Implants' : 'Implante' },
+            { num: <span>27</span>, label: lang === 'en' ? 'Years' : 'Vite' },
+          ].map((stat, i) => (
+            <div key={i} className="bg-white/8 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-4 text-right">
+              <p className="text-2xl font-display font-black text-white leading-none">{stat.num}</p>
+              <p className="text-[8px] font-black uppercase tracking-widest text-slate-400 mt-1">{stat.label}</p>
+            </div>
+          ))}
+        </motion.div>
       </div>
+
+      {/* ── Scroll indicator ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4 }}
+        style={{ opacity }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+      >
+        <span className="text-[8px] font-black uppercase tracking-[0.3em] text-slate-500">{content.scroll}</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+        >
+          <ChevronDown size={16} className="text-slate-500" />
+        </motion.div>
+      </motion.div>
+
+      {/* ── Right-edge clinic name watermark ── */}
+      <div className="absolute right-6 top-1/2 -translate-y-1/2 hidden xl:block z-10">
+        <p className="text-[8px] font-black uppercase tracking-[0.5em] text-white/15 rotate-90 whitespace-nowrap origin-center">
+          KLINIKA DENTARE MEDIDENT · PEJË · KOSOVË
+        </p>
+      </div>
+
     </section>
   );
 };
