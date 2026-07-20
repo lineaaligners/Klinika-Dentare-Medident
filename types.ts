@@ -5,6 +5,8 @@ export interface Service {
   description: Record<string, string>;
   icon: string;
   image: string;
+  badge?: Record<string, string>;
+  highlight?: Record<string, string>;
 }
 
 export interface Testimonial {

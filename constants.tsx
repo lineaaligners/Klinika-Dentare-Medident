@@ -29,43 +29,75 @@ export const ACADEMY_BENEFITS = (lang: 'en' | 'sq') => [
 export const SERVICES: Service[] = [
   {
     id: '1',
-    title: { en: 'Advanced Oral Surgery', sq: 'Kirurgjia Orale e Avancuar' },
-    description: { 
-      en: 'Primary specialization in complex surgical interventions, including bone grafting and sinus lift protocols.',
-      sq: 'Specializimi parësor në ndërhyrje kirurgjikale komplekse, duke përfshirë transplantin e kockave.'
+    title: { en: 'Dental Implants', sq: 'Implante Dentare' },
+    description: {
+      en: 'Hiossen (USA) and MegaGen implant systems. Every case starts with a CBCT 3D scan — Dr. Lendita plans the exact angle, depth, and position before surgery. A 3D-printed surgical guide ensures the implant goes exactly where it was planned. Flapless when possible: less swelling, faster recovery.',
+      sq: 'Sisteme Hiossen (SHBA) dhe MegaGen. Çdo rast fillon me skanim 3D CBCT — Dr. Lendita planifikon këndin, thellësinë dhe pozicionin e saktë para kirurgjisë. Udhëzuesi kirurgjikal i printuar 3D siguron se implanti shkon saktësisht ku u planifikua. Flapless kur është e mundur: më pak ënjtje, rikuperim më i shpejtë.'
     },
-    icon: 'Shield',
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/522466288_18258761737303287_2709900497171704416_n.jpg'
+    icon: 'Activity',
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/487392382_1282806653292502_7830483863337131816_n.jpg',
+    badge: { en: 'Dr. Lendita · Lead Surgeon', sq: 'Dr. Lendita · Kirurge Kryesore' },
+    highlight: { en: '4,000+ placed since 2004', sq: '4,000+ të vendosura që nga 2004' }
   },
   {
     id: '2',
-    title: { en: 'Implantology', sq: 'Implantologjia' },
+    title: { en: 'All-on-4 / All-on-6', sq: 'All-on-4 / All-on-6' },
     description: {
-      en: 'Surgical placement of Hiossen (USA) and MegaGen implant systems, using guided surgery protocols for long-term stability.',
-      sq: 'Vendosja kirurgjikale e sistemeve të implanteve Hiossen (SHBA) dhe MegaGen, me protokolle të kirurgjisë së udhëhequr.'
+      en: 'Full arch rehabilitation on 4 or 6 implants — the solution for patients who have lost most or all of their teeth. Planned entirely in 3D before any surgery. Temporary teeth placed the same day; permanent zirconia arch fitted once osseointegration is confirmed.',
+      sq: 'Rehabilitim i plotë i harkut mbi 4 ose 6 implante — zgjidhja për pacientët që kanë humbur shumicën ose të gjithë dhëmbët. Planifikim i plotë 3D para çdo kirurgjie. Dhëmbë temporarë vendosen të njëjtën ditë; harku permanent zirkoni vendoset pasi osseointegrimet konfirmohet.'
     },
-    icon: 'Activity',
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/487392382_1282806653292502_7830483863337131816_n.jpg'
+    icon: 'Layers',
+    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/522466288_18258761737303287_2709900497171704416_n.jpg',
+    badge: { en: 'Full Arch Rehabilitation', sq: 'Rehabilitim i Harkut të Plotë' },
+    highlight: { en: 'Same-day temporaries', sq: 'Temporare të njëjtën ditë' }
   },
   {
     id: '3',
-    title: { en: 'Aesthetic Rehabilitation', sq: 'Rehabilitimi Estetik' },
-    description: { 
-      en: 'Advanced prosthetic solutions including high-translucency veneers and E-Max laminates for comprehensive smile design.',
-      sq: 'Zgjidhje protetike të avancuara duke përfshirë faseta me translucencë të lartë dhe laminat E-Max.'
+    title: { en: 'Oral Surgery', sq: 'Kirurgji Orale' },
+    description: {
+      en: 'Led by Dr. Lendita Islami Nallbani — the first woman in Kosovo to place a dental implant (2004). Complex extractions, sinus lift, bone graft, guided bone regeneration. All surgical cases are reviewed by Dr. Lendita personally before the patient books.',
+      sq: 'E udhëhequr nga Dr. Lendita Islami Nallbani — gruaja e parë në Kosovë që vendosi implant dentar (2004). Ekstraksione komplekse, sinus lift, graft kockor, regenerim kockor i udhëhequr. Të gjitha rastet kirurgjikale rishikohen nga Dr. Lendita personalisht para se pacienti të rezervojë.'
     },
-    icon: 'Sparkles',
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/567164899_18269114518303287_4783023056972037593_n.jpg'
+    icon: 'Shield',
+    image: '/photos/lendita-operating.jpg',
+    badge: { en: 'Dr. Lendita · Specialist', sq: 'Dr. Lendita · Specialiste' },
+    highlight: { en: '27 years of experience', sq: '27 vite përvojë' }
   },
   {
     id: '4',
-    title: { en: 'Clinical Whitening', sq: 'Zbardhja Klinike' },
+    title: { en: 'Zirconia Crowns', sq: 'Kurora Zirkoni' },
     description: {
-      en: 'Medical-grade photo-activated whitening systems for safe and effective reduction of dental chromogens.',
-      sq: 'Sisteme zbardhimi mjekësore të foto-aktivizuara për reduktim të sigurt dhe efektiv.'
+      en: 'Led by Dr. Faton Loci. Shade matched in natural light, window light, and clinical light — then communicated to the lab with photographs, written notes, and calls. The result should be a crown that disappears into the smile. Not a white rectangle.',
+      sq: 'E udhëhequr nga Dr. Faton Loci. Ngjyra përpunohet në dritë natyrale, dritë dritareje dhe dritë klinike — pastaj komunikohet me laboratorin me fotografi, shënime dhe telefonata. Rezultati duhet të jetë një kurorë që zhduket në buzëqeshje. Jo drejtkëndësh i bardhë.'
     },
-    icon: 'Award',
-    image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/Teeth-whitening-all-you-should-know.png'
+    icon: 'Sparkles',
+    image: '/photos/faton-aesthetic-closeup.jpg',
+    badge: { en: 'Dr. Faton · Aesthetic Lead', sq: 'Dr. Faton · Kreu Estetik' },
+    highlight: { en: 'Natural shade matching', sq: 'Përputhje natyrale e ngjyrës' }
+  },
+  {
+    id: '5',
+    title: { en: 'Smile Makeover', sq: 'Transformim i Buzëqeshjes' },
+    description: {
+      en: 'Full aesthetic rehabilitation combining crowns, veneers, and composite bonding — designed around your face, your natural smile, and your skin tone. Before anything is cemented, you approve the temporary result. Only then do we go final.',
+      sq: 'Rehabilitim i plotë estetik duke kombinuar kurora, faseta dhe bonding kompozit — projektuar rreth fytyrës, buzëqeshjes natyrale dhe tonit të lëkurës. Para se të çimentohet çdo gjë, ju aprovoni rezultatin temporar. Vetëm atëherë kalojmë në finale.'
+    },
+    icon: 'Star',
+    image: '/photos/faton-smile-after.jpg',
+    badge: { en: 'Full Aesthetic Workflow', sq: 'Rrjedhë e Plotë Estetike' },
+    highlight: { en: 'Patient-approved before final', sq: 'I aprovuar para finalit' }
+  },
+  {
+    id: '6',
+    title: { en: 'General Dentistry', sq: 'Stomatologji e Përgjithshme' },
+    description: {
+      en: 'Fillings, root canals, scaling, paediatric dentistry, and preventive care. The same standard of care applies to every treatment, not just surgical cases.',
+      sq: 'Plombe, kanale rrënjore, pastrimi, stomatologji pediatrike dhe kujdes preventiv. I njëjti standard kujdesi zbatohet për çdo trajtim, jo vetëm për rastet kirurgjikale.'
+    },
+    icon: 'Heart',
+    image: '/photos/faton-clinical.jpg',
+    badge: { en: 'All ages welcome', sq: 'Të gjitha moshat të mirëpritura' },
+    highlight: { en: 'Since 1999', sq: 'Që nga 1999' }
   }
 ];
 
@@ -505,6 +537,48 @@ export const FAQS: FAQ[] = [
     question: { en: 'Where can I stay while I am in Pejë?', sq: 'Ku mund të qëndroj ndërkohë që jam në Pejë?' },
     answer: { en: 'We work with Hotel Dukagjini in central Pejë, a short walk from the clinic. We can coordinate your booking on request. Pejë also sits at the edge of Rugova Canyon — a beautiful area to rest and recover during your stay.', sq: 'Bashkëpunojmë me Hotel Dukagjini në qendër të Pejës, pak minuta larg klinikës. Mund të koordinojmë rezervimin tuaj me kërkesë. Peja ndodhet gjithashtu pranë Kanionit të Rugovës — një zonë e bukur për të pushuar.' },
     category: 'logistics'
+  },
+  {
+    id: '7',
+    question: { en: 'How long does a dental implant take to complete?', sq: 'Sa kohë duhet për të kompletuar një implant dentar?' },
+    answer: { en: 'The surgical placement takes 45–60 minutes per implant. After surgery, the implant needs 3–6 months to fuse with the bone (osseointegration). You leave with a temporary crown the same day. You return for your permanent zirconia crown once osseointegration is confirmed — this usually takes 1–2 appointments over 5–7 days.', sq: 'Vendosja kirurgjikale merr 45–60 minuta për implant. Pas kirurgjisë, implanti ka nevojë për 3–6 muaj të bashkohet me kockën (osseointegrim). Largoheni me kurorë temporare të njëjtën ditë. Ktheheni për kurorën permanente zirkoni pasi osseointegrimet konfirmohet — zakonisht 1–2 takime gjatë 5–7 ditëve.' },
+    category: 'clinical'
+  },
+  {
+    id: '8',
+    question: { en: 'Does the implant procedure hurt?', sq: 'A dhemb procedura e implantit?' },
+    answer: { en: 'The procedure is performed under local anaesthesia — you will not feel pain during surgery. Afterwards, mild discomfort and swelling for 2–3 days is normal and managed with over-the-counter pain relief. Most patients return to normal activity the next day. Flapless guided surgery (which we use when anatomy allows) produces significantly less swelling and discomfort than traditional open surgery.', sq: 'Procedura kryhet nën anestezi lokale — nuk do të ndjeni dhimbje gjatë kirurgjisë. Më pas, siklet i lehtë dhe ënjtje për 2–3 ditë është normale dhe menaxhohet me analgjezikë pa recetë. Shumica e pacientëve kthehen në aktivitetin normal ditën tjetër. Kirurgjia flapless e udhëhequr prodhon ënjtje dhe siklet dukshëm më pak.' },
+    category: 'clinical'
+  },
+  {
+    id: '9',
+    question: { en: 'Can I get All-on-4 or All-on-6 at Medident?', sq: 'A mund të bëj All-on-4 ose All-on-6 në Medident?' },
+    answer: { en: 'Yes. Dr. Lendita Islami Nallbani performs All-on-4, All-on-6, and All-on-8 procedures. Every case is planned in 3D — bone volume, implant position, and the final prosthesis are all mapped digitally before any surgery. Send us your OPG or CBCT on WhatsApp (+383 49 772 307) and we will review your case personally.', sq: 'Po. Dr. Lendita Islami Nallbani kryen procedurat All-on-4, All-on-6 dhe All-on-8. Çdo rast planifikohet në 3D — vëllimi kockor, pozicioni i implantit dhe proteza finale hartohen digjitalisht para çdo kirurgjie. Na dërgoni OPG ose CBCT në WhatsApp (+383 49 772 307) dhe ne do ta rishikojmë rastin tuaj personalisht.' },
+    category: 'clinical'
+  },
+  {
+    id: '10',
+    question: { en: 'What is the difference between zirconia and Emax crowns?', sq: 'Cili është ndryshimi midis kurorave zirkoni dhe Emax?' },
+    answer: { en: 'Zirconia is stronger and better for back teeth or patients who grind their teeth. Emax (lithium disilicate) has superior translucency and is the preferred choice for front teeth where natural aesthetics matter most. Dr. Faton Loci selects the material based on the tooth position, bite forces, and the aesthetic result the patient wants — it is not a one-size-fits-all decision.', sq: 'Zirkoni është më i fortë dhe më i mirë për dhëmbët e pasëm ose pacientëve që kërcasin dhëmbët. Emax (lithium disilicate) ka translucencë superiore dhe është zgjedhja e preferuar për dhëmbët e përparmë ku estetika natyrale ka rëndësi më të madhe. Dr. Faton Loci zgjedh materialin bazuar në pozicionin e dhëmbit, forcat e kafshimit dhe rezultatin estetik që dëshiron pacienti.' },
+    category: 'clinical'
+  },
+  {
+    id: '11',
+    question: { en: 'Is Medident ISO certified?', sq: 'A është Medident ISO e çertifikuar?' },
+    answer: { en: 'Yes. Klinika Dentare Medident is ISO 9001 certified. We use sterilisation protocols that meet EU standards, and every material we use — implants, ceramics, bonding agents — is a documented, traceable product from certified manufacturers (Hiossen USA, MegaGen South Korea, Ivoclar Liechtenstein).', sq: 'Po. Klinika Dentare Medident është e çertifikuar ISO 9001. Përdorim protokolle sterilizimi që plotësojnë standardet e BE-së, dhe çdo material që përdorim — implante, qeramikë, agjentë bonding — është produkt i dokumentuar, i gjurmueshëm nga prodhues të çertifikuar (Hiossen SHBA, MegaGen Kore e Jugut, Ivoclar Lihtenshtajn).' },
+    category: 'clinical'
+  },
+  {
+    id: '12',
+    question: { en: 'A pranohen pacijentë nga Rožaje, Plav dhe Gusinje?', sq: 'A pranohen pacientë nga Rožaje, Plav dhe Gusinje?' },
+    answer: { en: 'Yes. We regularly treat patients from Rožaje (1 hour away), Plav (45 minutes), and Gusinje (50 minutes). Our staff speaks Bosnian, Albanian, and English. WhatsApp us your scan and we will take it from there: +383 49 772 307.', sq: 'Po. Ne trajtojmë rregullisht pacientë nga Rožaje (1 orë larg), Plav (45 minuta) dhe Gusinje (50 minuta). Stafi ynë flet boshnjakisht, shqip dhe anglisht. Na dërgoni skanimin tuaj në WhatsApp dhe ne do ta marrim nga aty: +383 49 772 307.' },
+    category: 'logistics'
+  },
+  {
+    id: '13',
+    question: { en: 'Can children be treated at Medident?', sq: 'A mund të trajtohen fëmijët në Medident?' },
+    answer: { en: 'Yes. We offer general dentistry for children — check-ups, fillings, and preventive care. For implants, patients need to be adults (18+) with fully developed jaws. Contact us on +383 49 272 803 to schedule a paediatric appointment.', sq: 'Po. Ofrojmë stomatologji të përgjithshme për fëmijë — kontrolle, plombe dhe kujdes preventiv. Për implante, pacientët duhet të jenë të rritur (18+) me nofulla të zhvilluara plotësisht. Na kontaktoni në +383 49 272 803 për të caktuar një takim pediatrik.' },
+    category: 'clinical'
   }
 ];
 
