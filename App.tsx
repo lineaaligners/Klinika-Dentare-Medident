@@ -143,105 +143,108 @@ const App: React.FC = () => {
     }
   };
 
-  const pageVariants = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1, transition: { duration: 0.3, ease: 'easeOut' } },
-    exit: { opacity: 0, transition: { duration: 0.15, ease: 'easeIn' } }
-  };
+  // Helper: CSS-based show/hide — keeps pages mounted, no blank flash
+  const show = (view: View) => ({
+    style: {
+      display: currentView === view ? 'block' : 'none',
+    } as React.CSSProperties
+  });
 
-  const renderView = () => {
-    switch (currentView) {
-      case 'blog':
-        return (
-          <motion.div key="blog" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-            <BlogPage onBack={() => navigateTo('home')} lang={lang} initialPostId={initialPostId} onNavigatePost={(id) => navigateTo('blog', id)} />
-          </motion.div>
-        );
-      case 'academy':
-        return (
-          <motion.div key="academy" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-            <AcademyPage onBack={() => navigateTo('home')} lang={lang} onOpenMaterials={() => setIsMaterialsOpen(true)} initialCourseId={initialCourseId} onNavigateCourse={(id) => navigateTo('academy', id)} />
-            <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
-          </motion.div>
-        );
-      case 'tourism':
-        return (
-          <motion.div key="tourism" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-            <TourismPage onBack={() => navigateTo('home')} lang={lang} onOpenGuide={() => setIsGuideOpen(true)} onOpenMaterials={() => setIsMaterialsOpen(true)} />
-            <PatientGuideModal isOpen={isGuideOpen} onClose={() => setIsGuideOpen(false)} lang={lang} />
-            <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
-          </motion.div>
-        );
-      default:
-        return (
-          <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
-            <div className="relative min-h-screen selection:bg-blue-600 selection:text-white bg-white">
-      <div className="grain" />
-      <div id="cursor-spotlight" ref={spotlightRef} />
+  // Show/hide with display:none — keeps all pages mounted so no blank flash on navigation
+  const vis = (view: View): React.CSSProperties => ({
+    display: currentView === view ? 'block' : 'none'
+  });
 
-      {/* Progress bar */}
-      <motion.div className="fixed top-0 left-0 right-0 h-0.5 bg-blue-600 origin-left z-[100]" style={{ scaleX }} />
+  return (
+    <>
+      {/* Blog */}
+      <div style={vis('blog')}>
+        <BlogPage
+          onBack={() => navigateTo('home')}
+          lang={lang}
+          initialPostId={initialPostId}
+          onNavigatePost={(id) => navigateTo('blog', id)}
+        />
+      </div>
 
-      <Navbar
-        lang={lang}
-        setLang={setLang}
-        onBlogClick={() => navigateTo('blog')}
-        onAcademyClick={() => navigateTo('academy')}
-        onJourneyClick={() => navigateTo('tourism')}
-        onServicesClick={() => scrollToSection('services')}
-        onDoctorsClick={() => scrollToSection('doctors')}
-        onGalleryClick={() => scrollToSection('gallery')}
-        onContactClick={() => scrollToSection('contact')}
-      />
+      {/* Academy */}
+      <div style={vis('academy')}>
+        <AcademyPage
+          onBack={() => navigateTo('home')}
+          lang={lang}
+          onOpenMaterials={() => setIsMaterialsOpen(true)}
+          initialCourseId={initialCourseId}
+          onNavigateCourse={(id) => navigateTo('academy', id)}
+        />
+      </div>
 
-      <Hero
-        onWatchStory={() => setIsVideoOpen(true)}
-        onServicesClick={() => scrollToSection('services')}
-        onJourneyClick={() => navigateTo('tourism')}
-        lang={lang}
-      />
+      {/* Tourism */}
+      <div style={vis('tourism')}>
+        <TourismPage
+          onBack={() => navigateTo('home')}
+          lang={lang}
+          onOpenGuide={() => setIsGuideOpen(true)}
+          onOpenMaterials={() => setIsMaterialsOpen(true)}
+        />
+      </div>
 
-      <TrustBar lang={lang} />
-      <USPSection lang={lang} />
-      <LegacySection lang={lang} />
-      <Services lang={lang} onOpenMaterials={() => setIsMaterialsOpen(true)} />
-      <Gallery lang={lang} />
-      <Doctors lang={lang} />
-      <TrustSignals lang={lang} onOpenJourney={() => navigateTo('tourism')} onOpenGuide={() => setIsGuideOpen(true)} />
-      <TourismSection lang={lang} onOpenJourney={() => navigateTo('tourism')} />
-      <TechnologyShowcase lang={lang} onOpenMaterials={() => setIsMaterialsOpen(true)} />
-      <Testimonials lang={lang} />
-      <FAQ lang={lang} />
-      <ContactForm lang={lang} />
-      <Footer
-        lang={lang}
-        onBlogClick={() => navigateTo('blog')}
-        onAcademyClick={() => navigateTo('academy')}
-        onJourneyClick={() => navigateTo('tourism')}
-        onOpenGuide={() => setIsGuideOpen(true)}
-        onOpenMaterials={() => setIsMaterialsOpen(true)}
-      />
+      {/* Home */}
+      <div style={vis('home')}>
+        <div className="relative min-h-screen selection:bg-blue-600 selection:text-white bg-white">
+          <div className="grain" />
+          <div id="cursor-spotlight" ref={spotlightRef} />
+          <motion.div className="fixed top-0 left-0 right-0 h-0.5 bg-blue-600 origin-left z-[100]" style={{ scaleX }} />
+          <Navbar
+            lang={lang}
+            setLang={setLang}
+            onBlogClick={() => navigateTo('blog')}
+            onAcademyClick={() => navigateTo('academy')}
+            onJourneyClick={() => navigateTo('tourism')}
+            onServicesClick={() => scrollToSection('services')}
+            onDoctorsClick={() => scrollToSection('doctors')}
+            onGalleryClick={() => scrollToSection('gallery')}
+            onContactClick={() => scrollToSection('contact')}
+          />
+          <Hero
+            onWatchStory={() => setIsVideoOpen(true)}
+            onServicesClick={() => scrollToSection('services')}
+            onJourneyClick={() => navigateTo('tourism')}
+            lang={lang}
+          />
+          <TrustBar lang={lang} />
+          <USPSection lang={lang} />
+          <LegacySection lang={lang} />
+          <Services lang={lang} onOpenMaterials={() => setIsMaterialsOpen(true)} />
+          <Gallery lang={lang} />
+          <Doctors lang={lang} />
+          <TrustSignals lang={lang} onOpenJourney={() => navigateTo('tourism')} onOpenGuide={() => setIsGuideOpen(true)} />
+          <TourismSection lang={lang} onOpenJourney={() => navigateTo('tourism')} />
+          <TechnologyShowcase lang={lang} onOpenMaterials={() => setIsMaterialsOpen(true)} />
+          <Testimonials lang={lang} />
+          <FAQ lang={lang} />
+          <ContactForm lang={lang} />
+          <Footer
+            lang={lang}
+            onBlogClick={() => navigateTo('blog')}
+            onAcademyClick={() => navigateTo('academy')}
+            onJourneyClick={() => navigateTo('tourism')}
+            onOpenGuide={() => setIsGuideOpen(true)}
+            onOpenMaterials={() => setIsMaterialsOpen(true)}
+          />
+          <ConsultationFAB lang={lang} onClick={() => scrollToSection('contact')} />
+          <MobileBottomBar lang={lang} onContactClick={() => scrollToSection('contact')} />
+          <AIChatbot lang={lang} />
+          <AnimatePresence>
+            {isVideoOpen && <VideoModal isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />}
+          </AnimatePresence>
+        </div>
+      </div>
 
-      <ConsultationFAB lang={lang} onClick={() => scrollToSection('contact')} />
-      <MobileBottomBar lang={lang} onContactClick={() => scrollToSection('contact')} />
-      <AIChatbot lang={lang} />
-
-      <AnimatePresence>
-        {isVideoOpen && <VideoModal isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />}
-      </AnimatePresence>
+      {/* Global modals — always mounted */}
       <PatientGuideModal isOpen={isGuideOpen} onClose={() => setIsGuideOpen(false)} lang={lang} />
       <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
       <ExitIntentPopup isOpen={isExitIntentOpen} onClose={() => { setIsExitIntentOpen(false); localStorage.setItem('medident_exit_popup', '1'); }} lang={lang} />
-    </div>
-          </motion.div>
-        );
-    }
-  };
-
-  return (
-    <AnimatePresence mode="wait">
-      {renderView()}
-    </AnimatePresence>
+    </>
   );
 };
 

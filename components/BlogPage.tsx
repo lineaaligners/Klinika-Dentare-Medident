@@ -85,9 +85,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
                     {activePost.excerpt[lang] || activePost.excerpt['en']}
                   </p>
                   <div className="text-slate-700 leading-loose space-y-6 font-medium">
-                    {(activePost.content[lang] || activePost.content['en']).split('
-
-').map((para, i) => (
+                    {(activePost.content[lang] || activePost.content['en']).split('\n\n').map((para, i) => (
                       <p key={i} className="text-base md:text-lg leading-relaxed">{para}</p>
                     ))}
                   </div>
