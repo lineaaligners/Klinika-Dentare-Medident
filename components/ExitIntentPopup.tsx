@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, MessageSquare } from 'lucide-react';
 
@@ -9,6 +9,12 @@ interface ExitIntentPopupProps {
 }
 
 const ExitIntentPopup: React.FC<ExitIntentPopupProps> = ({ isOpen, onClose, lang }) => {
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen, onClose]);
   return (
     <AnimatePresence>
       {isOpen && (
