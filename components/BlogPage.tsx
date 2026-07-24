@@ -84,10 +84,12 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
                   <p className="text-xl font-medium text-slate-600 leading-relaxed mb-12 border-l-4 border-blue-600 pl-8 italic">
                     {activePost.excerpt[lang] || activePost.excerpt['en']}
                   </p>
-                  <div className="text-slate-700 leading-loose space-y-8 font-medium">
-                    {activePost.content[lang] || activePost.content['en']}
-                    {/* Simulated extended content for readable look */}
+                  <div className="text-slate-700 leading-loose space-y-6 font-medium">
+                    {(activePost.content[lang] || activePost.content['en']).split('
 
+').map((para, i) => (
+                      <p key={i} className="text-base md:text-lg leading-relaxed">{para}</p>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -107,7 +109,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
                       {author?.bio[lang]}
                     </p>
                     <div className="mt-8 pt-8 border-t border-slate-100">
-                       <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest text-center">© 2026 MEDIDENT CLINICAL BOARD</p>
+                       <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest text-center">Klinika Dentare Medident · Pejë</p>
                     </div>
                   </div>
                   <button className="w-full flex items-center justify-center space-x-3 bg-slate-900 text-white py-4 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all">
@@ -138,7 +140,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
             MEDIDENT<span className="text-blue-600">.</span>BLOG
           </span>
           <div className="hidden md:flex items-center space-x-4">
-            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">TERMINAL: PRN-ARCHIVE</span>
+            
           </div>
         </div>
       </header>
@@ -147,10 +149,10 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 border-b border-slate-100 pb-12">
             <h1 className="text-4xl md:text-6xl font-display font-black text-slate-900 leading-[1.1] tracking-tight mb-6">
-              {lang === 'en' ? 'Clinical Archive.' : 'Arkiva Klinike.'}
+              {lang === 'en' ? 'From the Clinic.' : 'Nga Klinika.'}
             </h1>
             <p className="text-slate-500 text-lg font-medium max-w-2xl">
-              {lang === 'en' ? 'Verified research, surgical outcomes, and diagnostic protocols.' : 'Kërkime të verifikuara, rezultate kirurgjikale dhe protokolle diagnostikuese.'}
+              {lang === 'en' ? 'Stories and clinical perspectives from the Medident team.' : 'Tregime dhe perspektiva klinike nga ekipi Medident.'}
             </p>
           </div>
 
@@ -162,7 +164,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
                   <article key={post.id} className="group border-b border-slate-50 pb-20 last:border-0">
                     <div className="grid md:grid-cols-2 gap-10 items-start">
                       <div className="aspect-[16/10] rounded-xl overflow-hidden shadow-sm bg-slate-100 cursor-pointer" onClick={() => { setActivePost(post); onNavigatePost?.(post.id); }}>
-                        <img src={post.image} className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" alt={post.title[lang] || post.title['en']} />
+                        <img src={post.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={post.title[lang] || post.title['en']} />
                       </div>
                       <div className="flex flex-col h-full">
                         <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600 bg-blue-50 px-3 py-1 rounded w-fit mb-4">{post.category[lang]}</span>
