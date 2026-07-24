@@ -123,6 +123,8 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    const dismissed = localStorage.getItem('medident_exit_popup');
+    if (dismissed) return; // never show again once dismissed
     const handleMouseOut = (e: MouseEvent) => {
       if (!e.relatedTarget && e.clientY < 10) setIsExitIntentOpen(true);
     };
@@ -221,7 +223,7 @@ const App: React.FC = () => {
       </AnimatePresence>
       <PatientGuideModal isOpen={isGuideOpen} onClose={() => setIsGuideOpen(false)} lang={lang} />
       <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
-      <ExitIntentPopup isOpen={isExitIntentOpen} onClose={() => setIsExitIntentOpen(false)} lang={lang} />
+      <ExitIntentPopup isOpen={isExitIntentOpen} onClose={() => { setIsExitIntentOpen(false); localStorage.setItem('medident_exit_popup', '1'); }} lang={lang} />
     </div>
   );
 };
