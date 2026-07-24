@@ -9,7 +9,7 @@ interface FooterProps {
   lang: 'en' | 'sq';
 }
 
-const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenMaterials, onBlogClick, lang }) => {
+const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenMaterials, onBlogClick, onAcademyClick, onJourneyClick, lang }) => {
   return (
     <footer className="bg-slate-50 pt-24 pb-36 md:pb-12 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
