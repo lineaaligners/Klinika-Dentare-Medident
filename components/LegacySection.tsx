@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, Users, History, Globe, Landmark } from 'lucide-react';
+import { Award, Users, History, Globe, Landmark, Activity } from 'lucide-react';
 
 interface LegacySectionProps {
   lang: 'en' | 'sq';
@@ -14,9 +14,9 @@ const LegacySection: React.FC<LegacySectionProps> = ({ lang }) => {
     desc: lang === 'en' 
       ? 'Medident Clinic serves as a primary reference for advanced dentistry in the region. Our history is defined by clinical precision.' 
       : 'Klinika Medident shërben si një referencë primare për stomatologjinë e avancuar në rajon. Historia jonë përcaktohet nga preciziteti klinik.',
-    stat1: lang === 'en' ? 'Certified Case Records' : 'Raste Klinike të Certifikuara',
-    stat2: lang === 'en' ? 'Years Institutional Legacy' : 'Vite Trashëgimi Institucionale',
-    stat3: lang === 'en' ? 'Dedicated Doctors' : 'Mjekë të Përkushtuar',
+    stat1: lang === 'en' ? 'Patients treated since 1999' : 'Pacientë të trajtuar që nga 1999',
+    stat2: lang === 'en' ? 'Years of practice' : 'Vite praktikë',
+    stat3: lang === 'en' ? 'Staff members' : 'Anëtarë stafi',
     quality: lang === 'en' ? 'Quality Standard' : 'Standardi i Cilësisë',
     certified: lang === 'en' ? 'ISO 9001:2015 CERTIFIED' : 'I CERTIFIKUAR ME ISO 9001:2015'
   };
@@ -42,7 +42,7 @@ const LegacySection: React.FC<LegacySectionProps> = ({ lang }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/5 border border-white/5">
             <div className="bg-slate-950 p-8 sm:p-12 hover:bg-slate-900 transition-colors">
               <Users className="text-blue-600 mb-8" size={32} />
-              <p className="text-5xl font-display font-black text-white mb-2 tracking-tighter">13,000</p>
+              <p className="text-5xl font-display font-black text-white mb-2 tracking-tighter">13,000+</p>
               <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em]">{content.stat1}</p>
             </div>
             
@@ -54,15 +54,14 @@ const LegacySection: React.FC<LegacySectionProps> = ({ lang }) => {
 
             <div className="bg-slate-950 p-8 sm:p-12 hover:bg-slate-900 transition-colors">
               <Globe className="text-blue-600 mb-8" size={32} />
-              <p className="text-5xl font-display font-black text-white mb-2 tracking-tighter">5</p>
+              <p className="text-5xl font-display font-black text-white mb-2 tracking-tighter">15</p>
               <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em]">{content.stat3}</p>
             </div>
 
             <div className="bg-slate-950 p-8 sm:p-12 hover:bg-slate-900 transition-colors">
-               <div className="h-full flex flex-col justify-end">
-                  <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em] mb-4">{content.quality}</p>
-                  <p className="text-white font-display font-black text-2xl tracking-tight leading-none uppercase">{content.certified}</p>
-               </div>
+              <Activity className="text-blue-600 mb-8" size={32} />
+              <p className="text-5xl font-display font-black text-white mb-2 tracking-tighter">4,000+</p>
+              <p className="text-slate-500 text-[9px] font-black uppercase tracking-[0.2em]">{lang === 'en' ? 'Implants placed since 2004' : 'Implante të vendosura që nga 2004'}</p>
             </div>
           </div>
         </div>

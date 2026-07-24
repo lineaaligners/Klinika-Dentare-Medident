@@ -68,7 +68,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenMaterials, onBlogCli
           <div>
             <h4 className="font-black text-slate-900 mb-6 uppercase tracking-[0.2em] text-[10px]">The Clinic</h4>
             <ul className="space-y-4 text-slate-500 font-medium text-sm">
-              <li><a href="#doctors" className="hover:text-blue-600 transition-colors">Our Academy</a></li>
+              <li><button onClick={onAcademyClick} className="hover:text-blue-600 transition-colors text-left">Academy</button></li>
               <li><a href="#trust-signals" className="hover:text-blue-600 transition-colors">Materials Registry</a></li>
               <li><a href="#contact" className="hover:text-blue-600 transition-colors">Contact Us</a></li>
               <li><a href="#contact" className="hover:text-blue-600 transition-colors">Contact Support</a></li>

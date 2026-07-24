@@ -110,9 +110,19 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
                        <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest text-center">Klinika Dentare Medident · Pejë</p>
                     </div>
                   </div>
-                  <button className="w-full flex items-center justify-center space-x-3 bg-slate-900 text-white py-4 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all">
+                  <button
+                    onClick={() => {
+                      const url = window.location.href;
+                      const title = activePost.title[lang] || activePost.title['en'];
+                      if (navigator.share) {
+                        navigator.share({ title, url }).catch(() => {});
+                      } else {
+                        navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+                      }
+                    }}
+                    className="w-full flex items-center justify-center space-x-3 bg-slate-900 text-white py-4 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all">
                     <Share2 size={16} />
-                    <span>{lang === 'en' ? 'Share Insight' : 'Shpërndaje'}</span>
+                    <span>{lang === 'en' ? 'Share Article' : 'Shpërndaje'}</span>
                   </button>
                 </div>
               </div>
