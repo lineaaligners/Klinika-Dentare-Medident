@@ -143,17 +143,11 @@ const App: React.FC = () => {
     }
   };
 
-  // Helper: CSS-based show/hide — keeps pages mounted, no blank flash
-  const show = (view: View) => ({
-    style: {
-      display: currentView === view ? 'block' : 'none',
-    } as React.CSSProperties
-  });
-
-  // Show/hide with display:none — keeps all pages mounted so no blank flash on navigation
-  const vis = (view: View): React.CSSProperties => ({
-    display: currentView === view ? 'block' : 'none'
-  });
+  // iOS-safe show/hide: use visibility+position instead of display:none
+  // display:none causes blank flash on iOS Safari because it triggers layout recalc
+  const vis = (view: View): React.CSSProperties => currentView === view
+    ? { position: 'relative' }
+    : { position: 'fixed', top: 0, left: 0, width: '100%', visibility: 'hidden', pointerEvents: 'none', zIndex: -1 };
 
   return (
     <>
