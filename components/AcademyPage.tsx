@@ -352,7 +352,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
 
         {/* ── STATS ─────────────────────────────── */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {[
               { num: '90%', label: lang === 'en' ? 'Hands-on time' : 'Kohë praktike' },
               { num: '2004', label: lang === 'en' ? 'First implant in Kosovo by a woman' : 'Implanti i parë në Kosovë nga një grua' },
@@ -366,6 +366,19 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               </motion.div>
             ))}
           </div>
+          {/* Visiting international faculty */}
+          <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="bg-slate-900 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="flex-shrink-0">
+              <p className="text-[8px] font-black uppercase tracking-[0.3em] text-blue-400 mb-1">{lang === 'en' ? 'Visiting International Faculty' : 'Fakulteti Ndërkombëtar Vizitor'}</p>
+              <p className="text-white font-display font-black text-lg tracking-tight">{lang === 'en' ? 'International guest lecturers' : 'Ligjërues ndërkombëtarë'}</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {['Prof. Dr. Ales Vesnhaver','Prof. Dr. Giorgio Tabanella','Dr. Atilla Mühl','Prof. Dr. Samir Prohić'].map(name => (
+                <span key={name} className="bg-white/10 border border-white/10 text-white/80 text-[9px] font-black uppercase tracking-wider px-4 py-2 rounded-xl">{name}</span>
+              ))}
+            </div>
+          </motion.div>
         </section>
 
       </main>

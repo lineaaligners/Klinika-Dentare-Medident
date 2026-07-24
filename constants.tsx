@@ -615,7 +615,8 @@ export const ACADEMY_COURSES: Course[] = [
     },
     image: '/photos/guided-kit.jpg',
     category: 'Hands-on',
-    instructorId: '1'
+    instructorId: '1',
+    visitingFaculty: ['Prof. Dr. Ales Vesnhaver', 'Prof. Dr. Giorgio Tabanella', 'Dr. Atilla Mühl', 'Prof. Dr. Samir Prohić']
   },
   {
     id: 'c2',

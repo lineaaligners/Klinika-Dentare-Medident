@@ -403,6 +403,45 @@
 }
 </script>
     <link rel="stylesheet" href="/index.css">
+  
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "@id": "https://medident-ks.com/#academy",
+      "name": "Medident Academy",
+      "description": "Clinical dental training academy in Pejë, Kosovo. Hands-on courses in implantology, sinus lift, and aesthetic crown placement. Led by Dr. Lendita Islami Nallbani and Dr. Faton Loci. Visiting international faculty include Prof. Dr. Giorgio Tabanella, Prof. Dr. Samir Prohić, Prof. Dr. Ales Vesnhaver, Dr. Atilla Mühl.",
+      "url": "https://medident-ks.com/#academy",
+      "parentOrganization": {"@id": "https://medident-ks.com/#dentist"},
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rr. Bajram Kelmendi",
+        "addressLocality": "Pejë",
+        "postalCode": "30000",
+        "addressCountry": "XK"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Dental Training Courses",
+        "itemListElement": [
+          {
+            "@type": "Course",
+            "name": "Implantology and Sinus Lift",
+            "description": "Hands-on course covering 3D implant planning, CBCT interpretation, guided surgery with surgical stent, sinus lift techniques, and live case observation. Led by Dr. Lendita Islami Nallbani.",
+            "provider": {"@type": "Organization", "name": "Medident Academy"},
+            "instructor": {"@type": "Person", "name": "Dr. Lendita Islami Nallbani"}
+          },
+          {
+            "@type": "Course",
+            "name": "Aesthetic Preparation and Crown Placement",
+            "description": "Hands-on course covering tooth preparation, shade selection, lab communication, zirconia and Emax cementation, occlusal adjustment. Led by Dr. Faton Loci.",
+            "provider": {"@type": "Organization", "name": "Medident Academy"},
+            "instructor": {"@type": "Person", "name": "Dr. Faton Loci"}
+          }
+        ]
+      }
+    }
+    </script>
   </head>
   <body class="bg-slate-50 text-slate-900">
     <div id="root"></div>
