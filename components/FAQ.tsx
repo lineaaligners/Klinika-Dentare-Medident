@@ -20,7 +20,7 @@ const FAQ: React.FC<{ lang: 'en' | 'sq' }> = ({ lang }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 mb-16 md:mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-24 mb-12 md:mb-20">
           <div>
             <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               className="text-[9px] font-black text-blue-600 uppercase tracking-[0.35em] mb-4">
@@ -70,7 +70,7 @@ const FAQ: React.FC<{ lang: 'en' | 'sq' }> = ({ lang }) => {
                   className={`rounded-2xl border transition-all duration-300 ${isOpen ? 'bg-white border-blue-200 shadow-lg shadow-blue-600/5 lg:col-span-2' : 'bg-white border-slate-100 hover:border-blue-200'}`}>
 
                   <button onClick={() => setOpenId(isOpen ? null : faq.id)}
-                    className="w-full flex justify-between items-start p-6 md:p-7 text-left gap-4">
+                    className="w-full flex justify-between items-start p-5 md:p-7 text-left gap-3">
                     <div className="flex items-start gap-4">
                       <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors ${isOpen ? 'bg-blue-600' : 'bg-slate-100'}`}>
                         <span className={`text-[10px] font-black ${isOpen ? 'text-white' : 'text-slate-400'}`}>

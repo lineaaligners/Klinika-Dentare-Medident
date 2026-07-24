@@ -14,7 +14,7 @@ const TrustBar: React.FC<{ lang: 'en' | 'sq' }> = ({ lang }) => {
   return (
     <div className="py-12 bg-white border-y border-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12">
           {/* Google Reviews — links to the clinic's real listing */}
           <a
             href="https://www.google.com/maps/search/?api=1&query=Klinika+Dentare+Medident+Pej%C3%AB"

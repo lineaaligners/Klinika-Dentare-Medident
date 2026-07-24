@@ -28,14 +28,14 @@ const CaseModal: React.FC<{ item: BeforeAfter; lang: 'en' | 'sq'; onClose: () =>
           onClick={e => e.stopPropagation()}
         >
           {/* Images */}
-          <div className="flex h-56 sm:h-72 rounded-t-[2rem] overflow-hidden">
-            <div className="relative flex-1 bg-slate-100 overflow-hidden">
+          <div className="flex flex-col sm:flex-row rounded-t-[2rem] overflow-hidden">
+            <div className="relative h-44 sm:h-auto sm:flex-1 bg-slate-100 overflow-hidden">
               <img src={item.before} alt="Before" className="w-full h-full object-cover" />
               <span className="absolute top-4 left-4 bg-slate-900/70 backdrop-blur-sm text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase">
                 {item.labelBefore || (lang === 'en' ? 'Before' : 'Para')}
               </span>
             </div>
-            <div className="relative flex-1 bg-slate-200 overflow-hidden border-l border-white/20">
+            <div className="relative h-44 sm:h-auto sm:flex-1 bg-slate-200 overflow-hidden border-t sm:border-t-0 sm:border-l border-white/20">
               <img src={item.after} alt="After" className="w-full h-full object-cover" />
               <span className="absolute top-4 left-4 bg-blue-600 text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase shadow">
                 {item.labelAfter || (lang === 'en' ? 'After' : 'Pas')}
@@ -173,7 +173,7 @@ const Gallery: React.FC<GalleryProps> = ({ lang }) => {
               className="group bg-white rounded-[2rem] border border-slate-200 overflow-hidden hover:border-blue-500 transition-all duration-500 shadow-sm cursor-pointer"
               onClick={() => setSelected(item)}
             >
-              <div className="flex flex-col sm:flex-row h-[420px] sm:h-[500px]">
+              <div className="flex flex-col h-auto">
                 <div className="relative flex-1 bg-slate-100 group-hover:scale-[1.02] transition-transform duration-700 overflow-hidden">
                   <img src={item.before} alt="Before" className="w-full h-full object-cover" />
                   <div className="absolute top-6 left-6 bg-slate-900/60 backdrop-blur-md text-white text-[8px] px-3 py-1 rounded-full font-black tracking-widest uppercase">{item.labelBefore || 'Before'}</div>

@@ -108,7 +108,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                 </span>
               </motion.div>
               <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.08 }}
-                className="text-5xl sm:text-6xl md:text-[80px] font-display font-black leading-[0.88] tracking-tighter text-slate-900 mb-8">
+                className="text-4xl sm:text-6xl md:text-[80px] font-display font-black leading-[0.88] tracking-tighter text-slate-900 mb-6 sm:mb-8">
                 {lang === 'en' ? <>Learn from<br /><span className="text-blue-600 italic">those who do.</span></> : <>Mëso nga<br /><span className="text-blue-600 italic">ata që bëjnë.</span></>}
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.14 }}
@@ -161,7 +161,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
 
         {/* ── PROCESS STEPS ─────────────────────── */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-24 md:mb-40">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
             {[
               { num: '01', icon: <Binary size={20} className="text-blue-600" />, title: lang === 'en' ? '3D Planning' : 'Planifikim 3D', desc: lang === 'en' ? 'Master digital case planning before any procedure.' : 'Zotëro planifikimin digjital para çdo procedure.' },
               { num: '02', icon: <Layers size={20} className="text-blue-600" />, title: lang === 'en' ? 'Hands-on Lab' : 'Lab Praktik', desc: lang === 'en' ? 'Work on real anatomical models in the clinic.' : 'Punë mbi modele anatomike reale në klinikë.' },
@@ -169,7 +169,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               { num: '04', icon: <AwardIcon size={20} className="text-blue-600" />, title: lang === 'en' ? 'Certificate' : 'Certifikatë', desc: lang === 'en' ? 'Leave with a signed course certificate.' : 'Largohesh me një certifikatë kursi të nënshkruar.' },
             ].map((step, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                className="group p-6 md:p-8 bg-white border border-slate-100 rounded-3xl hover:border-blue-200 hover:shadow-lg transition-all">
+                className="group p-5 md:p-8 bg-white border border-slate-100 rounded-3xl hover:border-blue-200 hover:shadow-lg transition-all">
                 <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-blue-50 transition-colors">
                   {step.icon}
                 </div>
@@ -305,7 +305,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
             {academicFaculty.map((inst, i) => (
               <motion.div key={inst.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="group bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all">
-                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+                <div className="flex flex-col gap-6">
                   <div className="sm:w-40 flex-shrink-0">
                     <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-slate-200 shadow-md">
                       <img src={inst.image} className="w-full h-full object-cover object-top" alt={inst.name} />

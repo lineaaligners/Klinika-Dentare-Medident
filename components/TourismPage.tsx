@@ -74,7 +74,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                 {lang === 'en' ? 'Dental Tourism · Pejë, Kosova' : 'Turizëm Dentar · Pejë, Kosovë'}
               </span>
             </div>
-            <h1 className="text-5xl sm:text-6xl md:text-[76px] font-display font-black text-slate-900 tracking-tighter mb-8 leading-[0.88]">
+            <h1 className="text-4xl sm:text-6xl md:text-[76px] font-display font-black text-slate-900 tracking-tighter mb-6 sm:mb-8 leading-[0.88]">
               {lang === 'en' ? <>Your smile,<br /><span className="text-blue-600">planned just for you.</span></> : <>Buzëqeshja juaj,<br /><span className="text-blue-600">planifikuar për ju.</span></>}
             </h1>
             <p className="text-slate-500 text-xl font-medium leading-relaxed max-w-2xl">
@@ -86,7 +86,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
 
           {/* ── HOW IT WORKS ──────────────────── */}
           <section className="mb-20 md:mb-32">
-            <div className="grid md:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid gap-4 md:grid-cols-3 md:gap-6">
               {[
                 { icon: <Camera size={20} className="text-blue-600" />, num: '1', title: lang === 'en' ? 'Send your scan' : 'Dërgo skanimin', desc: lang === 'en' ? 'Upload your OPG or CBCT on WhatsApp or the form below. Dr. Lendita reviews every case personally.' : 'Ngarko panoramen ose CBCT në WhatsApp ose formularin. Dr. Lendita rishikon çdo rast personalisht.' },
                 { icon: <Phone size={20} className="text-blue-600" />, num: '2', title: lang === 'en' ? 'We call you' : 'Ne ju telefonojmë', desc: lang === 'en' ? 'A real person — not a call center — contacts you to go through the plan and answer every question.' : 'Një person i vërtetë — jo qendër thirrjesh — ju kontakton për të diskutuar planin dhe çdo pyetje.' },
@@ -329,7 +329,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                 </button>
               ))}
             </div>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
               {(timelinePhase === 1 ? timelinePhase1 : timelinePhase2).map((step, idx) => (
                 <motion.div key={idx} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.07 }}
                   className="bg-white border border-slate-200 rounded-3xl p-6 hover:border-blue-300 hover:shadow-md transition-all">
@@ -355,7 +355,7 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
                 {lang === 'en' ? 'One of Kosovo\'s most spectacular natural environments — 30 minutes from the clinic. Mountains, canyon, fresh air.' : 'Njëra nga mjediset natyrore më spektakolare të Kosovës — 30 minuta nga klinika. Male, kanion, ajër i pastër.'}
               </p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
               {RUGOVA_EXPERIENCES(lang).map((exp, idx) => (
                 <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.08 }}
                   className="group bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-blue-300 transition-all">

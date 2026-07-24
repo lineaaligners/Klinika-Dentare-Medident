@@ -51,7 +51,7 @@ const Services: React.FC<ServicesProps> = ({ lang, onOpenMaterials }) => {
         </div>
 
         {/* ── Featured 3 — large cards ── */}
-        <div className="grid lg:grid-cols-3 gap-5 mb-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
           {featured.map((service, idx) => {
             const IconComponent = (Icons as any)[service.icon] || Icons.Activity;
             const isHovered = hovered === service.id;
@@ -61,7 +61,7 @@ const Services: React.FC<ServicesProps> = ({ lang, onOpenMaterials }) => {
                 viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
                 onMouseEnter={() => setHovered(service.id)} onMouseLeave={() => setHovered(null)}
                 className="group relative bg-slate-900 rounded-3xl overflow-hidden cursor-pointer"
-                style={{ minHeight: '480px' }}>
+                style={{ minHeight: '320px' }}>
 
                 {/* Background image */}
                 <div className="absolute inset-0">
@@ -106,7 +106,7 @@ const Services: React.FC<ServicesProps> = ({ lang, onOpenMaterials }) => {
         </div>
 
         {/* ── Secondary 3 — horizontal cards ── */}
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {secondary.map((service, idx) => {
             const IconComponent = (Icons as any)[service.icon] || Icons.Heart;
             return (

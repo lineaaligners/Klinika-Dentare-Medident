@@ -78,7 +78,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
               <img src={activePost.image} className="w-full h-full object-cover" alt={activePost.title[lang] || activePost.title['en']} />
             </div>
 
-            <div className="grid lg:grid-cols-12 gap-16">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
               <div className="lg:col-span-8">
                 <div className="prose prose-slate prose-lg max-w-none">
                   <p className="text-xl font-medium text-slate-600 leading-relaxed mb-12 border-l-4 border-blue-600 pl-8 italic">
@@ -160,8 +160,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
                 const author = DOCTORS.find(d => d.id === post.authorId);
                 return (
                   <article key={post.id} className="group border-b border-slate-50 pb-20 last:border-0">
-                    <div className="grid md:grid-cols-2 gap-10 items-start">
-                      <div className="aspect-[16/10] rounded-xl overflow-hidden shadow-sm bg-slate-100 cursor-pointer" onClick={() => { setActivePost(post); onNavigatePost?.(post.id); }}>
+                    <div className="flex flex-col gap-6">
+                      <div className="w-full aspect-[16/9] rounded-xl overflow-hidden shadow-sm bg-slate-100 cursor-pointer" onClick={() => { setActivePost(post); onNavigatePost?.(post.id); }}>
                         <img src={post.image} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={post.title[lang] || post.title['en']} />
                       </div>
                       <div className="flex flex-col h-full">

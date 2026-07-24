@@ -203,7 +203,7 @@ const App: React.FC = () => {
             onServicesClick={() => scrollToSection('services')}
             onDoctorsClick={() => scrollToSection('doctors')}
             onGalleryClick={() => scrollToSection('gallery')}
-            onContactClick={() => scrollToSection('contact')}
+            onBookClick={() => scrollToSection('contact')}
           />
           <Hero
             onWatchStory={() => setIsVideoOpen(true)}
@@ -232,7 +232,7 @@ const App: React.FC = () => {
             onOpenMaterials={() => setIsMaterialsOpen(true)}
           />
           <ConsultationFAB lang={lang} onClick={() => scrollToSection('contact')} />
-          <MobileBottomBar lang={lang} onContactClick={() => scrollToSection('contact')} />
+          <MobileBottomBar lang={lang} onBookClick={() => scrollToSection('contact')} />
           <AIChatbot lang={lang} />
           <AnimatePresence>
             {isVideoOpen && <VideoModal isOpen={isVideoOpen} onClose={() => setIsVideoOpen(false)} />}
