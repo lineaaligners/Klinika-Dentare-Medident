@@ -496,6 +496,47 @@ Founder, Klinika Dentare Medident, Pejë`,
     image: '/photos/lendita-operating.jpg',
     category: { en: 'Personal', sq: 'Personale' },
     readTime: { en: '5 min read', sq: '5 min lexim' }
+  },
+{
+    id: 'b5',
+    title: {
+      en: 'What Changed When We Brought Aligners Into the Clinic.',
+      sq: 'Çfarë Ndryshoi Kur Sollëm Alignerët në Klinikë.'
+    },
+    excerpt: {
+      en: 'For years, if a patient at Medident needed orthodontic treatment, we referred them. They would leave, spend months somewhere else, and come back. We never fully knew what happened in between. Linea Aligners changed that.',
+      sq: 'Për vite me radhë, nëse një pacient në Medident kishte nevojë për trajtim ortodontik, i referoheshim dikujt tjetër. Largohet, kalonin muaj diku tjetër dhe ktheheshin. Ne kurrë nuk dinim plotësisht çfarë ndodhte ndërkaq. Linea Aligners e ndryshoi këtë.'
+    },
+    content: {
+      en: `For years, if a patient at Medident needed orthodontic treatment, we referred them. They would leave, spend months with another provider, and come back. We never fully knew what happened in between. Whether the case was managed the way we would have managed it. Whether the patient felt supported. Whether the result was what we had discussed with them.
+
+That gap bothered me.
+
+Orthodontics has always been part of the complete picture in dentistry. A well-aligned bite is not just aesthetic — it affects how teeth wear, how implants load, how crowns sit, how the whole mouth functions over time. When I plan a smile rehabilitation, I need to know where the teeth are going to be, not just where they are now. Referring the orthodontic phase out meant planning around a variable I did not control.
+
+When Linea Aligners launched here in Kosovo, the decision to bring the workflow into Medident was not complicated. The clinical partner, Dr. Fatbardha Mustafa, is someone whose work I trust and who understands how to integrate clear aligner treatment with broader restorative planning. That alignment — in both senses — matters.
+
+What changed in practice?
+
+The most significant thing is that the orthodontic phase now sits inside the same clinical conversation as everything else. When a patient comes in with crowding or spacing issues, we do not hand them a referral and a wave. We scan, we plan, we show them the projected outcome before we start. The Linea workflow uses digital treatment planning — the patient can see where their teeth will be at the end of treatment, which changes the conversation entirely.
+
+For combined cases — patients who need both alignment and restorative work — this is especially important. Aligner treatment can open space for an implant. It can level a bite before crowns are placed. It can correct a single rotated tooth that was compromising an adjacent restoration. These decisions used to involve multiple providers, multiple handoffs, and a lot of trust that everything would come together. Now they happen in one clinic, in one plan.
+
+The Linea system is manufactured here in Kosovo, which matters for practical reasons — adjustments, replacements, and communication with the lab happen fast. There is no six-week wait for a revision set. If something needs to change, it changes.
+
+I will say one more thing. Clear aligner patients are some of the most engaged patients in any dental practice. They come in regularly, they track their progress, they notice details. Working with patients who are that invested in the process is good for the whole team. It raises the standard of everything else we do.
+
+Medident has always been a clinic that tries to do the whole job properly — not hand parts of it to someone else and hope for the best. Bringing Linea into the clinic was part of that same instinct.
+
+— Dr. Faton Loci, Dentist
+Klinika Dentare Medident, Pejë`,
+      sq: ``
+    },
+    authorId: '2',
+    date: 'Jul 20, 2025',
+    image: '/photos/faton-aesthetic-closeup.jpg',
+    category: { en: 'Orthodontics', sq: 'Ortodonci' },
+    readTime: { en: '4 min read', sq: '4 min lexim' }
   }
 ];
 
