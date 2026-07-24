@@ -552,7 +552,7 @@ Klinika Dentare Medident, Pejë`,
     },
     authorId: '7',
     date: 'Jul 20, 2025',
-    image: '/photos/faton-aesthetic-closeup.jpg',
+    image: '/photos/linea-travel.jpg',
     category: { en: 'Orthodontics', sq: 'Ortodonci' },
     readTime: { en: '4 min read', sq: '4 min lexim' }
   },
