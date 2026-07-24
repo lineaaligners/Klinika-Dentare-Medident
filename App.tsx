@@ -143,11 +143,9 @@ const App: React.FC = () => {
     }
   };
 
-  // iOS-safe show/hide: use visibility+position instead of display:none
-  // display:none causes blank flash on iOS Safari because it triggers layout recalc
-  const vis = (view: View): React.CSSProperties => currentView === view
-    ? { position: 'relative' }
-    : { position: 'fixed', top: 0, left: 0, width: '100%', visibility: 'hidden', pointerEvents: 'none', zIndex: -1 };
+  // Simple display toggle — clean and reliable across all browsers
+  const vis = (view: View): React.CSSProperties =>
+    currentView === view ? {} : { display: 'none' };
 
   return (
     <>
