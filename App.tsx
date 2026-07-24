@@ -143,31 +143,39 @@ const App: React.FC = () => {
     }
   };
 
-  if (currentView === 'blog') {
-    return <BlogPage onBack={() => navigateTo('home')} lang={lang} initialPostId={initialPostId} onNavigatePost={(id) => navigateTo('blog', id)} />;
-  }
+  const pageVariants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 0.3, ease: 'easeOut' } },
+    exit: { opacity: 0, transition: { duration: 0.15, ease: 'easeIn' } }
+  };
 
-  if (currentView === 'academy') {
-    return (
-      <>
-        <AcademyPage onBack={() => navigateTo('home')} lang={lang} onOpenMaterials={() => setIsMaterialsOpen(true)} initialCourseId={initialCourseId} onNavigateCourse={(id) => navigateTo('academy', id)} />
-        <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
-      </>
-    );
-  }
-
-  if (currentView === 'tourism') {
-    return (
-      <>
-        <TourismPage onBack={() => navigateTo('home')} lang={lang} onOpenGuide={() => setIsGuideOpen(true)} onOpenMaterials={() => setIsMaterialsOpen(true)} />
-        <PatientGuideModal isOpen={isGuideOpen} onClose={() => setIsGuideOpen(false)} lang={lang} />
-        <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
-      </>
-    );
-  }
-
-  return (
-    <div className="relative min-h-screen selection:bg-blue-600 selection:text-white bg-white">
+  const renderView = () => {
+    switch (currentView) {
+      case 'blog':
+        return (
+          <motion.div key="blog" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <BlogPage onBack={() => navigateTo('home')} lang={lang} initialPostId={initialPostId} onNavigatePost={(id) => navigateTo('blog', id)} />
+          </motion.div>
+        );
+      case 'academy':
+        return (
+          <motion.div key="academy" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <AcademyPage onBack={() => navigateTo('home')} lang={lang} onOpenMaterials={() => setIsMaterialsOpen(true)} initialCourseId={initialCourseId} onNavigateCourse={(id) => navigateTo('academy', id)} />
+            <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
+          </motion.div>
+        );
+      case 'tourism':
+        return (
+          <motion.div key="tourism" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <TourismPage onBack={() => navigateTo('home')} lang={lang} onOpenGuide={() => setIsGuideOpen(true)} onOpenMaterials={() => setIsMaterialsOpen(true)} />
+            <PatientGuideModal isOpen={isGuideOpen} onClose={() => setIsGuideOpen(false)} lang={lang} />
+            <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
+          </motion.div>
+        );
+      default:
+        return (
+          <motion.div key="home" variants={pageVariants} initial="initial" animate="animate" exit="exit">
+            <div className="relative min-h-screen selection:bg-blue-600 selection:text-white bg-white">
       <div className="grain" />
       <div id="cursor-spotlight" ref={spotlightRef} />
 
@@ -225,6 +233,15 @@ const App: React.FC = () => {
       <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
       <ExitIntentPopup isOpen={isExitIntentOpen} onClose={() => { setIsExitIntentOpen(false); localStorage.setItem('medident_exit_popup', '1'); }} lang={lang} />
     </div>
+          </motion.div>
+        );
+    }
+  };
+
+  return (
+    <AnimatePresence mode="wait">
+      {renderView()}
+    </AnimatePresence>
   );
 };
 
