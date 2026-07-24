@@ -14,13 +14,15 @@ interface AcademyPageProps {
   onBack: () => void;
   onOpenMaterials?: () => void;
   lang: 'en' | 'sq';
+  initialCourseId?: string;
+  onNavigateCourse?: (id: string) => void;
 }
 
-const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang }) => {
+const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang, initialCourseId, onNavigateCourse }) => {
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [shouldAutoPrint, setShouldAutoPrint] = useState(false);
-  const [expandedCourse, setExpandedCourse] = useState<string | null>(null);
+  const [expandedCourse, setExpandedCourse] = useState<string | null>(initialCourseId ?? null);
   const audioContextRef = useRef<AudioContext | null>(null);
 
   const academicFaculty = useMemo(() => DOCTORS.filter(d => d.id === '1' || d.id === '2'), []);
@@ -227,7 +229,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                   <div className="p-6 sm:p-8 md:p-10">
                     <div className="flex items-start justify-between gap-6">
                       <p className="text-slate-500 font-medium text-sm leading-relaxed flex-1">{course.description[lang]}</p>
-                      <button onClick={() => setExpandedCourse(isOpen ? null : course.id)}
+                      <button onClick={() => { const next = isOpen ? null : course.id; setExpandedCourse(next); onNavigateCourse?.(next ?? ''); }}
                         className="flex-shrink-0 flex items-center space-x-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors">
                         <span>{isOpen ? (lang === 'en' ? 'Less' : 'Më pak') : (lang === 'en' ? 'Details' : 'Detaje')}</span>
                         <ChevronDown size={14} className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />

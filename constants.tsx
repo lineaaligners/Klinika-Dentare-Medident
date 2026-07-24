@@ -197,7 +197,7 @@ export const DOCTORS: Doctor[] = [
     name: 'Genis Nallbani',
     role: { en: 'Founder, Linea Aligners', sq: 'Themelues, Linea Aligners' },
     bio: {
-      en: 'Genis Nallbani is the founder of Linea Aligners, a Kosovo-based clear aligner brand launched in 2025. He works alongside Medident to integrate clear aligner treatment into the clinic's full restorative workflow.',
+      en: 'Genis Nallbani is the founder of Linea Aligners, a Kosovo-based clear aligner brand launched in 2025. He works alongside Medident to integrate clear aligner treatment into the full restorative workflow at the clinic.',
       sq: 'Genis Nallbani është themelues i Linea Aligners, një markë e alignerëve transparentë e bazuar në Kosovë, e lançuar në 2025. Ai punon krah Medidentit për të integruar trajtimin me alignerë transparentë në rrjedhën e plotë restauruese të klinikës.'
     },
     image: '/team/lendita-nallbani.jpg',

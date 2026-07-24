@@ -27,6 +27,7 @@ import MobileBottomBar from './components/MobileBottomBar';
 import TrustBar from './components/TrustBar';
 
 type View = 'home' | 'blog' | 'academy' | 'tourism';
+type DeepRoute = { view: View; id?: string };
 
 // Map URL paths to views
 const PATH_TO_VIEW: Record<string, View> = {
@@ -42,10 +43,18 @@ const VIEW_TO_PATH: Record<View, string> = {
   tourism: '/tourism',
 };
 
-const getInitialView = (): View => {
+const parseRoute = (): DeepRoute => {
   const path = window.location.pathname;
-  return PATH_TO_VIEW[path] ?? 'home';
+  // /blog/b1 or /academy/c1
+  const blogMatch = path.match(/^\/blog\/([^/]+)$/);
+  if (blogMatch) return { view: 'blog', id: blogMatch[1] };
+  const academyMatch = path.match(/^\/academy\/([^/]+)$/);
+  if (academyMatch) return { view: 'academy', id: academyMatch[1] };
+  return { view: PATH_TO_VIEW[path] ?? 'home' };
 };
+
+const getInitialView = (): View => parseRoute().view;
+const getInitialId = (): string | undefined => parseRoute().id;
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'en' | 'sq'>(() => {
@@ -57,15 +66,18 @@ const App: React.FC = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const [isExitIntentOpen, setIsExitIntentOpen] = useState(false);
   const [currentView, setCurrentView] = useState<View>(getInitialView);
+  const [initialPostId] = useState<string | undefined>(getInitialId);
+  const [initialCourseId] = useState<string | undefined>(getInitialId);
   const spotlightRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   // Sync URL when view changes
-  const navigateTo = (view: View) => {
-    const path = VIEW_TO_PATH[view];
-    window.history.pushState({ view }, '', path);
+  const navigateTo = (view: View, id?: string) => {
+    const basePath = VIEW_TO_PATH[view];
+    const path = (id && id !== '') ? basePath + '/' + id : basePath;
+    window.history.pushState({ view, id }, '', path);
     setCurrentView(view);
     window.scrollTo(0, 0);
   };
@@ -130,13 +142,13 @@ const App: React.FC = () => {
   };
 
   if (currentView === 'blog') {
-    return <BlogPage onBack={() => navigateTo('home')} lang={lang} />;
+    return <BlogPage onBack={() => navigateTo('home')} lang={lang} initialPostId={initialPostId} onNavigatePost={(id) => navigateTo('blog', id)} />;
   }
 
   if (currentView === 'academy') {
     return (
       <>
-        <AcademyPage onBack={() => navigateTo('home')} lang={lang} onOpenMaterials={() => setIsMaterialsOpen(true)} />
+        <AcademyPage onBack={() => navigateTo('home')} lang={lang} onOpenMaterials={() => setIsMaterialsOpen(true)} initialCourseId={initialCourseId} onNavigateCourse={(id) => navigateTo('academy', id)} />
         <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
       </>
     );

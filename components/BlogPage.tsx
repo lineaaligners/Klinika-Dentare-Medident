@@ -19,11 +19,16 @@ import {
 interface BlogPageProps {
   onBack: () => void;
   lang: 'en' | 'sq';
+  initialPostId?: string;
+  onNavigatePost?: (id: string) => void;
 }
 
-const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
+const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavigatePost }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [activePost, setActivePost] = useState<BlogPost | null>(null);
+  const [activePost, setActivePost] = useState<BlogPost | null>(() => {
+    if (initialPostId) return BLOG_POSTS.find(p => p.id === initialPostId) ?? null;
+    return null;
+  });
 
   const categories = Array.from(new Set(BLOG_POSTS.map(post => post.category[lang])));
 
@@ -39,7 +44,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
         <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-slate-100">
           <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <button 
-              onClick={() => setActivePost(null)}
+              onClick={() => { setActivePost(null); onNavigatePost?.(''); }}
               className="flex items-center space-x-2 text-slate-400 hover:text-blue-600 transition-colors group"
             >
               <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
@@ -156,12 +161,12 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang }) => {
                 return (
                   <article key={post.id} className="group border-b border-slate-50 pb-20 last:border-0">
                     <div className="grid md:grid-cols-2 gap-10 items-start">
-                      <div className="aspect-[16/10] rounded-xl overflow-hidden shadow-sm bg-slate-100 cursor-pointer" onClick={() => setActivePost(post)}>
+                      <div className="aspect-[16/10] rounded-xl overflow-hidden shadow-sm bg-slate-100 cursor-pointer" onClick={() => { setActivePost(post); onNavigatePost?.(post.id); }}>
                         <img src={post.image} className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" alt={post.title[lang] || post.title['en']} />
                       </div>
                       <div className="flex flex-col h-full">
                         <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-600 bg-blue-50 px-3 py-1 rounded w-fit mb-4">{post.category[lang]}</span>
-                        <h2 className="text-2xl font-display font-black text-slate-900 mb-4 tracking-tight leading-tight group-hover:text-blue-600 transition-colors cursor-pointer" onClick={() => setActivePost(post)}>
+                        <h2 className="text-2xl font-display font-black text-slate-900 mb-4 tracking-tight leading-tight group-hover:text-blue-600 transition-colors cursor-pointer" onClick={() => { setActivePost(post); onNavigatePost?.(post.id); }}>
                           {post.title[lang] || post.title['en']}
                         </h2>
                         <p className="text-slate-500 text-sm font-medium mb-6 line-clamp-3">{post.excerpt[lang] || post.excerpt['en']}</p>

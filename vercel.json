@@ -1,7 +1,7 @@
 {
   "rewrites": [
-    { "source": "/blog", "destination": "/" },
-    { "source": "/academy", "destination": "/" },
+    { "source": "/blog/:path*", "destination": "/" },
+    { "source": "/academy/:path*", "destination": "/" },
     { "source": "/tourism", "destination": "/" },
     { "source": "/services", "destination": "/" },
     { "source": "/gallery", "destination": "/" },
