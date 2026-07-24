@@ -72,8 +72,8 @@ const MaterialRegistryModal: React.FC<MaterialRegistryModalProps> = ({ isOpen, o
   };
 
   const comparisonData = [
-    { metric: 'Digital Scanning', medident: 'Sirona Primescan (HD)', local: 'Analog Impressions', impact: 'Zero Gag Reflex / Perfect Fit' },
-    { metric: 'Prosthetic Milling', medident: 'Deprag / Ivoclar e.max', local: 'Non-branded Zirconia', impact: 'Natural Light Reflection' },
+    { metric: 'Digital Scanning', medident: 'Sirona Primescan (HD)', local: 'Traditional impressions', impact: 'Zero Gag Reflex / Perfect Fit' },
+    { metric: 'Prosthetic Milling', medident: 'Deprag / Ivoclar e.max', local: 'Standard zirconia', impact: 'Natural Light Reflection' },
     { metric: '3D Surgical Guides', medident: 'SprintRay Precision', local: 'Free-hand Placement', impact: 'Guided, Planned Surgery' },
     { metric: 'Moulding Tech', medident: 'Scheu Dental (DE)', local: 'Standard Vacuum', impact: 'Institutional Durability' }
   ];
@@ -155,7 +155,7 @@ const MaterialRegistryModal: React.FC<MaterialRegistryModalProps> = ({ isOpen, o
                 <div>
                   <h6 className="text-xs font-black uppercase tracking-widest text-slate-900 mb-2">Digital Infrastructure Statement</h6>
                   <p className="text-xs text-slate-600 font-medium leading-relaxed">
-                    Medident utilizes a fully integrated digital workflow. From <strong>Sirona Primescan</strong> intraoral data to <strong>SprintRay</strong> surgical guides and <strong>Deprag</strong> zirconia milling, our material choice is selected for institutional longevity and biological integration.
+                    Medident uses a digital workflow including 3D CBCT scanning, digital impressions, and 3D-printed surgical guides. Implant systems: Hiossen (USA) and MegaGen. Ceramics: Ivoclar e.max. All materials are from documented, traceable manufacturers.
                   </p>
                 </div>
               </div>

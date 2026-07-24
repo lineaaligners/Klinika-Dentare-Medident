@@ -134,10 +134,10 @@ const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {
           <div>
             <div className="inline-flex items-center space-x-2 bg-blue-600/10 text-blue-700 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest mb-4">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>World-Class Medical Tourism</span>
+              <span>Trusted Since 1999</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tight leading-none mb-3">
-              Smile Reconstructions <span className="text-blue-600">You Can Trust</span>
+              Real Cases. <span className="text-blue-600">Real Results.</span>
             </h2>
             <p className="text-slate-600 text-lg max-w-2xl font-medium mt-1">
               International patients travel to Medident for quality dental care at significantly lower prices than Western Europe — without compromising on standards.

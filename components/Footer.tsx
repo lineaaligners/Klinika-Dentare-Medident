@@ -69,23 +69,23 @@ const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenMaterials, onBlogCli
             <h4 className="font-black text-slate-900 mb-6 uppercase tracking-[0.2em] text-[10px]">The Clinic</h4>
             <ul className="space-y-4 text-slate-500 font-medium text-sm">
               <li><a href="#doctors" className="hover:text-blue-600 transition-colors">Our Academy</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Technologies</a></li>
-              <li><a href="#" className="hover:text-blue-600 transition-colors">Careers</a></li>
+              <li><a href="#trust-signals" className="hover:text-blue-600 transition-colors">Materials Registry</a></li>
+              <li><a href="#contact" className="hover:text-blue-600 transition-colors">Contact Us</a></li>
               <li><a href="#contact" className="hover:text-blue-600 transition-colors">Contact Support</a></li>
               <li className="flex items-center text-blue-600 font-black">
-                <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                OPEN TODAY
+                <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                Mon–Fri 09:00–18:00
               </li>
             </ul>
           </div>
         </div>
         
         <div className="pt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-slate-400 text-[10px] font-black uppercase tracking-widest">
-          <p>© 2026 Medident Clinic. All rights reserved.</p>
+          <p>© 2025 Klinika Dentare Medident · Pejë, Kosovë. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-blue-600">Privacy Policy</a>
-            <a href="#" className="hover:text-blue-600">Terms</a>
-            <a href="#" className="hover:text-blue-600">Cookies</a>
+            <span className="text-slate-400">Rr. Bajram Kelmendi, Pejë / Peja / Peć, 30000 Kosovo</span>
+            <a href="tel:+38349272803" className="hover:text-blue-600">+383 49 272 803</a>
+            <a href="https://wa.me/38349772307" target="_blank" rel="noopener" className="hover:text-blue-600">WhatsApp</a>
           </div>
         </div>
       </div>

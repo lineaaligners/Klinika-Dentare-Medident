@@ -31,7 +31,7 @@ export const SERVICES: Service[] = [
     id: '1',
     title: { en: 'Dental Implants', sq: 'Implante Dentare' },
     description: {
-      en: 'Hiossen (USA) and MegaGen implant systems. Every case starts with a CBCT 3D scan — Dr. Lendita plans the exact angle, depth, and position before surgery. A 3D-printed surgical guide ensures the implant goes exactly where it was planned. Flapless when possible: less swelling, faster recovery.',
+      en: 'Hiossen (USA) and MegaGen implant systems. Every case starts with a CBCT 3D scan — Dr. Lendita plans the exact angle, depth, and position before surgery. A 3D-printed surgical guide ensures the implant goes exactly where it was planned. Immediate loading available: temporary crown placed within 24 hours. Flapless when possible: less swelling, faster recovery.',
       sq: 'Sisteme Hiossen (SHBA) dhe MegaGen. Çdo rast fillon me skanim 3D CBCT — Dr. Lendita planifikon këndin, thellësinë dhe pozicionin e saktë para kirurgjisë. Udhëzuesi kirurgjikal i printuar 3D siguron se implanti shkon saktësisht ku u planifikua. Flapless kur është e mundur: më pak ënjtje, rikuperim më i shpejtë.'
     },
     icon: 'Activity',
