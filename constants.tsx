@@ -385,51 +385,6 @@ If you are considering implants, or if you have been told your case is complicat
     readTime: { en: '5 min read', sq: '5 min lexim' }
   },
 {
-    id: 'b2',
-    title: {
-      en: 'Dr. Faton Loci: A Tooth Is Not a White Rectangle. On Natural Aesthetics.',
-      sq: 'Dr. Faton Loci: Një Dhëmb Nuk Është Drejtkëndësh i Bardhë. Mbi Estetikën Natyrale.'
-    },
-    excerpt: {
-      en: 'I spend a lot of time outside. Mountains, rivers, forests — nothing in nature is perfectly symmetrical, perfectly uniform, perfectly white. That observation is the foundation of everything I do in the clinic.',
-      sq: 'Kaloj shumë kohë jashtë. Male, lumenj, pyje — asgjë në natyrë nuk është perfektisht simetrike, perfektisht uniforme, perfektisht e bardhë. Ky vëzhgim është themeli i gjithçkaje që bëj në klinikë.'
-    },
-    content: {
-      en: `I spend a lot of time outside. Mountains, rivers, forests — nothing in nature is perfectly symmetrical, perfectly uniform, perfectly white. A pine tree does not grow in a straight line. A river stone is not a perfect oval. And a natural tooth is not a white rectangle.
-
-That sounds obvious. And yet it is easy to lose sight of when the pressure is to make teeth look "done."
-
-I have been thinking about this for as long as I have been practising dentistry. It comes back, always, to the same thing — I am a person who pays attention to nature. Not just in the mountains on a weekend. In the way light falls on a leaf. In the way shadows create depth. In the way nothing living is ever perfectly even.
-
-That thinking directly shapes how I work. And it starts long before I pick up an instrument — it starts with communication.
-
-I spend a great deal of time talking with my patients and with the dental lab. More than most people expect. Before any aesthetic case, I want to understand the person sitting in front of me. How they talk. What kind of smile they have naturally — wide and open, or subtle and closed. Whether they are someone who wants to be noticed or someone who wants to blend in. Whether they spend time outdoors, under natural light, or mostly indoors. All of that informs the final result.
-
-With the lab, I do not send a shade number and wait. I send photographs — in window light, in clinical light, in natural daylight outside. I write notes. I call. I ask for samples. The back-and-forth takes time, but it is the difference between a restoration that fits a mouth and one that fits a person.
-
-When I plan an aesthetic rehabilitation — whether it is a single crown or a full smile — the first thing I look at is the patient's existing teeth. Not to copy what is damaged, but to understand what was there. The natural shape, the slight translucency at the edges, the way the centrals are a fraction wider than the laterals, the way the canines catch light differently. These small imperfections are not flaws. They are what makes a smile look real.
-
-The second thing I look at is the patient's face. The width of their smile should relate to the width of their jaw. The curve of the upper teeth should follow the curve of the lower lip. Shade should match skin tone and eye colour. A very fair person with extremely white crowns can look theatrical. A darker complexion can carry a brighter result. There is no universal formula — only observation.
-
-On materials: I work with zirconia and Emax. Both can be milled or pressed to precise tolerances. But the specification I give the lab is not just a shade number. I send photographs in natural light, in window light, in the operatory light. I communicate the translucency I want at the incisal edge. I ask for texture — a surface that catches light the way enamel does, with micro-ridges rather than a polished flat surface. A flat surface reflects light uniformly. Enamel does not. And that difference, invisible to most people, is what separates a crown that looks like a crown from one that disappears into a smile.
-
-Preparation matters enormously. Conservative preparation — removing as little natural tooth structure as possible — is both better for the patient long-term and better aesthetically. The remaining tooth is what gives the restoration its base, its depth, its colour from underneath. Remove too much and the crown sits on a prep that cannot support natural-looking translucency.
-
-The last thing I will say is this: I ask my patients to trust the process. The temporary crowns we place while the lab works often look rough — not the final shape, not the final shade. Patients sometimes worry. But it is the final try-in, when I seat the restorations dry, in natural light, and ask the patient to look in a hand mirror, that I know whether we got it right. When the answer is that they cannot find their crowns in the mirror because they blend in so well — that is the result I am working toward.
-
-Not white rectangles. Something that looks like it grew there.
-
-— Dr. Faton Loci, Dentist
-Klinika Dentare Medident, Pejë`,
-      sq: ``
-    },
-    authorId: '2',
-    date: 'Jul 19, 2025',
-    image: '/photos/faton-clinical.jpg',
-    category: { en: 'Aesthetic Dentistry', sq: 'Stomatologji Estetike' },
-    readTime: { en: '5 min read', sq: '5 min lexim' }
-  },
-{
     id: 'b3',
     title: {
       en: 'From 16 Square Metres to 200. What 25 Years of Running This Clinic Taught Me.',
