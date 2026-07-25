@@ -5,6 +5,7 @@ import { Plane, Star, Shield, MapPin, Download, BriefcaseMedical, ArrowRight, Sm
 
 interface TourismSectionProps {
   onOpenGuide?: () => void;
+  onOpenJourney?: () => void;
   onServicesClick?: () => void;
   onExploreTourism?: () => void;
   lang: 'en' | 'sq';

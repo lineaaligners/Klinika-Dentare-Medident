@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Scan, Cpu, Layers, Activity } from 'lucide-react';
 import { TECHNOLOGIES } from '../constants';
 
-const TechnologyShowcase: React.FC<{ lang: 'en' | 'sq' }> = ({ lang }) => {
+const TechnologyShowcase: React.FC<{ lang: 'en' | 'sq'; onOpenMaterials?: () => void }> = ({ lang }) => {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">

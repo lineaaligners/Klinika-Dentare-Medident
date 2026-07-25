@@ -34,6 +34,8 @@ interface Testimonial {
 
 interface TrustSignalsProps {
   lang: 'en' | 'sq';
+  onOpenJourney?: () => void;
+  onOpenGuide?: () => void;
 }
 
 const TrustSignals: React.FC<TrustSignalsProps> = ({ lang }) => {

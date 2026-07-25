@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Shield, Sparkles, Plane, Hotel, Activity, Award, Zap, BookOpen, Clock, ShieldCheck, Mountain, Compass, Wind, Utensils } from 'lucide-react';
-import { Service, Testimonial, BeforeAfter, Doctor, BlogPost, Course } from './types';
+import { Service, Testimonial, BeforeAfter, Doctor, BlogPost, Course, FAQ, Technology } from './types';
 
 export const ACADEMY_BENEFITS = (lang: 'en' | 'sq') => [
   {
@@ -555,21 +555,6 @@ Klinika Dentare Medident, Pejë`,
     image: '/photos/linea-travel.jpg',
     category: { en: 'Orthodontics', sq: 'Ortodonci' },
     readTime: { en: '4 min read', sq: '4 min lexim' }
-  },
-  {
-    id: '7',
-    name: 'Linea Team',
-    role: { en: 'Linea Aligners', sq: 'Linea Aligners' },
-    bio: {
-      en: 'Genis Nallbani is the founder of Linea Aligners, a Kosovo-based clear aligner brand launched in 2025. He works alongside the clinical team at Medident on the integration of clear aligner treatment into restorative dental workflows.',
-      sq: 'Genis Nallbani është themelues i Linea Aligners, një brand shqiptar i alignerëve transparent i lansuar në 2025. Ai punon me ekipin klinik të Medident për integrimin e trajtimit me aligner transparent në rrjedhën e punës restauruese dentare.'
-    },
-    image: '/photos/clinic-hero.jpg',
-    specialties: ['Clear Aligner Treatment', 'Orthodontic Workflow Integration'],
-    education: { en: ['Linea Aligners, Kosovo — 2025'], sq: ['Linea Aligners, Kosovë — 2025'] },
-    experience: { en: 'Founder & Business Development, Linea Aligners', sq: 'Themelues & Zhvillim Biznesi, Linea Aligners' },
-    languages: ['Albanian', 'English'],
-    certifications: ['Linea Aligners Founder']
   }
 ];
 

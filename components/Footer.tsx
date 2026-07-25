@@ -6,6 +6,8 @@ interface FooterProps {
   onOpenGuide?: () => void;
   onOpenMaterials?: () => void;
   onBlogClick?: () => void;
+  onAcademyClick?: () => void;
+  onJourneyClick?: () => void;
   lang: 'en' | 'sq';
 }
 

@@ -8,6 +8,9 @@ interface NavbarProps {
   onServicesClick?: () => void;
   onJourneyClick?: () => void;
   onConsultationClick?: () => void;
+  onDoctorsClick?: () => void;
+  onGalleryClick?: () => void;
+  onBookClick?: () => void;
   lang: 'en' | 'sq';
   setLang: (lang: 'en' | 'sq') => void;
 }

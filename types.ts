@@ -78,6 +78,7 @@ export interface Course {
   image: string;
   category: 'Hands-on' | 'Online' | '1-on-1';
   instructorId: string;
+  visitingFaculty?: string[];
 }
 
 export interface FAQ {
