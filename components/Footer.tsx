@@ -78,12 +78,13 @@ const Footer: React.FC<FooterProps> = ({ onOpenGuide, onOpenMaterials, onBlogCli
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
                 Mon–Fri 09:00–18:00
               </li>
+              <li className="text-slate-500">Sat 09:00–18:00</li>
             </ul>
           </div>
         </div>
         
         <div className="pt-12 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center text-slate-400 text-[10px] font-black uppercase tracking-widest">
-          <p>© 2025 Klinika Dentare Medident · Pejë, Kosovë. All rights reserved.</p>
+          <p>© 2026 Klinika Dentare Medident · Pejë, Kosovë. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <span className="text-slate-400">Rr. Bajram Kelmendi, Pejë / Peja / Peć, 30000 Kosovo</span>
             <a href="tel:+38349272803" className="hover:text-blue-600">+383 49 272 803</a>
