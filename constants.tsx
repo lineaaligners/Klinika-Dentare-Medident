@@ -599,8 +599,8 @@ export const FAQS: FAQ[] = [
 export const TECHNOLOGIES: Technology[] = [
   {
     id: '1',
-    name: '3D CBCT Scanning',
-    description: { en: 'High-precision volumetric imaging for pre-surgical bone assessment.', sq: 'Imazheri volumetrike me saktësi të lartë për vlerësimin e kockave para operacionit.' },
+    name: 'Sirona Orthophos SL — 3D CBCT',
+    description: { en: 'Latest-generation Dentsply Sirona unit: panoramic, cephalometric and 3D CBCT imaging in one low-dose scan for precise pre-surgical bone assessment.', sq: 'Pajisja më e re Dentsply Sirona: imazheri panoramike, cefalometrike dhe CBCT 3D në një skanim me dozë të ulët, për vlerësim të saktë të kockës para operacionit.' },
     icon: 'Scan',
     image: 'https://gwzvtrikxkudostserwe.supabase.co/storage/v1/object/public/medident1/cbct-scan.jpg'
   },

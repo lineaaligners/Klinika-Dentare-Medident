@@ -155,7 +155,7 @@ const MaterialRegistryModal: React.FC<MaterialRegistryModalProps> = ({ isOpen, o
                 <div>
                   <h6 className="text-xs font-black uppercase tracking-widest text-slate-900 mb-2">Digital Infrastructure Statement</h6>
                   <p className="text-xs text-slate-600 font-medium leading-relaxed">
-                    Medident uses a digital workflow including 3D CBCT scanning, digital impressions, and 3D-printed surgical guides. Implant systems: Hiossen (USA) and MegaGen. Ceramics: Ivoclar e.max. All materials are from documented, traceable manufacturers.
+                    Medident uses a digital workflow including 3D CBCT scanning (Sirona Orthophos SL, latest generation), digital impressions, and 3D-printed surgical guides. Implant systems: Hiossen (USA) and MegaGen. Ceramics: Ivoclar e.max. All materials are from documented, traceable manufacturers.
                   </p>
                 </div>
               </div>
