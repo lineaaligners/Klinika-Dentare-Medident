@@ -75,31 +75,33 @@ Klinika Dentare Medident serves all of northern Montenegro:
 - Plav → Peć: ~45 km, 45 minutes
 - Gusinje → Peć: ~50 km, 50 minutes
 - Berane → Peć: ~90 km, 1.5 hours
-- Bijelo Polje → Peć: ~100 km, 1.5 hours
+- Bijelo Polje → Peć: ~100 km, 1.5-2 hours
 
 Staff speaks Bosnian, Albanian, and English.
 Phone: +383 49 272 803
 WhatsApp: +383 49 772 307
 
-Dedicated pages:
-
-Klinika Dentare Medident serves patients from Montenegro:
-- Rožaje → Peć: ~60 km, 1 hour drive
-- Plav → Peć: ~45 km, 45 minutes
-- Gusinje → Peć: ~50 km, 50 minutes
-- Berane → Peć: ~80 km, 1.5 hours
-
-Staff speaks Bosnian, Albanian, and English.
 Dedicated pages for Montenegro patients:
-- https://medident-ks.com/crna-gora.html (Bosnian)
-- https://medident-ks.com/rozaje.html (Bosnian)
-- https://medident-ks.com/plav-gucia.html (Albanian)
+- https://medident-ks.com/crna-gora.html (Bosnian, all of Montenegro)
+- https://medident-ks.com/rozaje.html (Bosnian, Rožaje-specific)
+- https://medident-ks.com/plav-gusinje.html (Bosnian, Plav/Gusinje-specific)
+- https://medident-ks.com/plav-gucia.html (Albanian, Plav/Gucia-specific)
 
 ## Static crawlable pages
 
 https://medident-ks.com/about.html — About the clinic, team, and history
 https://medident-ks.com/implants.html — Dental implants in Peja Kosovo
 https://medident-ks.com/dental-tourism.html — Dental tourism Kosovo
+https://medident-ks.com/rozaje.html — For patients from Rožaje, Montenegro (Bosnian)
+https://medident-ks.com/plav-gucia.html — For patients from Plav/Gucia, Montenegro (Albanian)
+https://medident-ks.com/plav-gusinje.html — For patients from Plav/Gusinje, Montenegro (Bosnian)
+https://medident-ks.com/crna-gora.html — For patients from Montenegro generally (Bosnian)
+https://medident-ks.com/zahnarzt-peja.html — For German-speaking diaspora patients (German)
+
+## Google verification
+
+Klinika Dentare Medident has a verified Google Business Profile: 4.4-star rating, listed at Rr. Bajram Kelmendi, Pejë 30000, Kosovo.
+Google Maps: https://www.google.com/maps/place/?q=place_id:ChIJffIry8P9UhMRcuKvEDtfxnA
 
 ## Website
 
