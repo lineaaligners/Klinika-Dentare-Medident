@@ -1,13 +1,13 @@
 {
-  "rewrites": [
-    { "source": "/blog/:path*", "destination": "/" },
-    { "source": "/academy/:path*", "destination": "/" },
-    { "source": "/tourism", "destination": "/" },
-    { "source": "/services", "destination": "/" },
-    { "source": "/gallery", "destination": "/" },
-    { "source": "/contact", "destination": "/" },
-    { "source": "/faq", "destination": "/" },
-    { "source": "/doctors", "destination": "/" },
-    { "source": "/team", "destination": "/" }
-  ]
+    "redirects": [
+          { "source": "/tourism", "destination": "/dental-tourism.html", "permanent": true }
+    ],
+    "rewrites": [
+          { "source": "/services", "destination": "/" },
+          { "source": "/gallery", "destination": "/" },
+          { "source": "/contact", "destination": "/" },
+          { "source": "/faq", "destination": "/" },
+          { "source": "/doctors", "destination": "/" },
+          { "source": "/team", "destination": "/" }
+    ]
 }
