@@ -1,97 +1,54 @@
+// Shared types for the Medident Academy Doctor Portal.
 
-export interface Service {
+export type Lang = 'en' | 'sq';
+
+export type LessonKind = 'video' | 'webinar_recorded' | 'webinar_live' | 'pdf';
+
+export interface Profile {
   id: string;
-  title: Record<string, string>;
-  description: Record<string, string>;
-  icon: string;
-  image: string;
-  badge?: Record<string, string>;
-  highlight?: Record<string, string>;
+  email: string | null;
+  full_name: string | null;
+  role: 'doctor' | 'admin';
+  created_at?: string;
 }
 
-export interface Testimonial {
+export interface PortalCourse {
   id: string;
-  name: string;
-  country: string;
-  text: string;
-  rating: number;
-  image: string;
+  title_en: string;
+  title_sq: string | null;
+  description_en: string | null;
+  description_sq: string | null;
+  cover_path: string | null;
+  sort_order: number;
+  is_published: boolean;
+  created_at?: string;
 }
 
-export interface CaseProcedure {
-  title: Record<string, string>;
-  steps: Record<string, string[]>;
-  doctor: string;
-  duration: Record<string, string>;
-  materials?: Record<string, string>;
-}
-
-export interface BeforeAfter {
+export interface PortalLesson {
   id: string;
-  category: Record<string, string>;
-  before: string;
-  after: string;
-  labelBefore?: string;
-  labelAfter?: string;
-  procedure?: CaseProcedure;
+  course_id: string;
+  title_en: string;
+  title_sq: string | null;
+  description_en: string | null;
+  description_sq: string | null;
+  kind: LessonKind;
+  storage_path: string | null;
+  external_url: string | null;
+  webinar_at: string | null;
+  join_url: string | null;
+  duration_min: number | null;
+  sort_order: number;
+  created_at?: string;
 }
 
-export interface ChatMessage {
-  role: 'user' | 'model';
-  text: string;
-}
-
-export interface Doctor {
+export interface Assignment {
   id: string;
-  name: string;
-  role: Record<string, string>;
-  bio: Record<string, string>;
-  image: string;
-  specialties: string[];
-  education: Record<string, string[]>;
-  experience: Record<string, string>;
-  languages: string[];
-  certifications: string[];
-  research?: Record<string, string[]>;
-  links?: { label: string; url: string }[];
+  doctor_id: string;
+  course_id: string;
+  assigned_at?: string;
 }
 
-export interface BlogPost {
-  id: string;
-  title: Record<string, string>;
-  excerpt: Record<string, string>;
-  content: Record<string, string>;
-  authorId: string;
-  date: string;
-  image: string;
-  category: Record<string, string>;
-  readTime: Record<string, string>;
-}
-
-export interface Course {
-  id: string;
-  title: Record<string, string>;
-  description: Record<string, string>;
-  duration: Record<string, string>;
-  curriculum: string[];
-  keyTakeaways: Record<string, string[]>;
-  image: string;
-  category: 'Hands-on' | 'Online' | '1-on-1';
-  instructorId: string;
-  visitingFaculty?: string[];
-}
-
-export interface FAQ {
-  id: string;
-  question: Record<string, string>;
-  answer: Record<string, string>;
-  category: 'clinical' | 'logistics' | 'finance';
-}
-
-export interface Technology {
-  id: string;
-  name: string;
-  description: Record<string, string>;
-  icon: string;
-  image: string;
-}
+// Storage bucket ids (kept in one place so app + policies stay in sync).
+export const BUCKET_VIDEOS = 'academy-videos';
+export const BUCKET_MATERIALS = 'academy-materials';
+export const BUCKET_COVERS = 'academy-covers';

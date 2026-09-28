@@ -26,7 +26,10 @@ import FAQ from './components/FAQ';
 import MobileBottomBar from './components/MobileBottomBar';
 import TrustBar from './components/TrustBar';
 
-type View = 'home' | 'blog' | 'academy' | 'tourism';
+// Lazy-loaded so the Supabase client + portal code stay out of the public bundle.
+const DoctorPortal = React.lazy(() => import('./components/portal/DoctorPortal'));
+
+type View = 'home' | 'blog' | 'academy' | 'tourism' | 'portal';
 type DeepRoute = { view: View; id?: string };
 
 // Map URL paths to views
@@ -34,6 +37,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/': 'home',
   '/blog': 'blog',
   '/academy': 'academy',
+  '/academy/portal': 'portal',
   '/tourism': 'tourism',
 };
 const VIEW_TO_PATH: Record<View, string> = {
@@ -41,6 +45,7 @@ const VIEW_TO_PATH: Record<View, string> = {
   blog: '/blog',
   academy: '/academy',
   tourism: '/tourism',
+  portal: '/academy/portal',
 };
 
 const parseRoute = (): DeepRoute => {
@@ -48,6 +53,8 @@ const parseRoute = (): DeepRoute => {
   // /blog/b1 or /academy/c1
   const blogMatch = path.match(/^\/blog\/([^/]+)$/);
   if (blogMatch) return { view: 'blog', id: blogMatch[1] };
+  // Doctor portal — must win over the /academy/:id course deep-route below.
+  if (path === '/academy/portal' || path.startsWith('/academy/portal/')) return { view: 'portal' };
   const academyMatch = path.match(/^\/academy\/([^/]+)$/);
   if (academyMatch) return { view: 'academy', id: academyMatch[1] };
   return { view: PATH_TO_VIEW[path] ?? 'home' };
@@ -107,6 +114,7 @@ const App: React.FC = () => {
       blog: 'Blog — Klinika Dentare Medident',
       academy: 'Medident Academy — Clinical Courses, Pejë',
       tourism: 'Dental Tourism Kosovo — Medident, Pejë',
+      portal: 'Medident Academy — Doctor Portal',
     };
     document.title = titles[currentView];
   }, [currentView]);
@@ -167,8 +175,16 @@ const App: React.FC = () => {
           onOpenMaterials={() => setIsMaterialsOpen(true)}
           initialCourseId={initialCourseId}
           onNavigateCourse={(id) => navigateTo('academy', id)}
+          onOpenPortal={() => navigateTo('portal')}
         />
       </div>
+
+      {/* Doctor Portal — lazy-loaded standalone private area */}
+      {currentView === 'portal' && (
+        <React.Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+          <DoctorPortal lang={lang} onToggleLang={toggleLang} onExit={() => navigateTo('academy')} />
+        </React.Suspense>
+      )}
 
       {/* Tourism */}
       <div style={vis('tourism')}>
