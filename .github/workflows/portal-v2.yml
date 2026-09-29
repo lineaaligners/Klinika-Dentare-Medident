@@ -1,0 +1,30 @@
+name: One-time - install Doctor Portal v2
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/portal-v2.yml', '.github/workflows/medident-portal-v2.tar.gz', 'medident-portal-v2.tar.gz']
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack Doctor Portal v2, check it, commit it, remove this helper
+        run: |
+          set -euo pipefail
+          BUNDLE=""
+          for f in medident-portal-v2.tar.gz .github/workflows/medident-portal-v2.tar.gz; do
+            if [ -f "$f" ]; then BUNDLE="$f"; fi
+          done
+          if [ -z "$BUNDLE" ]; then echo "Bundle not uploaded yet - nothing to do."; exit 0; fi
+          echo "1c1e9aa1512ea4ca6f03054e26b38c569f78372b6dba861cd97b74358b859b7a  $BUNDLE" | sha256sum -c -
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          tar -xzf "$BUNDLE"
+          git rm -q "$BUNDLE" .github/workflows/portal-v2.yml
+          git add -A
+          # Must equal main (d44dec9) + exactly the 42 portal files, nothing else.
+          test "$(git write-tree)" = "f0eec78a41ffc41ec52244644079a68722dd2f36"
+          git commit -q -m "Medident Academy Doctor Portal v2: catalog & requests, quizzes, certificates, lesson Q&A, webinar calendar, emails, admin overview"
+          git push origin HEAD:main
