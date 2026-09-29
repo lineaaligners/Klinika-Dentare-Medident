@@ -16,9 +16,10 @@ interface AcademyPageProps {
   lang: 'en' | 'sq';
   initialCourseId?: string;
   onNavigateCourse?: (id: string) => void;
+  onOpenPortal?: () => void;
 }
 
-const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang, initialCourseId, onNavigateCourse }) => {
+const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang, initialCourseId, onNavigateCourse, onOpenPortal }) => {
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [shouldAutoPrint, setShouldAutoPrint] = useState(false);
@@ -87,10 +88,18 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
             </span>
             <span className="text-[7px] font-black uppercase tracking-[0.4em] text-slate-400">Pejë Clinical Training</span>
           </div>
-          <a href="https://wa.me/38349772307" target="_blank" rel="noopener"
-            className="text-[9px] font-black text-white bg-blue-600 hover:bg-blue-700 transition-colors px-4 py-2 rounded-xl uppercase tracking-widest">
-            {lang === 'en' ? 'Apply' : 'Apliko'}
-          </a>
+          <div className="flex items-center gap-3">
+            {onOpenPortal && (
+              <button onClick={onOpenPortal}
+                className="text-[9px] font-black text-slate-500 hover:text-blue-600 transition-colors uppercase tracking-widest">
+                {lang === 'en' ? 'Doctor Login' : 'Hyrja e Mjekëve'}
+              </button>
+            )}
+            <a href="https://wa.me/38349772307" target="_blank" rel="noopener"
+              className="text-[9px] font-black text-white bg-blue-600 hover:bg-blue-700 transition-colors px-4 py-2 rounded-xl uppercase tracking-widest">
+              {lang === 'en' ? 'Apply' : 'Apliko'}
+            </a>
+          </div>
         </div>
       </header>
 
