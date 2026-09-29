@@ -2,6 +2,8 @@
   "rewrites": [
     { "source": "/academy/portal", "destination": "/" },
     { "source": "/academy/portal/:path*", "destination": "/" },
+    { "source": "/academy/verify", "destination": "/" },
+    { "source": "/academy/verify/:path*", "destination": "/" },
     { "source": "/blog/:path*", "destination": "/" },
     { "source": "/academy/:path*", "destination": "/" },
     { "source": "/tourism", "destination": "/" },
@@ -11,5 +13,8 @@
     { "source": "/faq", "destination": "/" },
     { "source": "/doctors", "destination": "/" },
     { "source": "/team", "destination": "/" }
+  ],
+  "crons": [
+    { "path": "/api/portal-notify", "schedule": "0 6 * * *" }
   ]
 }

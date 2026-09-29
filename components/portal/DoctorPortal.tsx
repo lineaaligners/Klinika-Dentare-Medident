@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import type { Session } from '@supabase/supabase-js';
-import { supabase, isSupabaseConfigured } from '../../services/supabaseClient';
-import { getProfile, signOut } from '../../services/portalApi';
+import { supabase, isSupabaseConfigured, authRedirect, clearAuthRedirect } from '../../services/supabaseClient';
+import { getProfile, signOut, touchPresence } from '../../services/portalApi';
 import { Profile, Lang } from './types';
 import LoginScreen from './LoginScreen';
+import SetPasswordScreen from './SetPasswordScreen';
 import DashboardScreen from './DashboardScreen';
 import CourseScreen from './CourseScreen';
 import AdminScreen from './admin/AdminScreen';
@@ -49,6 +50,15 @@ const DoctorPortal: React.FC<Props> = ({ lang, onToggleLang, onExit }) => {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [profileLoaded, setProfileLoaded] = useState(false);
   const [screen, setScreen] = useState<Screen>({ name: 'dashboard' });
+  // True after opening a "reset your password" email link.
+  const [recovery, setRecovery] = useState<boolean>(authRedirect.recovery);
+  // Set when an email link was invalid/expired (shown once on the sign-in screen).
+  const [linkError, setLinkError] = useState<string | null>(authRedirect.error);
+
+  // Read once: leaving and re-opening the portal must not replay the email link.
+  useEffect(() => {
+    clearAuthRedirect();
+  }, []);
 
   useEffect(() => {
     if (!supabase) {
@@ -59,21 +69,24 @@ const DoctorPortal: React.FC<Props> = ({ lang, onToggleLang, onExit }) => {
       setSession(data.session);
       setLoading(false);
     });
-    const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
+    const { data: sub } = supabase.auth.onAuthStateChange((event, newSession) => {
+      if (event === 'PASSWORD_RECOVERY') setRecovery(true);
       setSession(newSession);
     });
     return () => sub.subscription.unsubscribe();
   }, []);
 
+  const userId = session?.user?.id ?? null;
   useEffect(() => {
     let active = true;
-    if (session?.user) {
+    if (userId) {
+      setLinkError(null);
       setProfileLoaded(false);
-      getProfile(session.user.id).then((p) => {
-        if (active) {
-          setProfile(p);
-          setProfileLoaded(true);
-        }
+      getProfile(userId).then((p) => {
+        if (!active) return;
+        setProfile(p);
+        setProfileLoaded(true);
+        if (p) void touchPresence().catch(() => {});
       });
     } else {
       setProfile(null);
@@ -83,10 +96,11 @@ const DoctorPortal: React.FC<Props> = ({ lang, onToggleLang, onExit }) => {
     return () => {
       active = false;
     };
-  }, [session]);
+  }, [userId]);
 
   const handleSignOut = async () => {
     await signOut();
+    setRecovery(false);
     setScreen({ name: 'dashboard' });
   };
 
@@ -112,7 +126,11 @@ const DoctorPortal: React.FC<Props> = ({ lang, onToggleLang, onExit }) => {
   }
 
   if (!session) {
-    return <LoginScreen lang={lang} onToggleLang={onToggleLang} onExit={onExit} />;
+    return <LoginScreen lang={lang} onToggleLang={onToggleLang} onExit={onExit} linkError={linkError} />;
+  }
+
+  if (recovery) {
+    return <SetPasswordScreen lang={lang} onDone={() => setRecovery(false)} />;
   }
 
   if (!profileLoaded) {
@@ -123,7 +141,7 @@ const DoctorPortal: React.FC<Props> = ({ lang, onToggleLang, onExit }) => {
     );
   }
 
-  // Authenticated but not an academy member (shared login pool) — deny + sign out.
+  // Authenticated but not an academy member — deny + offer sign out.
   if (!profile) {
     return (
       <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center px-6 text-center">
@@ -141,6 +159,7 @@ const DoctorPortal: React.FC<Props> = ({ lang, onToggleLang, onExit }) => {
   }
 
   const isAdmin = profile.role === 'admin';
+  const goAccount = () => setScreen({ name: 'account' });
 
   return (
     <div className="min-h-screen bg-slate-50 relative">
@@ -148,30 +167,49 @@ const DoctorPortal: React.FC<Props> = ({ lang, onToggleLang, onExit }) => {
       <div className="fixed inset-0 pointer-events-none z-0" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.04) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
       <div className="fixed inset-0 pointer-events-none z-0 bg-gradient-to-br from-blue-50/40 via-transparent to-transparent" />
       <div className="relative z-10">
-      <PortalHeader
-        lang={lang}
-        onToggleLang={onToggleLang}
-        profile={profile}
-        isAdmin={isAdmin}
-        active={screen.name}
-        onDashboard={() => setScreen({ name: 'dashboard' })}
-        onAdmin={() => setScreen({ name: 'admin' })}
-        onAccount={() => setScreen({ name: 'account' })}
-        onSignOut={handleSignOut}
-        onExit={onExit}
-      />
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        {screen.name === 'dashboard' && (
-          <DashboardScreen lang={lang} onOpenCourse={(courseId) => setScreen({ name: 'course', courseId })} />
-        )}
-        {screen.name === 'course' && (
-          <CourseScreen lang={lang} courseId={screen.courseId} onBack={() => setScreen({ name: 'dashboard' })} />
-        )}
-        {screen.name === 'admin' && isAdmin && <AdminScreen lang={lang} />}
-        {screen.name === 'account' && (
-          <AccountScreen lang={lang} profile={profile} onBack={() => setScreen({ name: 'dashboard' })} />
-        )}
-      </main>
+        <PortalHeader
+          lang={lang}
+          onToggleLang={onToggleLang}
+          profile={profile}
+          isAdmin={isAdmin}
+          active={screen.name}
+          onDashboard={() => setScreen({ name: 'dashboard' })}
+          onAdmin={() => setScreen({ name: 'admin' })}
+          onAccount={goAccount}
+          onSignOut={handleSignOut}
+          onExit={onExit}
+        />
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+          {screen.name === 'dashboard' && (
+            <DashboardScreen
+              lang={lang}
+              profile={profile}
+              isAdmin={isAdmin}
+              onOpenCourse={(courseId) => setScreen({ name: 'course', courseId })}
+              onAccount={goAccount}
+              onProfileUpdated={setProfile}
+            />
+          )}
+          {screen.name === 'course' && (
+            <CourseScreen
+              lang={lang}
+              courseId={screen.courseId}
+              profile={profile}
+              isAdmin={isAdmin}
+              onBack={() => setScreen({ name: 'dashboard' })}
+              onAccount={goAccount}
+            />
+          )}
+          {screen.name === 'admin' && isAdmin && <AdminScreen lang={lang} />}
+          {screen.name === 'account' && (
+            <AccountScreen
+              lang={lang}
+              profile={profile}
+              onBack={() => setScreen({ name: 'dashboard' })}
+              onProfileUpdated={setProfile}
+            />
+          )}
+        </main>
       </div>
     </div>
   );

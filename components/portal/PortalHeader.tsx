@@ -1,6 +1,6 @@
 import React from 'react';
 import { Profile, Lang } from './types';
-import { LogOut, LayoutGrid, Shield, Globe2 } from 'lucide-react';
+import { LogOut, LayoutGrid, Shield, Globe2, UserRound } from 'lucide-react';
 
 interface Props {
   lang: Lang;
@@ -63,13 +63,23 @@ const PortalHeader: React.FC<Props> = ({
             <Globe2 size={14} /> {lang === 'en' ? 'SQ' : 'EN'}
           </button>
           {profile && (
-            <button
-              onClick={onAccount}
-              title={s.account}
-              className="hidden md:block text-[11px] font-bold text-slate-500 hover:text-blue-600 max-w-[160px] truncate transition-colors"
-            >
-              {profile.full_name || profile.email}
-            </button>
+            <>
+              <button
+                onClick={onAccount}
+                title={s.account}
+                className="hidden md:block text-[11px] font-bold text-slate-500 hover:text-blue-600 max-w-[160px] truncate transition-colors"
+              >
+                {profile.full_name || profile.email}
+              </button>
+              <button
+                onClick={onAccount}
+                title={s.account}
+                aria-label={s.account}
+                className={`md:hidden p-2 rounded-lg transition-colors ${active === 'account' ? 'text-blue-600 bg-blue-50' : 'text-slate-400 hover:text-slate-900'}`}
+              >
+                <UserRound size={16} />
+              </button>
+            </>
           )}
           <button
             onClick={onSignOut}
