@@ -23,7 +23,7 @@ const t = {
   },
 };
 
-const UpcomingWebinars: React.FC<{ lang: Lang; onOpenCourse: (courseId: string) => void }> = ({ lang, onOpenCourse }) => {
+const UpcomingWebinars: React.FC<{ lang: Lang; onOpenCourse: (courseId: string, lessonId?: string) => void }> = ({ lang, onOpenCourse }) => {
   const s = t[lang];
   const [items, setItems] = useState<UpcomingWebinar[]>([]);
   const [now, setNow] = useState(Date.now());
@@ -59,7 +59,7 @@ const UpcomingWebinars: React.FC<{ lang: Lang; onOpenCourse: (courseId: string) 
                 <span className="text-xl font-black leading-none">{start.getDate()}</span>
               </div>
               <div className="flex-1 min-w-[180px]">
-                <button onClick={() => onOpenCourse(w.course_id)} className="text-left">
+                <button onClick={() => onOpenCourse(w.course_id, w.id)} className="text-left">
                   <p className="font-black text-slate-900 tracking-tight hover:text-blue-600">{title}</p>
                 </button>
                 <p className="text-xs text-slate-500 mt-0.5">

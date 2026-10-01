@@ -21,6 +21,8 @@ const t = {
     awardedTo: 'Awarded to',
     course: 'Course',
     instructor: 'Instructor',
+    cpd: 'Continuing education',
+    cpdHours: (h: string, n: number) => `${h} CPD ${n === 1 ? 'hour' : 'hours'}`,
     issued: 'Issued on',
     code: 'Certificate ID',
     notFound: 'No certificate found',
@@ -41,6 +43,8 @@ const t = {
     awardedTo: 'Mbajtësi i certifikatës',
     course: 'Kursi',
     instructor: 'Instruktori',
+    cpd: 'Edukim i vazhdueshëm',
+    cpdHours: (h: string, _n: number) => `${h} orë CPD`,
     issued: 'Lëshuar më',
     code: 'ID e certifikatës',
     notFound: 'Asnjë certifikatë nuk u gjet',
@@ -203,6 +207,14 @@ const VerifyCertificatePage: React.FC<Props> = ({ lang, onToggleLang, initialCod
                   <div>
                     <dt className="text-[10px] font-black uppercase tracking-widest text-slate-400">{s.instructor}</dt>
                     <dd className="text-sm text-slate-700 mt-0.5">{state.cert.instructor_name}</dd>
+                  </div>
+                )}
+                {Number(state.cert.cpd_hours) > 0 && (
+                  <div>
+                    <dt className="text-[10px] font-black uppercase tracking-widest text-slate-400">{s.cpd}</dt>
+                    <dd className="text-sm font-bold text-slate-800 mt-0.5">
+                      {s.cpdHours(Number(state.cert.cpd_hours).toLocaleString(locale, { maximumFractionDigits: 1 }), Number(state.cert.cpd_hours))}
+                    </dd>
                   </div>
                 )}
                 <div className="grid grid-cols-2 gap-4">

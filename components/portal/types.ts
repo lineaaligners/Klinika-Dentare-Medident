@@ -37,6 +37,8 @@ export interface PortalCourse {
   is_published: boolean;
   instructor_name?: string | null;
   quiz_pass_percent?: number;
+  /** Continuing-education hours printed on the certificate. */
+  cpd_hours?: number | null;
   created_at?: string;
 }
 
@@ -161,6 +163,7 @@ export interface Certificate {
   instructor_name: string | null;
   issued_at: string;
   revoked_at?: string | null;
+  cpd_hours?: number | null;
 }
 
 export interface VerifiedCertificate {
@@ -170,6 +173,38 @@ export interface VerifiedCertificate {
   course_title_sq: string | null;
   instructor_name: string | null;
   issued_at: string;
+  cpd_hours?: number | null;
+}
+
+// ── Feedback ─────────────────────────────────────────────────────────────────
+export interface CourseFeedback {
+  doctor_id: string;
+  course_id: string;
+  rating: number;
+  comment: string | null;
+  allow_quote: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface AdminFeedback extends CourseFeedback {
+  doctor?: Pick<Profile, 'full_name' | 'email' | 'clinic' | 'city'> | null;
+  course?: Pick<PortalCourse, 'title_en' | 'title_sq'> | null;
+}
+
+// ── Continue where you left off ──────────────────────────────────────────────
+export interface ContinueLearning {
+  course_id: string;
+  course_title_en: string;
+  course_title_sq: string | null;
+  cover_path: string | null;
+  lesson_id: string;
+  lesson_title_en: string;
+  lesson_title_sq: string | null;
+  kind: LessonKind;
+  position_seconds: number;
+  lessons_total: number;
+  lessons_done: number;
 }
 
 // ── Lesson Q&A ───────────────────────────────────────────────────────────────

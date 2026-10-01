@@ -4,12 +4,14 @@ import {
   fetchLessonIndex,
   fetchMyProgress,
   fetchMyCertificates,
+  fetchContinueLearning,
   coverUrl,
   localized,
   isProfileComplete,
 } from '../../services/portalApi';
-import { PortalCourse, Lang, Profile, Certificate } from './types';
+import { PortalCourse, Lang, Profile, Certificate, ContinueLearning } from './types';
 import UpcomingWebinars from './UpcomingWebinars';
+import ContinueCard from './ContinueCard';
 import CourseCatalog from './CourseCatalog';
 import CertificateActions from './CertificateActions';
 import { Loader2, BookOpen, ChevronRight, GraduationCap, Award, UserRound } from 'lucide-react';
@@ -19,7 +21,7 @@ interface Props {
   lang: Lang;
   profile: Profile;
   isAdmin: boolean;
-  onOpenCourse: (courseId: string) => void;
+  onOpenCourse: (courseId: string, lessonId?: string) => void;
   onAccount: () => void;
   onProfileUpdated: (p: Profile) => void;
 }
@@ -64,14 +66,22 @@ const DashboardScreen: React.FC<Props> = ({ lang, profile, isAdmin, onOpenCourse
   const [courses, setCourses] = useState<PortalCourse[] | null>(null);
   const [progress, setProgress] = useState<Record<string, { done: number; total: number }>>({});
   const [certs, setCerts] = useState<Certificate[]>([]);
+  const [cont, setCont] = useState<ContinueLearning | null>(null);
   const [error, setError] = useState('');
   const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     setError('');
-    Promise.all([fetchMyCourses(isAdmin), fetchLessonIndex(), fetchMyProgress(), fetchMyCertificates()])
-      .then(([cs, lessons, done, myCerts]) => {
+    Promise.all([
+      fetchMyCourses(isAdmin),
+      fetchLessonIndex(),
+      fetchMyProgress(),
+      fetchMyCertificates(),
+      isAdmin ? Promise.resolve(null) : fetchContinueLearning(),
+    ])
+      .then(([cs, lessons, done, myCerts, next]) => {
         setCourses(cs);
+        setCont(next);
         const map: Record<string, { done: number; total: number }> = {};
         for (const l of lessons) {
           if (!map[l.course_id]) map[l.course_id] = { done: 0, total: 0 };
@@ -116,6 +126,8 @@ const DashboardScreen: React.FC<Props> = ({ lang, profile, isAdmin, onOpenCourse
           </button>
         </div>
       )}
+
+      {cont && <ContinueCard lang={lang} item={cont} onOpen={onOpenCourse} />}
 
       <UpcomingWebinars lang={lang} onOpenCourse={onOpenCourse} />
 
@@ -166,7 +178,7 @@ const DashboardScreen: React.FC<Props> = ({ lang, profile, isAdmin, onOpenCourse
                         </span>
                         <span>{pct}%</span>
                       </div>
-                      <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                      <div className="h-1.5 rounded-full bg-blue-100 overflow-hidden">
                         <div className={`h-full rounded-full ${pct === 100 ? 'bg-green-500' : 'bg-blue-600'}`} style={{ width: `${pct}%` }} />
                       </div>
                     </div>

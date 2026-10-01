@@ -21,6 +21,9 @@ import {
   AdminStats,
   DoctorProgress,
   LessonStat,
+  CourseFeedback,
+  AdminFeedback,
+  ContinueLearning,
   BUCKET_VIDEOS,
   BUCKET_MATERIALS,
   BUCKET_COVERS,
@@ -245,6 +248,56 @@ export async function trackLessonView(lessonId: string): Promise<void> {
   await sb().rpc('academy_track_view', { p_lesson_id: lessonId });
 }
 
+// ── Continue where you left off ───────────────────────────────────────────────
+/** The lesson to reopen on the dashboard (null when there is nothing to continue). */
+export async function fetchContinueLearning(): Promise<ContinueLearning | null> {
+  const { data, error } = await sb().rpc('academy_continue_learning');
+  if (error) return null;
+  return (data as ContinueLearning) || null;
+}
+
+/** Seconds into an uploaded video where the doctor stopped last time (0 = start). */
+export async function fetchLessonPosition(lessonId: string): Promise<number> {
+  const user = await getSessionUser();
+  if (!user) return 0;
+  const { data } = await sb()
+    .from('academy_lesson_views')
+    .select('position_seconds')
+    .eq('doctor_id', user.userId)
+    .eq('lesson_id', lessonId)
+    .maybeSingle();
+  return Number((data as any)?.position_seconds) || 0;
+}
+
+export async function saveLessonPosition(lessonId: string, seconds: number): Promise<void> {
+  await sb().rpc('academy_save_position', { p_lesson_id: lessonId, p_seconds: Math.max(0, Math.floor(seconds)) });
+}
+
+// ── Course feedback ───────────────────────────────────────────────────────────
+export async function fetchMyFeedback(courseId: string): Promise<CourseFeedback | null> {
+  const user = await getSessionUser();
+  if (!user) return null;
+  const { data, error } = await sb()
+    .from('academy_course_feedback')
+    .select('*')
+    .eq('doctor_id', user.userId)
+    .eq('course_id', courseId)
+    .maybeSingle();
+  if (error) return null;
+  return (data as CourseFeedback) || null;
+}
+
+export async function submitFeedback(courseId: string, rating: number, comment: string, allowQuote: boolean): Promise<CourseFeedback> {
+  const { data, error } = await sb().rpc('academy_submit_feedback', {
+    p_course_id: courseId,
+    p_rating: rating,
+    p_comment: comment,
+    p_allow_quote: allowQuote,
+  });
+  if (error) throw error;
+  return data as CourseFeedback;
+}
+
 // ── Course status, quiz & certificates ───────────────────────────────────────
 export async function fetchCourseStatus(courseId: string): Promise<CourseStatus | null> {
   const { data, error } = await sb().rpc('academy_course_status', { p_course_id: courseId });
@@ -297,6 +350,21 @@ export async function verifyCertificate(code: string): Promise<VerifiedCertifica
 
 export function certificateVerifyUrl(code: string): string {
   return `${window.location.origin}/academy/verify/${encodeURIComponent(code)}`;
+}
+
+/** LinkedIn "Add license or certification", pre-filled for this certificate. */
+export function linkedInAddUrl(cert: Certificate): string {
+  const issued = new Date(cert.issued_at);
+  const params = new URLSearchParams({
+    startTask: 'CERTIFICATION_NAME',
+    name: cert.course_title_en,
+    organizationName: 'Medident Academy',
+    issueYear: String(issued.getFullYear()),
+    issueMonth: String(issued.getMonth() + 1),
+    certUrl: certificateVerifyUrl(cert.code),
+    certId: cert.code,
+  });
+  return `https://www.linkedin.com/profile/add?${params.toString()}`;
 }
 
 // ── Lesson Q&A ───────────────────────────────────────────────────────────────
@@ -550,6 +618,23 @@ export async function adminDoctorProgress(): Promise<DoctorProgress[]> {
 export async function adminSetCertificateRevoked(code: string, revoked: boolean): Promise<void> {
   const { error } = await sb().rpc('academy_set_certificate_revoked', { p_code: code, p_revoked: revoked });
   if (error) throw error;
+}
+
+/** Every certificate, withdrawn ones included (for the Excel export). */
+export async function adminFetchCertificates(): Promise<Certificate[]> {
+  const { data, error } = await sb().from('academy_certificates').select('*').order('issued_at', { ascending: false });
+  if (error) throw error;
+  return (data || []) as Certificate[];
+}
+
+export async function adminFetchFeedback(): Promise<AdminFeedback[]> {
+  const { data, error } = await sb()
+    .from('academy_course_feedback')
+    .select('*, doctor:academy_profiles(full_name, email, clinic, city), course:academy_courses(title_en, title_sq)')
+    .order('updated_at', { ascending: false })
+    .limit(500);
+  if (error) throw error;
+  return (data || []) as unknown as AdminFeedback[];
 }
 
 // ── Admin: privileged auth actions (server function w/ service-role key) ──────

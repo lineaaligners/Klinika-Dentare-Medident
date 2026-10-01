@@ -1,14 +1,26 @@
 import React, { useState } from 'react';
 import { Certificate, Lang } from './types';
-import { certificateVerifyUrl } from '../../services/portalApi';
-import { Download, Loader2, Link2, Check } from 'lucide-react';
+import { certificateVerifyUrl, linkedInAddUrl } from '../../services/portalApi';
+import { Download, Loader2, Link2, Check, BadgePlus } from 'lucide-react';
 
 const t = {
-  en: { download: 'Download PDF', copy: 'Copy verification link', copied: 'Link copied', failed: 'Could not create the PDF. Please try again.' },
-  sq: { download: 'Shkarko PDF', copy: 'Kopjo linkun e verifikimit', copied: 'Linku u kopjua', failed: 'PDF nuk u krijua. Provoni përsëri.' },
+  en: {
+    download: 'Download PDF',
+    copy: 'Copy verification link',
+    copied: 'Link copied',
+    linkedin: 'Add to LinkedIn',
+    failed: 'Could not create the PDF. Please try again.',
+  },
+  sq: {
+    download: 'Shkarko PDF',
+    copy: 'Kopjo linkun e verifikimit',
+    copied: 'Linku u kopjua',
+    linkedin: 'Shto në LinkedIn',
+    failed: 'PDF nuk u krijua. Provoni përsëri.',
+  },
 };
 
-/** "Download PDF" + "Copy verification link" for one certificate. */
+/** "Download PDF", "Copy verification link" and "Add to LinkedIn" for one certificate. */
 const CertificateActions: React.FC<{ lang: Lang; cert: Certificate; compact?: boolean }> = ({ lang, cert, compact }) => {
   const s = t[lang];
   const [busy, setBusy] = useState(false);
@@ -58,6 +70,14 @@ const CertificateActions: React.FC<{ lang: Lang; cert: Certificate; compact?: bo
         >
           {copied ? <Check size={13} /> : <Link2 size={13} />} {compact ? '' : copied ? s.copied : s.copy}
         </button>
+        <a
+          href={linkedInAddUrl(cert)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 px-3 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+        >
+          <BadgePlus size={13} /> {compact ? '' : s.linkedin}
+        </a>
       </div>
       {error && <p className="text-xs font-bold text-red-600 mt-2">{error}</p>}
     </div>

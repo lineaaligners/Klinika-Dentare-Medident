@@ -32,6 +32,11 @@ import {
   Link2,
 } from 'lucide-react';
 
+// Supabase Storage (free plan) accepts files up to 50 MB.
+const MAX_UPLOAD_MB = 50;
+const sizeMb = (bytes: number) => (bytes / (1024 * 1024)).toFixed(bytes < 10 * 1024 * 1024 ? 1 : 0);
+const isTooLargeError = (msg: string) => /maximum allowed size|payload too large|entity too large/i.test(msg);
+
 const t = {
   en: {
     lessons: 'Lessons',
@@ -65,6 +70,9 @@ const t = {
     uploading: 'Uploading…',
     saving: 'Saving…',
     needFile: 'Choose a file to upload.',
+    maxSize: `Up to ${MAX_UPLOAD_MB} MB`,
+    tooBig: (mb: string) =>
+      `This file is ${mb} MB — uploads are limited to ${MAX_UPLOAD_MB} MB. For long videos choose "Use a link" and paste an unlisted YouTube or Vimeo link.`,
     needLink: 'Paste the link.',
     needWhen: 'Set the date and time of the webinar.',
     confirmDelete: 'Delete this lesson? Doctors will no longer see it.',
@@ -111,6 +119,9 @@ const t = {
     uploading: 'Duke ngarkuar…',
     saving: 'Duke ruajtur…',
     needFile: 'Zgjidhni një skedar për ta ngarkuar.',
+    maxSize: `Deri në ${MAX_UPLOAD_MB} MB`,
+    tooBig: (mb: string) =>
+      `Ky skedar ka ${mb} MB — ngarkimi lejohet deri në ${MAX_UPLOAD_MB} MB. Për video të gjata zgjidhni "Përdor link" dhe vendosni një link të palistuar YouTube ose Vimeo.`,
     needLink: 'Vendosni linkun.',
     needWhen: 'Vendosni datën dhe orën e webinarit.',
     confirmDelete: 'Të fshihet ky mësim? Mjekët nuk do ta shohin më.',
@@ -314,7 +325,8 @@ const LessonsAdmin: React.FC<{ lang: Lang; courseId: string }> = ({ lang, course
       await load();
     } catch (err: any) {
       if (uploaded) adminRemoveFile(uploaded.bucket, uploaded.path).catch(() => {});
-      setError(err.message || 'Error');
+      const msg = String(err?.message || '');
+      setError(isTooLargeError(msg) && file ? s.tooBig(sizeMb(file.size)) : msg || 'Error');
     } finally {
       setBusy(false);
       setStatus('');
@@ -445,11 +457,25 @@ const LessonsAdmin: React.FC<{ lang: Lang; courseId: string }> = ({ lang, course
                   <input
                     type="file"
                     accept={form.kind === 'pdf' ? '.pdf,application/pdf' : 'video/*'}
-                    onChange={(e) => setFile(e.target.files?.[0] ?? null)}
+                    onChange={(e) => {
+                      const f = e.target.files?.[0] ?? null;
+                      e.target.value = '';
+                      if (f && f.size > MAX_UPLOAD_MB * 1024 * 1024) {
+                        setFile(null);
+                        setError(s.tooBig(sizeMb(f.size)));
+                        return;
+                      }
+                      setError('');
+                      setFile(f);
+                    }}
                     className="hidden"
                   />
                 </label>
-                {file && <span className="text-xs text-slate-500 truncate max-w-[240px]">{file.name}</span>}
+                {file ? (
+                  <span className="text-xs text-slate-500 truncate max-w-[240px]">{file.name}</span>
+                ) : (
+                  <span className="text-xs text-slate-400">{s.maxSize}</span>
+                )}
               </div>
             ) : (
               <input placeholder={s.link} value={form.external_url} onChange={(e) => setForm({ ...form, external_url: e.target.value })} className={input} />

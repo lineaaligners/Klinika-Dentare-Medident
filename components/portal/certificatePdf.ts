@@ -140,6 +140,12 @@ export function drawCertificate(JsPDF: any, qrcode: any, fonts: CertificateFonts
     131,
     { font: 'Inter', style: 'normal', size: 8.5, color: MUTED },
   );
+  const cpd = Number(cert.cpd_hours);
+  if (Number.isFinite(cpd) && cpd > 0) {
+    const en = cpd.toLocaleString('en-GB', { maximumFractionDigits: 1 });
+    const sq = cpd.toLocaleString('sq-AL', { maximumFractionDigits: 1 });
+    text(`${en} CPD ${cpd === 1 ? 'hour' : 'hours'}  ·  ${sq} orë CPD`, 137, { font: 'Inter', style: 'bold', size: 8.5, color: BLUE });
+  }
 
   // Signatures.
   const instructor = (cert.instructor_name || '').trim();

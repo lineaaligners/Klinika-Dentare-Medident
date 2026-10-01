@@ -23,6 +23,8 @@ const t = {
     descSq: 'Description (Albanian)',
     instructor: 'Instructor (printed on the certificate)',
     passMark: 'Quiz pass mark (%)',
+    cpd: 'CPD hours (optional)',
+    cpdHint: 'Printed on the certificate, e.g. 8 or 7.5.',
     published: 'Published — shown in the course catalog and to assigned doctors',
     cover: 'Cover image',
     changeCover: 'Choose image',
@@ -44,6 +46,8 @@ const t = {
     descSq: 'Përshkrimi (Shqip)',
     instructor: 'Instruktori (shkruhet në certifikatë)',
     passMark: 'Pragu i kalimit të testit (%)',
+    cpd: 'Orë CPD (opsionale)',
+    cpdHint: 'Shkruhen në certifikatë, p.sh. 8 ose 7.5.',
     published: 'Publikuar — shfaqet në katalog dhe te mjekët e caktuar',
     cover: 'Foto ballore',
     changeCover: 'Zgjidh foto',
@@ -68,6 +72,7 @@ const emptyForm = {
   description_sq: '',
   instructor_name: '',
   quiz_pass_percent: '70',
+  cpd_hours: '',
   is_published: true,
 };
 
@@ -118,6 +123,7 @@ const CoursesAdmin: React.FC<{ lang: Lang }> = ({ lang }) => {
       description_sq: c.description_sq || '',
       instructor_name: c.instructor_name || '',
       quiz_pass_percent: String(c.quiz_pass_percent ?? 70),
+      cpd_hours: c.cpd_hours ? String(c.cpd_hours) : '',
       is_published: c.is_published,
     });
     setCoverFile(null);
@@ -138,6 +144,8 @@ const CoursesAdmin: React.FC<{ lang: Lang }> = ({ lang }) => {
     setSavedAt(null);
     try {
       const pass = Math.min(100, Math.max(1, parseInt(form.quiz_pass_percent, 10) || 70));
+      const cpdRaw = parseFloat(form.cpd_hours.replace(',', '.'));
+      const cpd = Number.isFinite(cpdRaw) && cpdRaw > 0 ? Math.min(999, Math.round(cpdRaw * 10) / 10) : null;
       const payload: Partial<PortalCourse> = {
         title_en: form.title_en.trim(),
         title_sq: form.title_sq.trim() || null,
@@ -145,6 +153,7 @@ const CoursesAdmin: React.FC<{ lang: Lang }> = ({ lang }) => {
         description_sq: form.description_sq.trim() || null,
         instructor_name: form.instructor_name.trim() || null,
         quiz_pass_percent: pass,
+        cpd_hours: cpd,
         is_published: form.is_published,
       };
       let course = selected;
@@ -228,7 +237,7 @@ const CoursesAdmin: React.FC<{ lang: Lang }> = ({ lang }) => {
             <textarea value={form.description_sq} onChange={(e) => setForm({ ...form, description_sq: e.target.value })} rows={3} placeholder={s.descSq} className={input} />
           </div>
 
-          <div className="grid sm:grid-cols-[minmax(0,1fr)_200px] gap-4">
+          <div className="grid sm:grid-cols-[minmax(0,1fr)_200px_160px] items-end gap-4">
             <div>
               <label className={label}>{s.instructor}</label>
               <input
@@ -251,6 +260,17 @@ const CoursesAdmin: React.FC<{ lang: Lang }> = ({ lang }) => {
                 max={100}
                 value={form.quiz_pass_percent}
                 onChange={(e) => setForm({ ...form, quiz_pass_percent: e.target.value })}
+                className={input}
+              />
+            </div>
+            <div>
+              <label className={label}>{s.cpd}</label>
+              <input
+                inputMode="decimal"
+                value={form.cpd_hours}
+                onChange={(e) => setForm({ ...form, cpd_hours: e.target.value })}
+                placeholder="8"
+                title={s.cpdHint}
                 className={input}
               />
             </div>

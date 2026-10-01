@@ -1,9 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PortalLesson, Lang } from './types';
-import { lessonMediaUrl, localized, setProgress, trackLessonView, portalUrl } from '../../services/portalApi';
+import {
+  lessonMediaUrl,
+  localized,
+  setProgress,
+  trackLessonView,
+  portalUrl,
+  fetchLessonPosition,
+  saveLessonPosition,
+} from '../../services/portalApi';
 import { downloadIcs, webinarState } from './ics';
+import { formatClock } from './ContinueCard';
 import LessonQA from './LessonQA';
-import { Loader2, Download, CheckCircle2, Circle, CalendarClock, ExternalLink, CalendarPlus } from 'lucide-react';
+import { Loader2, Download, CheckCircle2, Circle, CalendarClock, ExternalLink, CalendarPlus, RotateCcw } from 'lucide-react';
 
 interface Props {
   lesson: PortalLesson;
@@ -26,6 +35,8 @@ const t = {
     opensSoon: 'The join button opens 30 minutes before the start.',
     ended: 'This live session has ended.',
     unavailable: 'This content is not available yet.',
+    resumed: (time: string) => `Continued from ${time}, where you stopped last time.`,
+    restart: 'Start from the beginning',
   },
   sq: {
     markComplete: 'Shëno të përfunduar',
@@ -37,6 +48,8 @@ const t = {
     opensSoon: 'Butoni hapet 30 minuta para fillimit.',
     ended: 'Ky sesion live ka përfunduar.',
     unavailable: 'Kjo përmbajtje nuk është ende e disponueshme.',
+    resumed: (time: string) => `Vazhdoi nga ${time}, ku e latë herën e kaluar.`,
+    restart: 'Nis nga fillimi',
   },
 };
 
@@ -55,17 +68,39 @@ const LessonViewer: React.FC<Props> = ({ lesson, lang, completed, onToggleComple
   const [busy, setBusy] = useState(false);
   const autoMarked = useRef(false);
 
+  // Resume uploaded videos where the doctor stopped (saved every ~10 s of playback).
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [resumeFrom, setResumeFrom] = useState(0);
+  const [resumedAt, setResumedAt] = useState<number | null>(null);
+  const resumeApplied = useRef(false);
+  const lastTime = useRef(0);
+  const lastSaved = useRef(0);
+
   useEffect(() => {
     let active = true;
+    const lessonId = lesson.id;
     autoMarked.current = false;
+    resumeApplied.current = false;
+    lastTime.current = 0;
+    lastSaved.current = 0;
+    setResumeFrom(0);
+    setResumedAt(null);
     setLoading(true);
     setUrl(null);
-    if (!isAdmin) void trackLessonView(lesson.id).catch(() => {});
+    if (!isAdmin) void trackLessonView(lessonId).catch(() => {});
     if (lesson.kind === 'webinar_live') {
       setLoading(false);
       return () => {
         active = false;
       };
+    }
+    // YouTube/Vimeo embeds keep their own position; only our own player resumes.
+    if (!isAdmin && lesson.kind !== 'pdf' && !(lesson.external_url && embedUrl(lesson.external_url))) {
+      fetchLessonPosition(lessonId)
+        .then((p) => {
+          if (active) setResumeFrom(p);
+        })
+        .catch(() => {});
     }
     lessonMediaUrl(lesson).then((u) => {
       if (active) {
@@ -75,9 +110,44 @@ const LessonViewer: React.FC<Props> = ({ lesson, lang, completed, onToggleComple
     });
     return () => {
       active = false;
+      // Leaving the lesson: keep the latest position.
+      if (!isAdmin && lastTime.current > 0 && Math.abs(lastTime.current - lastSaved.current) >= 2) {
+        void saveLessonPosition(lessonId, lastTime.current).catch(() => {});
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lesson.id]);
+
+  const applyResume = () => {
+    const v = videoRef.current;
+    if (!v || resumeApplied.current || resumeFrom < 10 || !Number.isFinite(v.duration) || v.duration <= 0) return;
+    resumeApplied.current = true;
+    // Only jump if they haven't started watching yet and there is something left to see.
+    if (v.currentTime < 3 && resumeFrom < v.duration - 15) {
+      v.currentTime = resumeFrom;
+      setResumedAt(resumeFrom);
+    }
+  };
+
+  useEffect(() => {
+    applyResume();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resumeFrom, url]);
+
+  const savePosition = (seconds: number) => {
+    if (isAdmin) return;
+    lastSaved.current = seconds;
+    void saveLessonPosition(lesson.id, seconds).catch(() => {});
+  };
+
+  const restart = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.currentTime = 0;
+    setResumedAt(null);
+    savePosition(0);
+    void v.play().catch(() => {});
+  };
 
   const setDone = async (next: boolean) => {
     setBusy(true);
@@ -91,14 +161,28 @@ const LessonViewer: React.FC<Props> = ({ lesson, lang, completed, onToggleComple
     }
   };
 
-  // Uploaded videos count as complete once 90% has been watched.
   const onTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
     const v = e.currentTarget;
+    lastTime.current = v.currentTime;
+    if (!isAdmin && Math.abs(v.currentTime - lastSaved.current) >= 10) savePosition(v.currentTime);
+    // Uploaded videos count as complete once 90% has been watched.
     if (completed || autoMarked.current || !v.duration || isAdmin) return;
     if (v.currentTime / v.duration >= 0.9) {
       autoMarked.current = true;
       void setDone(true);
     }
+  };
+
+  const onPause = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const v = e.currentTarget;
+    lastTime.current = v.currentTime;
+    if (Math.abs(v.currentTime - lastSaved.current) >= 2) savePosition(v.currentTime);
+  };
+
+  const onEnded = () => {
+    // Finished: next time it starts from the beginning.
+    lastTime.current = 0;
+    savePosition(0);
   };
 
   const title = localized(lesson.title_en, lesson.title_sq, lang);
@@ -194,15 +278,28 @@ const LessonViewer: React.FC<Props> = ({ lesson, lang, completed, onToggleComple
           </div>
         ) : (
           <video
+            ref={videoRef}
             src={url}
             controls
             controlsList="nodownload"
             onContextMenu={(e) => e.preventDefault()}
+            onLoadedMetadata={applyResume}
             onTimeUpdate={onTimeUpdate}
+            onPause={onPause}
+            onEnded={onEnded}
             className="w-full aspect-video bg-black"
           />
         )}
       </div>
+
+      {resumedAt !== null && (
+        <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500">
+          <span className="tabular-nums">{s.resumed(formatClock(resumedAt))}</span>
+          <button onClick={restart} className="inline-flex items-center gap-1 font-black uppercase tracking-widest text-[10px] text-blue-600 hover:text-blue-700">
+            <RotateCcw size={12} /> {s.restart}
+          </button>
+        </p>
+      )}
 
       {lesson.kind === 'pdf' && url && (
         <a

@@ -9,6 +9,8 @@ import { Loader2, ArrowLeft, FileText, CalendarClock, PlayCircle, CheckCircle2, 
 interface Props {
   lang: Lang;
   courseId: string;
+  /** Open this lesson first (from "Continue where you left off" or a webinar). */
+  initialLessonId?: string;
   profile: Profile;
   isAdmin: boolean;
   onBack: () => void;
@@ -46,7 +48,7 @@ const kindIcon = (kind: PortalLesson['kind']) => {
   return <PlayCircle size={15} />;
 };
 
-const CourseScreen: React.FC<Props> = ({ lang, courseId, profile, isAdmin, onBack, onAccount }) => {
+const CourseScreen: React.FC<Props> = ({ lang, courseId, initialLessonId, profile, isAdmin, onBack, onAccount }) => {
   const s = t[lang];
   const [course, setCourse] = useState<PortalCourse | null>(null);
   const [lessons, setLessons] = useState<PortalLesson[] | null>(null);
@@ -66,7 +68,8 @@ const CourseScreen: React.FC<Props> = ({ lang, courseId, profile, isAdmin, onBac
     fetchLessons(courseId)
       .then((ls) => {
         setLessons(ls);
-        setPane(ls[0] ? { type: 'lesson', lessonId: ls[0].id } : null);
+        const first = (initialLessonId && ls.find((l) => l.id === initialLessonId)) || ls[0];
+        setPane(first ? { type: 'lesson', lessonId: first.id } : null);
       })
       .catch(() => setLessons([]));
     fetchMyProgress().then(setProgressState);

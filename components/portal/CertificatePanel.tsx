@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { claimCertificate, fetchMyCertificates } from '../../services/portalApi';
 import { Certificate, CourseStatus, Lang } from './types';
 import CertificateActions from './CertificateActions';
+import FeedbackForm from './FeedbackForm';
 import { Award, CheckCircle2, Circle, Loader2 } from 'lucide-react';
 
 interface Props {
@@ -170,6 +171,9 @@ const CertificatePanel: React.FC<Props> = ({ lang, courseId, status, statusFaile
           {error && <p className="mt-4 text-xs font-bold text-red-600">{error}</p>}
         </>
       )}
+
+      {/* Once every lesson is done, ask how the course was. */}
+      {!isAdmin && lessonsOk && <FeedbackForm lang={lang} courseId={courseId} />}
     </div>
   );
 };

@@ -6,7 +6,13 @@ It runs on the Supabase project **`medident-academy`** (`https://mmgjlptddzormin
 
 ---
 
-## Upgrading to v2 — in this order
+## Upgrading to v3 — in this order
+1. **Database first.** Supabase → **SQL Editor → New query** → paste all of `supabase/schema_v3.sql` → **Run** (after v2; safe to run again, removes nothing). The new code calls functions that only exist after this step.
+2. **Account emails in Albanian + English.** Supabase → **Authentication → Emails → Templates** → for *Confirm signup*, *Reset password* and *Change email address* paste the subject and HTML from `supabase/email-templates/` (the table is in its `README.md`).
+3. **Deploy the code** to GitHub `main` (Vercel builds it).
+4. **Quick check:** Admin → Courses & Content shows **CPD hours**; Admin → Overview shows **Export to Excel** and a **Rating** column.
+
+## Upgrading to v2 (done)
 
 ### 1. Database first
 Supabase → **SQL Editor → New query** → paste all of `supabase/schema_v2.sql` → **Run**. It is safe to run again and removes nothing.
@@ -45,15 +51,18 @@ Put this branch on GitHub `main`; Vercel builds it in about a minute. The daily 
 ## What doctors get
 - **Sign-up with practice details** (name, clinic, city, country, phone) and **Forgot password** by email.
 - **Course catalog** — every published course, with a **Request access** button (one pending request per course).
+- **Continue where you left off** — the dashboard reopens the last lesson (or the next unfinished one), and uploaded videos resume at the second they stopped.
 - **Dashboard** — their courses with progress, **upcoming live webinars** with *Add to calendar* (.ics) and a *Join* button that opens 30 minutes before the start, and their certificates.
 - **Lessons** — video, webinar recording, live webinar, PDF; uploaded videos mark themselves complete at 90 %.
 - **Q&A under every lesson** — everyone assigned to the course sees the questions; academy answers carry a verified badge.
 - **Final quiz** (if the course has one) — pass mark per course, **5 tries per 24 hours**; which answers were wrong is shown only after passing.
-- **Certificate** — once every lesson is done and the quiz passed: a PDF (A4 landscape, signed by the instructor and Dr. Lendita Islami Nallbani as Academy Director) with an ID like `MA-3F9A-1C2B` and a QR code to its verification page.
+- **Certificate** — once every lesson is done and the quiz passed: a PDF (A4 landscape, signed by the instructor and Dr. Lendita Islami Nallbani as Academy Director) with an ID like `MA-3F9A-1C2B`, the course's **CPD hours** (when set) and a QR code to its verification page; **Add to LinkedIn** fills in LinkedIn's "Licenses & certifications" form.
+- **Rate the course** — 1–5 stars, an optional comment and a tick box allowing Medident to quote it (with name and city); doctors can edit it later.
 
 ## What you get (Admin)
-- **Overview** — doctors, active in the last 7 days, enrolments, pending requests, unanswered questions, certificates; per-course progress, quiz passes and certificates; each doctor's progress; recent certificates with **Withdraw / Restore**.
-- **Courses & Content** — course details (instructor printed on the certificate, quiz pass mark, published), lessons (**add, edit, replace file, reorder**, viewers/completions per lesson), live webinars (**Email invitation** to the course's doctors), and the **quiz editor** (2–6 answers, English + Albanian).
+- **Overview** — doctors, active in the last 7 days, enrolments, pending requests, unanswered questions, certificates; per-course progress, quiz passes, certificates and **average rating**; each doctor's progress; the **latest feedback** (with a *May be quoted* badge); recent certificates with **Withdraw / Restore**.
+- **Export to Excel** (Overview) — one `.xlsx` with four tabs: Doctors, Progress, Certificates (with CPD hours and verification links) and Feedback.
+- **Courses & Content** — course details (instructor printed on the certificate, quiz pass mark, **CPD hours**, published), lessons (**add, edit, replace file, reorder**, viewers/completions per lesson), live webinars (**Email invitation** to the course's doctors), and the **quiz editor** (2–6 answers, English + Albanian).
 - **Requests** — approve (assigns the course) or decline; the doctor is emailed either way.
 - **Q&A** — every unanswered question across courses, answer in place.
 - **Doctors** — search, practice details, joined / last active, reset password, delete. **Assignments** — tick courses per doctor.
@@ -81,7 +90,7 @@ Each email goes out once (the portal records it), replies go to medident-ks@gmai
 ---
 
 ## Video uploads
-Free plan: ~1 GB storage and ~5 GB/month of downloads, and single uploads are capped (default 50 MB — raise it in **Storage → Settings**). For long videos use **Use a link** with an unlisted YouTube/Vimeo link. Uploaded files are private: only doctors assigned to the course can open them, through short-lived links. Replacing or deleting a lesson's file removes the old upload.
+Free plan: ~1 GB storage and ~5 GB/month of downloads, and single uploads are capped at 50 MB. The lesson editor refuses bigger files straight away and suggests **Use a link** with an unlisted YouTube/Vimeo link (on a paid plan with a higher limit, change `MAX_UPLOAD_MB` in `components/portal/admin/LessonsAdmin.tsx`). Uploaded files are private: only doctors assigned to the course can open them, through short-lived links. Replacing or deleting a lesson's file removes the old upload.
 
 ---
 
@@ -114,6 +123,10 @@ That branch also adds a static `public/academy/index.html`; add a login link aft
 
 ---
 
+## Files (v3)
+New: `supabase/schema_v3.sql`, `supabase/email-templates/*`, and in `components/portal/`: `ContinueCard`, `FeedbackForm`, `admin/xlsx.ts` (small Excel writer, no new packages).
+Changed: `services/portalApi.ts`, `components/portal/types.ts`, the dashboard, course, lesson and certificate screens, the verify page, and `admin/CoursesAdmin`, `admin/LessonsAdmin`, `admin/OverviewAdmin`.
+
 ## Files (v2)
 New: `supabase/schema_v2.sql`, `api/portal-notify.ts`, `public/fonts/certificate/*` (OFL fonts for the PDF), and in `components/portal/`: `CourseCatalog`, `UpcomingWebinars`, `LessonQA`, `QuizPanel`, `CertificatePanel`, `CertificateActions`, `certificatePdf.ts`, `ics.ts`, `ProfileFields`, `SetPasswordScreen`, `VerifyCertificatePage`, `admin/OverviewAdmin`, `admin/RequestsAdmin`, `admin/QAAdmin`, `admin/QuizAdmin`.
 Changed: `App.tsx` (verify route, keeps the email-link hash), `vercel.json` (verify rewrites + daily cron), `package.json` (+ `jspdf`, `qrcode-generator`, `nodemailer`), `.env.example`, `services/*`, and the existing portal screens.
@@ -123,6 +136,7 @@ Changed: `App.tsx` (verify route, keeps the email-link hash), `vercel.json` (ver
 ## Troubleshooting
 - **"Portal not available yet"** → the `VITE_SUPABASE_*` variables weren't set when that deployment was built. Add them, then **Deployments → ⋯ → Redeploy**.
 - **Saving a course fails / new tabs are empty** → `schema_v2.sql` hasn't been run yet (step 1).
+- **No "Continue" card, ratings don't save, or saving a course with CPD hours fails** → `schema_v3.sql` hasn't been run yet.
 - **No emails** → check the `SMTP_*` variables in Vercel (then redeploy) and that the Google app password is still valid; **Vercel → Logs** shows `portal-notify` errors.
 - **Password-reset email never arrives** → Supabase SMTP settings (step 2.3) and the Redirect URLs (step 2.4).
 - **"That email link is invalid or has expired"** → links are single-use and short-lived; request a new one.

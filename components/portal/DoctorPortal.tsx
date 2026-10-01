@@ -14,7 +14,7 @@ import { Loader2, GraduationCap, ArrowLeft } from 'lucide-react';
 
 type Screen =
   | { name: 'dashboard' }
-  | { name: 'course'; courseId: string }
+  | { name: 'course'; courseId: string; lessonId?: string }
   | { name: 'admin' }
   | { name: 'account' };
 
@@ -185,15 +185,17 @@ const DoctorPortal: React.FC<Props> = ({ lang, onToggleLang, onExit }) => {
               lang={lang}
               profile={profile}
               isAdmin={isAdmin}
-              onOpenCourse={(courseId) => setScreen({ name: 'course', courseId })}
+              onOpenCourse={(courseId, lessonId) => setScreen({ name: 'course', courseId, lessonId })}
               onAccount={goAccount}
               onProfileUpdated={setProfile}
             />
           )}
           {screen.name === 'course' && (
             <CourseScreen
+              key={`${screen.courseId}:${screen.lessonId || ''}`}
               lang={lang}
               courseId={screen.courseId}
+              initialLessonId={screen.lessonId}
               profile={profile}
               isAdmin={isAdmin}
               onBack={() => setScreen({ name: 'dashboard' })}

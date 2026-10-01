@@ -1,7 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { AdminStats, DoctorProgress, Lang } from '../types';
-import { adminStats, adminDoctorProgress, adminSetCertificateRevoked, localized } from '../../../services/portalApi';
-import { Loader2, Inbox, MessageCircle, Award, Users, Activity, ListChecks, Ban, RotateCcw, AlertCircle } from 'lucide-react';
+import { AdminFeedback, AdminStats, DoctorProgress, Lang } from '../types';
+import {
+  adminStats,
+  adminDoctorProgress,
+  adminSetCertificateRevoked,
+  adminFetchFeedback,
+  adminFetchCertificates,
+  certificateVerifyUrl,
+  localized,
+} from '../../../services/portalApi';
+import { downloadXlsx } from './xlsx';
+import {
+  Loader2,
+  Inbox,
+  MessageCircle,
+  Award,
+  Users,
+  Activity,
+  ListChecks,
+  Ban,
+  RotateCcw,
+  AlertCircle,
+  Star,
+  Quote,
+  FileSpreadsheet,
+} from 'lucide-react';
 
 type Tab = 'requests' | 'qa';
 
@@ -36,6 +59,51 @@ const t = {
     revoked: 'Withdrawn',
     confirmRevoke: 'Withdraw this certificate? Its verification link stops working and the doctor cannot claim a new one (you can restore it later).',
     none: '—',
+    rating: 'Rating',
+    feedback: 'Latest feedback',
+    noFeedback: 'No feedback yet — doctors are asked for it once they finish a course.',
+    mayQuote: 'May be quoted',
+    export: 'Export to Excel',
+    exporting: 'Preparing…',
+    exportFailed: 'The export could not be prepared. Please try again.',
+    x: {
+      doctors: 'Doctors',
+      progress: 'Progress',
+      certificates: 'Certificates',
+      feedback: 'Feedback',
+      name: 'Name',
+      email: 'Email',
+      clinic: 'Clinic',
+      city: 'City',
+      country: 'Country',
+      phone: 'Phone',
+      joined: 'Joined',
+      lastActive: 'Last active',
+      courses: 'Courses',
+      finished: 'Courses finished',
+      certs: 'Certificates',
+      doctor: 'Doctor',
+      course: 'Course',
+      done: 'Lessons done',
+      total: 'Lessons total',
+      pct: 'Progress %',
+      best: 'Best quiz %',
+      certId: 'Certificate ID',
+      lastViewed: 'Last viewed',
+      instructor: 'Instructor',
+      cpd: 'CPD hours',
+      issued: 'Issued',
+      status: 'Status',
+      valid: 'Valid',
+      withdrawn: 'Withdrawn',
+      link: 'Verification link',
+      rating: 'Rating (1-5)',
+      comment: 'Comment',
+      quote: 'May quote',
+      yes: 'Yes',
+      no: 'No',
+      date: 'Date',
+    },
   },
   sq: {
     doctors: 'Mjekë',
@@ -67,6 +135,51 @@ const t = {
     revoked: 'E tërhequr',
     confirmRevoke: 'Të tërhiqet kjo certifikatë? Linku i verifikimit nuk funksionon më dhe mjeku nuk mund të marrë një të re (mund ta riktheni më vonë).',
     none: '—',
+    rating: 'Vlerësimi',
+    feedback: 'Vlerësimet e fundit',
+    noFeedback: 'Ende pa vlerësime — mjekëve u kërkohet pasi të përfundojnë një kurs.',
+    mayQuote: 'Mund të citohet',
+    export: 'Eksporto në Excel',
+    exporting: 'Duke përgatitur…',
+    exportFailed: 'Eksporti nuk u përgatit. Provoni përsëri.',
+    x: {
+      doctors: 'Mjekët',
+      progress: 'Progresi',
+      certificates: 'Certifikatat',
+      feedback: 'Vlerësimet',
+      name: 'Emri',
+      email: 'Email',
+      clinic: 'Klinika',
+      city: 'Qyteti',
+      country: 'Shteti',
+      phone: 'Telefoni',
+      joined: 'U regjistrua',
+      lastActive: 'Aktiv së fundi',
+      courses: 'Kurse',
+      finished: 'Kurse të përfunduara',
+      certs: 'Certifikata',
+      doctor: 'Mjeku',
+      course: 'Kursi',
+      done: 'Mësime të kryera',
+      total: 'Mësime gjithsej',
+      pct: 'Progresi %',
+      best: 'Testi më i mirë %',
+      certId: 'ID e certifikatës',
+      lastViewed: 'Parë së fundi',
+      instructor: 'Instruktori',
+      cpd: 'Orë CPD',
+      issued: 'Lëshuar',
+      status: 'Statusi',
+      valid: 'E vlefshme',
+      withdrawn: 'E tërhequr',
+      link: 'Linku i verifikimit',
+      rating: 'Vlerësimi (1-5)',
+      comment: 'Komenti',
+      quote: 'Mund të citohet',
+      yes: 'Po',
+      no: 'Jo',
+      date: 'Data',
+    },
   },
 };
 
@@ -103,17 +216,106 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
   const s = t[lang];
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [doctors, setDoctors] = useState<DoctorProgress[] | null>(null);
+  const [feedback, setFeedback] = useState<AdminFeedback[]>([]);
+  const [exporting, setExporting] = useState(false);
   const [error, setError] = useState('');
   const locale = lang === 'sq' ? 'sq-AL' : 'en-GB';
   const fmt = (iso?: string | null) => (iso ? new Date(iso).toLocaleDateString(locale, { day: 'numeric', month: 'short', year: 'numeric' }) : s.never);
 
   const load = () =>
-    Promise.all([adminStats(), adminDoctorProgress()])
-      .then(([st, dp]) => {
+    Promise.all([adminStats(), adminDoctorProgress(), adminFetchFeedback().catch(() => [] as AdminFeedback[])])
+      .then(([st, dp, fb]) => {
         setStats(st);
         setDoctors(dp);
+        setFeedback(fb);
       })
       .catch((e) => setError(e.message));
+
+  const day = (iso?: string | null) => (iso ? iso.slice(0, 10) : '');
+
+  // One workbook, four tabs — opens cleanly in Excel whatever its language settings.
+  const exportExcel = async () => {
+    if (!doctors) return;
+    setExporting(true);
+    try {
+      const x = s.x;
+      const certs = await adminFetchCertificates();
+      const fb = await adminFetchFeedback().catch(() => feedback);
+      const certCount = new Map<string, number>();
+      for (const c of certs) if (!c.revoked_at) certCount.set(c.doctor_id, (certCount.get(c.doctor_id) || 0) + 1);
+      const title = (en?: string | null, sq?: string | null) => localized(en, sq, lang);
+
+      downloadXlsx(`medident-academy-${new Date().toISOString().slice(0, 10)}.xlsx`, [
+        {
+          name: x.doctors,
+          headers: [x.name, x.email, x.clinic, x.city, x.country, x.phone, x.joined, x.lastActive, x.courses, x.finished, x.certs],
+          rows: doctors.map((d) => [
+            d.full_name,
+            d.email,
+            d.clinic,
+            d.city,
+            d.country,
+            d.phone,
+            day(d.created_at),
+            day(d.last_seen_at),
+            d.courses.length,
+            d.courses.filter((c) => c.lessons_total > 0 && c.lessons_done >= c.lessons_total).length,
+            certCount.get(d.id) || 0,
+          ]),
+        },
+        {
+          name: x.progress,
+          headers: [x.doctor, x.email, x.course, x.done, x.total, x.pct, x.best, x.certId, x.lastViewed],
+          rows: doctors.flatMap((d) =>
+            d.courses.map((c) => [
+              d.full_name,
+              d.email,
+              title(c.title_en, c.title_sq),
+              c.lessons_done,
+              c.lessons_total,
+              c.lessons_total > 0 ? Math.round((Math.min(c.lessons_done, c.lessons_total) / c.lessons_total) * 100) : 0,
+              c.best_score,
+              c.certificate_code,
+              day(c.last_viewed_at),
+            ]),
+          ),
+        },
+        {
+          name: x.certificates,
+          headers: [x.certId, x.doctor, x.course, x.instructor, x.cpd, x.issued, x.status, x.link],
+          rows: certs.map((c) => [
+            c.code,
+            c.doctor_name,
+            title(c.course_title_en, c.course_title_sq),
+            c.instructor_name,
+            c.cpd_hours != null ? Number(c.cpd_hours) : null,
+            day(c.issued_at),
+            c.revoked_at ? x.withdrawn : x.valid,
+            c.revoked_at ? '' : certificateVerifyUrl(c.code),
+          ]),
+        },
+        {
+          name: x.feedback,
+          headers: [x.course, x.doctor, x.clinic, x.city, x.rating, x.comment, x.quote, x.date],
+          rows: fb.map((f) => [
+            title(f.course?.title_en, f.course?.title_sq),
+            f.doctor?.full_name || f.doctor?.email,
+            f.doctor?.clinic,
+            f.doctor?.city,
+            f.rating,
+            f.comment,
+            f.allow_quote ? x.yes : x.no,
+            day(f.updated_at),
+          ]),
+        },
+      ]);
+    } catch (e) {
+      console.error(e);
+      setError(s.exportFailed);
+    } finally {
+      setExporting(false);
+    }
+  };
 
   useEffect(() => {
     load();
@@ -138,15 +340,41 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
       </div>
     );
 
+  // Average rating per course.
+  const ratings = new Map<string, { sum: number; n: number }>();
+  for (const f of feedback) {
+    const r = ratings.get(f.course_id) || { sum: 0, n: 0 };
+    r.sum += f.rating;
+    r.n += 1;
+    ratings.set(f.course_id, r);
+  }
+  const avgRating = (courseId: string) => {
+    const r = ratings.get(courseId);
+    return r && r.n > 0 ? { avg: r.sum / r.n, n: r.n } : null;
+  };
+
   return (
     <div className="space-y-10">
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-        <Tile icon={<Users size={14} />} label={s.doctors} value={stats.doctors} note={`+${stats.new_30d} ${s.newThisMonth}`} />
-        <Tile icon={<Activity size={14} />} label={s.active} value={stats.active_7d} />
-        <Tile icon={<ListChecks size={14} />} label={s.assignments} value={stats.assignments} />
-        <Tile icon={<Inbox size={14} />} label={s.pending} value={stats.pending_requests} action={{ label: s.review, onClick: () => onOpenTab('requests') }} attention />
-        <Tile icon={<MessageCircle size={14} />} label={s.open} value={stats.open_questions} action={{ label: s.review, onClick: () => onOpenTab('qa') }} attention />
-        <Tile icon={<Award size={14} />} label={s.certificates} value={stats.certificates} />
+      <div className="space-y-4">
+        <div className="flex justify-end">
+          <button
+            onClick={exportExcel}
+            disabled={exporting}
+            className="flex items-center gap-2 bg-white border border-slate-200 hover:border-blue-400 disabled:opacity-60 text-slate-700 px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest"
+          >
+            {exporting ? <Loader2 size={13} className="animate-spin" /> : <FileSpreadsheet size={14} className="text-green-700" />}
+            {exporting ? s.exporting : s.export}
+          </button>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+          <Tile icon={<Users size={14} />} label={s.doctors} value={stats.doctors} note={`+${stats.new_30d} ${s.newThisMonth}`} />
+          <Tile icon={<Activity size={14} />} label={s.active} value={stats.active_7d} />
+          <Tile icon={<ListChecks size={14} />} label={s.assignments} value={stats.assignments} />
+          <Tile icon={<Inbox size={14} />} label={s.pending} value={stats.pending_requests} action={{ label: s.review, onClick: () => onOpenTab('requests') }} attention />
+          <Tile icon={<MessageCircle size={14} />} label={s.open} value={stats.open_questions} action={{ label: s.review, onClick: () => onOpenTab('qa') }} attention />
+          <Tile icon={<Award size={14} />} label={s.certificates} value={stats.certificates} />
+        </div>
       </div>
 
       <section>
@@ -162,6 +390,7 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
                 <th className="px-4 py-3 text-right">{s.finished}</th>
                 <th className="px-4 py-3 text-right">{s.quiz}</th>
                 <th className="px-4 py-3 text-right">{s.certs}</th>
+                <th className="px-4 py-3 text-right">{s.rating}</th>
               </tr>
             </thead>
             <tbody className="tabular-nums">
@@ -182,6 +411,20 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
                   <td className="px-4 py-3 text-right text-slate-600">{c.completed}</td>
                   <td className="px-4 py-3 text-right text-slate-600">{c.quiz_questions > 0 ? c.quiz_passed : s.none}</td>
                   <td className="px-4 py-3 text-right text-slate-600">{c.certificates}</td>
+                  <td className="px-4 py-3 text-right text-slate-600 whitespace-nowrap">
+                    {(() => {
+                      const r = avgRating(c.id);
+                      return r ? (
+                        <span className="inline-flex items-center gap-1">
+                          <Star size={12} className="text-amber-400" fill="currentColor" strokeWidth={1.5} aria-hidden="true" />
+                          {r.avg.toLocaleString(locale, { maximumFractionDigits: 1, minimumFractionDigits: 1 })}
+                          <span className="text-slate-400">({r.n})</span>
+                        </span>
+                      ) : (
+                        s.none
+                      );
+                    })()}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -236,6 +479,45 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
                     })
                   )}
                 </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section>
+        <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-400 mb-3">{s.feedback}</h2>
+        {feedback.length === 0 ? (
+          <p className="text-sm text-slate-400">{s.noFeedback}</p>
+        ) : (
+          <div className="bg-white border border-slate-200 rounded-2xl divide-y divide-slate-100">
+            {feedback.slice(0, 8).map((f) => (
+              <div key={`${f.doctor_id}:${f.course_id}`} className="px-4 py-3">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span className="flex items-center gap-0.5" role="img" aria-label={`${f.rating}/5`}>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <Star
+                        key={n}
+                        size={13}
+                        className={n <= f.rating ? 'text-amber-400' : 'text-slate-200'}
+                        fill="currentColor"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
+                    ))}
+                  </span>
+                  <span className="text-sm text-slate-700">
+                    <strong>{f.doctor?.full_name || f.doctor?.email}</strong>
+                    {f.doctor?.city ? `, ${f.doctor.city}` : ''} · {localized(f.course?.title_en, f.course?.title_sq, lang)}
+                  </span>
+                  {f.allow_quote && (
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-green-700 bg-green-50 rounded px-1.5 py-0.5">
+                      <Quote size={10} /> {s.mayQuote}
+                    </span>
+                  )}
+                  <span className="text-[11px] text-slate-400 ml-auto">{fmt(f.updated_at)}</span>
+                </div>
+                {f.comment && <p className="text-sm text-slate-600 mt-1.5 whitespace-pre-wrap break-words">“{f.comment}”</p>}
               </div>
             ))}
           </div>
