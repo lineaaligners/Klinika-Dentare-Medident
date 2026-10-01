@@ -183,6 +183,8 @@ export interface CourseFeedback {
   rating: number;
   comment: string | null;
   allow_quote: boolean;
+  /** Chosen by the academy for the public Academy page. */
+  featured?: boolean;
   created_at: string;
   updated_at: string;
 }
@@ -190,6 +192,26 @@ export interface CourseFeedback {
 export interface AdminFeedback extends CourseFeedback {
   doctor?: Pick<Profile, 'full_name' | 'email' | 'clinic' | 'city'> | null;
   course?: Pick<PortalCourse, 'title_en' | 'title_sq'> | null;
+}
+
+// ── Announcements ────────────────────────────────────────────────────────────
+export interface Announcement {
+  id: string;
+  /** null = every doctor */
+  course_id: string | null;
+  title_en: string | null;
+  title_sq: string | null;
+  body_en: string | null;
+  body_sq: string | null;
+  created_at: string;
+  course_title_en?: string | null;
+  course_title_sq?: string | null;
+}
+
+export interface AdminAnnouncement extends Announcement {
+  send_email: boolean;
+  emailed_at: string | null;
+  course?: Pick<PortalCourse, 'title_en' | 'title_sq' | 'is_published'> | null;
 }
 
 // ── Continue where you left off ──────────────────────────────────────────────

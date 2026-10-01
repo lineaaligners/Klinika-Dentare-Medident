@@ -5,13 +5,17 @@ import {
   fetchMyProgress,
   fetchMyCertificates,
   fetchContinueLearning,
+  fetchMyAnnouncements,
+  dismissAnnouncement,
   coverUrl,
   localized,
   isProfileComplete,
 } from '../../services/portalApi';
-import { PortalCourse, Lang, Profile, Certificate, ContinueLearning } from './types';
+import { PortalCourse, Lang, Profile, Certificate, ContinueLearning, Announcement } from './types';
 import UpcomingWebinars from './UpcomingWebinars';
 import ContinueCard from './ContinueCard';
+import Announcements from './Announcements';
+import InstallAppCard from './InstallAppCard';
 import CourseCatalog from './CourseCatalog';
 import CertificateActions from './CertificateActions';
 import { Loader2, BookOpen, ChevronRight, GraduationCap, Award, UserRound } from 'lucide-react';
@@ -67,6 +71,7 @@ const DashboardScreen: React.FC<Props> = ({ lang, profile, isAdmin, onOpenCourse
   const [progress, setProgress] = useState<Record<string, { done: number; total: number }>>({});
   const [certs, setCerts] = useState<Certificate[]>([]);
   const [cont, setCont] = useState<ContinueLearning | null>(null);
+  const [news, setNews] = useState<Announcement[]>([]);
   const [error, setError] = useState('');
   const [reloadKey, setReloadKey] = useState(0);
 
@@ -94,6 +99,22 @@ const DashboardScreen: React.FC<Props> = ({ lang, profile, isAdmin, onOpenCourse
       .catch(() => setError(s.loadError));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAdmin, reloadKey]);
+
+  // Announcements load on their own, so a problem there never blocks the dashboard.
+  useEffect(() => {
+    let active = true;
+    fetchMyAnnouncements()
+      .then((items) => active && setNews(items))
+      .catch(() => {});
+    return () => {
+      active = false;
+    };
+  }, [reloadKey]);
+
+  const closeNews = (id: string) => {
+    setNews((items) => items.filter((a) => a.id !== id));
+    void dismissAnnouncement(id).catch(() => {});
+  };
 
   const certByCourse = new Map(certs.filter((c) => c.course_id).map((c) => [c.course_id as string, c]));
   const firstName = (profile.full_name || '').trim().split(/\s+/).slice(0, 2).join(' ');
@@ -127,7 +148,11 @@ const DashboardScreen: React.FC<Props> = ({ lang, profile, isAdmin, onOpenCourse
         </div>
       )}
 
+      <Announcements lang={lang} items={news} onDismiss={closeNews} />
+
       {cont && <ContinueCard lang={lang} item={cont} onOpen={onOpenCourse} />}
+
+      {!isAdmin && <InstallAppCard lang={lang} />}
 
       <UpcomingWebinars lang={lang} onOpenCourse={onOpenCourse} />
 

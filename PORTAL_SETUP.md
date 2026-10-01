@@ -6,7 +6,12 @@ It runs on the Supabase project **`medident-academy`** (`https://mmgjlptddzormin
 
 ---
 
-## Upgrading to v3 — in this order
+## Upgrading to v4 — in this order
+1. **Database first.** Supabase → **SQL Editor → New query** → paste all of `supabase/schema_v4.sql` → **Run** (after v3; safe to run again, removes nothing).
+2. **Deploy the code** to GitHub `main` (Vercel builds it).
+3. **Quick check:** Admin shows an **Announcements** tab; in Admin → Overview, comments marked *May be quoted* have **Show on website**; once one is shown, the public Academy page (`/academy`) gets a **What doctors say** section.
+
+## Upgrading to v3 (done)
 1. **Database first.** Supabase → **SQL Editor → New query** → paste all of `supabase/schema_v3.sql` → **Run** (after v2; safe to run again, removes nothing). The new code calls functions that only exist after this step.
 2. **Account emails in Albanian + English.** Supabase → **Authentication → Emails → Templates** → for *Confirm signup*, *Reset password* and *Change email address* paste the subject and HTML from `supabase/email-templates/` (the table is in its `README.md`).
 3. **Deploy the code** to GitHub `main` (Vercel builds it).
@@ -51,6 +56,8 @@ Put this branch on GitHub `main`; Vercel builds it in about a minute. The daily 
 ## What doctors get
 - **Sign-up with practice details** (name, clinic, city, country, phone) and **Forgot password** by email.
 - **Course catalog** — every published course, with a **Request access** button (one pending request per course).
+- **Announcements** — news from the academy at the top of the dashboard (for every doctor or one course), for 60 days or until the doctor closes it.
+- **App icon** — on a phone the dashboard shows how to add *Medident Academy* to the home screen (Android/desktop Chrome get an **Install** button); the icon opens straight into the portal.
 - **Continue where you left off** — the dashboard reopens the last lesson (or the next unfinished one), and uploaded videos resume at the second they stopped.
 - **Dashboard** — their courses with progress, **upcoming live webinars** with *Add to calendar* (.ics) and a *Join* button that opens 30 minutes before the start, and their certificates.
 - **Lessons** — video, webinar recording, live webinar, PDF; uploaded videos mark themselves complete at 90 %.
@@ -61,6 +68,8 @@ Put this branch on GitHub `main`; Vercel builds it in about a minute. The daily 
 
 ## What you get (Admin)
 - **Overview** — doctors, active in the last 7 days, enrolments, pending requests, unanswered questions, certificates; per-course progress, quiz passes, certificates and **average rating**; each doctor's progress; the **latest feedback** (with a *May be quoted* badge); recent certificates with **Withdraw / Restore**.
+- **Announcements** — write in Albanian and/or English, send to all doctors or one course's doctors, optionally by email (sent once; **Send by email** later if email wasn't set up yet), delete any time.
+- **Testimonials** — in Overview → Latest feedback, **Show on website** puts a quotable comment on the public Academy page (name, city, course, stars, comment). If the doctor edits it or withdraws permission, it comes off until you choose it again.
 - **Export to Excel** (Overview) — one `.xlsx` with four tabs: Doctors, Progress, Certificates (with CPD hours and verification links) and Feedback.
 - **Courses & Content** — course details (instructor printed on the certificate, quiz pass mark, **CPD hours**, published), lessons (**add, edit, replace file, reorder**, viewers/completions per lesson), live webinars (**Email invitation** to the course's doctors), and the **quiz editor** (2–6 answers, English + Albanian).
 - **Requests** — approve (assigns the course) or decline; the doctor is emailed either way.
@@ -77,6 +86,7 @@ Put this branch on GitHub `main`; Vercel builds it in about a minute. The daily 
 | Day before a live webinar (daily job) | doctors in that course |
 | A doctor asks or replies in Q&A | admins (at most one alert per doctor every 2 minutes) |
 | The academy answers a question | the doctor who asked |
+| You publish an announcement with *Also send it by email* | every doctor, or the doctors of that course |
 
 Each email goes out once (the portal records it), replies go to medident-ks@gmail.com, and Gmail allows about 500 emails a day — plenty at this size.
 
@@ -123,6 +133,10 @@ That branch also adds a static `public/academy/index.html`; add a login link aft
 
 ---
 
+## Files (v4)
+New: `supabase/schema_v4.sql`, `services/academyPublic.ts`, `components/AcademyTestimonials.tsx`, `public/academy-app/*` (manifest + icons), and in `components/portal/`: `Announcements`, `InstallAppCard`, `pwa.ts`, `admin/AnnouncementsAdmin`.
+Changed: `App.tsx`, `components/AcademyPage.tsx`, `api/portal-notify.ts` (announcement emails), `services/portalApi.ts`, `components/portal/types.ts`, `DoctorPortal`, `DashboardScreen`, `admin/AdminScreen`, `admin/OverviewAdmin`.
+
 ## Files (v3)
 New: `supabase/schema_v3.sql`, `supabase/email-templates/*`, and in `components/portal/`: `ContinueCard`, `FeedbackForm`, `admin/xlsx.ts` (small Excel writer, no new packages).
 Changed: `services/portalApi.ts`, `components/portal/types.ts`, the dashboard, course, lesson and certificate screens, the verify page, and `admin/CoursesAdmin`, `admin/LessonsAdmin`, `admin/OverviewAdmin`.
@@ -137,6 +151,7 @@ Changed: `App.tsx` (verify route, keeps the email-link hash), `vercel.json` (ver
 - **"Portal not available yet"** → the `VITE_SUPABASE_*` variables weren't set when that deployment was built. Add them, then **Deployments → ⋯ → Redeploy**.
 - **Saving a course fails / new tabs are empty** → `schema_v2.sql` hasn't been run yet (step 1).
 - **No "Continue" card, ratings don't save, or saving a course with CPD hours fails** → `schema_v3.sql` hasn't been run yet.
+- **Announcements tab shows an error / "Show on website" fails** → `schema_v4.sql` hasn't been run yet.
 - **No emails** → check the `SMTP_*` variables in Vercel (then redeploy) and that the Google app password is still valid; **Vercel → Logs** shows `portal-notify` errors.
 - **Password-reset email never arrives** → Supabase SMTP settings (step 2.3) and the Redirect URLs (step 2.4).
 - **"That email link is invalid or has expired"** → links are single-use and short-lived; request a new one.

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SyllabusModal from './SyllabusModal';
+import AcademyTestimonials from './AcademyTestimonials';
 import { Course } from '../types';
 
 interface AcademyPageProps {
@@ -17,9 +18,11 @@ interface AcademyPageProps {
   initialCourseId?: string;
   onNavigateCourse?: (id: string) => void;
   onOpenPortal?: () => void;
+  /** The Academy page is on screen (it stays mounted while hidden). */
+  active?: boolean;
 }
 
-const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang, initialCourseId, onNavigateCourse, onOpenPortal }) => {
+const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang, initialCourseId, onNavigateCourse, onOpenPortal, active = true }) => {
   const [isPlayingAudio, setIsPlayingAudio] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [shouldAutoPrint, setShouldAutoPrint] = useState(false);
@@ -334,6 +337,9 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
             ))}
           </div>
         </section>
+
+        {/* ── TESTIMONIALS (shown once the academy picks some) ── */}
+        <AcademyTestimonials lang={lang} active={active} />
 
         {/* ── MATERIALS CALLOUT ─────────────────── */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 mb-24 md:mb-40">

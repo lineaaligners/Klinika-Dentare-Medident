@@ -6,6 +6,7 @@ import {
   adminSetCertificateRevoked,
   adminFetchFeedback,
   adminFetchCertificates,
+  adminSetFeedbackFeatured,
   certificateVerifyUrl,
   localized,
 } from '../../../services/portalApi';
@@ -24,6 +25,7 @@ import {
   Star,
   Quote,
   FileSpreadsheet,
+  Globe2,
 } from 'lucide-react';
 
 type Tab = 'requests' | 'qa';
@@ -63,6 +65,13 @@ const t = {
     feedback: 'Latest feedback',
     noFeedback: 'No feedback yet — doctors are asked for it once they finish a course.',
     mayQuote: 'May be quoted',
+    onSite: 'On the website',
+    showOnSite: 'Show on website',
+    hideFromSite: 'Remove from website',
+    siteHint: 'Comments marked “May be quoted” can be shown on the public Academy page (name, city, course, stars and comment). A doctor who edits the comment takes it off until you choose it again.',
+    showAll: (n: number) => `Show all (${n})`,
+    showLess: 'Show fewer',
+    featureFailed: 'Could not change it. Please try again.',
     export: 'Export to Excel',
     exporting: 'Preparing…',
     exportFailed: 'The export could not be prepared. Please try again.',
@@ -100,6 +109,7 @@ const t = {
       rating: 'Rating (1-5)',
       comment: 'Comment',
       quote: 'May quote',
+      website: 'On the website',
       yes: 'Yes',
       no: 'No',
       date: 'Date',
@@ -139,6 +149,13 @@ const t = {
     feedback: 'Vlerësimet e fundit',
     noFeedback: 'Ende pa vlerësime — mjekëve u kërkohet pasi të përfundojnë një kurs.',
     mayQuote: 'Mund të citohet',
+    onSite: 'Në faqen e internetit',
+    showOnSite: 'Shfaqe në faqe',
+    hideFromSite: 'Hiqe nga faqja',
+    siteHint: 'Komentet “Mund të citohet” mund të shfaqen në faqen publike të Akademisë (emri, qyteti, kursi, yjet dhe komenti). Nëse mjeku e ndryshon komentin, hiqet derisa ta zgjidhni përsëri.',
+    showAll: (n: number) => `Shfaqi të gjitha (${n})`,
+    showLess: 'Shfaq më pak',
+    featureFailed: 'Nuk u ndryshua. Provoni përsëri.',
     export: 'Eksporto në Excel',
     exporting: 'Duke përgatitur…',
     exportFailed: 'Eksporti nuk u përgatit. Provoni përsëri.',
@@ -176,6 +193,7 @@ const t = {
       rating: 'Vlerësimi (1-5)',
       comment: 'Komenti',
       quote: 'Mund të citohet',
+      website: 'Në faqe',
       yes: 'Po',
       no: 'Jo',
       date: 'Data',
@@ -217,6 +235,9 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
   const [stats, setStats] = useState<AdminStats | null>(null);
   const [doctors, setDoctors] = useState<DoctorProgress[] | null>(null);
   const [feedback, setFeedback] = useState<AdminFeedback[]>([]);
+  const [allFeedback, setAllFeedback] = useState(false);
+  const [featuring, setFeaturing] = useState<string | null>(null);
+  const [featureError, setFeatureError] = useState('');
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState('');
   const locale = lang === 'sq' ? 'sq-AL' : 'en-GB';
@@ -296,7 +317,7 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
         },
         {
           name: x.feedback,
-          headers: [x.course, x.doctor, x.clinic, x.city, x.rating, x.comment, x.quote, x.date],
+          headers: [x.course, x.doctor, x.clinic, x.city, x.rating, x.comment, x.quote, x.website, x.date],
           rows: fb.map((f) => [
             title(f.course?.title_en, f.course?.title_sq),
             f.doctor?.full_name || f.doctor?.email,
@@ -305,6 +326,7 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
             f.rating,
             f.comment,
             f.allow_quote ? x.yes : x.no,
+            f.featured ? x.yes : x.no,
             day(f.updated_at),
           ]),
         },
@@ -314,6 +336,20 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
       setError(s.exportFailed);
     } finally {
       setExporting(false);
+    }
+  };
+
+  const toggleFeatured = async (f: AdminFeedback) => {
+    const key = `${f.doctor_id}:${f.course_id}`;
+    setFeaturing(key);
+    setFeatureError('');
+    try {
+      await adminSetFeedbackFeatured(f.doctor_id, f.course_id, !f.featured);
+      setFeedback((list) => list.map((x) => (x.doctor_id === f.doctor_id && x.course_id === f.course_id ? { ...x, featured: !f.featured } : x)));
+    } catch {
+      setFeatureError(s.featureFailed);
+    } finally {
+      setFeaturing(null);
     }
   };
 
@@ -486,12 +522,14 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
       </section>
 
       <section>
-        <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-400 mb-3">{s.feedback}</h2>
+        <h2 className="text-[11px] font-black uppercase tracking-widest text-slate-400 mb-1">{s.feedback}</h2>
+        {feedback.length > 0 && <p className="text-xs text-slate-400 mb-3 max-w-3xl">{s.siteHint}</p>}
+        {featureError && <p className="text-xs font-bold text-red-600 mb-2">{featureError}</p>}
         {feedback.length === 0 ? (
-          <p className="text-sm text-slate-400">{s.noFeedback}</p>
+          <p className="text-sm text-slate-400 mt-2">{s.noFeedback}</p>
         ) : (
           <div className="bg-white border border-slate-200 rounded-2xl divide-y divide-slate-100">
-            {feedback.slice(0, 8).map((f) => (
+            {(allFeedback ? feedback : feedback.slice(0, 8)).map((f) => (
               <div key={`${f.doctor_id}:${f.course_id}`} className="px-4 py-3">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                   <span className="flex items-center gap-0.5" role="img" aria-label={`${f.rating}/5`}>
@@ -515,12 +553,37 @@ const OverviewAdmin: React.FC<{ lang: Lang; onOpenTab: (t: Tab) => void }> = ({ 
                       <Quote size={10} /> {s.mayQuote}
                     </span>
                   )}
+                  {f.featured && (
+                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-blue-700 bg-blue-50 rounded px-1.5 py-0.5">
+                      <Globe2 size={10} /> {s.onSite}
+                    </span>
+                  )}
                   <span className="text-[11px] text-slate-400 ml-auto">{fmt(f.updated_at)}</span>
                 </div>
                 {f.comment && <p className="text-sm text-slate-600 mt-1.5 whitespace-pre-wrap break-words">“{f.comment}”</p>}
+                {f.allow_quote && f.comment && (
+                  <button
+                    onClick={() => toggleFeatured(f)}
+                    disabled={featuring === `${f.doctor_id}:${f.course_id}`}
+                    className={`mt-2 inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest disabled:opacity-60 ${
+                      f.featured ? 'text-slate-400 hover:text-red-600' : 'text-blue-600 hover:text-blue-700'
+                    }`}
+                  >
+                    {featuring === `${f.doctor_id}:${f.course_id}` ? <Loader2 size={11} className="animate-spin" /> : <Globe2 size={11} />}
+                    {f.featured ? s.hideFromSite : s.showOnSite}
+                  </button>
+                )}
               </div>
             ))}
           </div>
+        )}
+        {feedback.length > 8 && (
+          <button
+            onClick={() => setAllFeedback(!allFeedback)}
+            className="mt-3 text-[10px] font-black uppercase tracking-widest text-blue-600 hover:text-blue-700"
+          >
+            {allFeedback ? s.showLess : s.showAll(feedback.length)}
+          </button>
         )}
       </section>
 

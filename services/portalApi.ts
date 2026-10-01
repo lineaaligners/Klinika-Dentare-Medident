@@ -24,6 +24,8 @@ import {
   CourseFeedback,
   AdminFeedback,
   ContinueLearning,
+  Announcement,
+  AdminAnnouncement,
   BUCKET_VIDEOS,
   BUCKET_MATERIALS,
   BUCKET_COVERS,
@@ -271,6 +273,19 @@ export async function fetchLessonPosition(lessonId: string): Promise<number> {
 
 export async function saveLessonPosition(lessonId: string, seconds: number): Promise<void> {
   await sb().rpc('academy_save_position', { p_lesson_id: lessonId, p_seconds: Math.max(0, Math.floor(seconds)) });
+}
+
+// ── Announcements ─────────────────────────────────────────────────────────────
+/** Announcements for this doctor from the last 60 days that they haven't closed. */
+export async function fetchMyAnnouncements(): Promise<Announcement[]> {
+  const { data, error } = await sb().rpc('academy_my_announcements');
+  if (error) return [];
+  return (Array.isArray(data) ? data : []) as Announcement[];
+}
+
+export async function dismissAnnouncement(id: string): Promise<void> {
+  const { error } = await sb().rpc('academy_dismiss_announcement', { p_id: id });
+  if (error) throw error;
 }
 
 // ── Course feedback ───────────────────────────────────────────────────────────
@@ -635,6 +650,47 @@ export async function adminFetchFeedback(): Promise<AdminFeedback[]> {
     .limit(500);
   if (error) throw error;
   return (data || []) as unknown as AdminFeedback[];
+}
+
+/** Show or hide a doctor's quotable feedback on the public Academy page. */
+export async function adminSetFeedbackFeatured(doctorId: string, courseId: string, featured: boolean): Promise<void> {
+  const { error } = await sb().rpc('academy_set_feedback_featured', {
+    p_doctor_id: doctorId,
+    p_course_id: courseId,
+    p_featured: featured,
+  });
+  if (error) throw error;
+}
+
+// ── Admin: announcements ──────────────────────────────────────────────────────
+const ANNOUNCEMENT_SELECT = '*, course:academy_courses(title_en, title_sq, is_published)';
+
+export async function adminFetchAnnouncements(): Promise<AdminAnnouncement[]> {
+  const { data, error } = await sb()
+    .from('academy_announcements')
+    .select(ANNOUNCEMENT_SELECT)
+    .order('created_at', { ascending: false })
+    .limit(100);
+  if (error) throw error;
+  return (data || []) as unknown as AdminAnnouncement[];
+}
+
+export async function adminCreateAnnouncement(payload: {
+  course_id: string | null;
+  title_en: string | null;
+  title_sq: string | null;
+  body_en: string | null;
+  body_sq: string | null;
+  send_email: boolean;
+}): Promise<AdminAnnouncement> {
+  const { data, error } = await sb().from('academy_announcements').insert(payload).select(ANNOUNCEMENT_SELECT).single();
+  if (error) throw error;
+  return data as unknown as AdminAnnouncement;
+}
+
+export async function adminDeleteAnnouncement(id: string): Promise<void> {
+  const { error } = await sb().from('academy_announcements').delete().eq('id', id);
+  if (error) throw error;
 }
 
 // ── Admin: privileged auth actions (server function w/ service-role key) ──────

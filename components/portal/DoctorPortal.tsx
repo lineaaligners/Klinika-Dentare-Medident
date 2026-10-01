@@ -10,6 +10,7 @@ import CourseScreen from './CourseScreen';
 import AdminScreen from './admin/AdminScreen';
 import AccountScreen from './AccountScreen';
 import PortalHeader from './PortalHeader';
+import { applyPortalAppMeta } from './pwa';
 import { Loader2, GraduationCap, ArrowLeft } from 'lucide-react';
 
 type Screen =
@@ -59,6 +60,9 @@ const DoctorPortal: React.FC<Props> = ({ lang, onToggleLang, onExit }) => {
   useEffect(() => {
     clearAuthRedirect();
   }, []);
+
+  // While the portal is open, "Add to Home Screen" makes a Medident Academy app icon.
+  useEffect(() => applyPortalAppMeta(), []);
 
   useEffect(() => {
     if (!supabase) {

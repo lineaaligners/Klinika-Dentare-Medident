@@ -2,7 +2,8 @@
 //
 //   POST  (signed-in portal users)  -> one notification for something that just
 //         happened: a course was assigned, a request was made or decided, a live
-//         webinar was scheduled, a question/answer was posted.
+//         webinar was scheduled, a question/answer was posted, the academy posted
+//         an announcement.
 //   GET   (Vercel Cron, once a day)  -> reminders for live webinars in the next
 //         ~30 hours.
 //
@@ -52,20 +53,27 @@ function getTransport() {
   return transport;
 }
 
-async function sendAll(mails: Mail[]): Promise<{ sent: number; failed: number }> {
+// `parallel` > 1 only for mailings to many doctors (announcements), so they
+// finish well inside the function's time limit.
+async function sendAll(mails: Mail[], parallel = 1): Promise<{ sent: number; failed: number }> {
   if (!smtpReady() || mails.length === 0) return { sent: 0, failed: 0 };
   const from = process.env.SMTP_FROM || `Medident Academy <${process.env.SMTP_USER}>`;
   let sent = 0;
   let failed = 0;
-  for (const m of mails) {
-    try {
-      await getTransport().sendMail({ from, replyTo: CONTACT_EMAIL, ...m });
-      sent++;
-    } catch (e: any) {
-      failed++;
-      console.error('portal-notify: send failed', m.to, e?.message);
+  let next = 0;
+  const worker = async () => {
+    while (next < mails.length) {
+      const m = mails[next++];
+      try {
+        await getTransport().sendMail({ from, replyTo: CONTACT_EMAIL, ...m });
+        sent++;
+      } catch (e: any) {
+        failed++;
+        console.error('portal-notify: send failed', m.to, e?.message);
+      }
     }
-  }
+  };
+  await Promise.all(Array.from({ length: Math.max(1, Math.min(parallel, mails.length)) }, worker));
   return { sent, failed };
 }
 
@@ -96,8 +104,8 @@ interface Section {
   paragraphs: string[]; // already-escaped HTML
 }
 
-/** One email with an Albanian and an English section and a single button. */
-function bilingual(preheader: string, sq: Section, en: Section, cta = { url: PORTAL_URL, label: 'Hap portalin · Open the portal' }) {
+/** One email with an Albanian and an English section and a single button (en: null = Albanian only). */
+function bilingual(preheader: string, sq: Section, en: Section | null, cta = { url: PORTAL_URL, label: 'Hap portalin · Open the portal' }) {
   const block = (s: Section) => `
     <h2 style="margin:0 0 12px;font-size:19px;line-height:1.3;color:#0f172a;font-weight:800">${esc(s.title)}</h2>
     ${s.paragraphs.map((p) => `<p style="margin:0 0 12px;font-size:15px;line-height:1.6;color:#334155">${p}</p>`).join('')}`;
@@ -111,8 +119,8 @@ function bilingual(preheader: string, sq: Section, en: Section, cta = { url: POR
 <div style="font-size:9px;font-weight:800;letter-spacing:3px;color:#94a3b8;text-transform:uppercase;margin-top:2px">Doctor Portal</div>
 </td></tr>
 <tr><td style="padding:28px 28px 8px">${block(sq)}</td></tr>
-<tr><td style="padding:0 28px"><div style="border-top:1px dashed #e2e8f0;margin:8px 0 20px"></div></td></tr>
-<tr><td style="padding:0 28px 8px">${block(en)}</td></tr>
+${en ? `<tr><td style="padding:0 28px"><div style="border-top:1px dashed #e2e8f0;margin:8px 0 20px"></div></td></tr>
+<tr><td style="padding:0 28px 8px">${block(en)}</td></tr>` : ''}
 <tr><td style="padding:8px 28px 30px">
 <a href="${esc(cta.url)}" style="display:inline-block;background:#2563eb;color:#ffffff;text-decoration:none;font-size:13px;font-weight:800;letter-spacing:0.5px;padding:13px 22px;border-radius:12px">${esc(cta.label)}</a>
 </td></tr>
@@ -123,7 +131,7 @@ Pyetje? · Questions? <a href="mailto:${esc(CONTACT_EMAIL)}" style="color:#64748
 </table></td></tr></table></body></html>`;
   const plain = (s: Section) =>
     `${s.title}\n\n${s.paragraphs.map((p) => p.replace(/<br\s*\/?>/g, '\n').replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'")).join('\n\n')}`;
-  const text = `${plain(sq)}\n\n— — —\n\n${plain(en)}\n\n${cta.url}\n\nMedident Academy · Pejë, Kosovo · ${CONTACT_EMAIL}`;
+  const text = `${plain(sq)}${en ? `\n\n— — —\n\n${plain(en)}` : ''}\n\n${cta.url}\n\nMedident Academy · Pejë, Kosovo · ${CONTACT_EMAIL}`;
   return { html, text };
 }
 
@@ -329,6 +337,40 @@ function answerToDoctorMail(doctor: Person, answer: any, lesson: any): Mail | nu
   return { to: doctor.email, subject: oneLine(`Përgjigje · Answer: ${lesson?.title_en || 'your question'} — Medident Academy`), html, text };
 }
 
+function announcementMail(doctor: Person, a: any): Mail | null {
+  if (!doctor.email) return null;
+  const name = esc(firstName(doctor));
+  const text = (v: string) => esc(v).replace(/\r?\n/g, '<br>');
+  const has = (v: unknown) => String(v ?? '').trim() !== '';
+  // Only the languages the academy wrote: no copy of the same text twice.
+  const hasSq = has(a.title_sq) || has(a.body_sq);
+  const hasEn = has(a.title_en) || has(a.body_en);
+  const reason = {
+    sq: 'Ky email ju vjen sepse keni llogari në portalin e Akademisë Medident.',
+    en: 'You get this email because you have a Medident Academy portal account.',
+  };
+  const courseLine = {
+    sq: a.course ? `Për mjekët e kursit <strong>${esc(pick(a.course.title_en, a.course.title_sq, 'sq'))}</strong>.` : '',
+    en: a.course ? `For the doctors of <strong>${esc(a.course.title_en)}</strong>.` : '',
+  };
+  const section = (lang: Lang): Section => ({
+    title: pick(a.title_en, a.title_sq, lang),
+    paragraphs: [
+      lang === 'sq' ? `Përshëndetje ${name},` : `Hello ${name},`,
+      text(pick(a.body_en, a.body_sq, lang)),
+      courseLine[lang],
+      `<span style="font-size:12px;color:#94a3b8">${reason[lang]}</span>`,
+    ].filter(Boolean),
+  });
+  const first: Lang = hasSq || !hasEn ? 'sq' : 'en';
+  const second = hasSq && hasEn ? section('en') : null;
+  const { html, text: plain } = bilingual(pick(a.title_en, a.title_sq, first), section(first), second);
+  const titleSq = oneLine(a.title_sq);
+  const titleEn = oneLine(a.title_en);
+  const subject = titleSq && titleEn && titleSq !== titleEn ? `${titleSq} · ${titleEn}` : titleSq || titleEn;
+  return { to: doctor.email, subject: oneLine(`${subject} — Medident Academy`), html, text: plain };
+}
+
 // ── Data helpers ──────────────────────────────────────────────────────────────
 async function adminRecipients(db: any): Promise<Person[]> {
   const { data } = await db.from('academy_profiles').select('email, full_name').eq('role', 'admin');
@@ -347,6 +389,11 @@ async function courseDoctors(db: any, courseId: string): Promise<Person[]> {
     .select('doctor:academy_profiles(email, full_name, role)')
     .eq('course_id', courseId);
   return (data || []).map((r: any) => r.doctor).filter((d: any) => d && d.email && d.role === 'doctor');
+}
+
+async function allDoctors(db: any): Promise<Person[]> {
+  const { data } = await db.from('academy_profiles').select('email, full_name').eq('role', 'doctor').limit(2000);
+  return (data || []).filter((p: Person) => p.email);
 }
 
 const isFresh = (iso: string | null | undefined) =>
@@ -499,6 +546,27 @@ export default async function handler(req: any, res: any) {
       const result = await sendAll(doctors.map((d) => webinarMail(d, lesson, lesson.course, 'announce')).filter(Boolean) as Mail[]);
       // Kept only once someone actually got it, so the admin can try again later.
       if (result.sent === 0) await releaseClaim(db, 'academy_lessons', 'announced_at', lesson.id);
+      return done(result);
+    }
+
+    // Admin posted an announcement -> email it to its doctors (once).
+    if (action === 'announcement_posted') {
+      if (!isAdmin) return res.status(403).json({ error: 'Admins only' });
+      const { data: a } = await db
+        .from('academy_announcements')
+        .select('id, course_id, title_en, title_sq, body_en, body_sq, emailed_at, course:academy_courses(title_en, title_sq, is_published)')
+        .eq('id', String(body.announcement_id || ''))
+        .maybeSingle();
+      if (!a) return res.status(404).json({ error: 'Announcement not found' });
+      const skip = (reason: string) => res.status(200).json({ ok: true, sent: 0, failed: 0, smtp: smtpReady(), skipped: reason });
+      if (a.emailed_at) return skip('already_emailed');
+      if (a.course_id && !a.course?.is_published) return skip('unpublished');
+      const doctors = a.course_id ? await courseDoctors(db, a.course_id) : await allDoctors(db);
+      if (doctors.length === 0) return skip('no_doctors');
+      if (!smtpReady()) return done({ sent: 0, failed: 0 });
+      if (!(await claimOnce(db, 'academy_announcements', 'emailed_at', a.id))) return skip('already_emailed');
+      const result = await sendAll(doctors.map((d) => announcementMail(d, a)).filter(Boolean) as Mail[], 3);
+      if (result.sent === 0) await releaseClaim(db, 'academy_announcements', 'emailed_at', a.id);
       return done(result);
     }
 
