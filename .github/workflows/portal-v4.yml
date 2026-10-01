@@ -1,0 +1,32 @@
+name: One-time - install Doctor Portal v4
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/portal-v4.yml', '.github/workflows/medident-portal-v4.patch.xz']
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Doctor Portal v4, check it, commit it, remove this helper
+        run: |
+          set -euo pipefail
+          BUNDLE=.github/workflows/medident-portal-v4.patch.xz
+          if [ ! -f "$BUNDLE" ]; then echo "Bundle not uploaded yet - nothing to do."; exit 0; fi
+          echo "3b0b3314539ed0974fe2427be69e3596282a8fe0cfb084e179bea6d270bdf6a1  $BUNDLE" | sha256sum -c -
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          xz -dc "$BUNDLE" > "$RUNNER_TEMP/v4.patch"
+          git rm -q "$BUNDLE" .github/workflows/portal-v4.yml
+          git apply --index "$RUNNER_TEMP/v4.patch"
+          # Must equal main (da992ae) + exactly the 22 portal v4 files, nothing else.
+          test "$(git write-tree)" = "9b179332415e6023cd525953707898f1d03eb5cb"
+          git commit -q -F - <<'MSG'
+          Medident Academy Doctor Portal v4: announcements to doctors, testimonials on the Academy page, home-screen app icon
+
+          Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+          Claude-Session: https://claude.ai/code/session_01ANRw5N9tXvqWjsBQGWBUht
+          MSG
+          git push origin HEAD:main
