@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/de", "destination": "/" },
     { "source": "/academy/portal", "destination": "/" },
     { "source": "/academy/portal/:path*", "destination": "/" },
     { "source": "/academy/verify", "destination": "/" },
