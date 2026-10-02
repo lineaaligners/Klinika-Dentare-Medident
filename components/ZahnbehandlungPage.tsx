@@ -236,7 +236,7 @@ const ZahnbehandlungPage: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
             {/* Mobile: cards */}
             <div className="md:hidden space-y-4">
-              {PRICEQ.map((row, i) => (
+              {PRICES.map((row, i) => (
                 <div key={i} className="bg-white border border-slate-200 rounded-2xl p-5">
                   <p className="font-black text-slate-900 mb-3">{row.treatment}</p>
                   <div className="grid grid-cols-3 gap-2 text-center">
