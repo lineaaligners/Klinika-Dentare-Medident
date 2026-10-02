@@ -209,7 +209,7 @@ const App: React.FC = () => {
           initialCourseId={initialCourseId}
           onNavigateCourse={(id) => navigateTo('academy', id)}
           onOpenPortal={() => navigateTo('portal')}
-          active={currentView === 'academy')}
+          active={currentView === 'academy'}
         />
       </div>
 
