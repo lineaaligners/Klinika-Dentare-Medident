@@ -31,8 +31,9 @@ import WhatsAppFAB from './components/WhatsAppFAB';
 const DoctorPortal = React.lazy(() => import('./components/portal/DoctorPortal'));
 const VerifyCertificatePage = React.lazy(() => import('./components/portal/VerifyCertificatePage'));
 const ZahnbehandlungPage = React.lazy(() => import('./components/ZahnbehandlungPage'));
+const RozajePage = React.lazy(() => import('./components/RozajePage'));
 
-type View = 'home' | 'blog' | 'academy' | 'tourism' | 'portal' | 'verify' | 'de';
+type View = 'home' | 'blog' | 'academy' | 'tourism' | 'portal' | 'verify' | 'de' | 'mne';
 type DeepRoute = { view: View; id?: string };
 
 // Map URL paths to views
@@ -44,6 +45,7 @@ const PATH_TO_VIEW: Record<string, View> = {
   '/academy/verify': 'verify',
   '/tourism': 'tourism',
   '/de': 'de',
+  '/mne': 'mne',
 };
 const VIEW_TO_PATH: Record<View, string> = {
   home: '/',
@@ -53,6 +55,7 @@ const VIEW_TO_PATH: Record<View, string> = {
   portal: '/academy/portal',
   verify: '/academy/verify',
   de: '/de',
+  mne: '/mne',
 };
 
 const parseRoute = (): DeepRoute => {
@@ -60,7 +63,7 @@ const parseRoute = (): DeepRoute => {
   // /blog/b1 or /academy/c1
   const blogMatch = path.match(/^\/blog\/([^/]+)$/);
   if (blogMatch) return { view: 'blog', id: blogMatch[1] };
-  // Doctor portal â"must win over the /academy/:id course deep-route below.
+  // Doctor portal Ã¢ÂÂ"must win over the /academy/:id course deep-route below.
   if (path === '/academy/portal' || path.startsWith('/academy/portal/')) return { view: 'portal' };
   // Public certificate check: /academy/verify or /academy/verify/MA-XXXX-XXXX
   const verifyMatch = path.match(/^\/academy\/verify(?:\/([^/]+))?\/?$/);
@@ -139,13 +142,13 @@ const App: React.FC = () => {
   // Update page title per view
   useEffect(() => {
     const titles: Record<View, string> = {
-      home: 'Klinika Dentare Medident | Dental Implants & Oral Surgery â PejÃ«, Kosovo',
-      blog: 'Blog â Klinika Dentare Medident',
-      academy: 'Medident Academy â Clinical Courses, PejÃ«',
-      tourism: 'Dental Tourism Kosovo â Medident, PejÃ«',
-      portal: 'Medident Academy â Doctor Portal',
-      verify: 'Verify a certificate â Medident Academy',
-      de: 'Zahnbehandlung in Kosovo â Medident Peja | bis zu 70% gÃ¼nstiger',
+      home: 'Klinika Dentare Medident | Dental Implants & Oral Surgery Ã¢ÂÂ PejÃÂ«, Kosovo',
+      blog: 'Blog Ã¢ÂÂ Klinika Dentare Medident',
+      academy: 'Medident Academy Ã¢ÂÂ Clinical Courses, PejÃÂ«',
+      tourism: 'Dental Tourism Kosovo Ã¢ÂÂ Medident, PejÃÂ«',
+      portal: 'Medident Academy Ã¢ÂÂ Doctor Portal',
+      verify: 'Verify a certificate Ã¢ÂÂ Medident Academy',
+      de: 'Zahnbehandlung in Kosovo Ã¢ÂÂ Medident Peja | bis zu 70% gÃÂ¼nstiger',
     };
     document.title = titles[currentView];
   }, [currentView]);
@@ -184,7 +187,7 @@ const App: React.FC = () => {
     }
   };
 
-  // Simple display toggle â clean and reliable across all browsers
+  // Simple display toggle Ã¢ÂÂ clean and reliable across all browsers
   const vis = (view: View): React.CSSProperties =>
     currentView === view ? {} : { display: 'none' };
 
@@ -213,14 +216,14 @@ const App: React.FC = () => {
         />
       </div>
 
-      {/* Doctor Portal â lazy-loaded standalone private area */}
+      {/* Doctor Portal Ã¢ÂÂ lazy-loaded standalone private area */}
       {currentView === 'portal' && (
         <React.Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
           <DoctorPortal lang={lang} onToggleLang={toggleLang} onExit={() => navigateTo('academy')} />
         </React.Suspense>
       )}
 
-      {/* Public certificate verification â lazy-loaded like the portal */}
+      {/* Public certificate verification Ã¢ÂÂ lazy-loaded like the portal */}
       {currentView === 'verify' && (
         <React.Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
           <VerifyCertificatePage lang={lang} onToggleLang={toggleLang} initialCode={initialVerifyCode} onExit={() => navigateTo('academy')} />
@@ -241,6 +244,13 @@ const App: React.FC = () => {
       {currentView === 'de' && (
         <React.Suspense fallback={<div className="min-h-screen bg-white" />}>
           <ZahnbehandlungPage onBack={() => navigateTo('home')} />
+        </React.Suspense>
+      )}
+
+      {/* Montenegrin dental tourism page */}
+      {currentView === 'mne' && (
+        <React.Suspense fallback={<div className="min-h-screen bg-white" />}>
+          <RozajePage onBack={() => navigateTo('home')} />
         </React.Suspense>
       )}
 
@@ -296,11 +306,11 @@ const App: React.FC = () => {
         </div>
       </div>
 
-      {/* Global modals â always mounted */}
+      {/* Global modals Ã¢ÂÂ always mounted */}
       <PatientGuideModal isOpen={isGuideOpen} onClose={() => setIsGuideOpen(false)} lang={lang} />
       <MaterialRegistryModal isOpen={isMaterialsOpen} onClose={() => setIsMaterialsOpen(false)} lang={lang} />
       <ExitIntentPopup isOpen={isExitIntentOpen && currentView !== 'portal' && currentView !== 'verify'} onClose={() => { setIsExitIntentOpen(false); localStorage.setItem('medident_exit_popup', '1'); }} lang={lang} />
-      {/* Global WhatsApp floating button â hidden on private portal/verify */}
+      {/* Global WhatsApp floating button Ã¢ÂÂ hidden on private portal/verify */}
       {currentView !== 'portal' && currentView !== 'verify' && <WhatsAppFAB />}
     </>
   );
