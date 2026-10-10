@@ -274,6 +274,105 @@ dialog::backdrop{background:rgba(9,25,44,.5)}
 .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:all .25s;z-index:60;box-shadow:var(--sh-2)}
 .toast.on{opacity:1;transform:translateX(-50%)}
 
+
+/* ── Cinema ── */
+.cine-wrap{display:flex;justify-content:center;position:relative;z-index:1}
+.cine-cta{display:inline-flex;align-items:center;gap:16px;margin:24px auto 4px;padding:12px 30px 12px 12px;width:min(100%,440px);border-radius:999px;border:1px solid rgba(255,255,255,.28);background:linear-gradient(135deg,#00b4d8,#0089a8);color:#fff;text-align:left;box-shadow:0 14px 36px rgba(0,180,216,.34),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .15s,box-shadow .2s}
+.cine-cta:hover{transform:translateY(-1px);box-shadow:0 18px 44px rgba(0,180,216,.45)}
+.cine-cta:active{transform:scale(.98)}
+.cine-cta .pl{position:relative;width:60px;height:60px;border-radius:50%;background:#fff;color:#007b96;display:grid;place-items:center;flex:none}
+.cine-cta .pl svg{width:26px;height:26px;margin-left:3px}
+.cine-cta .pl::before,.cine-cta .pl::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid rgba(255,255,255,.75);animation:cineRing 2.6s cubic-bezier(.2,.6,.3,1) infinite}
+.cine-cta .pl::after{animation-delay:1.3s}
+@keyframes cineRing{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.55);opacity:0}}
+.cine-cta b{display:block;font-size:19px;font-weight:800;line-height:1.2}
+.cine-cta small{display:block;font-size:12.5px;opacity:.88;font-weight:500;margin-top:2px}
+.pl-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.pl-cine svg{width:14px;height:14px}
+html.cine-lock,html.cine-lock body{overflow:hidden;overscroll-behavior:none}
+.cine{position:fixed;inset:0;z-index:100;background:#01070f;color:#fff;overflow:hidden;opacity:0;transition:opacity .45s;touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;font-family:Inter,system-ui,sans-serif;line-height:1.4}
+.cine.on{opacity:1;transition:opacity .8s}
+.cine:focus{outline:none}
+.cine-win{position:absolute;left:0;right:0;top:var(--fy,0px);height:var(--fh,100%);overflow:hidden}.cine.port .cine-win{overflow:visible}
+.cine-stage{position:absolute;inset:0;will-change:transform}
+.cine-frame{position:absolute;inset:0;overflow:hidden;background:#06172b;opacity:0;transition:opacity .5s}
+.cine.sc .cine-frame{opacity:1}
+.cine.port .cine-frame{box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 90px rgba(0,180,216,.18)}
+.cine-frame>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cine-vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 95% at 50% 45%,transparent 58%,rgba(0,0,0,.5) 100%)}
+.cine-scrim{position:absolute;left:0;right:0;bottom:var(--bars,0px);height:calc(var(--fh,100%) * .48);pointer-events:none;background:linear-gradient(to top,rgba(1,7,15,.88),rgba(1,7,15,.6) 40%,rgba(1,7,15,0));opacity:0;transition:opacity .4s}
+.cine.st .cine-scrim{opacity:1}
+.cine.port .cine-scrim{display:none}
+.cine-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.cine-card{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:max(26px,env(safe-area-inset-top)) max(22px,env(safe-area-inset-right)) max(30px,env(safe-area-inset-bottom)) max(22px,env(safe-area-inset-left));opacity:0;pointer-events:none;background:radial-gradient(90% 75% at 50% 42%,rgba(18,62,104,.97),rgba(4,18,36,.99) 55%,#01070f)}
+.cine-card:empty{display:none}
+.cine-card.k-out{pointer-events:auto}
+.cc{display:flex;flex-direction:column;align-items:center;width:100%;max-width:1000px;max-height:100%}
+.cc-logo{width:clamp(56px,11vmin,92px);height:clamp(56px,11vmin,92px);border-radius:50%;background:linear-gradient(135deg,#00c2e6,#0088a8);display:grid;place-items:center;font-weight:800;font-size:clamp(26px,5vmin,42px);box-shadow:inset 0 0 0 2px rgba(255,255,255,.2),0 0 70px rgba(0,180,216,.55);margin-bottom:clamp(12px,3vh,24px)}
+.cc-eb{font-size:clamp(10.5px,1.6vmin,13px);font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#7fdcf0}
+.cc-pre{font-size:clamp(14px,2.4vmin,20px);opacity:.75;margin-top:clamp(10px,2.4vh,20px)}
+.cc-name{font-size:clamp(30px,8vmin,76px);font-weight:800;line-height:1.05;margin:6px 0 0;white-space:nowrap}
+.cc-meta{font-size:clamp(13px,2.1vmin,17px);opacity:.72;margin-top:clamp(8px,1.8vh,14px)}
+.cc-hint{margin-top:clamp(18px,5vh,44px);font-size:12.5px;opacity:.6;padding:6px 14px;border:1px solid rgba(255,255,255,.18);border-radius:999px}
+.cc-h{font-size:clamp(22px,5.2vmin,48px);font-weight:800;letter-spacing:-.5px;line-height:1.12;margin:8px 0 0}
+.cc-h.big{font-size:clamp(28px,6.6vmin,62px)}
+.cc-num{display:inline-flex;align-items:center;justify-content:center;min-width:clamp(64px,13vmin,120px);height:clamp(44px,9vmin,80px);padding:0 18px;border-radius:clamp(14px,2.6vmin,22px);font-size:clamp(22px,5.4vmin,46px);font-weight:800;color:#fff;margin:clamp(10px,2.4vh,18px) 0 4px;box-shadow:0 0 0 6px rgba(255,255,255,.07),0 18px 50px rgba(0,0,0,.45)}
+.cc-num.dk{color:#3a2a00}
+.cc-jaw svg{width:clamp(180px,34vmin,300px);height:auto;margin-top:clamp(12px,3vh,24px);display:block}
+.cc-panel{margin-top:clamp(10px,2.6vh,24px);width:min(92vw,860px,calc((100vh - 190px) * 2));background:#fff;border-radius:18px;padding:clamp(6px,1.4vmin,14px);box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 80px rgba(0,180,216,.2);transform-origin:50% 100%;opacity:0}
+.cc-panel .odo svg{display:block;width:100%;height:auto}
+.cc-chips{display:flex;flex-wrap:wrap;gap:6px 8px;justify-content:center;margin-top:clamp(10px,2.4vh,20px);max-width:900px}
+.cc-chip{display:inline-flex;align-items:center;gap:7px;padding:4px 12px 4px 4px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);font-size:13px;font-weight:600;opacity:0}
+.cal-vp{position:relative;width:min(640px,92vw);height:min(52vh,430px);overflow:hidden;margin-top:clamp(8px,2vh,20px);-webkit-mask-image:linear-gradient(transparent,#000 7%,#000 88%,transparent);mask-image:linear-gradient(transparent,#000 7%,#000 88%,transparent)}
+.cal-list{display:grid;gap:8px;text-align:left;padding:16px 0 24px;will-change:transform}
+.ci{display:flex;align-items:center;gap:12px;padding:9px 14px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);opacity:0}
+.ci-n{flex:none;width:32px;height:32px;border-radius:50%;background:#00b4d8;color:#04202b;display:grid;place-items:center;font-weight:800;font-size:13px}
+.ci.w .ci-n{background:transparent;border:1.5px dashed #e8c658;color:#ffd166}
+.ci-b{flex:1;min-width:0;line-height:1.25}
+.ci-b em{display:block;font-style:normal;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7fdcf0}
+.ci.w .ci-b em{color:#ffd166}
+.ci-b b{display:block;font-size:15px}
+.ci-d{flex:none;font-size:12px;font-weight:700;opacity:.75}
+.cc-act{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:clamp(16px,3.5vh,30px)}
+.cc-act .ico svg{width:19px;height:19px;display:block}
+.cine .btn.dk{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.26)}
+.cc-foot{margin-top:clamp(14px,3vh,26px);font-size:12px;opacity:.55}
+.cine-timer{position:absolute;left:50%;top:calc(var(--fy,0px) + max(14px,3vh));transform:translateX(-50%);display:flex;align-items:center;gap:9px;background:rgba(6,22,42,.78);border:1px solid rgba(255,209,102,.45);border-radius:999px;padding:5px 15px 5px 6px;font-size:14px;font-weight:700;white-space:nowrap;backdrop-filter:blur(6px);transition:transform .35s}
+.cine-timer svg{width:30px;height:30px}
+.cine.ui:not(.port) .cine-timer{transform:translate(-50%,46px)}
+.cine-sub{position:absolute;left:0;right:0;bottom:calc(var(--bars,0px) + max(18px,3.2vh));padding:0 max(24px,env(safe-area-inset-right)) 0 max(24px,env(safe-area-inset-left));text-align:center;pointer-events:none;transition:transform .35s}
+.cine.ui:not(.port) .cine-sub{transform:translateY(-54px)}
+.cine.port .cine-sub{top:calc(var(--fy) + var(--fh) + 18px);bottom:auto;text-align:left;padding:0 20px}
+.cs-in{opacity:0}
+.cs-k{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#7fdcf0}
+.cs-t{font-size:clamp(19px,2.4vw + .5vh,34px);font-weight:800;letter-spacing:-.3px;line-height:1.15;margin-top:6px;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.cs-d{max-width:900px;margin:8px auto 0;font-size:clamp(14px,1.2vw + .5vh,21px);line-height:1.45;color:rgba(255,255,255,.92);text-shadow:0 1px 10px rgba(0,0,0,.6);font-weight:500}
+.cine.port .cs-d{margin:8px 0 0}
+.cs-c{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.cine.port .cs-c{justify-content:flex-start}
+.cs-c span{font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)}
+.cs-c span:first-child{background:rgba(0,180,216,.22);border-color:rgba(0,180,216,.45)}
+.cine.compact .cs-t{font-size:17px;margin-top:3px}.cine.compact .cs-d{font-size:13.5px;margin-top:4px;line-height:1.38}.cine.compact .cs-c{margin-top:6px}.cine.compact .cs-c span{font-size:11.5px;padding:2px 9px}.cine.compact .cs-k{font-size:10.5px}
+.cine.compact .cine-sub{bottom:10px}
+.cine-top{position:absolute;left:0;right:0;top:0;display:flex;align-items:center;gap:8px;padding:max(10px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 14px max(14px,env(safe-area-inset-left));background:linear-gradient(rgba(1,7,15,.72),rgba(1,7,15,0));opacity:0;transform:translateY(-6px);transition:opacity .35s,transform .35s;pointer-events:none}
+.cine.ui .cine-top{opacity:1;transform:none;pointer-events:auto}
+.ct-lbl{flex:1;min-width:0;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.92}
+.ct-b,.cb-b{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);color:#fff;display:grid;place-items:center;flex:none;padding:0}
+.ct-b svg,.cb-b svg{width:19px;height:19px}
+.ct-b[aria-pressed=false]{opacity:.6}
+.cine-bot{position:absolute;left:0;right:0;bottom:0;padding:0 max(14px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left));pointer-events:none}
+.cb-row{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:8px;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.cine.ui .cb-row{opacity:1;transform:none;pointer-events:auto}
+.cb-b.sp{font-size:13px;font-weight:800;width:auto;min-width:46px;padding:0 10px;border-radius:21px}.cb-b.sp[aria-pressed=true]{background:#00b4d8;color:#04202b;border-color:#00b4d8}
+.cb-b.play{width:50px;height:50px;background:#fff;color:#04202b}
+.cb-time{font-size:12px;font-weight:600;opacity:.8;min-width:84px;font-variant-numeric:tabular-nums}
+.cine-prog{height:3px;border-radius:2px;background:rgba(255,255,255,.14);overflow:hidden;opacity:.5;transition:opacity .3s}
+.cine.ui .cine-prog{opacity:1}
+.cine-prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,#00b4d8,#7fdcf0)}
+.cine-big{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(1,7,15,.5);color:#fff;display:grid;place-items:center;backdrop-filter:blur(10px);box-shadow:0 10px 40px rgba(0,0,0,.5);padding:0}
+.cine-big svg{width:34px;height:34px;margin-left:5px}
+@media print{.cine,.cine-wrap,.pl-cine{display:none!important}}
+
 @media (max-width:520px){
   .topbar .tb-link{display:none}
   .brand small{font-size:11px}
@@ -338,6 +437,12 @@ dialog::backdrop{background:rgba(9,25,44,.5)}
     <div class="eyebrow">Plani i trajtimit tuaj</div>
     <h1 id="pvName">—</h1>
     <div class="hero-meta" id="pvMeta"></div>
+    <div class="cine-wrap no-print">
+      <button class="cine-cta" id="pvCine" type="button" hidden>
+        <span class="pl" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4v16l13-8z"/></svg></span>
+        <span class="tx"><b>Shiko trajtimin tënd të animuar</b><small id="pvCineDur">Si në kinema · me muzikë</small></span>
+      </button>
+    </div>
     <div class="stats" id="pvStats"></div>
   </section>
 
@@ -346,7 +451,7 @@ dialog::backdrop{background:rgba(9,25,44,.5)}
       <div class="sec-head">
         <div class="eyebrow">Odontogrami</div>
         <h2 class="h2">Dhëmbët që do të trajtohen</h2>
-        <p class="sub">Dhëmbët e shënuar me ngjyrë janë pjesë e planit. Prekni njërin për të parë animacionin e trajtimit.</p>
+        <p class="sub">Dhëmbët e shënuar me ngjyrë janë pjesë e planit. Prekni njërin për ta parë trajtimin e tij në film.</p>
       </div>
       <div class="odo-scroll"><div class="odo" id="pvOdo"></div></div>
       <div class="legend" id="pvLegend"></div>
@@ -354,8 +459,13 @@ dialog::backdrop{background:rgba(9,25,44,.5)}
 
     <section class="card player" id="secPlayer" aria-labelledby="plH">
       <div class="pl-head">
-        <div class="eyebrow">Animacion hap pas hapi</div>
-        <h2 class="h2" id="plH">Si trajtohet çdo dhëmb</h2>
+        <div>
+          <div class="eyebrow">Animacion hap pas hapi</div>
+          <h2 class="h2" id="plH">Si trajtohet çdo dhëmb</h2>
+        </div>
+        <button class="btn sm teal pl-cine no-print" id="plCine" type="button" hidden>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>Shiko si film
+        </button>
       </div>
       <div class="pl-tabs" id="plTabs" role="tablist" aria-label="Zgjidhni dhëmbin"></div>
       <div class="pl-stage" id="plStage">
@@ -555,6 +665,43 @@ dialog::backdrop{background:rgba(9,25,44,.5)}
       </menu>
     </form>
   </dialog>
+</div>
+
+<div class="cine" id="cine" role="dialog" aria-modal="true" aria-label="Filmi i trajtimit tuaj" tabindex="-1" hidden>
+  <div class="cine-win">
+  <div class="cine-stage" id="cineStage">
+    <div class="cine-frame" id="cineFrame">
+      <svg id="cineSvg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"></svg>
+      <div class="cine-vig" aria-hidden="true"></div>
+    </div>
+  </div>
+  </div>
+  <div class="cine-scrim" aria-hidden="true"></div>
+  <div class="cine-card" id="cineCard"></div>
+  <canvas class="cine-fx" id="cineFx" aria-hidden="true"></canvas>
+  <div class="cine-timer" id="cineTimer" hidden>
+    <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="4"/><circle id="cineRing" cx="18" cy="18" r="14" fill="none" stroke="#ffd166" stroke-width="4" stroke-linecap="round" stroke-dasharray="87.96" stroke-dashoffset="87.96" transform="rotate(-90 18 18)"/></svg>
+    <span id="cineTimerTxt"></span>
+  </div>
+  <div class="cine-sub" aria-live="polite"><div class="cs-in" id="cineSubIn"><div class="cs-k" id="cineK"></div><div class="cs-t" id="cineT"></div><p class="cs-d" id="cineD"></p><div class="cs-c" id="cineC"></div></div></div>
+  <div class="cine-top">
+    <div class="ct-lbl" id="cineLbl"></div>
+    <button class="ct-b" id="cineNar" type="button" aria-pressed="false" aria-label="Zëri i narratorit" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 3a3 3 0 00-3 3v6a3 3 0 006 0V6a3 3 0 00-3-3z"/><path d="M19 11a7 7 0 01-14 0M12 18v3"/></svg></button>
+    <button class="ct-b" id="cineSnd" type="button" aria-pressed="true" aria-label="Muzika"></button>
+    <button class="ct-b" id="cineFs" type="button" aria-label="Ekran i plotë" hidden></button>
+    <button class="ct-b" id="cineX" type="button" aria-label="Mbyll filmin" title="Mbyll (Esc)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="cine-bot">
+    <div class="cb-row">
+      <button class="cb-b" id="cinePrev" type="button" aria-label="Kapitulli i mëparshëm"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+      <button class="cb-b play" id="cinePlay" type="button" aria-label="Pauzë"></button>
+      <button class="cb-b" id="cineNext" type="button" aria-label="Kapitulli tjetër"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+      <button class="cb-b sp" id="cineSpd" type="button" aria-pressed="false" aria-label="Shpejtësia">1×</button>
+      <span class="cb-time" id="cineTime">0:00</span>
+    </div>
+    <div class="cine-prog" aria-hidden="true"><i id="cineProgI"></i></div>
+  </div>
+  <button class="cine-big" id="cineBig" type="button" aria-label="Vazhdo filmin" hidden></button>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -934,10 +1081,10 @@ function smoothD(pts) {
 }
 let SC_N = 0;
 const PULP_N = hexRgb('#f3a6a2'), PULP_I = hexRgb('#d42f3a'), PULP_E = hexRgb('#3a2420'), PULP_S = hexRgb('#efe5d1');
-function createScene(svg, f, o) {
-  /* o = { proc, missing:Set } */
-  SC_N++; const id = 'sc' + SC_N + '_', U = 'userSpaceOnUse';
-  svg.textContent = '';
+/* world extent of the wide (cinema) scene – the camera never leaves it */
+const WIDE = { x0: -250, x1: 650, y0: -150, y1: 450 };
+/* pure geometry of a tooth scene (no DOM) – shared by the scene, the flows and the cinema camera */
+function sceneGeom(f) {
   const ti = toothInfo(f), upper = ti.upper;
   const z = clamp(168 / (ti.ch + ti.rl), 6.2, 8.2);
   const g = geom(ti, z);
@@ -952,7 +1099,16 @@ function createScene(svg, f, o) {
   const lim = nerveY ? nerveY - 22 : sinusY ? sinusY - 4 : 288;
   if (CREST + IL > lim) IL = Math.max(46, lim - CREST);
   const hwHeal = Math.min(iw * .58, g.nw * .46), abM = Math.min(g.nw * .43, iw * .64), abT = abM * .74;
-  const C = { g, z, iw, IL, CX, CEJ, CREST, T, NL, NR, hwHeal, abM, apex, upper, ti };
+  const dX = CX + g.cw * .12, dY = CEJ - g.ch * .6, acTop = g.k === 'm' ? T + g.ch * .17 : T + g.ch * .05;
+  return { g, z, iw, IL, CX, CEJ, CREST, BOT, H, Y, T, NL, NR, hwHeal, abM, abT, apex, upper, ti, nerveY, sinusY, dX, dY, acTop };
+}
+function createScene(svg, f, o) {
+  /* o = { proc, missing:Set, rcCr, wide, coMin, coMax } */
+  SC_N++; const id = 'sc' + SC_N + '_', U = 'userSpaceOnUse';
+  svg.textContent = '';
+  const C = sceneGeom(f);
+  const { ti, upper, z, g, CX, CEJ, CREST, BOT, H, Y, T, NL, NR, apex, nerveY, sinusY, iw, IL, hwHeal, abM, abT } = C;
+  const wide = !!o.wide, X0 = wide ? WIDE.x0 : -12, X1 = wide ? WIDE.x1 : 412, BB = wide ? WIDE.y1 : 312;
 
   /* ---------- defs ---------- */
   const defs = sv('defs', null, svg);
@@ -1008,39 +1164,42 @@ function createScene(svg, f, o) {
   const mChip = sv('path', { d: P('M', R - g.cw * .34, T - 3, 'L', R + 4, T - 3, 'L', R + 4, T + g.ch * .27, 'Z'), fill: '#000', opacity: 0 }, mask);
 
   /* ---------- background ---------- */
-  sv('rect', { x: 0, y: 0, width: 400, height: 300, fill: gBg }, svg);
-  sv('ellipse', { cx: 200, cy: Y(150), rx: 240, ry: 175, fill: gGlow }, svg);
+  if (wide) sv('rect', { x: WIDE.x0, y: WIDE.y0, width: WIDE.x1 - WIDE.x0, height: WIDE.y1 - WIDE.y0, fill: gBg }, svg);
+  else sv('rect', { x: 0, y: 0, width: 400, height: 300, fill: gBg }, svg);
+  sv('ellipse', { cx: 200, cy: Y(150), rx: wide ? 420 : 240, ry: wide ? 290 : 175, fill: gGlow }, svg);
   const G = sv('g', { transform: upper ? 'matrix(1 0 0 -1 0 300)' : null }, svg);
 
   /* ---------- sites (target + neighbours) ---------- */
   const row = upper ? ROW_U : ROW_L, ix = row.indexOf(f), miss = o.missing || new Set();
   const sites = [{ f, x: CX, g, tooth: true, target: true }];
   let xl = CX - g.cw / 2, xr = CX + g.cw / 2;
-  for (let k = 1; k <= 3; k++) { const nf = row[ix - k]; if (!nf) break; const ng = geom(toothInfo(nf), z); const x = xl - 1.2 - ng.cw / 2; sites.unshift({ f: nf, x, g: ng, tooth: !miss.has(nf) }); xl = x - ng.cw / 2; if (xl < -20) break; }
-  for (let k = 1; k <= 3; k++) { const nf = row[ix + k]; if (!nf) break; const ng = geom(toothInfo(nf), z); const x = xr + 1.2 + ng.cw / 2; sites.push({ f: nf, x, g: ng, tooth: !miss.has(nf) }); xr = x + ng.cw / 2; if (xr > 420) break; }
+  const KN = wide ? 9 : 3;
+  for (let k = 1; k <= KN; k++) { const nf = row[ix - k]; if (!nf) break; const ng = geom(toothInfo(nf), z); const x = xl - 1.2 - ng.cw / 2; sites.unshift({ f: nf, x, g: ng, tooth: !miss.has(nf) }); xl = x - ng.cw / 2; if (xl < X0 - 8) break; }
+  for (let k = 1; k <= KN; k++) { const nf = row[ix + k]; if (!nf) break; const ng = geom(toothInfo(nf), z); const x = xr + 1.2 + ng.cw / 2; sites.push({ f: nf, x, g: ng, tooth: !miss.has(nf) }); xr = x + ng.cw / 2; if (xr > X1 + 8) break; }
   const tIdx = sites.findIndex(s => s.target);
   const contacts = [];
   for (let i = 0; i < sites.length - 1; i++) { const a = sites[i], b = sites[i + 1]; contacts.push({ x: (a.x + a.g.cw / 2 + b.x - b.g.cw / 2) / 2, a: i, b: i + 1, full: Math.min(a.g.ch, b.g.ch) * .36 }); }
 
   /* ---------- bone ---------- */
-  const crestPts = [[-12, CREST - 3]];
+  const crestPts = [[X0, CREST - 3]];
   sites.forEach((s, i) => { crestPts.push([s.x, CREST + (s.tooth ? 1.5 : 3)]); if (contacts[i]) crestPts.push([contacts[i].x, CREST - 4.5]); });
-  crestPts.push([412, CREST - 3]);
+  crestPts.push([X1, CREST - 3]);
   crestPts.sort((a, b) => a[0] - b[0]);
   const crestLine = smoothD(crestPts);
-  const boneD = crestLine + ' L 412 312 L -12 312 Z';
+  const boneD = crestLine + ' ' + P('L', X1, BB, 'L', X0, BB, 'Z');
   sv('path', { d: boneD, fill: ref('trab') }, G);
   if (sinusY) {
-    const sp = []; for (let x = -12; x <= 412; x += 53) sp.push([x, sinusY + Math.sin(x / 47) * 5 + (Math.abs(x - CX) < 40 ? -3 : 0)]);
+    const sp = []; for (let x = X0; x <= X1; x += 53) sp.push([x, sinusY + Math.sin(x / 47) * 5 + (Math.abs(x - CX) < 40 ? -3 : 0)]);
+    if (sp[sp.length - 1][0] < X1) sp.push([X1, sinusY + Math.sin(X1 / 47) * 5]);
     const sD = smoothD(sp);
-    sv('path', { d: sD + ' L 412 312 L -12 312 Z', fill: gSin }, G);
+    sv('path', { d: sD + ' ' + P('L', X1, BB, 'L', X0, BB, 'Z'), fill: gSin }, G);
     sv('path', { d: sD, fill: 'none', stroke: '#f2a1a8', 'stroke-width': 2.6, opacity: .95 }, G);
     sv('path', { d: sD, fill: 'none', stroke: '#ffd5d8', 'stroke-width': .8, opacity: .6, transform: 'translate(0 2.2)' }, G);
   }
   sv('path', { d: boneD, fill: gBsh }, G);
   sv('path', { d: crestLine, fill: 'none', stroke: '#fbf0d9', 'stroke-width': 3.2, opacity: .95 }, G);
   if (nerveY) {
-    const nD = P('M', -12, nerveY + 5, 'C', 120, nerveY + 1, 260, nerveY - 2, 412, nerveY - 7);
+    const nD = wide ? P('M', X0, nerveY + 10, 'C', 40, nerveY + 3, 330, nerveY - 4, X1, nerveY - 12) : P('M', -12, nerveY + 5, 'C', 120, nerveY + 1, 260, nerveY - 2, 412, nerveY - 7);
     sv('path', { d: nD, fill: 'none', stroke: '#8a6434', 'stroke-width': 13, opacity: .5 }, G);
     sv('path', { d: nD, fill: 'none', stroke: '#e05252', 'stroke-width': 1.6, transform: 'translate(0 -3.6)' }, G);
     sv('path', { d: nD, fill: 'none', stroke: '#4f7cd6', 'stroke-width': 1.6, transform: 'translate(0 3.6)' }, G);
@@ -1176,7 +1335,7 @@ function createScene(svg, f, o) {
   const beak = (sgn) => {
     const hx = CX + sgn * 5, hy = T - 26;
     const b = sv('g', null, gFo);
-    const d = P('M', CX + sgn * (g.nw / 2 + 1.2), CEJ - g.ch * .18, 'C', CX + sgn * (g.cw / 2 + 7), CEJ - g.ch * .46, CX + sgn * (g.cw / 2 + 5), T - 8, hx, hy, 'L', CX + sgn * 15, T - 170);
+    const d = P('M', CX + sgn * (g.nw / 2 + 1.2), CEJ - g.ch * .18, 'C', CX + sgn * (g.cw / 2 + 7), CEJ - g.ch * .46, CX + sgn * (g.cw / 2 + 5), T - 8, hx, hy, 'L', CX + sgn * (wide ? 24 : 15), T - (wide ? 360 : 170));
     sv('path', { d, fill: 'none', stroke: '#9aa5b1', 'stroke-width': 6.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, b);
     sv('path', { d, fill: 'none', stroke: '#eef2f5', 'stroke-width': 2, 'stroke-linecap': 'round', transform: 'translate(' + (-sgn * .8) + ' -.6)' }, b);
     return { b, hx, hy, sgn };
@@ -1190,9 +1349,10 @@ function createScene(svg, f, o) {
   const eFl = sv('path', { fill: 'none', stroke: '#3f4752', 'stroke-width': 1.5, opacity: .65, 'clip-path': ref('drill') }, gDr);
   const eMarks = sv('path', { fill: 'none', stroke: '#111827', 'stroke-width': 1 }, gDr);
   sv('rect', { x: -3, y: -CL - 26, width: 6, height: 26, fill: gSt, stroke: '#4b5563', 'stroke-width': .5 }, gDr);
+  const LX = wide ? 2.6 : 1;
   const hand = (parent, y0, s) => {
-    sv('path', { d: P('M', 6 * s, y0 - 18 * s, 'L', 92 * s, y0 - 128 * s), stroke: '#a3adb8', 'stroke-width': 17 * s, 'stroke-linecap': 'round' }, parent);
-    sv('path', { d: P('M', 2 * s, y0 - 20 * s, 'L', 88 * s, y0 - 131 * s), stroke: '#e8edf1', 'stroke-width': 4 * s, 'stroke-linecap': 'round', opacity: .8 }, parent);
+    sv('path', { d: P('M', 6 * s, y0 - 18 * s, 'L', (6 + 86 * LX) * s, y0 - (18 + 110 * LX) * s), stroke: '#a3adb8', 'stroke-width': 17 * s, 'stroke-linecap': 'round' }, parent);
+    sv('path', { d: P('M', 2 * s, y0 - 20 * s, 'L', (2 + 86 * LX) * s, y0 - (20 + 111 * LX) * s), stroke: '#e8edf1', 'stroke-width': 4 * s, 'stroke-linecap': 'round', opacity: .8 }, parent);
     sv('rect', { x: -15 * s, y: y0 - 27 * s, width: 30 * s, height: 27 * s, rx: 9 * s, fill: gSt, stroke: '#5b6470', 'stroke-width': .7 }, parent);
     sv('circle', { cx: 10 * s, cy: y0 - 3 * s, r: 2.2 * s, fill: '#7dd3fc' }, parent);
   };
@@ -1209,7 +1369,7 @@ function createScene(svg, f, o) {
   const beamH = CEJ + 10 - (T - 22);
   sv('path', { d: P('M', -13, 9, 'L', 13, 9, 'L', 34, beamH, 'L', -34, beamH, 'Z'), fill: gBeam }, gSc);
   sv('rect', { x: -34, y: beamH - 2, width: 68, height: 2.2, fill: '#5eead4', opacity: .95 }, gSc);
-  sv('path', { d: P('M', 14, -4, 'L', 104, -112, 'L', 122, -96, 'L', 26, 10, 'Z'), fill: '#eef2f7', stroke: '#94a3b8', 'stroke-width': .8 }, gSc);
+  sv('path', { d: P('M', 14, -4, 'L', 14 + 90 * LX, -4 - 108 * LX, 'L', 32 + 90 * LX, 12 - 108 * LX, 'L', 26, 10, 'Z'), fill: '#eef2f7', stroke: '#94a3b8', 'stroke-width': .8 }, gSc);
   sv('rect', { x: -25, y: -10, width: 50, height: 20, rx: 8, fill: '#f8fafc', stroke: '#94a3b8', 'stroke-width': .9 }, gSc);
   sv('rect', { x: -16, y: 6.5, width: 32, height: 3.6, rx: 1.5, fill: '#22d3ee' }, gSc);
   const eMesh = sv('rect', { x: CX - 80, y: T - 8, width: 160, height: CEJ + 18 - (T - 8), fill: ref('mesh'), opacity: 0, 'clip-path': 'url(#' + id + 'meshc)' }, G);
@@ -1217,7 +1377,7 @@ function createScene(svg, f, o) {
   const gCu = sv('g', { opacity: 0 }, G);
   sv('path', { d: P('M', -7, 0, 'L', 7, 0, 'L', 25, 42, 'L', -25, 42, 'Z'), fill: gCure }, gCu);
   sv('ellipse', { cx: 0, cy: 44, rx: 20, ry: 12, fill: gBlue }, gCu);
-  sv('rect', { x: -6, y: -74, width: 12, height: 66, rx: 4, fill: '#334155', stroke: '#1e293b', 'stroke-width': .8 }, gCu);
+  sv('rect', { x: -6, y: -8 - 66 * LX, width: 12, height: 66 * LX, rx: 4, fill: '#334155', stroke: '#1e293b', 'stroke-width': .8 }, gCu);
   sv('rect', { x: -8, y: -12, width: 16, height: 12, rx: 3, fill: '#1e293b' }, gCu);
   sv('rect', { x: -5.5, y: -2, width: 11, height: 2.4, rx: 1, fill: '#60a5fa' }, gCu);
   // gauze
@@ -1231,7 +1391,7 @@ function createScene(svg, f, o) {
   // filling instrument
   const gIn = sv('g', { opacity: 0 }, G);
   sv('path', { d: P('M', 0, 0, 'L', 6, -14, 'L', 52, -86), fill: 'none', stroke: '#cfd6dd', 'stroke-width': 2.6, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, gIn);
-  sv('path', { d: P('M', 34, -58, 'L', 70, -118), fill: 'none', stroke: '#64748b', 'stroke-width': 6, 'stroke-linecap': 'round' }, gIn);
+  sv('path', { d: P('M', 34, -58, 'L', 34 + 36 * LX, -58 - 60 * LX), fill: 'none', stroke: '#64748b', 'stroke-width': 6, 'stroke-linecap': 'round' }, gIn);
   sv('ellipse', { cx: 0, cy: 0, rx: 3, ry: 1.6, fill: '#e2e8f0' }, gIn);
   // cement + sparkles
   const eCem = sv('path', { d: P('M', NL - 4, CEJ - 4.5, 'q', 3, -3.4, 6, 0, 'q', -3, 2.6, -6, 0, 'M', NR - 2, CEJ - 4.5, 'q', 3, -3.4, 6, 0, 'q', -3, 2.6, -6, 0), fill: '#fffbea', stroke: '#e5dcc0', 'stroke-width': .5, opacity: 0 }, G);
@@ -1242,19 +1402,20 @@ function createScene(svg, f, o) {
   /* ---------- overlay (not flipped) ---------- */
   const gOv = sv('g', { opacity: 0 }, svg);
   const coList = [];
+  const coMin = o.coMin != null ? o.coMin : 18, coMax = o.coMax != null ? o.coMax : 268;
   const addCo = (text, ax, ay, side, ly) => coList.push({ text, ax, ay: Y(ay), side, sy: Y(ly != null ? ly : ay) });
   function layoutCo() {
     [-1, 1].forEach(side => {
       const L = coList.filter(c => c.side === side).sort((a, b) => a.sy - b.sy);
       for (let i = 1; i < L.length; i++) if (L[i].sy - L[i - 1].sy < 25) L[i].sy = L[i - 1].sy + 25;
-      const over = L.length ? L[L.length - 1].sy - 268 : 0;
+      const over = L.length ? L[L.length - 1].sy - coMax : 0;
       if (over > 0) L.forEach(c => { c.sy -= over; });
       for (let i = L.length - 2; i >= 0; i--) if (L[i + 1].sy - L[i].sy < 25) L[i].sy = L[i + 1].sy - 25;
-      L.forEach(c => { c.sy = Math.max(18, c.sy); });
+      L.forEach(c => { c.sy = Math.max(coMin, c.sy); });
     });
     coList.forEach(c => {
       const gc = sv('g', null, gOv);
-      const w = c.text.length * 6.5 + 18, lx = c.side < 0 ? 12 : 388 - w, ex = c.side < 0 ? lx + w : lx;
+      const w = c.text.length * 6.5 + 18, lx = c.side < 0 ? (o.coL != null ? o.coL : 12) : (o.coR != null ? o.coR : 388) - w, ex = c.side < 0 ? lx + w : lx;
       sv('path', { d: P('M', c.ax, c.ay, 'L', (ex + c.ax) / 2, c.sy, 'L', ex, c.sy), fill: 'none', stroke: 'rgba(255,255,255,.75)', 'stroke-width': 1 }, gc);
       sv('circle', { cx: c.ax, cy: c.ay, r: 2.6, fill: '#00b4d8', stroke: '#fff', 'stroke-width': 1 }, gc);
       sv('rect', { x: lx, y: c.sy - 10, width: w, height: 20, rx: 10, fill: 'rgba(6,22,42,.86)', stroke: 'rgba(255,255,255,.28)' }, gc);
@@ -1309,17 +1470,17 @@ function createScene(svg, f, o) {
     const cy = c => { const a = sites[c.a], b = sites[c.b]; const ha = a.target ? lerp(1, .32, S.ridge) : (a.tooth ? 1 : .32); const hb = b.target ? lerp(1, .32, S.ridge) : (b.tooth ? 1 : .32); return CEJ - 4 - c.full * Math.min(ha, hb); };
     const pts = []; // anchors: {t:'z'|'c'|'e', x, y, hw}
     sites.forEach((s, i) => { pts.push({ t: 'z', x: s.x, y: zen(s), hw: hw(s), target: s.target }); if (contacts[i]) pts.push({ t: 'c', x: contacts[i].x, y: cy(contacts[i]) }); });
-    const seq = [{ t: 'e', x: -12, y: pts[0].y }].concat(pts, [{ t: 'e', x: 412, y: pts[pts.length - 1].y }]);
+    const seq = [{ t: 'e', x: X0, y: pts[0].y }].concat(pts, [{ t: 'e', x: X1, y: pts[pts.length - 1].y }]);
     const curve = (a, b) => {
       if (a.t === 'c') return P('C', a.x + 3, a.y + (b.y - a.y) * .75, b.x - (b.hw || 6) * .9, b.y, b.x, b.y);
       if (b.t === 'c') return P('C', a.x + (a.hw || 6) * .9, a.y, b.x - 3, b.y + (a.y - b.y) * .75, b.x, b.y);
       return P('L', b.x, b.y);
     };
     const gw = S.gw, ti2 = seq.findIndex(p => p.target), zt = seq[ti2].y;
-    let A = P('M', -12, BOT, 'L', -12, seq[0].y), LA = P('M', -12, seq[0].y), B = '', LB = '';
+    let A = P('M', X0, BOT, 'L', X0, seq[0].y), LA = P('M', X0, seq[0].y), B = '', LB = '';
     if (gw <= .35) {
       for (let i = 1; i < seq.length; i++) { const c = curve(seq[i - 1], seq[i]); A += ' ' + c; LA += ' ' + c; }
-      A += ' ' + P('L', 412, BOT, 'Z');
+      A += ' ' + P('L', X1, BOT, 'Z');
     } else {
       for (let i = 1; i < ti2; i++) { const c = curve(seq[i - 1], seq[i]); A += ' ' + c; LA += ' ' + c; }
       const pv = seq[ti2 - 1], nx = seq[ti2 + 1], ex = CX - gw, sx = CX + gw;
@@ -1330,7 +1491,7 @@ function createScene(svg, f, o) {
       const cR = nx.t === 'c' ? P('C', sx + Math.max(2, (nx.x - sx) * .35), zt, nx.x - 3, nx.y + (zt - nx.y) * .75, nx.x, nx.y) : P('L', nx.x, nx.y);
       B += ' ' + cR; LB += ' ' + cR;
       for (let i = ti2 + 2; i < seq.length; i++) { const c = curve(seq[i - 1], seq[i]); B += ' ' + c; LB += ' ' + c; }
-      B += ' ' + P('L', 412, BOT, 'Z');
+      B += ' ' + P('L', X1, BOT, 'Z');
     }
     return { A, B, LA, LB, zt };
   }
@@ -1777,7 +1938,7 @@ function flowFor(tt, C) {
 const Player = (() => {
   const HOLD = 1400;
   let teeth = [], missing = new Set(), cur = null, scene = null, flow = null, starts = [], total = 0, T = 0;
-  let playing = false, raf = 0, last = 0, shownK = -1, xray = false, userPaused = false, visible = false, onSel = null, io = null, bound = false;
+  let playing = false, raf = 0, last = 0, shownK = -1, xray = false, userPaused = false, visible = false, onSel = null, io = null, bound = false, held = false;
   const svg = () => $('#plSvg');
   function bind() {
     if (bound) return; bound = true;
@@ -1789,7 +1950,7 @@ const Player = (() => {
       if (e.target.closest('input,select,textarea')) return;
       if (e.key === 'ArrowRight') { e.preventDefault(); step(1); } else if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
     });
-    io = new IntersectionObserver(es => es.forEach(en => { visible = en.isIntersecting; if (visible && !userPaused && !REDUCED && T < total) play(); else if (!visible) pause(); }), { threshold: .45 });
+    io = new IntersectionObserver(es => es.forEach(en => { visible = en.isIntersecting; if (held) return; if (visible && !userPaused && !REDUCED && T < total) play(); else if (!visible) pause(); }), { threshold: .45 });
     io.observe($('#plStage'));
     document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
   }
@@ -1820,7 +1981,7 @@ const Player = (() => {
     $('#plXray').hidden = !(t.p === 'imp' || t.p === 'cr' || t.p === 'rc');
     buildSegs(); render(true);
     if (onSel) onSel(f);
-    if (auto !== false && (visible || auto) && !REDUCED && !userPaused) play();
+    if (auto !== false && (visible || auto) && !REDUCED && !userPaused && !held) play();
   }
   function buildSegs() {
     const segs = $('#plSegs'); segs.textContent = '';
@@ -1879,7 +2040,8 @@ const Player = (() => {
   }
   function step(d) { if (!flow) return; go(stageAt(T) + d); }
   function stop() { pause(); }
-  return { load, select, stop, current: () => cur && cur.f };
+  function hold(v) { held = !!v; if (held) pause(); }
+  return { load, select, stop, hold, current: () => cur && cur.f };
 })();
 
 /* ═════════ Plan data → patient view ═════════ */
@@ -2012,7 +2174,7 @@ function renderTimeline(host, items) {
 function waLink(text) { return 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(text); }
 function renderPatient(pl, preview) {
   $('#gen').hidden = true; $('#pv').hidden = false; $('#pvBar').hidden = !preview;
-  ['secOdo', 'secPlayer', 'secInv'].forEach(i => { $('#' + i).hidden = false; });
+  ['secOdo', 'secInv'].forEach(i => { $('#' + i).hidden = false; });
   document.title = (pl.name ? pl.name + ' · ' : '') + 'Plani i trajtimit · Medident';
   $('#pvName').textContent = pl.name || 'Plani juaj i trajtimit';
   const meta = $('#pvMeta'); meta.textContent = '';
@@ -2025,13 +2187,13 @@ function renderPatient(pl, preview) {
   st.append(statTile(String(treated.length), treated.length === 1 ? 'Dhëmb' : 'Dhëmbë'), statTile(String(ph.visits), 'Vizita'), statTile(ph.dur, 'Kohëzgjatja'), statTile(fmtEUR(tot.total), 'Totali'));
   /* odontogram + player */
   const hasT = treated.length > 0;
-  $('#secOdo').hidden = !hasT; $('#secPlayer').hidden = !hasT;
-  const drawOdo = () => buildOdo($('#pvOdo'), { interactive: false, get: f => map.get(f), sel: new Set([Player.current()]), onTap: f => { Player.select(f, true); $('#secPlayer').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' }); } });
+  $('#secOdo').hidden = !hasT; $('#secPlayer').hidden = true;
+  const drawOdo = () => buildOdo($('#pvOdo'), { interactive: false, get: f => map.get(f), sel: new Set([Player.current()]), onTap: f => Cine.open(f) });
   if (hasT) {
     legendInto($('#pvLegend'), PROC_ORDER.filter(k => pl.teeth.some(t => t.p === k)));
-    Player.load(treated.slice().sort((a, b) => a.f - b.f), missing, () => drawOdo());
     drawOdo();
   }
+  Cine.setPlan(pl, treated.slice(), missing, map, ph);
   /* timeline */
   ph.items.forEach(i => { i._map = map; });
   renderTimeline($('#pvTl'), ph.items);
@@ -2144,7 +2306,7 @@ const Gen = (() => {
       if (p === 'clear') { delete S.teeth[f]; return; }
       if (cur && cur.p === p) { done.push(f); return; }
       const t = { p, m: 0, im: 0, g: 0, c: 'hz', rcCr: 0, pr: {} };
-      if (p === 'imp') t.m = cur && cur.p === 'mis' ? 1 : 0;
+      if (p === 'imp') t.m = 1;
       S.teeth[f] = t; done.push(f);
     });
     flashF = done; SEL.clear(); refresh();
@@ -2172,10 +2334,10 @@ const Gen = (() => {
       const t = S.teeth[f], pc = PROC[t.p], comps = compList(t, PR), sum = comps.reduce((a, c) => a + c[1], 0);
       const ps = el('select', { 'aria-label': 'Trajtimi për dhëmbin ' + f });
       PROC_ORDER.filter(k => k !== 'mis').forEach(k => { const o = el('option', { value: k }, PROC[k].label); if (k === t.p) o.selected = true; ps.append(o); });
-      ps.addEventListener('change', () => { const was = t.p; S.teeth[f] = { p: ps.value, m: 0, im: 0, g: 0, c: t.c || 'hz', rcCr: 0, pr: {} }; if (ps.value === 'imp' && was === 'imp') S.teeth[f].m = t.m; flashF = [f]; refresh(); });
+      ps.addEventListener('change', () => { const was = t.p; S.teeth[f] = { p: ps.value, m: 0, im: 0, g: 0, c: t.c || 'hz', rcCr: 0, pr: {} }; if (ps.value === 'imp') S.teeth[f].m = was === 'imp' ? t.m : 1; flashF = [f]; refresh(); });
       const opts = el('div', { class: 'opts' });
       if (t.p === 'imp') {
-        opts.append(chk('Dhëmbi mungon (pa nxjerrje)', t.m, v => { t.m = v ? 1 : 0; if (v) t.im = 0; delete t.pr.e; refresh(); }));
+        opts.append(chk('Me nxjerrje të dhëmbit', !t.m, v => { t.m = v ? 0 : 1; if (!v) t.im = 0; delete t.pr.e; refresh(); }));
         opts.append(chk('Implant i menjëhershëm', t.im, v => { t.im = v ? 1 : 0; refresh(); }, !!t.m));
         opts.append(chk('Graft kockor', t.g, v => { t.g = v ? 1 : 0; refresh(); }));
         opts.append(matSel(t));
@@ -2300,6 +2462,843 @@ const Gen = (() => {
     refresh();
   }
   return { init };
+})();
+
+/* ═════════ Cinema – the whole plan as a full-screen, self-playing film ═════════ */
+const CINE_TEST = /[?&]cinetest=1/.test(location.search);
+const K_SND = 'medident_cine_snd', K_NAR = 'medident_cine_nar';
+const pq = p => { if (p && typeof p.catch === 'function') p.catch(() => { }); return p; };
+
+/* ---------- film score: calm generative ambient music (Web Audio, no files) ---------- */
+const Music = (() => {
+  let ctx = null, out = null, padF = null, bells = null, dly = null, nb = null;
+  let iv = 0, run = false, ended = false, on = true, duckV = 1, t0 = 0, nextC = 0, cIx = 0, walk = 3;
+  const VOL = .55, CL = 8;
+  /* Dmaj9 → Bm(add9) → Gmaj7 → A6/9 – warm, reassuring, never resolves too hard */
+  const CH = [[50, 57, 61, 64, 66], [47, 54, 57, 61, 62], [43, 50, 54, 59, 62], [45, 52, 57, 59, 61]];
+  const SC = [[74, 76, 78, 81, 85, 86, 88], [71, 74, 76, 78, 81, 83, 86], [71, 74, 78, 79, 81, 83, 86], [73, 76, 78, 81, 83, 85, 88]];
+  const OFFS = [0, .9, 1.8, 3.15, 4.3, 5.4, 6.6];
+  const mtof = m => 440 * Math.pow(2, (m - 69) / 12);
+  let rnd = mulberry(20261010);
+  function graph(c) {
+    ctx = c;
+    const comp = ctx.createDynamicsCompressor();
+    comp.threshold.value = -20; comp.knee.value = 16; comp.ratio.value = 3; comp.attack.value = .02; comp.release.value = .35;
+    comp.connect(ctx.destination);
+    out = ctx.createGain(); out.gain.value = 0; out.connect(comp);
+    padF = ctx.createBiquadFilter(); padF.type = 'lowpass'; padF.frequency.value = 1050; padF.Q.value = .5; padF.connect(out);
+    dly = ctx.createDelay(1.5); dly.delayTime.value = .43;
+    const fb = ctx.createGain(); fb.gain.value = .36;
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2600;
+    const wet = ctx.createGain(); wet.gain.value = .32;
+    dly.connect(lp); lp.connect(fb); fb.connect(dly); lp.connect(wet); wet.connect(out);
+    bells = ctx.createGain(); bells.connect(out); bells.connect(dly);
+  }
+  function padChord(t, notes, len) {
+    const lv = [.032, .019, .016, .014, .012];
+    notes.forEach((m, i) => [-7, 7].forEach(dt => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = i ? 'sawtooth' : 'triangle'; o.frequency.value = mtof(m); o.detune.value = dt;
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(lv[i], t + 2.2);
+      g.gain.setValueAtTime(lv[i], t + len - .3); g.gain.linearRampToValueAtTime(0, t + len + 2.4);
+      o.connect(g); g.connect(padF); o.start(t); o.stop(t + len + 2.5);
+    }));
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = 'sine'; o.frequency.value = mtof(notes[0] - 12);
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.08, t + 1.6);
+    g.gain.setValueAtTime(.08, t + len - .3); g.gain.linearRampToValueAtTime(0, t + len + 1.8);
+    o.connect(g); g.connect(out); o.start(t); o.stop(t + len + 1.9);
+  }
+  function bell(t, m, v) {
+    const f = mtof(m), o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain(), g2 = ctx.createGain();
+    o.type = 'sine'; o.frequency.value = f; o2.type = 'sine'; o2.frequency.value = f * 3.01;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.055 * v, t + .006); g.gain.exponentialRampToValueAtTime(.0003, t + 2.8);
+    g2.gain.setValueAtTime(0, t); g2.gain.linearRampToValueAtTime(.011 * v, t + .004); g2.gain.exponentialRampToValueAtTime(.0002, t + .7);
+    o.connect(g); o2.connect(g2); g.connect(bells); g2.connect(bells);
+    o.start(t); o2.start(t); o.stop(t + 2.9); o2.stop(t + .75);
+  }
+  function sched(until) {
+    if (!ctx || !run || ended) return;
+    const ahead = until || ctx.currentTime + 1.5;
+    while (nextC < ahead) {
+      const k = cIx % 4, sc = SC[k];
+      padChord(nextC, CH[k], CL);
+      OFFS.forEach((o, j) => {
+        if ((cIx === 0 && j < 2) || rnd() > .64) return;
+        walk = clamp(walk + [-2, -1, -1, 1, 1, 2][Math.floor(rnd() * 6)], 0, sc.length - 1);
+        bell(nextC + o + rnd() * .05, sc[walk], .42 + rnd() * .58);
+      });
+      cIx++; nextC += CL;
+    }
+  }
+  function level(tc) {
+    if (!ctx || !out) return;
+    const g = out.gain, t = ctx.currentTime;
+    g.cancelScheduledValues(t); g.setValueAtTime(g.value, t);
+    g.setTargetAtTime(on && !ended ? VOL * duckV : 0, t, tc || .35);
+  }
+  function release() {
+    if (!ctx || !out) return;
+    const old = out; out = null;
+    try { const t = ctx.currentTime; old.gain.cancelScheduledValues(t); old.gain.setValueAtTime(old.gain.value, t); old.gain.setTargetAtTime(0, t, .12); } catch (e) { /* ignore */ }
+    setTimeout(() => { try { old.disconnect(); } catch (e) { /* ignore */ } }, 900);
+  }
+  function start() {
+    if (!ctx) {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return;
+      try { graph(new AC()); } catch (e) { ctx = null; return; }
+    } else { release(); graph(ctx); }
+    try { if (ctx.state !== 'running') pq(ctx.resume()); } catch (e) { /* ignore */ }
+    run = true; ended = false; duckV = 1; cIx = 0; walk = 3;
+    t0 = nextC = ctx.currentTime + .08;
+    const g = out.gain; g.setValueAtTime(0, t0); g.linearRampToValueAtTime(on ? VOL : 0, t0 + 3.2);
+    sched(); clearInterval(iv); iv = setInterval(() => sched(), 300);
+  }
+  function stop() {
+    run = false; clearInterval(iv); release();
+    setTimeout(() => { if (!run && ctx && ctx.state === 'running') { try { pq(ctx.suspend()); } catch (e) { /* ignore */ } } }, 950);
+  }
+  function pause() { if (ctx && ctx.state === 'running') { try { pq(ctx.suspend()); } catch (e) { /* ignore */ } } }
+  function resume() { if (ctx && run && ctx.state !== 'running') { try { pq(ctx.resume()); } catch (e) { /* ignore */ } } }
+  function noise() {
+    if (nb && nb.sampleRate === ctx.sampleRate) return nb;
+    nb = ctx.createBuffer(1, Math.floor(ctx.sampleRate * 1.3), ctx.sampleRate);
+    const d = nb.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    return nb;
+  }
+  /* soft "whoosh + low hit" for a new chapter */
+  function whoosh(at) {
+    if (!run || !out) return;
+    const t = (at != null ? at : ctx.currentTime) + .02, s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+    s.buffer = noise(); f.type = 'bandpass'; f.Q.value = 1.3;
+    f.frequency.setValueAtTime(240, t); f.frequency.exponentialRampToValueAtTime(2200, t + .75); f.frequency.exponentialRampToValueAtTime(480, t + 1.2);
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.07, t + .5); g.gain.linearRampToValueAtTime(0, t + 1.2);
+    s.connect(f); f.connect(g); g.connect(out); s.start(t); s.stop(t + 1.25);
+    const o = ctx.createOscillator(), og = ctx.createGain(); o.type = 'sine';
+    o.frequency.setValueAtTime(96, t + .55); o.frequency.exponentialRampToValueAtTime(48, t + 1.7);
+    og.gain.setValueAtTime(0, t + .55); og.gain.linearRampToValueAtTime(.15, t + .57); og.gain.exponentialRampToValueAtTime(.0004, t + 2.3);
+    o.connect(og); og.connect(out); o.start(t + .55); o.stop(t + 2.4);
+  }
+  /* little bell arpeggio when the result appears */
+  function shimmer(at) {
+    if (!run || !out) return;
+    const now = at != null ? at : ctx.currentTime, t = now + .03, sc = SC[Math.max(0, Math.floor((now - t0) / CL)) % 4];
+    [1, 3, 5, 6].forEach((k, i) => bell(t + i * .12, sc[k] + 12, .55 - i * .06));
+  }
+  /* final chord, then a long fade */
+  function finale() {
+    if (!run || !out || ended) return;
+    ended = true; clearInterval(iv);
+    const t = ctx.currentTime + .05;
+    padChord(t, CH[0], 5);
+    [0, 2, 4, 5].forEach((k, i) => bell(t + .3 + i * .28, SC[0][k], .6));
+    const g = out.gain; g.cancelScheduledValues(t); g.setValueAtTime(g.value, t); g.setTargetAtTime(0, t + 3.5, 2.4);
+  }
+  function setOn(v) { on = !!v; level(.25); }
+  function duck(v) { duckV = v ? .4 : 1; level(.3); }
+  /* test helper: render N seconds offline and measure loudness */
+  async function test(sec) {
+    const OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+    const save = { ctx, out, padF, bells, dly, nb, run, ended, on, duckV, t0, nextC, cIx, walk };
+    const oc = new OAC(2, 44100 * sec, 44100);
+    nb = null; graph(oc); run = true; ended = false; on = true; duckV = 1; cIx = 0; walk = 3; rnd = mulberry(20261010);
+    t0 = nextC = .05; out.gain.setValueAtTime(0, 0); out.gain.linearRampToValueAtTime(VOL, 3.2);
+    sched(sec); whoosh(10); shimmer(14); whoosh(22);
+    const buf = await oc.startRendering();
+    let peak = 0, sum = 0, n = 0, worst = 0;
+    for (let c = 0; c < buf.numberOfChannels; c++) {
+      const d = buf.getChannelData(c);
+      for (let i = 0; i < d.length; i += 4410) { let s2 = 0; for (let j = i; j < Math.min(d.length, i + 4410); j++) { s2 += d[j] * d[j]; } worst = Math.max(worst, Math.sqrt(s2 / 4410)); }
+      for (let i = 0; i < d.length; i++) { const a = Math.abs(d[i]); if (a > peak) peak = a; sum += d[i] * d[i]; n++; }
+    }
+    ({ ctx, out, padF, bells, dly, nb, run, ended, on, duckV, t0, nextC, cIx, walk } = save); rnd = mulberry(20261010);
+    return { peak: +peak.toFixed(3), rms: +Math.sqrt(sum / n).toFixed(4), rmsMax100ms: +worst.toFixed(4) };
+  }
+  return { start, stop, pause, resume, setOn, duck, whoosh, shimmer, finale, test, on: () => on };
+})();
+
+/* ---------- optional Albanian narration (only if the device has an Albanian voice) ---------- */
+const Voice = (() => {
+  let v = null, on = false, tok = 0, busy = false, inited = false, cb = null, curU = null;
+  const ok = () => typeof window.speechSynthesis !== 'undefined' && typeof window.SpeechSynthesisUtterance !== 'undefined';
+  const score = x => (/natural|online|neural|premium|enhanced|wavenet/i.test(x.name || '') ? 4 : 0) + (x.localService ? 0 : 1) + (/AL/i.test(x.lang || '') ? 1 : 0);
+  function pick() {
+    if (!ok() || v) return;
+    let vs = [];
+    try { vs = speechSynthesis.getVoices().filter(x => /^sq(?:$|[-_])/i.test(x.lang || '')); } catch (e) { vs = []; }
+    if (!vs.length) return;
+    vs.sort((a, b) => score(b) - score(a)); v = vs[0];
+    on = !!LS.get(K_NAR, score(v) >= 4);
+    if (cb) cb();
+  }
+  function init(onAvail) {
+    if (onAvail) cb = onAvail;
+    if (inited) return; inited = true;
+    if (!ok()) return;
+    pick();
+    try { speechSynthesis.addEventListener('voiceschanged', pick); } catch (e) { /* ignore */ }
+  }
+  const clean = s => String(s || '').replace(/[⏱⏳🔁🧭🔍📸🦷💧✓⟳📅🏥👁]/gu, '').replace(/≈\s*/g, 'rreth ').replace(/~/g, 'rreth ')
+    .replace(/(\d)\s*–\s*(\d)/g, '$1 deri $2').replace(/\s[–—]\s/g, ', ').replace(/[“”"]/g, '').replace(/\s+/g, ' ').trim();
+  function say(text) {
+    if (!on || !v || !ok() || !text) return false;
+    stop();
+    const my = ++tok, u = new SpeechSynthesisUtterance(clean(text));
+    u.voice = v; u.lang = v.lang; u.rate = 1; u.pitch = 1; u.volume = 1;
+    u.onend = u.onerror = () => { if (my === tok) { busy = false; curU = null; Music.duck(false); } };
+    busy = true; curU = u; Music.duck(true);
+    try { speechSynthesis.speak(u); } catch (e) { busy = false; Music.duck(false); return false; }
+    return true;
+  }
+  function stop() { tok++; curU = null; if (busy) { busy = false; Music.duck(false); } try { if (ok()) speechSynthesis.cancel(); } catch (e) { /* ignore */ } }
+  return { init, say, stop, avail: () => !!v, isOn: () => on && !!v, set: x => { on = !!x; LS.set(K_NAR, on); if (!on) stop(); }, busy: () => busy && !!curU };
+})();
+
+/* ---------- depth particles (bokeh) for the title cards ---------- */
+const FX = (() => {
+  let cv = null, g = null, W = 0, H = 0, dpr = 1, ps = [], sp = [], a = 0, aT = 1, clean = true;
+  function sprite(r, gg, b) {
+    const c = document.createElement('canvas'); c.width = c.height = 64;
+    const x = c.getContext('2d'), gr = x.createRadialGradient(32, 32, 0, 32, 32, 32), rgb = r + ',' + gg + ',' + b;
+    gr.addColorStop(0, 'rgba(' + rgb + ',1)'); gr.addColorStop(.28, 'rgba(' + rgb + ',.45)'); gr.addColorStop(1, 'rgba(' + rgb + ',0)');
+    x.fillStyle = gr; x.fillRect(0, 0, 64, 64); return c;
+  }
+  function init(canvas) {
+    if (cv) return;
+    cv = canvas; g = cv.getContext('2d');
+    if (!g) return;
+    sp = [sprite(255, 255, 255), sprite(127, 220, 240), sprite(96, 165, 250)];
+    const rnd = mulberry(99); ps = [];
+    for (let i = 0; i < 30; i++) { const z = .25 + rnd() * .75; ps.push({ x: rnd(), y: rnd(), z, r: 2 + z * z * 22, v: .006 + z * .012, al: .06 + rnd() * .24 * (1.1 - z), c: Math.floor(rnd() * 3), ph: rnd() * 6.28 }); }
+  }
+  function resize(w, h) { if (!cv) return; W = w; H = h; dpr = Math.min(window.devicePixelRatio || 1, 1.5); cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); clean = true; }
+  function step(dt, tx, ty) {
+    if (!g) return;
+    a += (aT - a) * Math.min(1, dt / 450);
+    if (a < .01) { if (!clean) { g.clearRect(0, 0, cv.width, cv.height); clean = true; } return; }
+    clean = false;
+    g.clearRect(0, 0, cv.width, cv.height);
+    const now = performance.now(); g.globalCompositeOperation = 'lighter';
+    ps.forEach(p => {
+      if (!REDUCED) { p.y -= p.v * dt / 1000; if (p.y < -.1) p.y = 1.1; }
+      const x = (p.x + Math.sin(p.ph + now / 5200 * (.5 + p.z)) * .015) * W - tx * p.z * 28, y = p.y * H - ty * p.z * 20, r = p.r;
+      g.globalAlpha = Math.max(0, p.al * a * (.75 + .25 * Math.sin(p.ph + now / 1300)));
+      g.drawImage(sp[p.c], (x - r) * dpr, (y - r) * dpr, 2 * r * dpr, 2 * r * dpr);
+    });
+    g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
+  }
+  return { init, resize, step, target: v => { aT = v; } };
+})();
+
+/* ---------- "VR" depth: the screen leans gently with the phone (gyro) or the mouse ---------- */
+const Tilt = (() => {
+  let x = 0, y = 0, tx = 0, ty = 0, base = null, el = null, lastOri = 0;
+  function move(e) {
+    if (e.pointerType !== 'mouse' || Date.now() - lastOri < 3000) return;
+    tx = clamp((e.clientX / window.innerWidth - .5) * 2, -1, 1); ty = clamp((e.clientY / window.innerHeight - .5) * 2, -1, 1);
+  }
+  function ori(e) {
+    if (e.beta == null || e.gamma == null) return;
+    lastOri = Date.now();
+    const ang = screen.orientation && screen.orientation.angle != null ? screen.orientation.angle : (window.orientation || 0);
+    let gx = e.gamma, gy = e.beta;
+    if (ang === 90) { gx = e.beta; gy = -e.gamma; } else if (ang === 270 || ang === -90) { gx = -e.beta; gy = e.gamma; } else if (ang === 180) { gx = -e.gamma; gy = -e.beta; }
+    if (!base || base.ang !== ang) base = { gx, gy, ang };
+    base.gx += (gx - base.gx) * .005; base.gy += (gy - base.gy) * .005;
+    tx = clamp((gx - base.gx) / 16, -1, 1); ty = clamp((gy - base.gy) / 16, -1, 1);
+  }
+  function frame(now, port) {
+    if (!el) el = $('#cineStage');
+    if (REDUCED) { el.style.transform = ''; return { x: 0, y: 0 }; }
+    const ix = Math.sin(now / 5300) * .2, iy = Math.cos(now / 7100) * .16;
+    x += (tx + ix - x) * .055; y += (ty + iy - y) * .055;
+    const ry = x * (port ? 4.2 : 2), rx = -y * (port ? 3 : 1.5);
+    el.style.transform = 'perspective(1300px) rotateY(' + ry.toFixed(3) + 'deg) rotateX(' + rx.toFixed(3) + 'deg)' + (port ? '' : ' scale(1.055)');
+    return { x, y };
+  }
+  return { move, ori, frame, reset: () => { base = null; tx = 0; ty = 0; } };
+})();
+
+/* ---------- the film ---------- */
+const Cine = (() => {
+  const ORD = { fil: 0, rc: 1, ext: 2, cr: 3, ven: 4, imp: 5 };
+  const BUDGET = 300000, CPS = 17, D_INTRO = 6400, D_CHAP = 3800, D_OUT = 5600;
+  const ICO = {
+    play: '<path d="M7 4v16l13-8z"/>', pause: '<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>',
+    snd: '<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
+    sndOff: '<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/><path d="M3 3l18 18"/>',
+    fs: '<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>', fsX: '<path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/>',
+    wa: '<path fill="currentColor" stroke="none" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35z"/><path fill="currentColor" stroke="none" d="M12 0C5.37 0 0 5.37 0 12c0 2.12.56 4.12 1.53 5.85L0 24l6.32-1.52A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 21.82a9.82 9.82 0 01-5.02-1.38l-.36-.21-3.73.9.94-3.64-.24-.37A9.82 9.82 0 1112 21.82z"/>'
+  };
+  let info = null, chs = [], segs = [], secs = [], total = 0;
+  let R = null, L = null, bound = false, isOpen = false, playing = false, pushed = false;
+  let T = 0, raf = 0, last = 0, cur = -1, holdMs = 0, uiT = 0, scOn = null, anims = [];
+  let spd = 1;
+  let scene = null, sceneCh = -1, wl = null, opener = null, sndOn = true, narState = 0, narAt = 0, shimmerAt = 0;
+
+  /* ---------- text helpers ---------- */
+  function sentences(s) {
+    const out = []; let c = '';
+    String(s || '').split(/(\s+)/).forEach(w => { c += w; if (/[.!?…][”"»)]?$/.test(w) && c.trim().length > 24) { out.push(c.trim()); c = ''; } });
+    if (c.trim()) out.push(c.trim());
+    return out;
+  }
+  const first = s => sentences(s)[0] || '';
+  const listAnd = a => a.length < 2 ? a.join('') : a.slice(0, -1).join(', ') + ' dhe ' + a[a.length - 1];
+  const mmss = ms => { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+  const nTeeth = n => n + (n === 1 ? ' dhëmb' : ' dhëmbë');
+  function pluralTitle(t, n) {
+    if (n < 2) return procTitle(t);
+    switch (t.p) {
+      case 'imp': return t.m ? 'Implante me kurorë' : (t.im ? 'Nxjerrje + implante të menjëhershme' : 'Nxjerrje + implante me kurorë');
+      case 'cr': return 'Kurora ' + (t.c === 'z' ? 'zirkoni' : 'zirkoni premium');
+      case 'rc': return t.rcCr ? 'Trajtim kanali + kurora' : 'Trajtim kanali';
+      case 'ven': return 'Faseta qeramike';
+      default: return procTitle(t);
+    }
+  }
+  function ico(name, cls) { const s = el('span', { class: cls || 'ico', 'aria-hidden': 'true' }); s.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + ICO[name] + '</svg>'; return s; }
+  function setIco(btn, name, fill) { btn.innerHTML = '<svg viewBox="0 0 24 24" ' + (fill ? 'fill="currentColor"' : 'fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"') + ' aria-hidden="true">' + ICO[name] + '</svg>'; }
+
+  /* ---------- story: chapters → segments ---------- */
+  function makeChapters() {
+    const groups = new Map();
+    info.treated.slice().sort((a, b) => (ORD[a.p] - ORD[b.p]) || (a.f - b.f)).forEach(t => {
+      const key = [t.p, t.m, t.im, t.g, t.rcCr].join('|');
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(t);
+    });
+    const out = [];
+    groups.forEach(list => {
+      const rep = list[0], C = sceneGeom(rep.f), fs = list.map(t => t.f), pc = PROC[rep.p];
+      out.push({ p: rep.p, rep, teeth: list, fs, C, flow: flowFor(rep, C), title: pluralTitle(rep, list.length), color: pc.hex, dark: !!pc.dark, nums: fs.length > 4 ? fs.slice(0, 4).join(' · ') + ' +' + (fs.length - 4) : fs.join(' · ') });
+    });
+    return out;
+  }
+  function stageDur(st, mode) {
+    if (mode === 'title') return clamp(Math.min(st.dur, 4800) * .95 + 800, 3000, 5400);
+    const txt = st.title + ' ' + (mode === 'full' ? st.desc : first(st.desc));
+    return clamp(Math.max(st.dur * 1.15 + 600, 1100 + txt.length * 1000 / CPS), 3600, 11000);
+  }
+  /* repeated steps are shown shorter; the film is tightened if it gets too long */
+  function planModes(level) {
+    const seen = new Set(), seenP = new Set(); let anest = false;
+    chs.forEach((ch, ci) => {
+      const firstP = !seenP.has(ch.p); seenP.add(ch.p);
+      ch.vis = [];
+      ch.flow.stages.forEach((st, si) => {
+        let mode;
+        if (st.k === 'anest') { if (anest) return; anest = true; mode = 'full'; }
+        else if (st.k === 'start') mode = firstP ? 'full' : 'brief';
+        else if (st.k === 'done') mode = firstP ? 'full' : 'title';
+        else { const fam = st.k === 'ext' ? 'ext' : (ch.p === 'imp' ? 'imp:' : 'nat:') + st.k; mode = seen.has(fam) ? 'title' : 'full'; seen.add(fam); }
+        if (mode === 'full' && (level >= 2 || (level === 1 && ch.p !== 'imp'))) mode = 'brief';
+        ch.vis.push({ si, mode, dur: stageDur(st, mode) });
+      });
+    });
+  }
+  function build() {
+    segs = []; secs = []; let t = 0;
+    const add = s => { s.t0 = t; t += s.dur; segs.push(s); return s; };
+    secs.push({ t0: 0 }); add({ type: 'intro', dur: D_INTRO });
+    add({ type: 'ov', dur: 3600 + 560 * Math.min(info.treated.length, 12) });
+    chs.forEach((ch, ci) => {
+      secs.push({ t0: t, ch: ci });
+      add({ type: 'chap', ch: ci, dur: D_CHAP });
+      ch.vis.forEach((v, vi) => add({ type: 'stage', ch: ci, vi, si: v.si, mode: v.mode, dur: v.dur }));
+    });
+    const nC = Math.min(info.ph.items.length, 14);
+    secs.push({ t0: t }); add({ type: 'cal', dur: 2800 + 640 * nC + 2200 });
+    secs.push({ t0: t }); add({ type: 'out', dur: D_OUT });
+    total = t;
+  }
+  function makeSegs() { for (let lv = 0; lv <= 2; lv++) { planModes(lv); build(); if (total <= BUDGET) break; } }
+  function segAt(t) { let lo = 0, hi = segs.length - 1; while (lo < hi) { const m = (lo + hi + 1) >> 1; if (segs[m].t0 <= t) lo = m; else hi = m - 1; } return lo; }
+
+  /* ---------- scene state & camera ---------- */
+  function stAt(ch, si, t) {
+    const S = S0(); Object.assign(S, ch.flow.init);
+    for (let i = 0; i < si; i++) { ch.flow.stages[i].a(S, 1); S.timer = null; }
+    ch.flow.stages[si].a(S, t);
+    return S;
+  }
+  function animT(sg, ms) { const st = chs[sg.ch].flow.stages[sg.si], span = Math.max(400, Math.min(sg.dur - 650, st.dur * 1.5)); return clamp((ms - 250) / span, 0, 1); }
+  /* what the camera looks at in each step (scene units; follows moving parts) */
+  function box(k, C, S) {
+    const { CX, CEJ, CREST, T: TT, IL, apex, g } = C;
+    const deep = Math.max(apex + 14, C.nerveY ? C.nerveY + 12 : 0, C.sinusY ? C.sinusY + 22 : 0);
+    switch (k) {
+      case 'start': return { x: CX, y0: TT - 22, y1: deep, w: g.cw * 3.6, push: .06 };
+      case 'done': return { x: CX, y0: TT - 24, y1: Math.max(deep, CREST + IL + 18), w: L && L.port ? 320 : 436, push: .025 };
+      case 'anest': return { x: CX + g.cw * .5 + 26, y0: CEJ - 86, y1: CEJ + 44 };
+      case 'ext': return { x: CX, y0: TT - 44 + S.tDy * .5, y1: apex + 14 + S.tDy * .25, w: g.cw * 3.2 };
+      case 'heal1': case 'healx': return { x: CX, y0: CEJ - 38, y1: apex + 16, push: .05 };
+      case 'drill': return { x: CX, y0: CREST - 78, y1: CREST + IL + 18 };
+      case 'imp': return { x: CX, y0: CREST - 50 + Math.min(0, S.impDy) * .4, y1: CREST + IL + 16 };
+      case 'close': return { x: CX, y0: CEJ - 44, y1: CREST + 52 };
+      case 'osseo': return { x: CX, y0: CREST - 26, y1: CREST + IL + 22, push: .05 };
+      case 'heal': return { x: CX, y0: CEJ - 52, y1: CREST + 56 };
+      case 'scan': return { x: CX + (S.scan > 0 ? (S.scanX - CX) * .22 : 0), y0: TT - 40, y1: CREST + 30, w: 230 };
+      case 'abut': return { x: CX, y0: CEJ - g.ch * .7 - 30, y1: CREST + 40 };
+      case 'crown': return { x: CX, y0: TT - 34 + Math.min(0, S.crDy) * .3, y1: CREST + 30 };
+      case 'prep': case 'temp': case 'vprep': case 'bond': return { x: CX, y0: TT - 38, y1: CEJ + 28 };
+      case 'design': return { x: CX, y0: TT - 40, y1: CEJ + 30, w: 230 };
+      case 'access': case 'seal': return { x: CX, y0: TT - 44, y1: CEJ + 24 };
+      case 'clean': case 'irrig': case 'obt': return { x: CX, y0: TT - 34, y1: apex + 18 };
+      case 'remove': case 'fill': case 'cure': case 'polish': return { x: C.dX, y0: C.dY - 50, y1: C.dY + 44, w: 160 };
+      default: return { x: CX, y0: TT - 22, y1: deep };
+    }
+  }
+  function fit(b, C, u) {
+    const yA = C.Y(b.y0), yB = C.Y(b.y1), top = Math.min(yA, yB), bot = Math.max(yA, yB), band = 1 - L.safeTop - L.safeBot;
+    let s = 300 * band / ((bot - top) * 1.06);
+    if (b.w) s = Math.min(s, L.VW / (b.w * 1.04));
+    s = clamp(s, L.sMin, L.sMax) * (1 + (b.push || .035) * (u || 0));
+    const h = 300 / s;
+    return { x: b.x, y: (top + bot) / 2 + (.5 - (L.safeTop + band / 2)) * h, s };
+  }
+  function clampCam(c) {
+    const s = clamp(c.s, L.sMin, L.sMax * 1.08), w = L.VW / s, h = 300 / s;
+    return { x: clamp(c.x, WIDE.x0 + w / 2, WIDE.x1 - w / 2), y: clamp(c.y, WIDE.y0 + h / 2, WIDE.y1 - h / 2), s };
+  }
+  function camTarget(sg, ms) {
+    const ch = chs[sg.ch], st = ch.flow.stages[sg.si], S = stAt(ch, sg.si, animT(sg, ms));
+    const k = REDUCED ? 'done' : st.k;
+    return { S, cam: clampCam(fit(box(k, ch.C, S), ch.C, REDUCED ? 0 : clamp(ms / sg.dur, 0, 1))) };
+  }
+  function camIn(i) {
+    const sg = segs[i];
+    if (sg.camIn) return sg.camIn;
+    const pv = segs[i - 1];
+    let c;
+    if (pv && pv.type === 'stage' && pv.ch === sg.ch) c = camTarget(pv, pv.dur).cam;
+    else { const t = camTarget(sg, 0).cam; c = { x: t.x, y: t.y, s: t.s * (REDUCED ? 1 : .86) }; }
+    sg.camIn = clampCam(c);
+    return sg.camIn;
+  }
+  function camAt(i, ms, tgt) {
+    const sg = segs[i], a = camIn(i), bl = Math.min(2000, sg.dur * .38), e = REDUCED ? 1 : ease(clamp(ms / bl, 0, 1));
+    const c = { x: lerp(a.x, tgt.x, e), y: lerp(a.y, tgt.y, e), s: Math.exp(lerp(Math.log(a.s), Math.log(tgt.s), e)) };
+    if (!REDUCED) { c.x += Math.sin(T / 3100) * 4 / c.s; c.y += Math.cos(T / 3900) * 3 / c.s; c.s *= 1 + .014 * Math.sin(T / 4700); }
+    return clampCam(c);
+  }
+  function setView(c) { const w = L.VW / c.s, h = 300 / c.s; R.svg.setAttribute('viewBox', (c.x - w / 2).toFixed(2) + ' ' + (c.y - h / 2).toFixed(2) + ' ' + w.toFixed(2) + ' ' + h.toFixed(2)); }
+  function ensureScene(ci) {
+    if (scene && sceneCh === ci) return false;
+    const ch = chs[ci], d = clampCam(fit(box('done', ch.C, S0()), ch.C, 1)), h = 300 / d.s, top = d.y - h / 2;
+    scene = createScene(R.svg, ch.rep.f, { proc: ch.rep.p, missing: info.missing, rcCr: !!ch.rep.rcCr, wide: true, coMin: top + h * L.safeTop + 16, coMax: top + h * (1 - L.safeBot) - 14, coL: L.port ? d.x - L.VW / d.s / 2 + 6 : null, coR: L.port ? d.x + L.VW / d.s / 2 - 6 : null });
+    sceneCh = ci;
+    return true;
+  }
+
+  /* ---------- title cards ---------- */
+  function miniJaw(hl, color) {
+    const s = sv('svg', { viewBox: '0 0 250 62', 'aria-hidden': 'true' });
+    [ROW_U, ROW_L].forEach((row, r) => {
+      const gap = 2.2, sum = row.reduce((a, f) => a + toothInfo(f).cw, 0), k = (240 - gap * 15) / sum;
+      let x = 5;
+      row.forEach((f, i) => {
+        const w = toothInfo(f).cw * k, on = hl.includes(f), mis = info.missing.has(f) && !on;
+        sv('rect', { x: F(x), y: r ? 34 : 6, width: F(w), height: 22, rx: 4, fill: on ? color : (mis ? 'none' : 'rgba(255,255,255,.17)'), stroke: mis ? 'rgba(255,255,255,.32)' : (on ? '#fff' : 'none'), 'stroke-width': on ? 1.4 : 1, 'stroke-dasharray': mis ? '2 2' : null }, s);
+        x += w + gap; if (i === 7) x += 1.5;
+      });
+    });
+    sv('line', { x1: 125, x2: 125, y1: 2, y2: 60, stroke: 'rgba(255,255,255,.28)', 'stroke-dasharray': '2 2' }, s);
+    return s;
+  }
+  const touch = () => matchMedia('(pointer: coarse)').matches;
+  function cardIntro() {
+    const pl = info.pl, meta = [pl.doc, pl.date && fmtDate(pl.date)].filter(Boolean).join(' · ');
+    const hint = touch() && L.port ? '↻ Ktheni telefonin horizontalisht · 🔊 me zë' : '🔊 Ndizni zërin – filmi ka muzikë';
+    return el('div', { class: 'cc cc-intro' },
+      el('div', { class: 'cc-logo', dataset: { in: 700, d: 1100, sc: .7, y: 0 } }, 'M'),
+      el('div', { class: 'cc-eb', dataset: { in: 1400 } }, 'Medident Dental Clinic · Pejë'),
+      el('div', { class: 'cc-pre', dataset: { in: 2100 } }, pl.name ? 'Plani i trajtimit për' : 'Plani juaj i trajtimit'),
+      el('h2', { class: 'cc-name', dataset: { in: 2400, d: 1200, ls: 9 } }, pl.name || 'hap pas hapi'),
+      el('div', { class: 'cc-meta', dataset: { in: 3300 } }, meta || 'Medident · që nga 1999'),
+      el('div', { class: 'cc-hint', dataset: { in: 1700 } }, hint));
+  }
+  function cardOv() {
+    const odo = el('div', { class: 'odo' });
+    buildOdo(odo, { interactive: false, get: f => info.map.get(f), sel: new Set() });
+    const list = info.treated.slice().sort((a, b) => a.f - b.f).slice(0, 12);
+    R.ovNodes = list.map(t => odo.querySelector('.odt[data-f="' + t.f + '"]'));
+    R.ovPanel = el('div', { class: 'cc-panel' }, odo);
+    return el('div', { class: 'cc cc-ov' },
+      el('div', { class: 'cc-eb', dataset: { in: 150 } }, 'Plani juaj'),
+      el('h2', { class: 'cc-h', dataset: { in: 300 } }, nTeeth(info.treated.length) + ' · ' + info.ph.visits + ' vizita · ' + info.ph.dur),
+      R.ovPanel,
+      el('div', { class: 'cc-chips' }, list.map((t, i) => el('span', { class: 'cc-chip', dataset: { in: 1300 + i * 560, sc: .8, y: 6, d: 500 } },
+        el('span', { class: 'tnum' + (PROC[t.p].dark ? ' dk' : ''), style: { background: PROC[t.p].hex } }, String(t.f)), PROC[t.p].label))));
+  }
+  function cardChap(ci) {
+    const ch = chs[ci];
+    return el('div', { class: 'cc cc-chap' },
+      el('div', { class: 'cc-eb', dataset: { in: 450 } }, 'Kapitulli ' + (ci + 1) + ' nga ' + chs.length),
+      el('div', { class: 'cc-num' + (ch.dark ? ' dk' : ''), style: { background: ch.color }, dataset: { in: 600, sc: .6, y: 0, d: 900 } }, ch.nums),
+      el('h2', { class: 'cc-h', dataset: { in: 760 } }, ch.title),
+      el('div', { class: 'cc-meta', dataset: { in: 900 } }, ch.fs.length > 1 ? 'Dhëmbët ' + listAnd(ch.fs.map(String)) : toothLabel(ch.fs[0])),
+      el('div', { class: 'cc-jaw', dataset: { in: 1050 } }, miniJaw(ch.fs, ch.color)));
+  }
+  function cardCal() {
+    const items = info.ph.items.slice(0, 14);
+    let n = 0;
+    R.calList = el('div', { class: 'cal-list' }, items.map((it, i) => {
+      const w = it.kind === 'w';
+      return el('div', { class: 'ci' + (w ? ' w' : ''), dataset: { in: 1300 + i * 640, y: 18 } },
+        el('span', { class: 'ci-n' }, w ? '⏳' : String(++n)),
+        el('div', { class: 'ci-b' }, el('em', null, w ? 'Pritje · ' + it.label : it.when), el('b', null, it.title)),
+        w ? null : el('span', { class: 'ci-d' }, it.mins >= 60 ? '≈ ' + String(r1(it.mins / 60)).replace('.', ',') + ' orë' : '≈ ' + it.mins + ' min'));
+    }));
+    R.calN = items.length; R.calY = 0; R.calBot = null;
+    R.calVp = el('div', { class: 'cal-vp' }, R.calList);
+    return el('div', { class: 'cc cc-cal' },
+      el('div', { class: 'cc-eb', dataset: { in: 150 } }, 'Kalendari'),
+      el('h2', { class: 'cc-h', dataset: { in: 300 } }, 'Fazat e trajtimit'),
+      R.calVp,
+      el('div', { class: 'cc-meta', dataset: { in: 1500 + items.length * 640 } }, '📅 Kohëzgjatja: ' + info.ph.dur + ' · 🏥 ' + info.ph.visits + ' vizita'));
+  }
+  function measureCal() {
+    if (!R.calList) return;
+    const vpH = R.calVp.clientHeight;
+    R.calBot = $$('.ci', R.calList).map(e => e.offsetTop + e.offsetHeight);
+    R.calVpH = vpH;
+  }
+  function cardOut() {
+    const pl = info.pl;
+    const wa = waLink('Përshëndetje Medident! ' + (pl.name ? 'Jam ' + pl.name + '. ' : '') + 'E pashë filmin e planit tim të trajtimit' + (pl.no ? ' (' + pl.no + ')' : '') + ' dhe dua të rezervoj një takim.');
+    return el('div', { class: 'cc cc-out' },
+      el('div', { class: 'cc-logo', dataset: { in: 250, d: 1000, sc: .75, y: 0 } }, 'M'),
+      el('h2', { class: 'cc-h big', dataset: { in: 650, d: 1000 } }, 'Buzëqeshja juaj e re', el('br'), 'fillon këtu.'),
+      el('div', { class: 'cc-meta', dataset: { in: 1300 } }, nTeeth(info.treated.length) + ' · ' + info.ph.visits + ' vizita · ' + info.ph.dur),
+      el('div', { class: 'cc-act', dataset: { in: 1900 } },
+        el('a', { class: 'btn wa', href: wa, target: '_blank', rel: 'noopener' }, ico('wa'), 'Rezervo në WhatsApp'),
+        el('button', { class: 'btn dk', type: 'button', onclick: () => replay() }, '↻ Shiko përsëri'),
+        el('button', { class: 'btn dk', type: 'button', onclick: () => close() }, 'Mbyll')),
+      el('div', { class: 'cc-foot', dataset: { in: 2500 } }, 'Medident Dental Clinic · Pejë · që nga 1999'));
+  }
+  function animEls(ms) {
+    anims.forEach(e => {
+      const a = +e.dataset.in, d = +(e.dataset.d || 750), p = eOut(seg(ms, a, a + d)), ty = e.dataset.y != null ? +e.dataset.y : 14;
+      e.style.opacity = p.toFixed(3);
+      e.style.transform = 'translateY(' + ((1 - p) * ty).toFixed(1) + 'px)' + (e.dataset.sc ? ' scale(' + lerp(+e.dataset.sc, 1, p).toFixed(3) + ')' : '');
+      if (e.dataset.ls) e.style.letterSpacing = lerp(+e.dataset.ls, -.8, eOut(seg(ms, a, a + 1800))).toFixed(2) + 'px';
+    });
+  }
+
+  /* ---------- subtitles, labels, narration ---------- */
+  function setSub(sg) {
+    const ch = chs[sg.ch], st = ch.flow.stages[sg.si];
+    R.k.textContent = '';
+    R.k.append(el('span', { class: 'tnum' + (ch.dark ? ' dk' : ''), style: { background: ch.color } }, ch.nums), 'Hapi ' + (sg.vi + 1) + ' nga ' + ch.vis.length);
+    R.t.textContent = st.title;
+    const d = sg.mode === 'full' ? st.desc : sg.mode === 'brief' ? first(st.desc) : '';
+    R.d.textContent = d; R.d.hidden = !d;
+    R.c.textContent = ''; (st.chips || []).forEach(c => R.c.append(el('span', null, c)));
+  }
+  function label(sg) {
+    const ch = sg.ch != null ? chs[sg.ch] : null;
+    R.lbl.textContent = ch ? 'Kapitulli ' + (sg.ch + 1) + '/' + chs.length + ' · ' + ch.title : sg.type === 'cal' ? 'Kalendari i trajtimit' : sg.type === 'out' ? 'Medident · Pejë' : (info.pl.name ? info.pl.name + ' · ' : '') + 'Plani i trajtimit';
+  }
+  function narr(sg) {
+    const pl = info.pl;
+    switch (sg.type) {
+      case 'intro': return 'Mirë se vini në Medident. ' + (pl.name ? 'Ky është plani i trajtimit për ' + pl.name + '.' : 'Ky është plani juaj i trajtimit.');
+      case 'ov': return nTeeth(info.treated.length) + ' do të trajtohen, në ' + info.ph.visits + ' vizita.';
+      case 'chap': return 'Kapitulli ' + (sg.ch + 1) + '. ' + chs[sg.ch].title + '.';
+      case 'stage': { const st = chs[sg.ch].flow.stages[sg.si]; return st.title + '. ' + (sg.mode === 'full' ? st.desc : sg.mode === 'brief' ? first(st.desc) : ''); }
+      case 'cal': return 'I gjithë trajtimi zgjat ' + info.ph.dur + ', në ' + info.ph.visits + ' vizita.';
+      default: return 'Buzëqeshja juaj e re fillon këtu. Ju presim në Medident.';
+    }
+  }
+  const NAR_D = { intro: 1700, ov: 500, chap: 700, stage: 300, cal: 500, out: 800 };
+
+  /* ---------- per-frame drawing ---------- */
+  function sc(v) { if (v !== scOn) { scOn = v; R.root.classList.toggle('sc', v); } }
+  function enter(i) {
+    const sg = segs[i]; cur = i; holdMs = 0;
+    Voice.stop(); narState = 0; narAt = sg.t0 + NAR_D[sg.type]; shimmerAt = 0;
+    const card = sg.type !== 'stage';
+    R.root.classList.toggle('st', !card);
+    R.subIn.style.opacity = '0';
+    if (card) {
+      R.card.textContent = '';
+      const c = sg.type === 'intro' ? cardIntro() : sg.type === 'ov' ? cardOv() : sg.type === 'chap' ? cardChap(sg.ch) : sg.type === 'cal' ? cardCal() : cardOut();
+      R.card.className = 'cine-card k-' + sg.type; R.card.append(c);
+      R.card.style.opacity = '0';
+      anims = $$('[data-in]', c);
+      if (sg.type === 'cal') measureCal();
+      if (sg.type === 'chap' && T - sg.t0 < 600) Music.whoosh();
+      if (sg.type === 'out') Music.finale();
+      R.timer.hidden = true;
+      FX.target(1);
+    } else {
+      if (R.card.textContent) { R.card.textContent = ''; R.card.className = 'cine-card'; }
+      anims = [];
+      ensureScene(sg.ch); setSub(sg);
+      if (chs[sg.ch].flow.stages[sg.si].k === 'done') shimmerAt = sg.t0 + 1000;
+      FX.target(0);
+    }
+    label(sg);
+  }
+  function stageFrame(i, sg, ms) {
+    ensureScene(sg.ch);
+    const r = camTarget(sg, ms);
+    scene.draw(r.S, false);
+    setView(camAt(i, ms, r.cam));
+    sc(true);
+    R.subIn.style.opacity = Math.min(seg(ms, 120, 620), 1 - seg(ms, sg.dur - 420, sg.dur - 60)).toFixed(3);
+    R.subIn.style.transform = 'translateY(' + ((1 - eOut(seg(ms, 120, 780))) * 12).toFixed(1) + 'px)';
+    const tm = r.S.timer;
+    if (tm) { R.timer.hidden = false; R.timerTxt.textContent = tm.txt; R.ring.setAttribute('stroke-dashoffset', (87.96 * (1 - tm.p)).toFixed(2)); }
+    else R.timer.hidden = true;
+  }
+  function chapFrame(i, sg, ms) {
+    R.card.style.opacity = Math.min(seg(ms, 0, 480), 1 - seg(ms, sg.dur - 820, sg.dur - 60)).toFixed(3);
+    const pv = segs[i - 1], nx = segs[i + 1], afterStage = !!(pv && pv.type === 'stage');
+    if ((ms >= 480 || !afterStage) && nx && nx.type === 'stage') {
+      const fresh = ensureScene(sg.ch);
+      if (fresh || ms >= sg.dur - 900) { const r = camTarget(nx, 0); scene.draw(r.S, false); setView(camAt(i + 1, 0, r.cam)); }
+    }
+    sc(ms >= 480 ? sceneCh === sg.ch : afterStage);
+  }
+  function render() {
+    const i = segAt(T);
+    if (i !== cur) enter(i);
+    const sg = segs[i], ms = T - sg.t0;
+    if (narState === 0 && T >= narAt) { narState = 1; if (spd === 1) Voice.say(narr(sg)); }
+    if (shimmerAt && T >= shimmerAt) { shimmerAt = 0; Music.shimmer(); }
+    if (anims.length) animEls(ms);
+    switch (sg.type) {
+      case 'intro': R.card.style.opacity = Math.min(seg(ms, 0, 300), 1 - seg(ms, sg.dur - 700, sg.dur - 60)).toFixed(3); sc(false); break;
+      case 'ov': {
+        R.card.style.opacity = Math.min(seg(ms, 0, 400), 1 - seg(ms, sg.dur - 650, sg.dur - 60)).toFixed(3); sc(false);
+        const e = REDUCED ? 1 : eOut(seg(ms, 300, 1800));
+        R.ovPanel.style.opacity = Math.min(1, seg(ms, 300, 900)).toFixed(3);
+        R.ovPanel.style.transform = 'perspective(1100px) rotateX(' + lerp(30, 7, e).toFixed(2) + 'deg) translateY(' + ((1 - e) * 34).toFixed(1) + 'px) scale(' + lerp(.88, 1, e).toFixed(3) + ')';
+        R.ovNodes.forEach((n, k) => { if (n) n.classList.toggle('sel', ms >= 1300 + k * 560); });
+        break;
+      }
+      case 'chap': chapFrame(i, sg, ms); break;
+      case 'stage': stageFrame(i, sg, ms); break;
+      case 'cal': {
+        R.card.style.opacity = Math.min(seg(ms, 0, 480), 1 - seg(ms, sg.dur - 650, sg.dur - 60)).toFixed(3);
+        sc(ms < 560 && !!(segs[i - 1] && segs[i - 1].type === 'stage'));
+        if (R.calBot && R.calBot.length) {
+          const k = clamp(Math.floor((ms - 1300) / 640), 0, R.calN - 1), tgt = Math.max(0, R.calBot[k] - R.calVpH + 26);
+          R.calY += (tgt - R.calY) * (playing ? .09 : 1);
+          R.calList.style.transform = 'translateY(' + (-R.calY).toFixed(1) + 'px)';
+        }
+        break;
+      }
+      default: R.card.style.opacity = seg(ms, 0, 500).toFixed(3); sc(false);
+    }
+    R.prog.style.width = (T / total * 100).toFixed(2) + '%';
+    if (R.root.classList.contains('ui')) R.time.textContent = mmss(T) + ' / ' + mmss(total);
+  }
+  function loop(now) {
+    if (!isOpen) return;
+    raf = requestAnimationFrame(loop);
+    let dt = Math.min(64, Math.max(0, now - last)); last = now;
+    const fdt = dt;
+    if (playing) {
+      const sg = segs[cur];
+      if (sg && sg.type !== 'out' && Voice.busy()) {
+        const end = sg.t0 + sg.dur - 60;
+        if (T + dt > end) { holdMs += dt; dt = Math.max(0, end - T); if (holdMs > 15000) Voice.stop(); }
+      }
+      T = Math.min(total, T + dt * spd);
+      render();
+      if (T >= total) { playing = false; setPlayUI(); }
+    }
+    const tl = Tilt.frame(now, L.port);
+    FX.step(fdt, tl.x, tl.y);
+  }
+
+  /* ---------- controls ---------- */
+  function setPlayUI() {
+    const end = T >= total;
+    R.big.hidden = playing || end;
+    setIco(R.play, playing ? 'pause' : 'play', true);
+    R.play.setAttribute('aria-label', playing ? 'Pauzë' : 'Luaj');
+    if (!playing) showUI(true);
+  }
+  function showUI(stay) {
+    if (!R) return;
+    R.root.classList.add('ui'); clearTimeout(uiT);
+    R.time.textContent = mmss(T) + ' / ' + mmss(total);
+    if (!stay && playing) uiT = setTimeout(() => { if (playing) R.root.classList.remove('ui'); }, 2800);
+  }
+  function play() {
+    if (playing || !isOpen) return;
+    if (T >= total) { replay(); return; }
+    playing = true; last = performance.now();
+    Music.resume(); setPlayUI(); showUI(); wake(true);
+  }
+  function pause() {
+    if (!playing) return;
+    playing = false; Music.pause();
+    if (Voice.busy()) { Voice.stop(); narState = 0; }
+    setPlayUI();
+  }
+  function seek(t) { T = clamp(t, 0, total); cur = -1; Voice.stop(); render(); setPlayUI(); }
+  function nextSec() { const s = secs.find(x => x.t0 > T + 80); seek(s ? s.t0 : total); if (T >= total) { playing = false; setPlayUI(); } }
+  function prevSec() { let s = null; secs.forEach(x => { if (x.t0 < T - 1800) s = x; }); seek(s ? s.t0 : 0); }
+  function replay() { seek(0); Music.start(); Music.setOn(sndOn); playing = true; last = performance.now(); setPlayUI(); showUI(); }
+  function updSnd() { setIco(R.snd, sndOn ? 'snd' : 'sndOff'); R.snd.setAttribute('aria-pressed', sndOn ? 'true' : 'false'); R.snd.setAttribute('aria-label', sndOn ? 'Muzika: ndezur' : 'Muzika: fikur'); R.snd.title = sndOn ? 'Fik muzikën (M)' : 'Ndiz muzikën (M)'; }
+  function setSnd(v) { sndOn = !!v; LS.set(K_SND, sndOn); Music.setOn(sndOn); updSnd(); }
+  function updNar() {
+    if (!R) return;
+    R.nar.hidden = !Voice.avail();
+    R.nar.setAttribute('aria-pressed', Voice.isOn() ? 'true' : 'false');
+    R.nar.title = Voice.isOn() ? 'Fik zërin e narratorit' : 'Ndiz zërin e narratorit';
+  }
+  const fsEl = () => document.fullscreenElement || document.webkitFullscreenElement || null;
+  const fsOk = () => !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+  function lockOri() { try { if (screen.orientation && screen.orientation.lock && touch()) pq(screen.orientation.lock('landscape')); } catch (e) { /* ignore */ } }
+  function fsEnter() {
+    const e = R.root;
+    try {
+      const p = e.requestFullscreen ? e.requestFullscreen({ navigationUI: 'hide' }) : (e.webkitRequestFullscreen ? e.webkitRequestFullscreen() : null);
+      if (p && p.then) p.then(lockOri, () => { }); else lockOri();
+    } catch (er) { /* ignore */ }
+  }
+  function fsExit() {
+    try { if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock(); } catch (e) { /* ignore */ }
+    try { if (fsEl()) pq(document.exitFullscreen ? document.exitFullscreen() : (document.webkitExitFullscreen && document.webkitExitFullscreen())); } catch (e) { /* ignore */ }
+  }
+  function updFs() { if (!R) return; R.fs.hidden = !fsOk(); setIco(R.fs, fsEl() ? 'fsX' : 'fs'); R.fs.setAttribute('aria-label', fsEl() ? 'Dil nga ekrani i plotë' : 'Ekran i plotë'); }
+  async function wake(on) {
+    try {
+      if (on && isOpen && !wl && navigator.wakeLock && document.visibilityState === 'visible') { const w = await navigator.wakeLock.request('screen'); if (!isOpen) { w.release(); return; } wl = w; wl.addEventListener('release', () => { wl = null; }); }
+      else if (!on && wl) { const w = wl; wl = null; await w.release(); }
+    } catch (e) { wl = null; }
+  }
+  function onKey(e) {
+    if (!isOpen) return;
+    const k = e.key;
+    if (k === 'Escape') { e.preventDefault(); close(); }
+    else if (k === ' ' || k === 'k' || k === 'K') { e.preventDefault(); if (playing) pause(); else play(); }
+    else if (k === 'ArrowRight') { e.preventDefault(); nextSec(); showUI(); }
+    else if (k === 'ArrowLeft') { e.preventDefault(); prevSec(); showUI(); }
+    else if (k === 'm' || k === 'M') { setSnd(!sndOn); showUI(); }
+    else if (k === 'f' || k === 'F') { if (fsEl()) fsExit(); else fsEnter(); }
+    else if (k === 'Tab') {
+      const f = $$('button:not([hidden]), a[href]', R.root).filter(b => b.offsetParent !== null && getComputedStyle(b).visibility !== 'hidden');
+      if (!f.length) { e.preventDefault(); return; }
+      const ix = f.indexOf(document.activeElement);
+      if (e.shiftKey && ix <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && (ix === -1 || ix === f.length - 1)) { e.preventDefault(); f[0].focus(); }
+      showUI();
+    } else showUI();
+  }
+  const onOri = e => Tilt.ori(e);
+  function bind() {
+    if (bound) return; bound = true;
+    R = {
+      root: $('#cine'), stage: $('#cineStage'), svg: $('#cineSvg'), card: $('#cineCard'), subIn: $('#cineSubIn'), k: $('#cineK'), t: $('#cineT'), d: $('#cineD'), c: $('#cineC'),
+      lbl: $('#cineLbl'), timer: $('#cineTimer'), ring: $('#cineRing'), timerTxt: $('#cineTimerTxt'), prog: $('#cineProgI'), time: $('#cineTime'),
+      big: $('#cineBig'), play: $('#cinePlay'), snd: $('#cineSnd'), nar: $('#cineNar'), fs: $('#cineFs')
+    };
+    FX.init($('#cineFx'));
+    setIco(R.big, 'play', true);
+    R.root.addEventListener('click', e => { if (e.target.closest('button, a')) return; if (T >= total && !playing) return; if (playing) pause(); else play(); });
+    R.root.addEventListener('pointermove', e => { if (e.pointerType === 'mouse') { showUI(); Tilt.move(e); } });
+    R.root.addEventListener('touchstart', () => showUI(), { passive: true });
+    R.root.addEventListener('touchmove', e => { if (e.cancelable) e.preventDefault(); }, { passive: false });
+    R.big.addEventListener('click', () => play());
+    R.play.addEventListener('click', () => { if (playing) pause(); else play(); });
+    $('#cinePrev').addEventListener('click', () => { prevSec(); showUI(); });
+    $('#cineNext').addEventListener('click', () => { nextSec(); showUI(); });
+    $('#cineX').addEventListener('click', () => close());
+    R.snd.addEventListener('click', () => { setSnd(!sndOn); showUI(); });
+    R.nar.addEventListener('click', () => { Voice.set(!Voice.isOn()); updNar(); if (Voice.isOn() && playing) narState = 0; showUI(); });
+    $('#cineSpd').addEventListener('click', e => { spd = spd === 1 ? 2 : 1; e.currentTarget.textContent = spd + '×'; e.currentTarget.setAttribute('aria-pressed', spd === 2 ? 'true' : 'false'); if (spd === 2) Voice.stop(); showUI(); });
+    R.fs.addEventListener('click', () => { if (fsEl()) fsExit(); else fsEnter(); showUI(); });
+    document.addEventListener('keydown', onKey);
+    window.addEventListener('resize', () => { if (isOpen) { layout(); render(); } });
+    window.addEventListener('popstate', () => { if (isOpen) close(true); });
+    document.addEventListener('visibilitychange', () => { if (!isOpen) return; if (document.hidden) pause(); else wake(true); });
+    document.addEventListener('fullscreenchange', updFs); document.addEventListener('webkitfullscreenchange', updFs);
+  }
+  function layout() {
+    const W = window.innerWidth, H = window.innerHeight, port = H > W * 1.08;
+    let fy = 0, fh = H, bars = 0;
+    if (port) { fh = Math.round(Math.min(W, H * .56)); fy = Math.round(clamp((H - fh - 240) / 2, 54, H * .22)); }
+    else { bars = W / H < 1.9 ? Math.round(clamp((H - W / 2.05) / 2, 0, H * .085)) : 0; fy = bars; fh = H - bars * 2; }
+    const VW = 300 * W / fh, prev = L;
+    L = { port, W, H, fy, fh, bars, VW, safeTop: port ? .03 : .075, safeBot: port ? .03 : .31, sMax: 2.25, sMin: Math.max(VW / (WIDE.x1 - WIDE.x0), 300 / (WIDE.y1 - WIDE.y0)) * 1.002 };
+    const rs = R.root.style;
+    rs.setProperty('--fy', fy + 'px'); rs.setProperty('--fh', fh + 'px'); rs.setProperty('--bars', bars + 'px');
+    R.root.classList.toggle('port', port); R.root.classList.toggle('compact', !port && H < 480);
+    FX.resize(W, H);
+    if (prev && (prev.VW !== L.VW || prev.port !== port || prev.fh !== fh)) {
+      segs.forEach(s => { s.camIn = null; });
+      if (scene) { const c = sceneCh; scene = null; sceneCh = -1; ensureScene(c); }
+      if (R.calList) measureCal();
+    }
+  }
+
+  /* ---------- open / close ---------- */
+  function open(fromF) {
+    if (!info || !chs.length || isOpen) return;
+    bind();
+    opener = document.activeElement;
+    isOpen = true;
+    Player.hold(true);
+    R.root.hidden = false;
+    document.documentElement.classList.add('cine-lock');
+    fsEnter();                                   /* still inside the tap → allowed */
+    sndOn = !!LS.get(K_SND, true);
+    Music.start(); Music.setOn(sndOn);
+    Voice.init(updNar);
+    try { history.pushState({ cine: 1 }, '', location.href); pushed = true; } catch (e) { pushed = false; }
+    window.addEventListener('deviceorientation', onOri);
+    Tilt.reset();
+    L = null; layout();
+    segs.forEach(s => { s.camIn = null; });
+    scene = null; sceneCh = -1; cur = -1; scOn = null; holdMs = 0;
+    T = 0;
+    if (fromF != null) { const ci = chs.findIndex(c => c.fs.includes(fromF)); const s = secs.find(x => x.ch === ci); if (s) T = s.t0; }
+    playing = true; last = performance.now();
+    render(); setPlayUI(); updSnd(); updNar(); updFs(); showUI();
+    requestAnimationFrame(() => { if (isOpen) R.root.classList.add('on'); });
+    cancelAnimationFrame(raf); raf = requestAnimationFrame(loop);
+    wake(true);
+    try { R.root.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+  }
+  function close(fromPop) {
+    if (!isOpen) return;
+    isOpen = false; playing = false;
+    cancelAnimationFrame(raf); clearTimeout(uiT);
+    Voice.stop(); Music.stop(); wake(false); fsExit();
+    window.removeEventListener('deviceorientation', onOri);
+    R.root.classList.remove('on', 'ui');
+    document.documentElement.classList.remove('cine-lock');
+    if (!fromPop && pushed) { try { if (history.state && history.state.cine) history.back(); } catch (e) { /* ignore */ } }
+    pushed = false;
+    setTimeout(() => { if (!isOpen) { R.root.hidden = true; R.svg.textContent = ''; R.card.textContent = ''; scene = null; sceneCh = -1; } }, 480);
+    Player.hold(false);
+    if (opener && opener.focus) { try { opener.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
+  }
+  function setPlan(pl, treated, missing, map, ph) {
+    info = { pl, treated, missing, map, ph };
+    chs = treated.length ? makeChapters() : [];
+    if (chs.length) makeSegs(); else { segs = []; total = 0; }
+    const cta = $('#pvCine'), pc = $('#plCine');
+    if (cta) {
+      cta.hidden = !chs.length;
+      $('#pvCineDur').textContent = 'Si në kinema · ≈ ' + Math.max(1, Math.round(total / 60000)) + ' min · me muzikë';
+      cta.onclick = () => open();
+    }
+    if (pc) { pc.hidden = !chs.length; pc.onclick = () => open(Player.current()); }
+  }
+  if (CINE_TEST) window.__cine = {
+    info: () => ({ total, chapters: chs.map(c => ({ p: c.p, fs: c.fs, title: c.title, vis: c.vis.map(v => [c.flow.stages[v.si].k, v.mode, Math.round(v.dur)]) })), segs: segs.map(s => [s.type, s.t0, Math.round(s.dur), s.ch == null ? null : s.ch, s.si == null ? null : chs[s.ch].flow.stages[s.si].k]) }),
+    seek: t => { seek(t); }, pause: () => pause(), play: () => play(), state: () => ({ T, playing, cur, isOpen, L }), audio: s => Music.test(s || 30)
+  };
+  return { setPlan, open, close };
 })();
 
 /* ═════════ Boot ═════════ */
