@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan Trajtimi · Medident Pejë</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f2d4e;--navy2:#1a4a7a;--teal:#00b4d8;--teal2:#48cae4;--green:#25d366;--bg:#f0f4f8;--card:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--red:#ef4444}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.hdr{background:var(--navy);padding:0 20px;height:58px;display:flex;align-items:center;gap:12px}
+.hdr-logo{width:36px;height:36px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;flex-shrink:0}
+.hdr-name{color:#fff;font-weight:700;font-size:17px}.hdr-city{color:rgba(255,255,255,.5);font-size:13px;margin-left:1px}
+
+/* ─ HERO ─ */
+.hero{background:linear-gradient(145deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:36px 20px 52px;text-align:center}
+.hero-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.55;margin-bottom:12px}
+.hero-patient{font-size:26px;font-weight:800;margin-bottom:6px}
+.hero-date{font-size:13px;opacity:.55;margin-bottom:18px}
+.hero-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:500}
+
+/* ─ TIMELINE ─ */
+.tl{max-width:620px;margin:-20px auto 0;padding:0 16px 32px}
+.tl-conn{width:2px;height:20px;background:var(--border);margin:0 auto}
+.phase-card{background:var(--card);border-radius:16px;padding:18px;box-shadow:0 2px 16px rgba(0,0,0,.07);opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease;border-left:4px solid var(--teal)}
+.phase-card.vis{opacity:1;transform:translateY(0)}
+.pc-top{display:flex;align-items:flex-start;gap:12px}
+.pc-num{width:34px;height:34px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.pc-info{flex:1;min-width:0}
+.pc-name{font-size:15px;font-weight:700;color:var(--navy);line-height:1.2}
+.pc-day{font-size:12px;color:var(--muted);margin-top:3px}
+.pc-dur{background:var(--teal);color:#fff;border-radius:12px;padding:4px 11px;font-size:12px;font-weight:600;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.pc-body{margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.pc-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.bar-wrap{margin-top:10px;background:var(--bg);border-radius:4px;height:5px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--teal2));border-radius:4px;width:0;transition:width .9s ease .1s}
+
+/* ─ SUMMARY ─ */
+.summary{max-width:620px;margin:0 auto;padding:0 16px 16px}
+.sum-card{background:var(--navy);border-radius:16px;padding:22px;color:#fff}
+.sum-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:.55;margin-bottom:16px}
+.sum-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.sum-row:last-child{border-bottom:none}
+.sum-label{font-size:13px;opacity:.75}
+.sum-val{font-size:15px;font-weight:700}
+.sum-price{font-size:26px;font-weight:800;color:var(--teal)}
+.sum-note{font-size:12px;opacity:.45;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+
+/* ─ CTA ─ */
+.cta{max-width:620px;margin:16px auto 0;padding:0 16px 40px;display:flex;flex-direction:column;gap:10px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 20px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
+.btn-wa{background:var(--green);color:#fff}
+.btn-call{background:#fff;color:var(--navy);border:2px solid var(--border)}
+.btn svg{width:20px;height:20px;flex-shrink:0}
+footer{text-align:center;padding:20px 16px 40px;color:var(--muted);font-size:12px}
+
+/* ─ GENERATOR ─ */
+.gen{max-width:620px;margin:0 auto;padding:24px 16px 60px}
+.gen-hd{margin-bottom:24px}
+.gen-hd h2{font-size:20px;font-weight:800;color:var(--navy)}
+.gen-hd p{font-size:14px;color:var(--muted);margin-top:4px}
+.fld{margin-bottom:14px}
+.fld label{display:block;font-size:11px;font-weight:700;color:var(--navy);margin-bottom:5px;text-transform:uppercase;letter-spacing:.6px}
+.fld input,.fld select,.fld textarea{width:100%;padding:11px 14px;border:2px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border-color .2s}
+.fld input:focus,.fld select:focus{border-color:var(--teal)}
+.fld-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.phases-box{border:2px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;margin-bottom:10px}
+.ph-item{padding:14px;border-bottom:1px solid var(--border)}
+.ph-item:last-child{border-bottom:none}
+.ph-item-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.ph-item-lbl{font-size:13px;font-weight:700;color:var(--navy)}
+.ph-rm{background:#fee2e2;color:var(--red);border:none;border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit}
+.ph-add{width:100%;padding:13px;background:none;border:2px dashed var(--border);border-radius:10px;cursor:pointer;color:var(--muted);font-size:14px;font-family:inherit;transition:all .2s}
+.ph-add:hover{border-color:var(--teal);color:var(--teal);background:#f0fbff}
+.gen-btn{width:100%;padding:15px;background:var(--navy);color:#fff;border:none;border-radius:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:6px;transition:background .2s}
+.gen-btn:hover{background:var(--navy2)}
+.link-box{background:#fff;border:2px solid var(--teal);border-radius:12px;padding:16px;margin-top:16px}
+.link-label{font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.link-url{font-size:12px;color:var(--text);word-break:break-all;line-height:1.5}
+.copy-btn{margin-top:10px;padding:8px 16px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.copy-btn.copied{background:#10b981}
+.divider{height:1px;background:var(--border);margin:20px 0}
+@media(max-width:480px){.fld-row{grid-template-columns:1fr}.hero-patient{font-size:22px}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-logo">M</div>
+  <div class="hdr-name">Medident</div>
+  <div class="hdr-city">· Pejë, Kosovë</div>
+</div>
+
+<!-- ═══ PATIENT VIEW ═══ -->
+<div id="plan-view" style="display:none">
+  <div class="hero">
+    <div class="hero-label">Plani i Trajtimit Tuaj</div>
+    <div class="hero-patient" id="v-patient"></div>
+    <div class="hero-date" id="v-date"></div>
+    <div class="hero-chips">
+      <span class="chip" id="v-treatment"></span>
+      <span class="chip" id="v-phases-count"></span>
+    </div>
+  </div>
+
+  <div class="tl" id="timeline-wrap"></div>
+
+  <div class="summary">
+    <div class="sum-card">
+      <div class="sum-title">Përmbledhje</div>
+      <div class="sum-row"><span class="sum-label">Kohëzgjatja totale</span><span class="sum-val" id="v-duration"></span></div>
+      <div class="sum-row"><span class="sum-label">Numri i hapave</span><span class="sum-val" id="v-steps"></span></div>
+      <div class="sum-row"><span class="sum-label">Çmimi i trajtimit</span><span class="sum-val sum-price" id="v-price"></span></div>
+      <div class="sum-note" id="v-note" style="display:none"></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a id="btn-wa" href="#" class="btn btn-wa">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.528 5.845L0 24l6.322-1.524A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.375l-.36-.214-3.73.899.938-3.635-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+      WhatsApp · +383 49 772 307
+    </a>
+    <a href="tel:+38349772307" class="btn btn-call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+      Telefono Klinikën
+    </a>
+  </div>
+
+  <footer>
+    Medident Dental Clinic · Rr. Mbretëresha Teuta, Pejë, Kosovë · Est. 1999<br>
+    Ky plan trajtimi është i personalizuar dhe konfidencial.
+  </footer>
+</div>
+
+<!-- ═══ GENERATOR VIEW ═══ -->
+<div id="gen-view" style="display:none">
+  <div class="gen">
+    <div class="gen-hd">
+      <h2>🦷 Gjenero Plan Trajtimi</h2>
+      <p>Krijo link të personalizuar — dërgo direkt te pacienti via WhatsApp ose SMS</p>
+    </div>
+
+    <div class="fld">
+      <label>Emri i Pacientit</label>
+      <input id="g-patient" placeholder="p.sh. Maria Krasniqi" type="text">
+    </div>
+
+    <div class="fld-row">
+      <div class="fld">
+        <label>Template / Lloji</label>
+        <select id="g-template" onchange="applyTemplate()">
+          <option value="">— I personalizuar —</option>
+          <option value="implant">🦷 Implant Dentar</option>
+          <option value="veneer">✨ Veneers Porcelan</option>
+          <option value="whitening">🌟 Zbardhje Profesionale</option>
+          <option value="aligner">😁 Aparate Transparente</option>
+          <option value="crown">👑 Kurorë Porcelan</option>
+          <option value="rootcanal">🔬 Kanali Rrënjor</option>
+        </select>
+      </div>
+      <div class="fld">
+        <label>Data e Planit</label>
+        <input id="g-date" type="date">
+      </div>
+    </div>
+
+    <div class="fld-row">
+      <div class="fld">
+        <label>Çmimi Total</label>
+        <input id="g-price" placeholder="p.sh. 1,200€" type="text">
+      </div>
+      <div class="fld">
+        <label>Kohëzgjatja Totale</label>
+        <input id="g-duration" placeholder="p.sh. 4–6 muaj" type="text">
+      </div>
+    </div>
+
+    <div class="fld">
+      <label>Shënim (opsional)</label>
+      <input id="g-note" placeholder="p.sh. Çmimi mund të ndryshojë sipas gjendjes klinike" type="text">
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="fld">
+      <label>Fazat e Trajtimit</label>
+      <div class="phases-box" id="phases-container"></div>
+      <button class="ph-add" onclick="addPhase()">+ Shto Fazë</button>
+    </div>
+
+    <button class="gen-btn" onclick="generateLink()">⚡ Gjenero Link-un e Pacientit</button>
+
+    <div class="link-box" id="link-box" style="display:none">
+      <div class="link-label">✅ Link-u i Planit (dërgo te pacienti)</div>
+      <div class="link-url" id="link-url"></div>
+      <button class="copy-btn" id="copy-btn" onclick="copyLink()">📋 Kopjo Link-un</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TEMPLATES = {
+  implant:{
+    name:"Implant Dentar",duration:"4–6 muaj",
+    note:"Koha varet nga cilësia e kockës dhe numri i implanteve",
+    phases:[
+      {name:"Konsultë & OPG Radiografi",day:"Dita 1",dur:"45 min",bar:45,desc:"Ekzaminim i plotë, panoramike dixhitale 3D, diskutim i planit të trajtimit dhe përzgjedhja e implantit"},
+      {name:"Operacioni i Implantit",day:"Dita 3–7",dur:"90 min",bar:90,desc:"Vendosja kirurgjikale e implantit nën anestezi lokale — procedure e lirë nga dhimbja"},
+      {name:"Periudha e Shërimit (Osteointegrim)",day:"Muajt 1–4",dur:"3–4 muaj",bar:100,desc:"Implanti integrohet me kockën. Kontrolle çdo 6 javë. Mund të jetoni normalisht gjatë kësaj periudhe"},
+      {name:"Masa & Kurorë Provizore",day:"Muaji 4",dur:"60 min",bar:60,desc:"Heqja e tapës shëruese, masa dixhitale precize, vendosja e kurorës provizore porcelan"},
+      {name:"Kurora Definitive Porcelan",day:"Muaji 5",dur:"45 min",bar:45,desc:"Cimentimi i kurorës definitive — rezultat estetik dhe funksional i plotë, jetëgjatësi 20+ vjet"}
+    ]
+  },
+  veneer:{
+    name:"Veneers Porcelan",duration:"2 javë",
+    note:"Rezultat natyral dhe i qëndrueshëm 15+ vjet — zero kompromis estetik",
+    phases:[
+      {name:"Konsultë & Dizajni i Buzëqeshjes",day:"Dita 1",dur:"60 min",bar:60,desc:"Analizë estetike e plotë, mock-up dixhital, zgjedhja e ngjyrës A1/B1, diskutim i formës dhe simetrisë"},
+      {name:"Preparimi Minimal i Dhëmbëve",day:"Dita 7",dur:"90 min",bar:90,desc:"Heqje minimale e smalcit (0.3–0.5 mm), masa dixhitale me skaner intraoral, anestezi lokale"},
+      {name:"Veneers Provizorë",day:"Dita 7",dur:"20 min",bar:20,desc:"Vendosja e veneers provizorë të personalizuar ndërkohë që laboratori prodhon ato definitivet"},
+      {name:"Vendosja e Veneers Definitive",day:"Dita 14",dur:"75 min",bar:75,desc:"Heqja e provizorëve, verifikimi i ngjyrës dhe formës, cimentimi final ultrasonik, kontroll okluzal"}
+    ]
+  },
+  whitening:{
+    name:"Zbardhje Profesionale",duration:"1 ditë + mirëmbajtje",
+    note:"Deri 8 shade më i ndritshëm — pa dhimbje, pa dëmtim të smalcit",
+    phases:[
+      {name:"Pastrim Profesional & Kontroll",day:"Dita 1 (mëngjes)",dur:"30 min",bar:30,desc:"Pastrim ultrasonic i plotë, fotografi para-pas, verifikim i shëndetit të smaltit dhe mishrave"},
+      {name:"Zbardhje Klinike me Dritë LED",day:"Dita 1",dur:"60 min",bar:60,desc:"Aplikim i gel profesional 35% Hydrogen Peroxide, 3 cikle × 15 min me aktivizim LED — pa dhimbje"},
+      {name:"Kit Shtëpiak (opsional)",day:"Ditët 2–14",dur:"20 min/ditë",bar:30,desc:"Gota individuale silikoni me gel 10–16% CP — 20 min para gjumit, për rezultat optimal dhe mirëmbajtje"}
+    ]
+  },
+  aligner:{
+    name:"Aparate Transparente (Linea Aligners)",duration:"6–18 muaj",
+    note:"Numri i aparateve dhe kohëzgjatja varen nga kompleksiteti i rastit",
+    phases:[
+      {name:"Konsultë & Skanim 3D iTero",day:"Dita 1",dur:"45 min",bar:45,desc:"Skanim intraoral preciz, simulim dixhital i rezultatit final — shikoni buzëqeshjen tuaj para fillimit"},
+      {name:"Marrja e Aparateve",day:"Dita 14–21",dur:"30 min",bar:30,desc:"Vendosja e attachment-eve (nëse nevojiten), dorëzimi i seteve të para, udhëzime të detajuara"},
+      {name:"Kontrolle Periodike",day:"Çdo 6–8 javë",dur:"15 min",bar:20,desc:"Monitorim i progresit, dhënia e seteve të reja, rregullime IPR nëse nevojiten — takime të shkurtra"},
+      {name:"Retainues & Finalizim",day:"Muaji 6–18",dur:"30 min",bar:30,desc:"Skanim final verifikues, prodhohet retainuesi transparent për ruajtjen e rezultatit afatgjatë"}
+    ]
+  },
+  crown:{
+    name:"Kurorë Porcelan",duration:"10–14 ditë",
+    note:"Kurora prodhohet në laborator të akredituar evropian",
+    phases:[
+      {name:"Preparimi i Dhëmbit & Masa",day:"Dita 1",dur:"60 min",bar:60,desc:"Preparimi nën anestezi lokale, masa dixhitale precize me skaner 3D, kurorë provizore estetike"},
+      {name:"Prodhimi Laboratorik",day:"Ditët 1–10",dur:"7–10 ditë",bar:35,desc:"Laboratori prodhon kurorën e personalizuar sipas masës suaj — porcelan zirconia me ngjyrë natyrale"},
+      {name:"Vendosja e Kurorës Definitive",day:"Dita 10–14",dur:"45 min",bar:45,desc:"Heqja e provizores, kontrolli estetik dhe okluzal, cimentimi final — duket dhe ndihet si dhëmb natyral"}
+    ]
+  },
+  rootcanal:{
+    name:"Kanali Rrënjor (Endodonti)",duration:"1–2 javë",
+    note:"Procedure pa dhimbje — shpëtojmë dhëmbin tuaj natyral",
+    phases:[
+      {name:"Diagnoza & Radiografi Periapikale",day:"Dita 1",dur:"30 min",bar:30,desc:"Radiografi periapikale CBCT, diagnoza e pulpës, diskutim i planit — vendosim nëse mund të shpëtohet dhëmbi"},
+      {name:"Pastrimi Mekanik & Kimik i Kanalit",day:"Dita 1",dur:"75 min",bar:75,desc:"Anestezi lokale totale, instrumentim rotacional, irrigim me NaOCl — pastrimi i plotë i kanalit"},
+      {name:"Mbushja e Kanalit",day:"Dita 3–7",dur:"45 min",bar:45,desc:"Mbushja hermitike me gutaperkë dhe sealer, verifikim radiografik, mbyllje provizore"},
+      {name:"Restaurimi Final (Kurorë/Mbushje)",day:"Dita 14",dur:"60 min",bar:60,desc:"Vendosja e restaurimit final — kurorë porcelan ose mbushje kompozit — për mbrojtje afatgjatë"}
+    ]
+  }
+};
+
+let phCount=0;
+
+function addPhase(d={}){
+  phCount++;
+  const n=phCount;
+  const box=document.getElementById('phases-container');
+  const el=document.createElement('div');
+  el.className='ph-item'; el.id='ph-'+n;
+  el.innerHTML=`
+    <div class="ph-item-hdr">
+      <span class="ph-item-lbl">Faza ${n}</span>
+      <button class="ph-rm" onclick="removePh(${n})">✕</button>
+    </div>
+    <div class="fld-row">
+      <div class="fld"><label>Emri i Fazës</label><input id="phn-${n}" value="${d.name||''}" placeholder="p.sh. Operacioni i Implantit"></div>
+      <div class="fld"><label>Kur</label><input id="phd-${n}" value="${d.day||''}" placeholder="p.sh. Dita 3–7"></div>
+    </div>
+    <div class="fld-row">
+      <div class="fld"><label>Kohëzgjatja</label><input id="phu-${n}" value="${d.dur||''}" placeholder="90 min"></div>
+      <div class="fld"><label>Bar animacion (1–100)</label><input id="phb-${n}" type="number" min="5" max="100" value="${d.bar||50}"></div>
+    </div>
+    <div class="fld"><label>Përshkrimi</label><input id="phx-${n}" value="${d.desc||''}" placeholder="Çfarë ndodh gjatë kësaj faze..."></div>`;
+  box.appendChild(el);
+}
+
+function removePh(n){const e=document.getElementById('ph-'+n);if(e)e.remove();}
+
+function applyTemplate(){
+  const k=document.getElementById('g-template').value;
+  if(!k||!TEMPLATES[k])return;
+  const t=TEMPLATES[k];
+  document.getElementById('g-duration').value=t.duration;
+  document.getElementById('g-note').value=t.note;
+  document.getElementById('phases-container').innerHTML=''; phCount=0;
+  t.phases.forEach(p=>addPhase(p));
+}
+
+function getPhases(){
+  return Array.from(document.querySelectorAll('.ph-item')).map(el=>{
+    const n=el.id.slice(3);
+    return{name:v('phn-'+n),day:v('phd-'+n),dur:v('phu-'+n),bar:parseInt(v('phb-'+n))||50,desc:v('phx-'+n)};
+  }).filter(p=>p.name.trim());
+}
+function v(id){const e=document.getElementById(id);return e?e.value:'';}
+
+function generateLink(){
+  const patient=document.getElementById('g-patient').value.trim();
+  if(!patient){alert('Shkruani emrin e pacientit.');return;}
+  const tmplKey=document.getElementById('g-template').value;
+  const data={
+    patient,
+    date:document.getElementById('g-date').value||new Date().toISOString().slice(0,10),
+    treatment:tmplKey&&TEMPLATES[tmplKey]?TEMPLATES[tmplKey].name:'Plan Trajtimi',
+    price:document.getElementById('g-price').value,
+    duration:document.getElementById('g-duration').value,
+    note:document.getElementById('g-note').value,
+    phases:getPhases()
+  };
+  const enc=btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  const url=location.href.split('#')[0]+'#p='+enc;
+  document.getElementById('link-url').textContent=url;
+  document.getElementById('link-box').style.display='';
+  document.getElementById('link-box').scrollIntoView({behavior:'smooth'});
+}
+
+function copyLink(){
+  navigator.clipboard.writeText(document.getElementById('link-url').textContent).then(()=>{
+    const b=document.getElementById('copy-btn');
+    b.textContent='✓ U Kopjua!'; b.classList.add('copied');
+    setTimeout(()=>{b.textContent='📋 Kopjo Link-un';b.classList.remove('copied');},2500);
+  });
+}
+
+function fmtDate(s){
+  if(!s)return'';
+  try{return new Date(s+'T12:00:00').toLocaleDateString('sq',{year:'numeric',month:'long',day:'numeric'});}
+  catch{return s;}
+}
+
+function renderPlan(data){
+  document.getElementById('plan-view').style.display='';
+  document.title='Plan Trajtimi · '+data.patient+' · Medident';
+  document.getElementById('v-patient').textContent=data.patient;
+  document.getElementById('v-date').textContent=fmtDate(data.date);
+  document.getElementById('v-treatment').textContent='🦷 '+(data.treatment||'Plan Trajtimi');
+  document.getElementById('v-phases-count').textContent=(data.phases?.length||0)+' hapa';
+  document.getElementById('v-duration').textContent=data.duration||'—';
+  document.getElementById('v-steps').textContent=(data.phases?.length||0)+' procedura';
+  document.getElementById('v-price').textContent=data.price||'—';
+  const noteEl=document.getElementById('v-note');
+  if(data.note){noteEl.textContent=data.note;noteEl.style.display='';}
+
+  const waMsg=`Tungjatjeta, jeni Medident? Doja të konfirmoja planin tim të trajtimit (${data.treatment}) dhe të rezervoja takimin. Faleminderit!`;
+  document.getElementById('btn-wa').href='https://wa.me/38349772307?text='+encodeURIComponent(waMsg);
+
+  const wrap=document.getElementById('timeline-wrap');
+  (data.phases||[]).forEach((ph,i)=>{
+    if(i>0){const c=document.createElement('div');c.className='tl-conn';wrap.appendChild(c);}
+    const card=document.createElement('div');
+    card.className='phase-card';
+    const pct=Math.min(Math.max(ph.bar||50,5),100);
+    card.innerHTML=`
+      <div class="pc-top">
+        <div class="pc-num">${i+1}</div>
+        <div class="pc-info"><div class="pc-name">${ph.name}</div><div class="pc-day">${ph.day}</div></div>
+        <div class="pc-dur">${ph.dur}</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-desc">${ph.desc}</div>
+        <div class="bar-wrap"><div class="bar-fill" data-pct="${pct}"></div></div>
+      </div>`;
+    wrap.appendChild(card);
+  });
+
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('vis');
+        const bar=e.target.querySelector('.bar-fill');
+        if(bar)bar.style.width=bar.dataset.pct+'%';
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.phase-card').forEach(c=>obs.observe(c));
+}
+
+// ── INIT ──
+(function(){
+  const hash=location.hash;
+  if(hash.startsWith('#p=')){
+    try{
+      const json=decodeURIComponent(escape(atob(hash.slice(3))));
+      renderPlan(JSON.parse(json));
+    }catch(e){
+      document.getElementById('gen-view').style.display='';
+    }
+  } else {
+    document.getElementById('gen-view').style.display='';
+    document.getElementById('g-date').valueAsDate=new Date();
+    addPhase();
+  }
+})();
+</script>
+</body>
+</html>
