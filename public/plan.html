@@ -2,409 +2,2317 @@
 <html lang="sq">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Plan Trajtimi · Medident Pejë</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plani i Trajtimit · Medident Pejë</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0f2d4e">
+<meta name="description" content="Plani juaj i personalizuar i trajtimit dentar – Medident Dental Clinic, Pejë.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0f2d4e;--navy2:#1a4a7a;--teal:#00b4d8;--teal2:#48cae4;--green:#25d366;--bg:#f0f4f8;--card:#fff;--border:#e2e8f0;--text:#1e293b;--muted:#64748b;--red:#ef4444}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-.hdr{background:var(--navy);padding:0 20px;height:58px;display:flex;align-items:center;gap:12px}
-.hdr-logo{width:36px;height:36px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;flex-shrink:0}
-.hdr-name{color:#fff;font-weight:700;font-size:17px}.hdr-city{color:rgba(255,255,255,.5);font-size:13px;margin-left:1px}
+:root{
+  --navy:#0f2d4e;--navy-2:#163d66;--navy-3:#1f5287;--teal:#00b4d8;--teal-ink:#00809c;--teal-soft:#e2f6fa;
+  --bg:#f2f5f9;--card:#fff;--line:#e2e8f0;--line-2:#cbd5e1;--ink:#0f1f33;--ink-2:#3b4d63;--muted:#5f6f84;
+  --wa:#128c4b;--ok:#0b8a4f;--danger:#c62f2f;
+  --c-imp:#2a78d6;--c-cr:#eda100;--c-rc:#e34948;--c-fil:#008300;--c-ven:#4a3aa7;--c-ext:#475569;--c-mis:#94a3b8;
+  --r-lg:20px;--r-md:14px;--r-sm:10px;
+  --sh-1:0 1px 2px rgba(15,45,78,.06),0 6px 20px rgba(15,45,78,.07);
+  --sh-2:0 10px 34px rgba(15,45,78,.16);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;font-size:15px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+[hidden]{display:none!important}
+a{color:var(--teal-ink)}
+:focus-visible{outline:3px solid rgba(0,180,216,.55);outline-offset:2px}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* ─ HERO ─ */
-.hero{background:linear-gradient(145deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:36px 20px 52px;text-align:center}
-.hero-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.55;margin-bottom:12px}
-.hero-patient{font-size:26px;font-weight:800;margin-bottom:6px}
-.hero-date{font-size:13px;opacity:.55;margin-bottom:18px}
-.hero-chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.chip{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:500}
+/* ── Top bar ── */
+.topbar{position:sticky;top:0;z-index:40;background:var(--navy);color:#fff;height:56px;display:flex;align-items:center;gap:10px;padding:0 16px;padding-left:max(16px,env(safe-area-inset-left))}
+.logo{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#00c2e6,#0088a8);display:grid;place-items:center;font-weight:800;font-size:16px;flex:none;box-shadow:inset 0 0 0 2px rgba(255,255,255,.18)}
+.brand{line-height:1.15}
+.brand b{font-weight:700;font-size:16px;letter-spacing:.2px;display:block}
+.brand small{font-size:11.5px;opacity:.62}
+.topbar .sp{flex:1}
+.topbar .tb-link{color:#fff;opacity:.8;font-size:13px;text-decoration:none;font-weight:600}
 
-/* ─ TIMELINE ─ */
-.tl{max-width:620px;margin:-20px auto 0;padding:0 16px 32px}
-.tl-conn{width:2px;height:20px;background:var(--border);margin:0 auto}
-.phase-card{background:var(--card);border-radius:16px;padding:18px;box-shadow:0 2px 16px rgba(0,0,0,.07);opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease;border-left:4px solid var(--teal)}
-.phase-card.vis{opacity:1;transform:translateY(0)}
-.pc-top{display:flex;align-items:flex-start;gap:12px}
-.pc-num{width:34px;height:34px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.pc-info{flex:1;min-width:0}
-.pc-name{font-size:15px;font-weight:700;color:var(--navy);line-height:1.2}
-.pc-day{font-size:12px;color:var(--muted);margin-top:3px}
-.pc-dur{background:var(--teal);color:#fff;border-radius:12px;padding:4px 11px;font-size:12px;font-weight:600;white-space:nowrap;flex-shrink:0;margin-top:2px}
-.pc-body{margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
-.pc-desc{font-size:13px;color:var(--muted);line-height:1.6}
-.bar-wrap{margin-top:10px;background:var(--bg);border-radius:4px;height:5px;overflow:hidden}
-.bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--teal2));border-radius:4px;width:0;transition:width .9s ease .1s}
+/* ── Generic ── */
+.card{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sh-1);padding:20px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--teal-ink)}
+.h2{font-size:19px;font-weight:800;margin:3px 0 0;letter-spacing:-.2px;color:var(--navy);line-height:1.25}
+.sub{font-size:13.5px;color:var(--muted);margin:5px 0 0}
+.sec-head{margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:11px 18px;border-radius:14px;font-weight:700;font-size:15px;border:0;text-decoration:none;line-height:1.2;transition:transform .12s,filter .15s,background .15s}
+.btn:active{transform:scale(.98)}
+.btn svg{width:19px;height:19px;flex:none}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--navy-2)}
+.btn.teal{background:var(--teal-ink);color:#fff}
+.btn.teal:hover{filter:brightness(1.07)}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.wa:hover{filter:brightness(1.08)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line-2)}
+.btn.ghost:hover{border-color:var(--navy)}
+.btn.sm{min-height:36px;padding:7px 12px;font-size:13px;border-radius:10px}
+.btn.block{width:100%}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;background:#eef3f8;color:var(--ink-2);border-radius:999px;padding:5px 11px;line-height:1.2}
+.chip.t{background:var(--teal-soft);color:var(--teal-ink)}
+.tnum{display:inline-grid;place-items:center;min-width:30px;height:22px;padding:0 6px;border-radius:7px;font-size:12px;font-weight:800;color:#fff;letter-spacing:.2px}
+.tnum.dk{color:#3a2a00}
 
-/* ─ SUMMARY ─ */
-.summary{max-width:620px;margin:0 auto;padding:0 16px 16px}
-.sum-card{background:var(--navy);border-radius:16px;padding:22px;color:#fff}
-.sum-title{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:.55;margin-bottom:16px}
-.sum-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.sum-row:last-child{border-bottom:none}
-.sum-label{font-size:13px;opacity:.75}
-.sum-val{font-size:15px;font-weight:700}
-.sum-price{font-size:26px;font-weight:800;color:var(--teal)}
-.sum-note{font-size:12px;opacity:.45;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+/* ── Patient hero ── */
+.hero{background:radial-gradient(900px 340px at 50% -20%,#2a6aa8 0%,rgba(42,106,168,0) 62%),linear-gradient(165deg,var(--navy) 0%,#0a223d 100%);color:#fff;padding:30px 16px 76px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -1px -10%;height:60px;background:radial-gradient(60% 100% at 50% 100%,rgba(0,180,216,.18),transparent)}
+.hero .eyebrow{color:#7fdcf0}
+.hero h1{font-size:30px;line-height:1.12;margin:8px 0 8px;font-weight:800;letter-spacing:-.4px}
+.hero-meta{font-size:13px;opacity:.75;display:flex;gap:4px 14px;justify-content:center;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:640px;margin:22px auto 0;position:relative;z-index:1}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:11px 6px 10px;backdrop-filter:blur(4px)}
+.stat b{display:block;font-size:19px;font-weight:800;letter-spacing:-.2px;line-height:1.2}
+.stat span{font-size:10.5px;opacity:.72;text-transform:uppercase;letter-spacing:.7px;font-weight:600}
+.pv-main{max-width:780px;margin:-52px auto 0;padding:0 16px 28px;position:relative;display:grid;gap:16px;z-index:2;grid-template-columns:minmax(0,1fr)}
+.preview-bar{position:sticky;top:56px;z-index:35;background:#fff7e0;color:#5a4300;border-bottom:1px solid #f1d98a;padding:9px 16px;font-size:13.5px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
 
-/* ─ CTA ─ */
-.cta{max-width:620px;margin:16px auto 0;padding:0 16px 40px;display:flex;flex-direction:column;gap:10px}
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 20px;border-radius:14px;font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:inherit}
-.btn-wa{background:var(--green);color:#fff}
-.btn-call{background:#fff;color:var(--navy);border:2px solid var(--border)}
-.btn svg{width:20px;height:20px;flex-shrink:0}
-footer{text-align:center;padding:20px 16px 40px;color:var(--muted);font-size:12px}
+/* ── Odontogram ── */
+.odo-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -10px;padding:2px 10px 4px}
+.odo svg{display:block;width:100%;height:auto;user-select:none;-webkit-user-select:none}
+.gen .odo svg{min-width:560px}
+.odt{outline:none}
+.odt.click{cursor:pointer}
+.odt .hl{opacity:0;transition:opacity .15s}
+.odt.click:hover .hl{opacity:.45}
+.odt.sel .hl{opacity:1}
+.odt:focus-visible .hl{opacity:1}
+.odt .tb{transition:transform .2s}
+.odt.click:hover .tb{transform:translateY(-1px)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:12px}
+.lg{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-2);font-weight:500}
+.lg i{width:13px;height:13px;border-radius:4px;display:inline-block;flex:none}
+.lg i.dash{background:transparent!important;border:1.5px dashed var(--c-mis)}
+.odo-tip{font-size:12.5px;color:var(--muted);margin-top:8px;display:flex;gap:6px;align-items:center}
 
-/* ─ GENERATOR ─ */
-.gen{max-width:620px;margin:0 auto;padding:24px 16px 60px}
-.gen-hd{margin-bottom:24px}
-.gen-hd h2{font-size:20px;font-weight:800;color:var(--navy)}
-.gen-hd p{font-size:14px;color:var(--muted);margin-top:4px}
-.fld{margin-bottom:14px}
-.fld label{display:block;font-size:11px;font-weight:700;color:var(--navy);margin-bottom:5px;text-transform:uppercase;letter-spacing:.6px}
-.fld input,.fld select,.fld textarea{width:100%;padding:11px 14px;border:2px solid var(--border);border-radius:10px;font-size:14px;font-family:inherit;outline:none;background:#fff;color:var(--text);transition:border-color .2s}
-.fld input:focus,.fld select:focus{border-color:var(--teal)}
-.fld-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.phases-box{border:2px solid var(--border);border-radius:12px;background:#fff;overflow:hidden;margin-bottom:10px}
-.ph-item{padding:14px;border-bottom:1px solid var(--border)}
-.ph-item:last-child{border-bottom:none}
-.ph-item-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.ph-item-lbl{font-size:13px;font-weight:700;color:var(--navy)}
-.ph-rm{background:#fee2e2;color:var(--red);border:none;border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit}
-.ph-add{width:100%;padding:13px;background:none;border:2px dashed var(--border);border-radius:10px;cursor:pointer;color:var(--muted);font-size:14px;font-family:inherit;transition:all .2s}
-.ph-add:hover{border-color:var(--teal);color:var(--teal);background:#f0fbff}
-.gen-btn{width:100%;padding:15px;background:var(--navy);color:#fff;border:none;border-radius:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:6px;transition:background .2s}
-.gen-btn:hover{background:var(--navy2)}
-.link-box{background:#fff;border:2px solid var(--teal);border-radius:12px;padding:16px;margin-top:16px}
-.link-label{font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
-.link-url{font-size:12px;color:var(--text);word-break:break-all;line-height:1.5}
-.copy-btn{margin-top:10px;padding:8px 16px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
-.copy-btn.copied{background:#10b981}
-.divider{height:1px;background:var(--border);margin:20px 0}
-@media(max-width:480px){.fld-row{grid-template-columns:1fr}.hero-patient{font-size:22px}}
+/* ── Player ── */
+.player{padding:0;overflow:hidden}
+.pl-head{padding:20px 20px 12px}
+.pl-tabs{display:flex;gap:8px;overflow-x:auto;padding:0 20px 14px;scrollbar-width:none}
+.pl-tabs::-webkit-scrollbar{display:none}
+.pl-tab{flex:none;display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 13px 5px 5px;font-size:13px;font-weight:600;color:var(--ink-2);min-height:36px}
+.pl-tab:hover{border-color:var(--line-2)}
+.pl-tab[aria-selected=true]{border-color:var(--navy);background:var(--navy);color:#fff}
+.pl-stage{position:relative;background:#0a2140;aspect-ratio:4/3;overflow:hidden}
+.pl-stage>svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pl-badge{position:absolute;top:10px;left:10px;max-width:calc(100% - 92px);display:flex;align-items:center;gap:8px;background:rgba(6,22,42,.66);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 12px 4px 4px;font-size:12.5px;font-weight:600;backdrop-filter:blur(6px)}
+.pl-badge .bt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.pl-badge .tnum{flex:none}
+.pl-count{position:absolute;top:10px;right:10px;background:rgba(6,22,42,.66);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:5px 11px;font-size:12px;font-weight:700;letter-spacing:.4px;backdrop-filter:blur(6px)}
+.pl-timer{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;align-items:center;gap:9px;background:rgba(6,22,42,.78);color:#fff;border:1px solid rgba(255,209,102,.4);border-radius:999px;padding:5px 14px 5px 6px;font-size:13px;font-weight:700;white-space:nowrap;backdrop-filter:blur(6px);transition:opacity .25s}
+.pl-timer svg{width:28px;height:28px;flex:none}
+.pl-xray{position:absolute;right:10px;bottom:10px;background:rgba(6,22,42,.66);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:6px 12px;font-size:12px;font-weight:700;display:flex;gap:6px;align-items:center;min-height:34px}
+.pl-xray[aria-pressed=true]{background:#00b4d8;color:#04202b;border-color:#00b4d8}
+.pl-info{padding:16px 20px 4px;min-height:124px}
+.pl-k{font-size:11.5px;font-weight:700;color:var(--teal-ink);letter-spacing:1px;text-transform:uppercase}
+.pl-title{font-size:19px;font-weight:800;margin:3px 0 5px;color:var(--navy);letter-spacing:-.2px;line-height:1.25}
+.pl-desc{font-size:14.5px;color:var(--ink-2);margin:0}
+.pl-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.pl-ctrl{display:flex;align-items:center;gap:8px;padding:12px 20px 4px}
+.ib{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:#fff;display:grid;place-items:center;flex:none;color:var(--navy)}
+.ib:hover{border-color:var(--navy)}
+.ib svg{width:18px;height:18px}
+.ib.play{background:var(--navy);border-color:var(--navy);color:#fff;width:52px;height:52px}
+.ib.play svg{width:22px;height:22px}
+.segs{flex:1;display:flex;gap:3px;align-items:center;min-width:0}
+.seg{flex:1;height:30px;background:none;border:0;padding:0;position:relative;min-width:6px}
+.seg::before{content:"";position:absolute;left:0;right:0;top:12px;height:6px;border-radius:3px;background:#dfe6ee}
+.seg i{position:absolute;left:0;top:12px;height:6px;border-radius:3px;background:var(--teal);width:calc(var(--p,0)*100%)}
+.seg.cur::before{background:#c9d6e3}
+.steps{display:flex;gap:6px;overflow-x:auto;padding:6px 20px 20px;scrollbar-width:thin}
+.step{flex:none;border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:6px 10px;font-size:12px;font-weight:600;color:var(--ink-2);display:flex;gap:6px;align-items:center;white-space:nowrap}
+.step b{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e2e8f0;font-size:10.5px;color:var(--ink-2)}
+.step.done b{background:var(--teal-soft);color:var(--teal-ink)}
+.step.cur{border-color:var(--navy);background:var(--navy);color:#fff}
+.step.cur b{background:#fff;color:var(--navy)}
+
+/* ── Timeline ── */
+.tl{position:relative;display:grid;gap:12px}
+.tl::before{content:"";position:absolute;left:17px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--teal),#cfe7ef 70%,var(--line))}
+.ph{position:relative;padding-left:50px;opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.ph.in{opacity:1;transform:none}
+.ph-dot{position:absolute;left:0;top:4px;width:36px;height:36px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px;box-shadow:0 0 0 4px #fff}
+.ph-card{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff}
+.ph-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.ph-when{font-size:11.5px;font-weight:700;color:var(--teal-ink);text-transform:uppercase;letter-spacing:.7px}
+.ph-title{font-size:15.5px;font-weight:700;color:var(--navy);margin-top:1px;line-height:1.3}
+.ph-dur{flex:none;font-size:12px;font-weight:700;background:var(--teal-soft);color:var(--teal-ink);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.ph-desc{font-size:13.5px;color:var(--ink-2);margin:6px 0 0}
+.ph-teeth{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}
+.ph-bar{height:4px;background:#edf1f6;border-radius:2px;margin-top:10px;overflow:hidden}
+.ph-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),#48cae4);transition:width 1.1s ease .15s;border-radius:2px}
+.ph.wait .ph-dot{background:#fff;color:#8a6d00;border:2px dashed #e8c658;box-shadow:0 0 0 4px #fff}
+.ph.wait .ph-dot svg{width:16px;height:16px}
+.ph.wait .ph-card{background:#fffbef;border:1px dashed #ead48c}
+.ph.wait .ph-when{color:#8a6d00}
+.ph.wait .ph-dur{background:#fbefc4;color:#6b5400}
+.tl-sum{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+
+/* ── Invoice ── */
+.inv-head{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2px solid var(--navy)}
+.inv-head h2{font-size:22px;letter-spacing:2px;margin:0;color:var(--navy);font-weight:800}
+.inv-meta{font-size:13px;color:var(--ink-2);display:grid;gap:2px}
+.inv-meta b{color:var(--ink)}
+.inv-clinic{font-size:12.5px;color:var(--muted);text-align:right}
+.inv-clinic b{color:var(--navy);font-size:14px}
+.inv-tbl{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+.inv-tbl th{font-size:10.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--muted);text-align:left;padding:9px 6px;border-bottom:1px solid var(--line);font-weight:700}
+.inv-tbl td{padding:9px 6px;border-bottom:1px solid #eef2f6;vertical-align:top}
+.inv-tbl .r{text-align:right;white-space:nowrap}
+.inv-tbl tr.grp td{font-weight:700;color:var(--navy);background:#f6f9fc;border-bottom-color:var(--line)}
+.inv-tbl tr.grp td small{font-weight:500;color:var(--muted);display:block;font-size:12px}
+.inv-tbl tr.it td:first-child{padding-left:20px;color:var(--ink-2)}
+.inv-tbl tr.it td:first-child::before{content:"–";margin-right:6px;color:var(--line-2)}
+.incl{color:var(--ok);font-weight:600;font-size:12.5px}
+.inv-sum{margin:14px 0 0 auto;max-width:330px;display:grid;gap:7px;font-size:14px}
+.inv-sum div{display:flex;justify-content:space-between;gap:12px}
+.inv-sum .disc{color:var(--ok);font-weight:600}
+.inv-total{font-size:21px;font-weight:800;color:var(--navy);border-top:2px solid var(--navy);padding-top:9px;margin-top:3px}
+.inv-note{font-size:13px;color:var(--ink-2);margin-top:16px;background:#f6f9fc;border-radius:12px;padding:12px 14px;white-space:pre-wrap}
+.inv-fine{font-size:11.5px;color:var(--muted);margin-top:12px;line-height:1.55}
+
+/* ── CTA ── */
+.cta-grid{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.cta-grid .wide{grid-column:1/-1}
+.pv-foot{text-align:center;padding:8px 16px 40px;color:var(--muted);font-size:12px;line-height:1.7}
+
+/* ── Generator ── */
+.gen{max-width:1180px;margin:0 auto;padding:22px 16px 110px}
+.gen-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.gen-head h1{font-size:24px;margin:2px 0 0;color:var(--navy);letter-spacing:-.3px;line-height:1.2}
+.gen-head-act{display:flex;gap:8px;flex-wrap:wrap}
+.gen-grid{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
+.gen-main{display:grid;gap:16px;min-width:0;grid-template-columns:minmax(0,1fr)}
+@media (min-width:1000px){.gen-grid{grid-template-columns:minmax(0,1fr) 360px}.gen-side{position:sticky;top:72px;align-self:start}}
+.gen .card h2{font-size:16px;font-weight:800;color:var(--navy);margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.gen .card h2 .n{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:#fff;font-size:12px}
+.grid2{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.fld{display:grid;gap:5px;min-width:0}
+.fld>span{font-size:11.5px;font-weight:700;color:var(--ink-2);text-transform:uppercase;letter-spacing:.6px}
+.inp{width:100%;min-height:44px;padding:10px 12px;border:1.5px solid var(--line-2);border-radius:11px;background:#fff;font-size:15px;outline:none;transition:border-color .15s,box-shadow .15s}
+.inp:focus{border-color:var(--teal-ink);box-shadow:0 0 0 3px rgba(0,180,216,.18)}
+textarea.inp{min-height:76px;resize:vertical}
+.hint{font-size:13px;color:var(--muted);margin:-4px 0 10px}
+.sel-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 10px;font-size:13.5px}
+.sel-bar .lbl{font-weight:700;color:var(--ink-2)}
+.selchips{display:flex;gap:4px;flex-wrap:wrap}
+.selchip{background:var(--navy);color:#fff;border-radius:7px;padding:2px 7px;font-size:12px;font-weight:800}
+.qs{border:1px dashed var(--line-2);background:#fff;border-radius:8px;padding:4px 9px;font-size:12px;font-weight:600;color:var(--ink-2)}
+.qs:hover{border-color:var(--navy);color:var(--navy)}
+.proc-btns{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px}
+.pbtn{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line-2);background:#fff;border-radius:12px;padding:9px 10px;font-size:13.5px;font-weight:700;color:var(--ink);min-height:44px;text-align:left}
+.pbtn i{width:12px;height:12px;border-radius:4px;flex:none}
+.pbtn:hover:not(:disabled){border-color:var(--navy);background:#f7fafc}
+.pbtn:disabled{opacity:.42;cursor:not-allowed}
+.pbtn.clear{color:var(--danger)}
+.trow{border:1px solid var(--line);border-radius:14px;padding:12px;display:grid;gap:10px;background:#fff;transition:border-color .2s,box-shadow .2s}
+.trow+.trow{margin-top:10px}
+.trow.flash{border-color:var(--teal-ink);box-shadow:0 0 0 3px rgba(0,180,216,.18)}
+.trow-top{display:flex;align-items:center;gap:8px 10px;flex-wrap:wrap}
+.trow-name{flex:1 1 170px;min-width:0;font-size:13.5px;line-height:1.3}
+.trow-name b{display:block;font-size:14.5px;color:var(--navy)}
+.trow-name span{color:var(--muted);font-size:12.5px}
+.trow-sum{font-weight:800;color:var(--navy);white-space:nowrap}
+.xbtn{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:#fff;color:var(--muted);display:grid;place-items:center;flex:none}
+.xbtn:hover{color:var(--danger);border-color:var(--danger)}
+.opts{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px}
+.opt{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);font-weight:500}
+.opt input{width:17px;height:17px;accent-color:var(--navy)}
+.opt select{border:1.5px solid var(--line-2);border-radius:8px;padding:4px 6px;background:#fff;font-size:13px}
+.prices{display:flex;flex-wrap:wrap;gap:6px}
+.pr{display:inline-flex;align-items:center;gap:6px;background:#f6f9fc;border:1px solid var(--line);border-radius:10px;padding:3px 4px 3px 9px;font-size:12px;color:var(--ink-2);font-weight:600}
+.pr input{width:66px;border:1px solid var(--line-2);border-radius:7px;padding:4px 6px;text-align:right;font-weight:700;font-size:13px;background:#fff}
+.empty{border:1.5px dashed var(--line-2);border-radius:14px;padding:18px;text-align:center;color:var(--muted);font-size:13.5px}
+.mis-line{font-size:13px;color:var(--muted);margin-top:10px}
+.xrow{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #eef2f6}
+.xrow:last-child{border-bottom:0}
+.xrow label{flex:1;display:flex;gap:9px;align-items:center;font-size:14px;font-weight:500;min-width:0}
+.xrow input[type=checkbox]{width:18px;height:18px;accent-color:var(--navy);flex:none}
+.xrow .pinp{width:84px;border:1.5px solid var(--line-2);border-radius:9px;padding:6px 8px;text-align:right;font-weight:700}
+.add-row{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.add-row .inp{flex:1;min-width:150px}
+.add-row .inp.p{flex:0 0 110px;min-width:0}
+.side-card{display:grid;gap:12px}
+.side-total{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
+.side-total span{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted)}
+.side-total b{font-size:28px;color:var(--navy);letter-spacing:-.4px}
+.side-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.side-stats div{background:#f6f9fc;border-radius:11px;padding:8px;text-align:center}
+.side-stats b{display:block;color:var(--navy);font-size:15px}
+.side-stats span{font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.mini-tl{display:grid;gap:4px;max-height:250px;overflow:auto;font-size:12.5px;padding-right:4px}
+.mini-tl div{display:flex;gap:8px;align-items:baseline}
+.mini-tl em{font-style:normal;color:var(--teal-ink);font-weight:700;min-width:86px;font-size:11.5px}
+.mini-tl div.w{color:#8a6d00}
+.mini-tl div.w em{color:#8a6d00}
+.link-box{display:grid;gap:8px;border:1.5px solid var(--teal-ink);border-radius:14px;padding:12px;background:#f2fbfd}
+.link-box .inp{font-size:12.5px;min-height:38px}
+.link-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:45;background:#fff;border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;align-items:center;box-shadow:0 -6px 20px rgba(15,45,78,.08)}
+.mbar .tot{flex:1;line-height:1.15}
+.mbar .tot span{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.6px}
+.mbar .tot b{display:block;font-size:19px;color:var(--navy)}
+@media (min-width:1000px){.mbar{display:none}}
+dialog{border:0;border-radius:20px;padding:0;max-width:min(560px,calc(100vw - 24px));width:100%;box-shadow:var(--sh-2)}
+dialog::backdrop{background:rgba(9,25,44,.5)}
+.dlg{padding:20px;display:grid;gap:12px}
+.dlg h3{margin:0;color:var(--navy);font-size:18px}
+.dlg .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 12px;max-height:60vh;overflow:auto;padding:2px}
+.dlg .prow{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13.5px;border-bottom:1px solid #eef2f6;padding:5px 0}
+.dlg .prow input{width:88px;border:1.5px solid var(--line-2);border-radius:9px;padding:6px 8px;text-align:right;font-weight:700}
+.dlg menu{display:flex;gap:8px;justify-content:flex-end;margin:4px 0 0;padding:0;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:all .25s;z-index:60;box-shadow:var(--sh-2)}
+.toast.on{opacity:1;transform:translateX(-50%)}
+
+@media (max-width:520px){
+  .topbar .tb-link{display:none}
+  .brand small{font-size:11px}
+  .pl-xray{padding:4px 10px;font-size:11.5px;min-height:30px;right:8px;bottom:8px}
+  .pl-badge{font-size:12px}
+  .hero h1{font-size:25px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .card{padding:16px}
+  .pl-head{padding:16px 16px 10px}.pl-tabs{padding:0 16px 12px}.pl-info{padding:14px 16px 2px}.pl-ctrl{padding:10px 16px 2px}.steps{padding:6px 16px 16px}
+  .pl-title{font-size:17.5px}.pl-desc{font-size:14px}
+  .inv-clinic{text-align:left}
+  .cta-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.ph{opacity:1;transform:none}}
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff;font-size:12.5px}
+  .topbar,.no-print,#secPlayer,#secCta,.preview-bar,#gen,.mbar,.toast,.odo-tip,.tl-sum,.pv-foot{display:none!important}
+  .odt .hl{opacity:0!important}
+  .hero{background:none!important;color:var(--ink);padding:0 0 8px;text-align:left}
+  .hero::after{display:none}
+  .hero .eyebrow{color:var(--teal-ink)}
+  .hero h1{font-size:22px}
+  .hero-meta{justify-content:flex-start;opacity:1;color:var(--ink-2)}
+  .stats{margin:10px 0 0;max-width:none}
+  .stat{border-color:var(--line);background:#fff}
+  .stat span{opacity:1;color:var(--muted)}
+  .pv-main{margin:0;padding:0;max-width:none;gap:10px}
+  .card{box-shadow:none;border:1px solid var(--line);padding:12px}
+  #secOdo{order:0;break-inside:avoid}#secInv{order:1}#secTl{order:2;break-before:page}
+  #secOdo .sub{display:none}
+  .inv-tbl tr{break-inside:avoid}
+  .inv-sum,.inv-fine{break-inside:avoid}
+  .tl{grid-template-columns:1fr 1fr;gap:6px}
+  .tl::before{display:none}
+  .ph{opacity:1!important;transform:none!important;break-inside:avoid;padding-left:32px}
+  .ph-dot{width:24px;height:24px;font-size:10.5px;box-shadow:none}
+  .ph-card{padding:7px 9px}
+  .ph-title{font-size:12.5px}.ph-desc{font-size:10.5px;margin-top:3px}.ph-when{font-size:9.5px}.ph-dur{font-size:10px;padding:2px 7px}
+  .ph-teeth .tnum{min-width:22px;height:17px;font-size:10px}
+  .ph-bar{display:none}
+  .pv-foot{padding:6px 0 0}
+}
 </style>
 </head>
 <body>
+<header class="topbar">
+  <div class="logo" aria-hidden="true">M</div>
+  <div class="brand"><b>Medident</b><small>Dental Clinic · Pejë · që nga 1999</small></div>
+  <div class="sp"></div>
+  <a class="tb-link no-print" href="https://medident-ks.com/" id="tbHome">medident-ks.com</a>
+</header>
 
-<div class="hdr">
-  <div class="hdr-logo">M</div>
-  <div class="hdr-name">Medident</div>
-  <div class="hdr-city">· Pejë, Kosovë</div>
-</div>
-
-<!-- ═══ PATIENT VIEW ═══ -->
-<div id="plan-view" style="display:none">
-  <div class="hero">
-    <div class="hero-label">Plani i Trajtimit Tuaj</div>
-    <div class="hero-patient" id="v-patient"></div>
-    <div class="hero-date" id="v-date"></div>
-    <div class="hero-chips">
-      <span class="chip" id="v-treatment"></span>
-      <span class="chip" id="v-phases-count"></span>
-    </div>
+<!-- ═════════════ PATIENT VIEW ═════════════ -->
+<div id="pv" hidden>
+  <div class="preview-bar no-print" id="pvBar" hidden>
+    <span>👁 Pamje paraprake – kështu e sheh pacienti</span>
+    <button class="btn sm ghost" id="pvBack" type="button">← Kthehu te redaktimi</button>
   </div>
 
-  <div class="tl" id="timeline-wrap"></div>
+  <section class="hero">
+    <div class="eyebrow">Plani i trajtimit tuaj</div>
+    <h1 id="pvName">—</h1>
+    <div class="hero-meta" id="pvMeta"></div>
+    <div class="stats" id="pvStats"></div>
+  </section>
 
-  <div class="summary">
-    <div class="sum-card">
-      <div class="sum-title">Përmbledhje</div>
-      <div class="sum-row"><span class="sum-label">Kohëzgjatja totale</span><span class="sum-val" id="v-duration"></span></div>
-      <div class="sum-row"><span class="sum-label">Numri i hapave</span><span class="sum-val" id="v-steps"></span></div>
-      <div class="sum-row"><span class="sum-label">Çmimi i trajtimit</span><span class="sum-val sum-price" id="v-price"></span></div>
-      <div class="sum-note" id="v-note" style="display:none"></div>
-    </div>
-  </div>
+  <main class="pv-main">
+    <section class="card" id="secOdo">
+      <div class="sec-head">
+        <div class="eyebrow">Odontogrami</div>
+        <h2 class="h2">Dhëmbët që do të trajtohen</h2>
+        <p class="sub">Dhëmbët e shënuar me ngjyrë janë pjesë e planit. Prekni njërin për të parë animacionin e trajtimit.</p>
+      </div>
+      <div class="odo-scroll"><div class="odo" id="pvOdo"></div></div>
+      <div class="legend" id="pvLegend"></div>
+    </section>
 
-  <div class="cta">
-    <a id="btn-wa" href="#" class="btn btn-wa">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.528 5.845L0 24l6.322-1.524A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.017-1.375l-.36-.214-3.73.899.938-3.635-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
-      WhatsApp · +383 49 772 307
-    </a>
-    <a href="tel:+38349772307" class="btn btn-call">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-      Telefono Klinikën
-    </a>
-  </div>
+    <section class="card player" id="secPlayer" aria-labelledby="plH">
+      <div class="pl-head">
+        <div class="eyebrow">Animacion hap pas hapi</div>
+        <h2 class="h2" id="plH">Si trajtohet çdo dhëmb</h2>
+      </div>
+      <div class="pl-tabs" id="plTabs" role="tablist" aria-label="Zgjidhni dhëmbin"></div>
+      <div class="pl-stage" id="plStage">
+        <svg id="plSvg" viewBox="0 0 400 300" role="img" aria-labelledby="plTitle plDesc" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="pl-badge" id="plBadge"></div>
+        <div class="pl-count" id="plCount"></div>
+        <div class="pl-timer" id="plTimer" hidden>
+          <svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="14" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="4"/><circle id="plRing" cx="18" cy="18" r="14" fill="none" stroke="#ffd166" stroke-width="4" stroke-linecap="round" stroke-dasharray="87.96" stroke-dashoffset="87.96" transform="rotate(-90 18 18)"/></svg>
+          <span id="plTimerTxt"></span>
+        </div>
+        <button class="pl-xray" id="plXray" type="button" aria-pressed="false" aria-label="Pamje rentgen (e brendshme)" hidden>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          Rentgen
+        </button>
+      </div>
+      <div class="pl-info" aria-live="polite">
+        <div class="pl-k" id="plK"></div>
+        <h3 class="pl-title" id="plTitle"></h3>
+        <p class="pl-desc" id="plDesc"></p>
+        <div class="pl-chips" id="plChips"></div>
+      </div>
+      <div class="pl-ctrl">
+        <button class="ib" id="plPrev" type="button" aria-label="Hapi i mëparshëm"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+        <button class="ib play" id="plPlay" type="button" aria-label="Luaj"><svg viewBox="0 0 24 24" fill="currentColor" id="plPlayIco"><path d="M7 4v16l13-8z"/></svg></button>
+        <button class="ib" id="plNext" type="button" aria-label="Hapi tjetër"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+        <div class="segs" id="plSegs"></div>
+      </div>
+      <div class="steps" id="plSteps"></div>
+    </section>
 
-  <footer>
-    Medident Dental Clinic · Rr. Mbretëresha Teuta, Pejë, Kosovë · Est. 1999<br>
-    Ky plan trajtimi është i personalizuar dhe konfidencial.
+    <section class="card" id="secTl">
+      <div class="sec-head">
+        <div class="eyebrow">Kalendari</div>
+        <h2 class="h2">Fazat e trajtimit</h2>
+        <p class="sub">Afatet janë orientuese dhe përshtaten sipas shërimit tuaj.</p>
+      </div>
+      <div class="tl" id="pvTl"></div>
+      <div class="tl-sum" id="pvTlSum"></div>
+    </section>
+
+    <section class="card" id="secInv">
+      <div class="inv-head">
+        <div>
+          <h2>PROFATURË</h2>
+          <div class="inv-meta" id="invMeta"></div>
+        </div>
+        <div class="inv-clinic">
+          <b>Medident Dental Clinic</b><br>
+          Rr. Mbretëresha Teuta, Pejë, Kosovë<br>
+          Tel/WhatsApp: +383 49 772 307<br>
+          medident-ks.com
+        </div>
+      </div>
+      <table class="inv-tbl" id="invTbl">
+        <thead><tr><th>Përshkrimi</th><th>Dhëmbi</th><th class="r">Çmimi</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="inv-sum" id="invSum"></div>
+      <div class="inv-note" id="invNote" hidden></div>
+      <p class="inv-fine" id="invFine"></p>
+    </section>
+
+    <section class="card no-print" id="secCta">
+      <div class="sec-head">
+        <div class="eyebrow">Hapi i radhës</div>
+        <h2 class="h2">Keni pyetje ose doni të rezervoni?</h2>
+        <p class="sub">Na shkruani në WhatsApp – ju përgjigjemi shpejt.</p>
+      </div>
+      <div class="cta-grid">
+        <a class="btn wa wide" id="ctaWa" href="https://wa.me/38349772307" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35z"/><path d="M12 0C5.37 0 0 5.37 0 12c0 2.12.56 4.12 1.53 5.85L0 24l6.32-1.52A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 21.82a9.82 9.82 0 01-5.02-1.38l-.36-.21-3.73.9.94-3.64-.24-.37A9.82 9.82 0 1112 21.82z"/></svg>
+          Shkruani në WhatsApp
+        </a>
+        <a class="btn ghost" href="tel:+38349772307">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Telefono
+        </a>
+        <button class="btn ghost" type="button" id="ctaPrint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+          Ruaj si PDF
+        </button>
+      </div>
+    </section>
+  </main>
+  <footer class="pv-foot">
+    Medident Dental Clinic · Rr. Mbretëresha Teuta, Pejë, Kosovë · që nga 1999<br>
+    Ky plan është i personalizuar dhe konfidencial.
   </footer>
 </div>
 
-<!-- ═══ GENERATOR VIEW ═══ -->
-<div id="gen-view" style="display:none">
-  <div class="gen">
-    <div class="gen-hd">
-      <h2>🦷 Gjenero Plan Trajtimi</h2>
-      <p>Krijo link të personalizuar — dërgo direkt te pacienti via WhatsApp ose SMS</p>
+<!-- ═════════════ GENERATOR (STAF) ═════════════ -->
+<div id="gen" class="gen" hidden>
+  <div class="gen-head">
+    <div>
+      <div class="eyebrow">Medident · vetëm për stafin</div>
+      <h1>Plani i trajtimit &amp; profatura</h1>
     </div>
-
-    <div class="fld">
-      <label>Emri i Pacientit</label>
-      <input id="g-patient" placeholder="p.sh. Maria Krasniqi" type="text">
-    </div>
-
-    <div class="fld-row">
-      <div class="fld">
-        <label>Template / Lloji</label>
-        <select id="g-template" onchange="applyTemplate()">
-          <option value="">— I personalizuar —</option>
-          <option value="implant">🦷 Implant Dentar</option>
-          <option value="veneer">✨ Veneers Porcelan</option>
-          <option value="whitening">🌟 Zbardhje Profesionale</option>
-          <option value="aligner">😁 Aparate Transparente</option>
-          <option value="crown">👑 Kurorë Porcelan</option>
-          <option value="rootcanal">🔬 Kanali Rrënjor</option>
-        </select>
-      </div>
-      <div class="fld">
-        <label>Data e Planit</label>
-        <input id="g-date" type="date">
-      </div>
-    </div>
-
-    <div class="fld-row">
-      <div class="fld">
-        <label>Çmimi Total</label>
-        <input id="g-price" placeholder="p.sh. 1,200€" type="text">
-      </div>
-      <div class="fld">
-        <label>Kohëzgjatja Totale</label>
-        <input id="g-duration" placeholder="p.sh. 4–6 muaj" type="text">
-      </div>
-    </div>
-
-    <div class="fld">
-      <label>Shënim (opsional)</label>
-      <input id="g-note" placeholder="p.sh. Çmimi mund të ndryshojë sipas gjendjes klinike" type="text">
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="fld">
-      <label>Fazat e Trajtimit</label>
-      <div class="phases-box" id="phases-container"></div>
-      <button class="ph-add" onclick="addPhase()">+ Shto Fazë</button>
-    </div>
-
-    <button class="gen-btn" onclick="generateLink()">⚡ Gjenero Link-un e Pacientit</button>
-
-    <div class="link-box" id="link-box" style="display:none">
-      <div class="link-label">✅ Link-u i Planit (dërgo te pacienti)</div>
-      <div class="link-url" id="link-url"></div>
-      <button class="copy-btn" id="copy-btn" onclick="copyLink()">📋 Kopjo Link-un</button>
+    <div class="gen-head-act">
+      <button class="btn sm ghost" type="button" id="gPricesBtn">⚙ Çmimet</button>
+      <button class="btn sm ghost" type="button" id="gNewBtn">＋ Plan i ri</button>
     </div>
   </div>
+
+  <div class="gen-grid">
+    <div class="gen-main">
+      <section class="card">
+        <h2><span class="n">1</span>Pacienti</h2>
+        <div class="grid2">
+          <label class="fld"><span>Emri dhe mbiemri</span><input class="inp" id="gName" autocomplete="off" placeholder="p.sh. Arta Krasniqi"></label>
+          <label class="fld"><span>Data e planit</span><input class="inp" id="gDate" type="date"></label>
+          <label class="fld"><span>Mjeku</span><input class="inp" id="gDoc" list="gDocList" autocomplete="off" placeholder="Zgjidh ose shkruaj"></label>
+          <label class="fld"><span>Tel. i pacientit (për WhatsApp)</span><input class="inp" id="gPhone" inputmode="tel" autocomplete="off" placeholder="+383 4x xxx xxx"></label>
+        </div>
+        <datalist id="gDocList"><option value="Dr. Lendita Islami Nallbani"><option value="Dr. Faton"></datalist>
+      </section>
+
+      <section class="card">
+        <h2><span class="n">2</span>Odontogrami</h2>
+        <p class="hint">Kliko një ose më shumë dhëmbë (numërimi FDI), pastaj zgjidh trajtimin më poshtë.</p>
+        <div class="odo-scroll"><div class="odo" id="gOdo"></div></div>
+        <div class="legend" id="gLegend"></div>
+        <div class="sel-bar">
+          <span class="lbl">Zgjedhur:</span>
+          <span class="selchips" id="gSel"><span class="sub" style="margin:0">asnjë</span></span>
+          <span style="flex:1"></span>
+          <button class="qs" type="button" data-qs="13,12,11,21,22,23">Frontalët lart</button>
+          <button class="qs" type="button" data-qs="43,42,41,31,32,33">Frontalët poshtë</button>
+          <button class="qs" type="button" data-qs="">Pastro zgjedhjen</button>
+        </div>
+        <div class="proc-btns" id="gProcBtns"></div>
+      </section>
+
+      <section class="card">
+        <h2><span class="n">3</span>Trajtimet sipas dhëmbit</h2>
+        <div id="gList"></div>
+        <div class="mis-line" id="gMis" hidden></div>
+      </section>
+
+      <section class="card">
+        <h2><span class="n">4</span>Shërbime të përgjithshme</h2>
+        <div id="gExtras"></div>
+        <div class="add-row">
+          <input class="inp" id="gCustName" placeholder="Shërbim tjetër (p.sh. Kurorë e përkohshme)" autocomplete="off">
+          <input class="inp p" id="gCustPrice" type="number" min="0" step="1" placeholder="€" inputmode="decimal">
+          <button class="btn sm ghost" type="button" id="gCustAdd">＋ Shto</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2><span class="n">5</span>Profatura</h2>
+        <div class="grid2">
+          <label class="fld"><span>Nr. i profaturës</span><input class="inp" id="gNo" autocomplete="off"></label>
+          <label class="fld"><span>Zbritje (%)</span><input class="inp" id="gDisc" type="number" min="0" max="100" step="1" value="0" inputmode="numeric"></label>
+          <label class="fld"><span>Vlen (ditë)</span><input class="inp" id="gValid" type="number" min="1" step="1" value="30" inputmode="numeric"></label>
+        </div>
+        <label class="fld" style="margin-top:12px"><span>Shënim për pacientin (opsional)</span><textarea class="inp" id="gNote" placeholder="p.sh. Pagesa bëhet sipas fazave. Çmimi përfshin kontrollet pas trajtimit."></textarea></label>
+      </section>
+    </div>
+
+    <aside class="gen-side">
+      <div class="card side-card">
+        <div class="side-total"><span>Totali</span><b id="gTotal">0 €</b></div>
+        <div class="side-stats" id="gStats"></div>
+        <div>
+          <div class="eyebrow" style="margin-bottom:6px">Kalendari (automatik)</div>
+          <div class="mini-tl" id="gMiniTl"></div>
+        </div>
+        <button class="btn primary block" type="button" id="gPreview">👁 Shiko si pacient</button>
+        <button class="btn teal block" type="button" id="gMake">🔗 Krijo linkun për pacientin</button>
+        <div class="link-box" id="gLinkBox" hidden>
+          <input class="inp" id="gLink" readonly aria-label="Linku i planit">
+          <div class="link-acts">
+            <button class="btn sm primary" type="button" id="gCopy">📋 Kopjo</button>
+            <a class="btn sm wa" id="gWa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <button class="btn ghost block" type="button" id="gPrint">🖨 Printo profaturën</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="mbar">
+    <div class="tot"><span>Totali</span><b id="gTotalM">0 €</b></div>
+    <button class="btn sm ghost" type="button" id="gPreviewM">👁 Shiko</button>
+    <button class="btn sm teal" type="button" id="gMakeM">🔗 Linku</button>
+  </div>
+
+  <dialog id="dlgPrices">
+    <form method="dialog" class="dlg">
+      <h3>⚙ Lista e çmimeve</h3>
+      <p class="sub" style="margin:0">Ruhet në këtë pajisje dhe përdoret për planet e reja. Vendos 0 për “i përfshirë”.</p>
+      <div class="pgrid" id="gPriceGrid"></div>
+      <menu>
+        <button class="btn sm ghost" value="reset" type="submit">Rikthe standardet</button>
+        <button class="btn sm ghost" value="cancel" type="submit">Anulo</button>
+        <button class="btn sm primary" value="ok" type="submit">Ruaj</button>
+      </menu>
+    </form>
+  </dialog>
 </div>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
-const TEMPLATES = {
-  implant:{
-    name:"Implant Dentar",duration:"4–6 muaj",
-    note:"Koha varet nga cilësia e kockës dhe numri i implanteve",
-    phases:[
-      {name:"Konsultë & OPG Radiografi",day:"Dita 1",dur:"45 min",bar:45,desc:"Ekzaminim i plotë, panoramike dixhitale 3D, diskutim i planit të trajtimit dhe përzgjedhja e implantit"},
-      {name:"Operacioni i Implantit",day:"Dita 3–7",dur:"90 min",bar:90,desc:"Vendosja kirurgjikale e implantit nën anestezi lokale — procedure e lirë nga dhimbja"},
-      {name:"Periudha e Shërimit (Osteointegrim)",day:"Muajt 1–4",dur:"3–4 muaj",bar:100,desc:"Implanti integrohet me kockën. Kontrolle çdo 6 javë. Mund të jetoni normalisht gjatë kësaj periudhe"},
-      {name:"Masa & Kurorë Provizore",day:"Muaji 4",dur:"60 min",bar:60,desc:"Heqja e tapës shëruese, masa dixhitale precize, vendosja e kurorës provizore porcelan"},
-      {name:"Kurora Definitive Porcelan",day:"Muaji 5",dur:"45 min",bar:45,desc:"Cimentimi i kurorës definitive — rezultat estetik dhe funksional i plotë, jetëgjatësi 20+ vjet"}
-    ]
-  },
-  veneer:{
-    name:"Veneers Porcelan",duration:"2 javë",
-    note:"Rezultat natyral dhe i qëndrueshëm 15+ vjet — zero kompromis estetik",
-    phases:[
-      {name:"Konsultë & Dizajni i Buzëqeshjes",day:"Dita 1",dur:"60 min",bar:60,desc:"Analizë estetike e plotë, mock-up dixhital, zgjedhja e ngjyrës A1/B1, diskutim i formës dhe simetrisë"},
-      {name:"Preparimi Minimal i Dhëmbëve",day:"Dita 7",dur:"90 min",bar:90,desc:"Heqje minimale e smalcit (0.3–0.5 mm), masa dixhitale me skaner intraoral, anestezi lokale"},
-      {name:"Veneers Provizorë",day:"Dita 7",dur:"20 min",bar:20,desc:"Vendosja e veneers provizorë të personalizuar ndërkohë që laboratori prodhon ato definitivet"},
-      {name:"Vendosja e Veneers Definitive",day:"Dita 14",dur:"75 min",bar:75,desc:"Heqja e provizorëve, verifikimi i ngjyrës dhe formës, cimentimi final ultrasonik, kontroll okluzal"}
-    ]
-  },
-  whitening:{
-    name:"Zbardhje Profesionale",duration:"1 ditë + mirëmbajtje",
-    note:"Deri 8 shade më i ndritshëm — pa dhimbje, pa dëmtim të smalcit",
-    phases:[
-      {name:"Pastrim Profesional & Kontroll",day:"Dita 1 (mëngjes)",dur:"30 min",bar:30,desc:"Pastrim ultrasonic i plotë, fotografi para-pas, verifikim i shëndetit të smaltit dhe mishrave"},
-      {name:"Zbardhje Klinike me Dritë LED",day:"Dita 1",dur:"60 min",bar:60,desc:"Aplikim i gel profesional 35% Hydrogen Peroxide, 3 cikle × 15 min me aktivizim LED — pa dhimbje"},
-      {name:"Kit Shtëpiak (opsional)",day:"Ditët 2–14",dur:"20 min/ditë",bar:30,desc:"Gota individuale silikoni me gel 10–16% CP — 20 min para gjumit, për rezultat optimal dhe mirëmbajtje"}
-    ]
-  },
-  aligner:{
-    name:"Aparate Transparente (Linea Aligners)",duration:"6–18 muaj",
-    note:"Numri i aparateve dhe kohëzgjatja varen nga kompleksiteti i rastit",
-    phases:[
-      {name:"Konsultë & Skanim 3D iTero",day:"Dita 1",dur:"45 min",bar:45,desc:"Skanim intraoral preciz, simulim dixhital i rezultatit final — shikoni buzëqeshjen tuaj para fillimit"},
-      {name:"Marrja e Aparateve",day:"Dita 14–21",dur:"30 min",bar:30,desc:"Vendosja e attachment-eve (nëse nevojiten), dorëzimi i seteve të para, udhëzime të detajuara"},
-      {name:"Kontrolle Periodike",day:"Çdo 6–8 javë",dur:"15 min",bar:20,desc:"Monitorim i progresit, dhënia e seteve të reja, rregullime IPR nëse nevojiten — takime të shkurtra"},
-      {name:"Retainues & Finalizim",day:"Muaji 6–18",dur:"30 min",bar:30,desc:"Skanim final verifikues, prodhohet retainuesi transparent për ruajtjen e rezultatit afatgjatë"}
-    ]
-  },
-  crown:{
-    name:"Kurorë Porcelan",duration:"10–14 ditë",
-    note:"Kurora prodhohet në laborator të akredituar evropian",
-    phases:[
-      {name:"Preparimi i Dhëmbit & Masa",day:"Dita 1",dur:"60 min",bar:60,desc:"Preparimi nën anestezi lokale, masa dixhitale precize me skaner 3D, kurorë provizore estetike"},
-      {name:"Prodhimi Laboratorik",day:"Ditët 1–10",dur:"7–10 ditë",bar:35,desc:"Laboratori prodhon kurorën e personalizuar sipas masës suaj — porcelan zirconia me ngjyrë natyrale"},
-      {name:"Vendosja e Kurorës Definitive",day:"Dita 10–14",dur:"45 min",bar:45,desc:"Heqja e provizores, kontrolli estetik dhe okluzal, cimentimi final — duket dhe ndihet si dhëmb natyral"}
-    ]
-  },
-  rootcanal:{
-    name:"Kanali Rrënjor (Endodonti)",duration:"1–2 javë",
-    note:"Procedure pa dhimbje — shpëtojmë dhëmbin tuaj natyral",
-    phases:[
-      {name:"Diagnoza & Radiografi Periapikale",day:"Dita 1",dur:"30 min",bar:30,desc:"Radiografi periapikale CBCT, diagnoza e pulpës, diskutim i planit — vendosim nëse mund të shpëtohet dhëmbi"},
-      {name:"Pastrimi Mekanik & Kimik i Kanalit",day:"Dita 1",dur:"75 min",bar:75,desc:"Anestezi lokale totale, instrumentim rotacional, irrigim me NaOCl — pastrimi i plotë i kanalit"},
-      {name:"Mbushja e Kanalit",day:"Dita 3–7",dur:"45 min",bar:45,desc:"Mbushja hermitike me gutaperkë dhe sealer, verifikim radiografik, mbyllje provizore"},
-      {name:"Restaurimi Final (Kurorë/Mbushje)",day:"Dita 14",dur:"60 min",bar:60,desc:"Vendosja e restaurimit final — kurorë porcelan ose mbushje kompozit — për mbrojtje afatgjatë"}
-    ]
-  }
-};
-
-let phCount=0;
-
-function addPhase(d={}){
-  phCount++;
-  const n=phCount;
-  const box=document.getElementById('phases-container');
-  const el=document.createElement('div');
-  el.className='ph-item'; el.id='ph-'+n;
-  el.innerHTML=`
-    <div class="ph-item-hdr">
-      <span class="ph-item-lbl">Faza ${n}</span>
-      <button class="ph-rm" onclick="removePh(${n})">✕</button>
-    </div>
-    <div class="fld-row">
-      <div class="fld"><label>Emri i Fazës</label><input id="phn-${n}" value="${d.name||''}" placeholder="p.sh. Operacioni i Implantit"></div>
-      <div class="fld"><label>Kur</label><input id="phd-${n}" value="${d.day||''}" placeholder="p.sh. Dita 3–7"></div>
-    </div>
-    <div class="fld-row">
-      <div class="fld"><label>Kohëzgjatja</label><input id="phu-${n}" value="${d.dur||''}" placeholder="90 min"></div>
-      <div class="fld"><label>Bar animacion (1–100)</label><input id="phb-${n}" type="number" min="5" max="100" value="${d.bar||50}"></div>
-    </div>
-    <div class="fld"><label>Përshkrimi</label><input id="phx-${n}" value="${d.desc||''}" placeholder="Çfarë ndodh gjatë kësaj faze..."></div>`;
-  box.appendChild(el);
-}
-
-function removePh(n){const e=document.getElementById('ph-'+n);if(e)e.remove();}
-
-function applyTemplate(){
-  const k=document.getElementById('g-template').value;
-  if(!k||!TEMPLATES[k])return;
-  const t=TEMPLATES[k];
-  document.getElementById('g-duration').value=t.duration;
-  document.getElementById('g-note').value=t.note;
-  document.getElementById('phases-container').innerHTML=''; phCount=0;
-  t.phases.forEach(p=>addPhase(p));
-}
-
-function getPhases(){
-  return Array.from(document.querySelectorAll('.ph-item')).map(el=>{
-    const n=el.id.slice(3);
-    return{name:v('phn-'+n),day:v('phd-'+n),dur:v('phu-'+n),bar:parseInt(v('phb-'+n))||50,desc:v('phx-'+n)};
-  }).filter(p=>p.name.trim());
-}
-function v(id){const e=document.getElementById(id);return e?e.value:'';}
-
-function generateLink(){
-  const patient=document.getElementById('g-patient').value.trim();
-  if(!patient){alert('Shkruani emrin e pacientit.');return;}
-  const tmplKey=document.getElementById('g-template').value;
-  const data={
-    patient,
-    date:document.getElementById('g-date').value||new Date().toISOString().slice(0,10),
-    treatment:tmplKey&&TEMPLATES[tmplKey]?TEMPLATES[tmplKey].name:'Plan Trajtimi',
-    price:document.getElementById('g-price').value,
-    duration:document.getElementById('g-duration').value,
-    note:document.getElementById('g-note').value,
-    phases:getPhases()
-  };
-  const enc=btoa(unescape(encodeURIComponent(JSON.stringify(data))));
-  const url=location.href.split('#')[0]+'#p='+enc;
-  document.getElementById('link-url').textContent=url;
-  document.getElementById('link-box').style.display='';
-  document.getElementById('link-box').scrollIntoView({behavior:'smooth'});
-}
-
-function copyLink(){
-  navigator.clipboard.writeText(document.getElementById('link-url').textContent).then(()=>{
-    const b=document.getElementById('copy-btn');
-    b.textContent='✓ U Kopjua!'; b.classList.add('copied');
-    setTimeout(()=>{b.textContent='📋 Kopjo Link-un';b.classList.remove('copied');},2500);
-  });
-}
-
-function fmtDate(s){
-  if(!s)return'';
-  try{return new Date(s+'T12:00:00').toLocaleDateString('sq',{year:'numeric',month:'long',day:'numeric'});}
-  catch{return s;}
-}
-
-function renderPlan(data){
-  document.getElementById('plan-view').style.display='';
-  document.title='Plan Trajtimi · '+data.patient+' · Medident';
-  document.getElementById('v-patient').textContent=data.patient;
-  document.getElementById('v-date').textContent=fmtDate(data.date);
-  document.getElementById('v-treatment').textContent='🦷 '+(data.treatment||'Plan Trajtimi');
-  document.getElementById('v-phases-count').textContent=(data.phases?.length||0)+' hapa';
-  document.getElementById('v-duration').textContent=data.duration||'—';
-  document.getElementById('v-steps').textContent=(data.phases?.length||0)+' procedura';
-  document.getElementById('v-price').textContent=data.price||'—';
-  const noteEl=document.getElementById('v-note');
-  if(data.note){noteEl.textContent=data.note;noteEl.style.display='';}
-
-  const waMsg=`Tungjatjeta, jeni Medident? Doja të konfirmoja planin tim të trajtimit (${data.treatment}) dhe të rezervoja takimin. Faleminderit!`;
-  document.getElementById('btn-wa').href='https://wa.me/38349772307?text='+encodeURIComponent(waMsg);
-
-  const wrap=document.getElementById('timeline-wrap');
-  (data.phases||[]).forEach((ph,i)=>{
-    if(i>0){const c=document.createElement('div');c.className='tl-conn';wrap.appendChild(c);}
-    const card=document.createElement('div');
-    card.className='phase-card';
-    const pct=Math.min(Math.max(ph.bar||50,5),100);
-    card.innerHTML=`
-      <div class="pc-top">
-        <div class="pc-num">${i+1}</div>
-        <div class="pc-info"><div class="pc-name">${ph.name}</div><div class="pc-day">${ph.day}</div></div>
-        <div class="pc-dur">${ph.dur}</div>
-      </div>
-      <div class="pc-body">
-        <div class="pc-desc">${ph.desc}</div>
-        <div class="bar-wrap"><div class="bar-fill" data-pct="${pct}"></div></div>
-      </div>`;
-    wrap.appendChild(card);
-  });
-
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('vis');
-        const bar=e.target.querySelector('.bar-fill');
-        if(bar)bar.style.width=bar.dataset.pct+'%';
-        obs.unobserve(e.target);
-      }
-    });
-  },{threshold:.15});
-  document.querySelectorAll('.phase-card').forEach(c=>obs.observe(c));
-}
-
-// ── INIT ──
 (function(){
-  const hash=location.hash;
-  if(hash.startsWith('#p=')){
-    try{
-      const json=decodeURIComponent(escape(atob(hash.slice(3))));
-      renderPlan(JSON.parse(json));
-    }catch(e){
-      document.getElementById('gen-view').style.display='';
-    }
-  } else {
-    document.getElementById('gen-view').style.display='';
-    document.getElementById('g-date').valueAsDate=new Date();
-    addPhase();
+'use strict';
+/* ═════════ Utilities ═════════ */
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+const SVGNS = 'http://www.w3.org/2000/svg';
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const seg = (t, a, b) => clamp((t - a) / (b - a), 0, 1);
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const eOut = t => 1 - Math.pow(1 - t, 3);
+const eIn = t => t * t * t;
+const back = t => { const c1 = 1.5, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); };
+/* 0 → 1 (a..b) hold 1 (b..c) → 0 (c..d) */
+const bell = (t, a, b, c, d) => t <= a || t >= d ? 0 : t < b ? ease(seg(t, a, b)) : t <= c ? 1 : 1 - ease(seg(t, c, d));
+const frac = x => x - Math.floor(x);
+const r1 = n => Math.round(n * 10) / 10;
+const REDUCED = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function el(tag, attrs, ...kids) {
+  const n = document.createElement(tag);
+  if (attrs) for (const k in attrs) {
+    const v = attrs[k];
+    if (v == null || v === false) continue;
+    if (k === 'class') n.className = v;
+    else if (k === 'text') n.textContent = v;
+    else if (k === 'style' && typeof v === 'object') Object.assign(n.style, v);
+    else if (k.startsWith('on') && typeof v === 'function') n.addEventListener(k.slice(2), v);
+    else if (k === 'dataset') Object.assign(n.dataset, v);
+    else n.setAttribute(k, v === true ? '' : v);
   }
+  for (const c of kids.flat()) if (c != null && c !== false) n.append(c.nodeType ? c : document.createTextNode(String(c)));
+  return n;
+}
+function sv(tag, attrs, parent) {
+  const n = document.createElementNS(SVGNS, tag);
+  if (attrs) for (const k in attrs) { const v = attrs[k]; if (v != null) n.setAttribute(k, v); }
+  if (parent) parent.appendChild(n);
+  return n;
+}
+function setA(n, attrs) { for (const k in attrs) n.setAttribute(k, attrs[k]); }
+
+const MONTHS = ['janar', 'shkurt', 'mars', 'prill', 'maj', 'qershor', 'korrik', 'gusht', 'shtator', 'tetor', 'nëntor', 'dhjetor'];
+function fmtDate(iso) {
+  if (!iso) return '';
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!m) return String(iso);
+  return (+m[3]) + ' ' + MONTHS[+m[2] - 1] + ' ' + m[1];
+}
+function todayISO() { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); }
+function addDays(iso, n) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  const d = m ? new Date(+m[1], +m[2] - 1, +m[3]) : new Date();
+  d.setDate(d.getDate() + n);
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+function fmtEUR(n) {
+  n = Math.round((+n || 0) * 100) / 100;
+  const neg = n < 0; n = Math.abs(n);
+  const int = Math.floor(n), dec = Math.round((n - int) * 100);
+  const s = String(int).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return (neg ? '−' : '') + s + (dec ? ',' + String(dec).padStart(2, '0') : '') + ' €';
+}
+const LS = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ignore */ } }
+};
+function b64uEnc(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = ''; for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function b64uDec(s) {
+  s = s.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '=';
+  const bin = atob(s); const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+function mulberry(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function hexRgb(h) { h = h.replace('#', ''); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; }
+function mixA(a, b, t) { t = clamp(t, 0, 1); return a.map((v, i) => v + (b[i] - v) * t); }
+const rgbS = a => 'rgb(' + a.map(v => Math.round(v)).join(',') + ')';
+let toastT;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2300); }
+
+/* ═════════ Dental data (FDI) ═════════ */
+const ROW_U = [18, 17, 16, 15, 14, 13, 12, 11, 21, 22, 23, 24, 25, 26, 27, 28];
+const ROW_L = [48, 47, 46, 45, 44, 43, 42, 41, 31, 32, 33, 34, 35, 36, 37, 38];
+/* [crown width, crown height, root length (mm), roots, kind] */
+const DIM = {
+  u: { 1: [8.6, 10.5, 13, 1, 'i'], 2: [6.6, 9, 13, 1, 'i'], 3: [7.6, 10, 17, 1, 'c'], 4: [7, 8.5, 14, 1, 'p'], 5: [6.7, 7.8, 14, 1, 'p'], 6: [10.2, 7.5, 13, 2, 'm'], 7: [9.2, 7, 12, 2, 'm'], 8: [8.6, 6.5, 11, 2, 'm'] },
+  l: { 1: [5.2, 9, 12.5, 1, 'i'], 2: [5.8, 9.5, 14, 1, 'i'], 3: [7, 11, 16, 1, 'c'], 4: [7, 8.5, 14, 1, 'p'], 5: [7.2, 8, 14.5, 1, 'p'], 6: [11, 7.5, 14, 2, 'm'], 7: [10.5, 7, 13, 2, 'm'], 8: [10, 7, 11, 2, 'm'] }
+};
+const POS_NAME = { 1: 'Prerësi qendror', 2: 'Prerësi anësor', 3: 'Dhëmbi i syrit (kanini)', 4: 'Paradhëmballa e parë', 5: 'Paradhëmballa e dytë', 6: 'Dhëmballa e parë', 7: 'Dhëmballa e dytë', 8: 'Dhëmballa e pjekurisë' };
+const QUAD_NAME = { 1: 'lart djathtas', 2: 'lart majtas', 3: 'poshtë majtas', 4: 'poshtë djathtas' };
+const ALL_TEETH = ROW_U.concat(ROW_L);
+function toothInfo(f) {
+  const q = Math.floor(f / 10), p = f % 10, arch = (q === 1 || q === 2) ? 'u' : 'l';
+  const d = DIM[arch][p];
+  return { f, q, p, arch, upper: arch === 'u', cw: d[0], ch: d[1], rl: d[2], nr: d[3], k: d[4], name: POS_NAME[p], quad: QUAD_NAME[q] };
+}
+const toothLabel = f => { const t = toothInfo(f); return t.name + ', ' + t.quad; };
+
+const PROC = {
+  imp: { label: 'Implant', long: 'Implant dentar', hex: '#2a78d6' },
+  cr: { label: 'Kurorë', long: 'Kurorë zirkoni', hex: '#eda100', dark: true },
+  rc: { label: 'Kanal', long: 'Trajtim kanali', hex: '#e34948' },
+  fil: { label: 'Mbushje', long: 'Mbushje estetike', hex: '#008300' },
+  ven: { label: 'Fasetë', long: 'Fasetë qeramike', hex: '#4a3aa7' },
+  ext: { label: 'Nxjerrje', long: 'Nxjerrje', hex: '#475569' },
+  mis: { label: 'Mungon', long: 'Dhëmb që mungon', hex: '#94a3b8' }
+};
+const PROC_ORDER = ['imp', 'cr', 'rc', 'fil', 'ven', 'ext', 'mis'];
+
+/* Price list (€) – editable in ⚙ Çmimet, saved on the clinic device */
+const PRICE_DEF = { e: 30, g: 200, i: 450, a: 0, hz: 120, z: 90, rc: 80, f: 30, v: 200 };
+const PRICE_LBL = { e: 'Nxjerrja e dhëmbit', g: 'Graft kockor', i: 'Implant dentar (titan)', a: 'Abutment protetik', hz: 'Kurorë zirkoni premium', z: 'Kurorë zirkoni', rc: 'Trajtim kanali', f: 'Mbushje kompozite', v: 'Fasetë qeramike' };
+const CROWN_MAT = { hz: 'Zirkon premium', z: 'Zirkon' };
+const EXTRA_DEF = [
+  { k: 'cl', label: 'Pastrim profesional (higjienë)', pr: 30 },
+  { k: 'wh', label: 'Zbardhim profesional', pr: 150 },
+  { k: 'opg', label: 'Rentgen panoramik (OPG)', pr: 15 },
+  { k: 'cbct', label: 'CBCT 3D', pr: 40 },
+  { k: 'al', label: 'Linea Aligners – ortodonci transparente', pr: 1500 }
+];
+const WA_NUM = '38349772307';
+
+/* component list → [[code, price], …] */
+function compList(t, P) {
+  const pr = t.pr || {};
+  const g = k => (pr[k] != null && pr[k] !== '' ? +pr[k] : (P[k] != null ? +P[k] : PRICE_DEF[k] || 0));
+  const ck = t.c === 'z' ? 'z' : 'hz';
+  switch (t.p) {
+    case 'imp': { const L = []; if (!t.m) L.push(['e', g('e')]); if (t.g) L.push(['g', g('g')]); L.push(['i', g('i')], ['a', g('a')], [ck, g(ck)]); return L; }
+    case 'cr': return [[ck, g(ck)]];
+    case 'rc': { const L = [['rc', g('rc')]]; if (t.rcCr) L.push([ck, g(ck)]); return L; }
+    case 'fil': return [['f', g('f')]];
+    case 'ven': return [['v', g('v')]];
+    case 'ext': return [['e', g('e')]];
+    default: return [];
+  }
+}
+function procTitle(t) {
+  switch (t.p) {
+    case 'imp': return t.m ? 'Implant me kurorë' : (t.im ? 'Nxjerrje + implant i menjëhershëm' : 'Nxjerrje + implant me kurorë');
+    case 'cr': return 'Kurorë ' + (t.c === 'z' ? 'zirkoni' : 'zirkoni premium');
+    case 'rc': return t.rcCr ? 'Trajtim kanali + kurorë' : 'Trajtim kanali';
+    default: return PROC[t.p] ? PROC[t.p].long : '';
+  }
+}
+
+/* ═════════ Tooth geometry (facial view, crown up / roots down) ═════════ */
+const F = n => Math.round(n * 10) / 10;
+const P = (...a) => a.map(v => typeof v === 'number' ? F(v) : v).join(' ');
+const NW_R = { i: .7, c: .72, p: .7, m: .8 };
+function geom(ti, z) {
+  const cw = ti.cw * z, ch = ti.ch * z, rl = ti.rl * z;
+  return { cw, ch, rl, nw: cw * NW_R[ti.k], nr: ti.nr, k: ti.k };
+}
+function crownSeg(g, cx, cej) {
+  const { cw, ch, nw, k } = g;
+  const L = cx - cw / 2, R = cx + cw / 2, NL = cx - nw / 2, NR = cx + nw / 2, T = cej - ch, fl = cw - nw;
+  if (k === 'm') return P(
+    'C', NL - fl * .25, cej - ch * .12, L, cej - ch * .32, L, cej - ch * .55,
+    'C', L, cej - ch * .78, L + cw * .05, T + ch * .16, L + cw * .13, T + ch * .1,
+    'C', L + cw * .19, T + ch * .03, cx - cw * .3, T, cx - cw * .22, T,
+    'C', cx - cw * .14, T, cx - cw * .06, T + ch * .13, cx, T + ch * .14,
+    'C', cx + cw * .06, T + ch * .13, cx + cw * .14, T, cx + cw * .22, T,
+    'C', cx + cw * .3, T, R - cw * .19, T + ch * .03, R - cw * .13, T + ch * .1,
+    'C', R - cw * .05, T + ch * .16, R, cej - ch * .78, R, cej - ch * .55,
+    'C', R, cej - ch * .32, NR + fl * .25, cej - ch * .12, NR, cej);
+  if (k === 'p') return P(
+    'C', NL - fl * .3, cej - ch * .15, L, cej - ch * .35, L, cej - ch * .58,
+    'C', L, cej - ch * .76, L + cw * .06, T + ch * .3, L + cw * .17, T + ch * .23,
+    'C', L + cw * .3, T + ch * .13, cx - cw * .13, T, cx, T,
+    'C', cx + cw * .13, T, R - cw * .3, T + ch * .13, R - cw * .17, T + ch * .23,
+    'C', R - cw * .06, T + ch * .3, R, cej - ch * .76, R, cej - ch * .58,
+    'C', R, cej - ch * .35, NR + fl * .3, cej - ch * .15, NR, cej);
+  if (k === 'c') return P(
+    'C', NL - fl * .3, cej - ch * .15, L, cej - ch * .35, L, cej - ch * .55,
+    'C', L, cej - ch * .7, L + cw * .04, T + ch * .37, L + cw * .13, T + ch * .3,
+    'C', L + cw * .28, T + ch * .18, cx - cw * .09, T + ch * .01, cx, T,
+    'C', cx + cw * .09, T + ch * .01, R - cw * .26, T + ch * .2, R - cw * .11, T + ch * .36,
+    'C', R - cw * .03, T + ch * .42, R, cej - ch * .68, R, cej - ch * .52,
+    'C', R, cej - ch * .33, NR + fl * .3, cej - ch * .15, NR, cej);
+  return P(
+    'C', NL - fl * .25, cej - ch * .22, L, cej - ch * .5, L, cej - ch * .78,
+    'C', L, T + ch * .08, L + cw * .03, T + .3, L + cw * .13, T + .2,
+    'C', cx - cw * .2, T - .6, cx + cw * .2, T - .6, R - cw * .13, T + .2,
+    'C', R - cw * .03, T + .3, R, T + ch * .08, R, cej - ch * .78,
+    'C', R, cej - ch * .5, NR + fl * .25, cej - ch * .22, NR, cej);
+}
+function rootSeg(g, cx, cej) {
+  const { nw, rl } = g; const NL = cx - nw / 2, NR = cx + nw / 2;
+  if (g.nr === 2) return P(
+    'C', NR + 2, cej + rl * .3, NR + 1, cej + rl * .72, NR - nw * .1, cej + rl * .98,
+    'Q', NR - nw * .2, cej + rl * 1.03, NR - nw * .3, cej + rl * .96,
+    'C', NR - nw * .34, cej + rl * .62, cx + nw * .12, cej + rl * .36, cx, cej + rl * .3,
+    'C', cx - nw * .12, cej + rl * .36, NL + nw * .34, cej + rl * .62, NL + nw * .3, cej + rl * .96,
+    'Q', NL + nw * .2, cej + rl * 1.03, NL + nw * .1, cej + rl * .98,
+    'C', NL - 1, cej + rl * .72, NL - 2, cej + rl * .3, NL, cej);
+  return P(
+    'C', NR + 1, cej + rl * .25, cx + nw * .3, cej + rl * .75, cx + nw * .1, cej + rl * .97,
+    'Q', cx, cej + rl * 1.02, cx - nw * .1, cej + rl * .97,
+    'C', cx - nw * .3, cej + rl * .75, NL - 1, cej + rl * .25, NL, cej);
+}
+const bodyD = (g, cx, cej) => P('M', cx - g.nw / 2, cej) + ' ' + crownSeg(g, cx, cej) + ' ' + rootSeg(g, cx, cej) + ' Z';
+const crownD = (g, cx, cej, base) => P('M', cx - g.nw / 2, cej) + ' ' + crownSeg(g, cx, cej) + ' ' + P('L', cx + g.nw / 2, base == null ? cej : base, 'L', cx - g.nw / 2, base == null ? cej : base) + ' Z';
+const socketD = (g, cx, cej) => P('M', cx + g.nw / 2, cej - 3, 'L', cx + g.nw / 2, cej) + ' ' + rootSeg(g, cx, cej) + ' ' + P('L', cx - g.nw / 2, cej - 3) + ' Z';
+function pulpD(g, cx, cej) {
+  const { cw, ch, nw } = g;
+  if (g.k === 'm') return P('M', cx - nw * .3, cej - ch * .02,
+    'C', cx - nw * .33, cej - ch * .2, cx - cw * .27, cej - ch * .38, cx - cw * .21, cej - ch * .47,
+    'C', cx - cw * .17, cej - ch * .52, cx - cw * .1, cej - ch * .37, cx, cej - ch * .35,
+    'C', cx + cw * .1, cej - ch * .37, cx + cw * .17, cej - ch * .52, cx + cw * .21, cej - ch * .47,
+    'C', cx + cw * .27, cej - ch * .38, cx + nw * .33, cej - ch * .2, cx + nw * .3, cej - ch * .02,
+    'C', cx + nw * .2, cej + ch * .07, cx - nw * .2, cej + ch * .07, cx - nw * .3, cej - ch * .02, 'Z');
+  return P('M', cx - nw * .17, cej + 1,
+    'C', cx - nw * .21, cej - ch * .2, cx - cw * .15, cej - ch * .42, cx - cw * .08, cej - ch * .52,
+    'C', cx - cw * .04, cej - ch * .57, cx + cw * .04, cej - ch * .57, cx + cw * .08, cej - ch * .52,
+    'C', cx + cw * .15, cej - ch * .42, cx + nw * .21, cej - ch * .2, cx + nw * .17, cej + 1,
+    'C', cx + nw * .1, cej + ch * .12, cx - nw * .1, cej + ch * .12, cx - nw * .17, cej + 1, 'Z');
+}
+/* canal centre-lines drawn from the APEX up to the pulp chamber */
+function canalsD(g, cx, cej) {
+  const { nw, rl, ch } = g; const NL = cx - nw / 2, NR = cx + nw / 2;
+  if (g.nr === 2) return [
+    P('M', NL + nw * .2, cej + rl * .93, 'C', NL + nw * .24, cej + rl * .62, cx - nw * .2, cej + rl * .28, cx - nw * .17, cej - ch * .1),
+    P('M', NR - nw * .2, cej + rl * .93, 'C', NR - nw * .24, cej + rl * .62, cx + nw * .2, cej + rl * .28, cx + nw * .17, cej - ch * .1)];
+  return [P('M', cx, cej + rl * .93, 'C', cx + .5, cej + rl * .6, cx, cej + rl * .3, cx, cej - ch * .14)];
+}
+function stumpD(g, cx, cej) {
+  const { cw, ch, nw } = g; const NL = cx - nw / 2, NR = cx + nw / 2;
+  return P('M', NL + cw * .035, cej + 1, 'L', NL + cw * .035, cej - 2.5,
+    'C', NL + cw * .01, cej - ch * .28, cx - cw * .31, cej - ch * .58, cx - cw * .25, cej - ch * .67,
+    'Q', cx, cej - ch * .77, cx + cw * .25, cej - ch * .67,
+    'C', cx + cw * .31, cej - ch * .58, NR - cw * .01, cej - ch * .28, NR - cw * .035, cej - 2.5,
+    'L', NR - cw * .035, cej + 1, 'Z');
+}
+function blobD(cx, cy, rx, ry, seed, n, jit) {
+  n = n || 10; jit = jit == null ? .32 : jit;
+  const rnd = mulberry(seed), pts = [];
+  for (let i = 0; i < n; i++) { const a = i / n * Math.PI * 2, r = 1 - jit / 2 + rnd() * jit; pts.push([cx + Math.cos(a) * rx * r, cy + Math.sin(a) * ry * r]); }
+  const mid = (a, b) => [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+  const m0 = mid(pts[n - 1], pts[0]); let d = P('M', m0[0], m0[1]);
+  for (let i = 0; i < n; i++) { const p = pts[i], m = mid(p, pts[(i + 1) % n]); d += ' ' + P('Q', p[0], p[1], m[0], m[1]); }
+  return d + ' Z';
+}
+const IMP_D = { 1: [4.1, 3.3], 2: [3.5, 3.3], 3: [4.1, 4.1], 4: [4.1, 4.1], 5: [4.3, 4.3], 6: [5, 5], 7: [5, 5], 8: [4.8, 4.8] };
+const IMP_L = { 1: [13, 11.5], 2: [11.5, 11.5], 3: [13, 13], 4: [11.5, 11.5], 5: [11.5, 11.5], 6: [10, 10], 7: [10, 10], 8: [8.5, 8.5] };
+
+/* ═════════ Odontogram (panoramic chart, FDI) ═════════ */
+let ODO_N = 0;
+function buildOdo(host, o) {
+  /* o = { interactive, get(f) → tooth|null, sel: Set, onTap(f), focusF } */
+  ODO_N++; const id = 'od' + ODO_N + '_';
+  const z = 3.1, GAP = 2.4, PADX = 24;
+  const lay = row => { let x = 0; const items = row.map(f => { const ti = toothInfo(f); const w = ti.cw * z; const it = { f, ti, w, cx: x + w / 2 }; x += w + GAP; return it; }); return { items, width: x - GAP }; };
+  const U = lay(ROW_U), Lw = lay(ROW_L);
+  const mid = r => (r.items[7].cx + r.items[7].w / 2 + r.items[8].cx - r.items[8].w / 2) / 2;
+  const mU = mid(U), mL = mid(Lw);
+  const half = Math.max(mU, U.width - mU, mL, Lw.width - mL);
+  const W = half * 2 + PADX * 2, MX = W / 2;
+  const NUM = 19;
+  const cejU = NUM + 8 + 17 * z, occ = cejU + 10.5 * z + 8, cejL = occ + 8 + 11 * z, H = cejL + 16 * z + 8 + NUM;
+  host.textContent = '';
+  const svg = sv('svg', { viewBox: P(0, 0, W, H), 'aria-label': 'Odontogrami i dhëmbëve (numërimi FDI)', role: o.interactive ? 'group' : 'img' });
+  const defs = sv('defs', null, svg);
+  const tg = sv('linearGradient', { id: id + 'tooth', x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+  sv('stop', { offset: '0', 'stop-color': '#ffffff' }, tg); sv('stop', { offset: '.45', 'stop-color': '#f7f0e3' }, tg); sv('stop', { offset: '1', 'stop-color': '#e9d9b8' }, tg);
+  const tiG = sv('linearGradient', { id: id + 'ti', x1: 0, y1: 0, x2: 1, y2: 0 }, defs);
+  [['0', '#6b7480'], ['.4', '#e8edf2'], ['.65', '#b9c2cc'], ['1', '#5f6873']].forEach(s => sv('stop', { offset: s[0], 'stop-color': s[1] }, tiG));
+  /* jaw backgrounds */
+  sv('rect', { x: 4, y: NUM + 2, width: W - 8, height: occ - NUM - 2, rx: 14, fill: '#f6f9fc' }, svg);
+  sv('rect', { x: 4, y: occ, width: W - 8, height: H - NUM - occ - 2, rx: 14, fill: '#f6f9fc' }, svg);
+  sv('line', { x1: MX, x2: MX, y1: NUM + 4, y2: H - NUM - 4, stroke: '#cbd5e1', 'stroke-dasharray': '3 3' }, svg);
+  sv('line', { x1: 10, x2: W - 10, y1: occ, y2: occ, stroke: '#dbe3ec' }, svg);
+  const lab = (x, y, t, a) => { const n = sv('text', { x, y, 'text-anchor': a, 'font-size': 7.5, 'font-weight': 700, fill: '#94a3b8', 'letter-spacing': .5 }, svg); n.textContent = t; };
+  lab(10, occ - 5, 'LART', 'start'); lab(10, occ + 12, 'POSHTË', 'start');
+  lab(W - 10, occ - 5, 'LART', 'end'); lab(W - 10, occ + 12, 'POSHTË', 'end');
+  lab(MX - 7, occ + 3.2, '◂ DJATHTAS', 'end'); lab(MX + 7, occ + 3.2, 'MAJTAS ▸', 'start');
+
+  const drawRow = (R, off, cej, upper) => R.items.forEach(it => {
+    const f = it.f, cx = it.cx + off, ti = it.ti, g = geom(ti, z), t = o.get(f);
+    const p = t ? t.p : null, color = p ? PROC[p].hex : null;
+    const top = upper ? NUM + 3 : occ + 3, bot = upper ? occ - 3 : H - NUM - 3;
+    const grp = sv('g', { class: 'odt' + (o.interactive || (t && p !== 'mis') ? ' click' : '') + (o.sel && o.sel.has(f) ? ' sel' : ''), 'data-f': f }, svg);
+    const label = f + ' · ' + toothLabel(f) + (t ? ' – ' + procTitle(t) : '');
+    if (o.interactive || (t && p !== 'mis')) {
+      setA(grp, { tabindex: '0', role: 'button', 'aria-label': label });
+      if (o.interactive) grp.setAttribute('aria-pressed', o.sel && o.sel.has(f) ? 'true' : 'false');
+    }
+    const hlw = Math.max(it.w + 3, 15);
+    sv('rect', { class: 'hl', x: cx - hlw / 2, y: top, width: hlw, height: bot - top, rx: 7, fill: 'rgba(0,180,216,.13)', stroke: '#00809c', 'stroke-width': 1.3 }, grp);
+    const tb = sv('g', { class: 'tb' }, grp);
+    const inner = sv('g', { transform: 'translate(' + F(cx) + ' ' + F(cej) + ')' + (upper ? ' scale(1 -1)' : '') }, tb);
+    const body = bodyD(g, 0, 0);
+    if (p === 'mis') {
+      sv('path', { d: body, fill: 'none', stroke: '#9fb0c4', 'stroke-width': 1, 'stroke-dasharray': '2.4 2' }, inner);
+    } else if (p === 'imp') {
+      const iw = IMP_D[ti.p][upper ? 0 : 1] * z * .82, il = Math.min(g.rl * .82, IMP_L[ti.p][upper ? 0 : 1] * z), y0 = 2 * z;
+      const sc = sv('g', null, inner);
+      sv('path', { d: P('M', -iw / 2, y0, 'L', -iw * .4, y0 + il * .86, 'Q', -iw * .3, y0 + il, 0, y0 + il, 'Q', iw * .3, y0 + il, iw * .4, y0 + il * .86, 'L', iw / 2, y0, 'Z'), fill: 'url(#' + id + 'ti)', stroke: '#4b5563', 'stroke-width': .6 }, sc);
+      let th = ''; for (let y = y0 + 2.2; y < y0 + il * .9; y += 2.3) { const hw = iw / 2 - (y - y0) / il * iw * .1; th += P('M', -hw + .3, y + .8, 'L', hw - .3, y - .6) + ' '; }
+      sv('path', { d: th, stroke: '#4b5563', 'stroke-width': .55, opacity: .75 }, sc);
+      sv('rect', { x: -iw * .34, y: -1.5, width: iw * .68, height: y0 + 1.5, rx: 1, fill: '#d8b862', stroke: '#8a6d2a', 'stroke-width': .4 }, inner);
+      sv('path', { d: crownD(g, 0, 0, 1), fill: '#ffffff', stroke: color, 'stroke-width': 1.6 }, inner);
+    } else {
+      sv('path', { d: body, fill: 'url(#' + id + 'tooth)', stroke: '#b5a585', 'stroke-width': .8, opacity: p === 'ext' ? .42 : 1 }, inner);
+      if (p === 'cr' || (p === 'rc' && t.rcCr)) sv('path', { d: crownD(g, 0, 0, 1), fill: '#fff4cf', stroke: PROC.cr.hex, 'stroke-width': 1.6 }, inner);
+      if (p === 'rc') {
+        sv('path', { d: pulpD(g, 0, 0), fill: color, opacity: .85 }, inner);
+        canalsD(g, 0, 0).forEach(d => sv('path', { d, fill: 'none', stroke: color, 'stroke-width': 1.7, 'stroke-linecap': 'round' }, inner));
+      }
+      if (p === 'fil') sv('path', { d: blobD(g.cw * .1, -g.ch * .62, g.cw * .19, g.ch * .17, f, 9, .2), fill: color, stroke: '#005c00', 'stroke-width': .5 }, inner);
+      if (p === 'ven') sv('path', { d: crownD(g, 0, 0, 1), fill: '#ece8fb', stroke: color, 'stroke-width': 1.6, transform: 'translate(0 -1)' }, inner);
+      if (p === 'ext') {
+        const a = -g.ch * .9, b = g.rl * .7;
+        sv('path', { d: P('M', -g.cw * .42, a, 'L', g.cw * .42, b, 'M', g.cw * .42, a, 'L', -g.cw * .42, b), stroke: color, 'stroke-width': 2.2, 'stroke-linecap': 'round' }, inner);
+      }
+    }
+    /* number */
+    const ny = upper ? NUM - 4 : H - NUM + 13;
+    if (p && p !== 'mis') {
+      sv('rect', { x: cx - 12, y: ny - 12, width: 24, height: 16, rx: 5.5, fill: color }, grp);
+      const tx = sv('text', { x: cx, y: ny, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 800, fill: PROC[p].dark ? '#3a2a00' : '#fff' }, grp); tx.textContent = f;
+    } else {
+      const tx = sv('text', { x: cx, y: ny, 'text-anchor': 'middle', 'font-size': 10.5, 'font-weight': 600, fill: p === 'mis' ? '#a6b3c2' : '#64748b' }, grp); tx.textContent = f;
+    }
+    sv('rect', { x: cx - hlw / 2, y: upper ? 0 : occ, width: hlw, height: upper ? occ : H - occ, fill: 'transparent' }, grp);
+    if (grp.getAttribute('tabindex')) {
+      grp.addEventListener('click', () => o.onTap && o.onTap(f));
+      grp.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); o.onTap && o.onTap(f); } });
+    }
+  });
+  drawRow(U, MX - mU, cejU, true);
+  drawRow(Lw, MX - mL, cejL, false);
+  host.appendChild(svg);
+  if (o.focusF) { const n = svg.querySelector('.odt[data-f="' + o.focusF + '"]'); if (n) n.focus({ preventScroll: true }); }
+  return svg;
+}
+function legendInto(host, procs) {
+  host.textContent = '';
+  procs.forEach(k => host.append(el('span', { class: 'lg' }, el('i', { class: k === 'mis' ? 'dash' : '', style: { background: PROC[k].hex } }), PROC[k].label)));
+}
+
+/* ═════════ Animated treatment scene (SVG, cut-away facial view) ═════════ */
+function S0() {
+  return {
+    tooth: 1, tDy: 0, tRot: 0, decay: 0, decayBig: 0, crack: 0, pulpRed: 0, pulse: 0, pulpOp: .55, abscess: 0,
+    discolor: 0, chip: 0, prep: 0, design: 0, vprepO: 0, vprepP: 0, access: 0, canalClean: 0, irrig: 0, irrigPh: 0, gp: 0, seal: 0,
+    cavity: 0, composite: 0, blend: 0, files: 0, filesD: 0, filesCol: 0,
+    gw: 0, ridge: 0, sutures: 0, numb: 0, socket: 0, graft: 0, regen: 0,
+    o1D: 0, o1W: 0, o2D: 0, o2W: 0, oFade: 0,
+    imp: 0, impDy: 0, impPh: 0, driver: 0, drvDy: 0, cover: 0, osseo: 0,
+    heal: 0, healDy: 0, healPh: 0, sb: 0, sbDy: 0, abut: 0, abDy: 0, screw: 0, torque: 0,
+    crown: 0, crDy: 0, cement: 0, shine: -1, sparkle: 0, temp: 0, tempDy: 0, veneer: 0, vnScale: 1,
+    syr: 0, syrP: 0, syrL: 1, forc: 0, forcDy: 0, forcClose: 0,
+    drill: 0, drillDy: -90, drillW: 0, drillPh: 0, water: 0, debris: 0,
+    bur: 0, burX: 0, burY: 0, burPh: 0, burWater: 0,
+    scan: 0, scanX: 0, mesh: 0, meshX: 0, cure: 0, cureX: 0, cureY: 0, gauze: 0,
+    pol: 0, polX: 0, polY: 0, polPh: 0, inst: 0, instX: 0, instY: 0,
+    callouts: 0, timer: null
+  };
+}
+function smoothD(pts) {
+  let d = P('M', pts[0][0], pts[0][1]);
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2;
+    d += ' ' + P('C', p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6, p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6, p2[0], p2[1]);
+  }
+  return d;
+}
+let SC_N = 0;
+const PULP_N = hexRgb('#f3a6a2'), PULP_I = hexRgb('#d42f3a'), PULP_E = hexRgb('#3a2420'), PULP_S = hexRgb('#efe5d1');
+function createScene(svg, f, o) {
+  /* o = { proc, missing:Set } */
+  SC_N++; const id = 'sc' + SC_N + '_', U = 'userSpaceOnUse';
+  svg.textContent = '';
+  const ti = toothInfo(f), upper = ti.upper;
+  const z = clamp(168 / (ti.ch + ti.rl), 6.2, 8.2);
+  const g = geom(ti, z);
+  const CX = 200, CEJ = 132, CREST = CEJ + 13, BOT = CREST + 16, H = 300;
+  const Y = y => upper ? H - y : y;
+  const T = CEJ - g.ch, NL = CX - g.nw / 2, NR = CX + g.nw / 2, apex = CEJ + g.rl;
+  const posterior = ti.p >= 4;
+  const nerveY = !upper && posterior ? Math.min(apex + 30, 282) : null;
+  const sinusY = upper && posterior ? Math.min(apex + 14, 262) : null;
+  const iw = IMP_D[ti.p][upper ? 0 : 1] * z;
+  let IL = IMP_L[ti.p][upper ? 0 : 1] * z;
+  const lim = nerveY ? nerveY - 22 : sinusY ? sinusY - 4 : 288;
+  if (CREST + IL > lim) IL = Math.max(46, lim - CREST);
+  const hwHeal = Math.min(iw * .58, g.nw * .46), abM = Math.min(g.nw * .43, iw * .64), abT = abM * .74;
+  const C = { g, z, iw, IL, CX, CEJ, CREST, T, NL, NR, hwHeal, abM, apex, upper, ti };
+
+  /* ---------- defs ---------- */
+  const defs = sv('defs', null, svg);
+  const lg = (k, x1, y1, x2, y2, stops, units) => { const n = sv('linearGradient', { id: id + k, x1, y1, x2, y2, gradientUnits: units || 'objectBoundingBox' }, defs); stops.forEach(s => sv('stop', { offset: s[0], 'stop-color': s[1], 'stop-opacity': s[2] == null ? 1 : s[2] }, n)); return 'url(#' + id + k + ')'; };
+  const rg = (k, cx, cy, r, stops) => { const n = sv('radialGradient', { id: id + k, cx, cy, r }, defs); stops.forEach(s => sv('stop', { offset: s[0], 'stop-color': s[1], 'stop-opacity': s[2] == null ? 1 : s[2] }, n)); return 'url(#' + id + k + ')'; };
+  const ref = k => 'url(#' + id + k + ')';
+  const gBg = lg('bg', 0, 0, 0, 1, [['0', '#11365d'], ['1', '#06172b']]);
+  const gGlow = rg('glow', .5, .45, .5, [['0', '#2a6aa8', .5], ['1', '#2a6aa8', 0]]);
+  const oC = (CEJ - (T - 8)) / (apex + 6 - (T - 8));
+  const gTooth = lg('tooth', 0, T - 8, 0, apex + 6, [['0', '#ffffff'], [F(oC * .7), '#f8f2e6'], [F(oC), '#f0e3c7'], ['1', '#d8bf8e']], U);
+  const gGum = lg('gum', 0, CEJ - 34, 0, BOT, [['0', '#f8b4b9'], ['.42', '#ee919a'], ['.74', '#e17d88'], ['1', '#d66f7b', 0]], U);
+  const gBsh = lg('bsh', 0, CREST - 8, 0, H, [['0', '#fff7e6', .8], ['.07', '#fff7e6', 0], ['.62', '#000', 0], ['1', '#000', .28]], U);
+  const gSock = rg('sock', .5, .32, .75, [['0', '#3a0b0f'], ['.7', '#6a1a20'], ['1', '#8e2c32']]);
+  const gTi = lg('ti', CX - iw / 2 - 4, 0, CX + iw / 2 + 4, 0, [['0', '#57606b'], ['.2', '#a8b1bb'], ['.42', '#f1f4f7'], ['.6', '#c7ced6'], ['.82', '#89939e'], ['1', '#545d68']], U);
+  const grAb = lg('ab', CX - abM - 2, 0, CX + abM + 2, 0, [['0', '#7c6125'], ['.28', '#d3b35c'], ['.48', '#f8eab6'], ['.7', '#cdad56'], ['1', '#785d21']], U);
+  const gSt = lg('st', 0, 0, 1, 0, [['0', '#727c88'], ['.42', '#eef2f5'], ['.62', '#c6cdd5'], ['1', '#6c7682']]);
+  const gZr = lg('zr', 0, T - 4, 0, CEJ + 4, [['0', '#ffffff'], ['.6', '#f8f5ef'], ['1', '#ebe4d6']], U);
+  const grTmp = lg('tmp', 0, T, 0, CEJ, [['0', '#f2e3c2'], ['1', '#dcc497']], U);
+  const grVen = lg('ven', 0, T - 4, 0, CEJ, [['0', '#e9f3ff'], ['.16', '#ffffff'], ['1', '#f6f2e9']], U);
+  const gNumb = rg('numb', .5, .5, .5, [['0', '#60a5fa', .8], ['1', '#60a5fa', 0]]);
+  const gBeam = lg('beam', 0, 0, 0, 1, [['0', '#5eead4', .65], ['1', '#5eead4', .02]]);
+  const gCure = lg('cure', 0, 0, 0, 1, [['0', '#bfdbfe', .9], ['1', '#3b82f6', 0]]);
+  const gShine = lg('shine', 0, 0, 1, 0, [['0', '#fff', 0], ['.5', '#fff', .9], ['1', '#fff', 0]]);
+  const gOs = rg('os', .5, .5, .5, [['0', '#ffd166', .65], ['1', '#ffd166', 0]]);
+  const gAbs = rg('abs', .5, .5, .5, [['0', '#ff8a5c', .9], ['.5', '#e2453c', .5], ['1', '#e2453c', 0]]);
+  const gDec = rg('dec', .5, .45, .6, [['0', '#170b04'], ['.7', '#2e1a0b'], ['1', '#4d2e14']]);
+  const gCav = rg('cav', .5, .42, .62, [['0', '#5e4a30'], ['1', '#c4a77a']]);
+  const gBlue = rg('blue', .5, .5, .5, [['0', '#93c5fd', .75], ['1', '#3b82f6', 0]]);
+  const gSin = lg('sin', 0, 0, 0, 1, [['0', '#1a1424'], ['1', '#07090f']]);
+  const pat = sv('pattern', { id: id + 'trab', width: 36, height: 30, patternUnits: U }, defs);
+  sv('rect', { width: 36, height: 30, fill: '#ecd5a8' }, pat);
+  [[6, 6, 5, 3.4, -20], [20, 4, 4, 2.6, 30], [29, 13, 5.5, 3.2, 10], [12, 17, 6, 3.6, -35], [3, 25, 4, 2.4, 15], [24, 24, 5, 3, 40], [33, 28, 3, 2, 0], [17, 28, 3.6, 2.2, -10]]
+    .forEach(e => sv('ellipse', { cx: e[0], cy: e[1], rx: e[2], ry: e[3], transform: 'rotate(' + e[4] + ' ' + e[0] + ' ' + e[1] + ')', fill: '#d6b67c', opacity: .6 }, pat));
+  [[9, 11], [26, 9], [15, 23], [31, 20], [5, 16], [22, 15]].forEach(p => sv('circle', { cx: p[0], cy: p[1], r: .9, fill: '#b48a48', opacity: .55 }, pat));
+  const mp = sv('pattern', { id: id + 'mesh', width: 7, height: 7, patternUnits: U }, defs);
+  sv('path', { d: 'M7 0H0V7', fill: 'none', stroke: '#5eead4', 'stroke-width': .7 }, mp);
+  const gp = sv('pattern', { id: id + 'gz', width: 5, height: 5, patternUnits: U }, defs);
+  sv('rect', { width: 5, height: 5, fill: '#ffffff' }, gp);
+  sv('path', { d: 'M0 0L5 5M5 0L0 5', stroke: '#d9e0e7', 'stroke-width': .7 }, gp);
+  const blur = sv('filter', { id: id + 'blur', x: '-50%', y: '-50%', width: '200%', height: '200%' }, defs);
+  sv('feGaussianBlur', { stdDeviation: 2.6 }, blur);
+  const cp = (k, d) => { const c = sv('clipPath', { id: id + k, clipPathUnits: U }, defs); return sv('path', { d }, c); };
+  const BODY = bodyD(g, CX, CEJ), CROWN = crownD(g, CX, CEJ, CEJ + 3);
+  cp('body', BODY); cp('crown', crownD(g, CX, CEJ, CEJ)); cp('sock', socketD(g, CX, CEJ));
+  const cpCore = cp('core', ''), cpDrill = cp('drill', '');
+  const cpSockR = sv('rect', { x: -20, y: CEJ + 6, width: 440, height: 400 }, sv('clipPath', { id: id + 'sockr', clipPathUnits: U }, defs));
+  const cpMeshR = sv('rect', { x: 0, y: 0, width: 0, height: 300 }, sv('clipPath', { id: id + 'meshc', clipPathUnits: U }, defs));
+  const mask = sv('mask', { id: id + 'tm', maskUnits: U, x: -60, y: -60, width: 520, height: 420 }, defs);
+  sv('rect', { x: -60, y: -60, width: 520, height: 420, fill: '#fff' }, mask);
+  const mCrown = sv('path', { d: crownD(g, CX, CEJ, CEJ + 1), fill: '#000', stroke: '#000', 'stroke-width': 3, opacity: 0 }, mask);
+  const mStump = sv('path', { d: stumpD(g, CX, CEJ), fill: '#fff', opacity: 0 }, mask);
+  const R = CX + g.cw / 2;
+  const mChip = sv('path', { d: P('M', R - g.cw * .34, T - 3, 'L', R + 4, T - 3, 'L', R + 4, T + g.ch * .27, 'Z'), fill: '#000', opacity: 0 }, mask);
+
+  /* ---------- background ---------- */
+  sv('rect', { x: 0, y: 0, width: 400, height: 300, fill: gBg }, svg);
+  sv('ellipse', { cx: 200, cy: Y(150), rx: 240, ry: 175, fill: gGlow }, svg);
+  const G = sv('g', { transform: upper ? 'matrix(1 0 0 -1 0 300)' : null }, svg);
+
+  /* ---------- sites (target + neighbours) ---------- */
+  const row = upper ? ROW_U : ROW_L, ix = row.indexOf(f), miss = o.missing || new Set();
+  const sites = [{ f, x: CX, g, tooth: true, target: true }];
+  let xl = CX - g.cw / 2, xr = CX + g.cw / 2;
+  for (let k = 1; k <= 3; k++) { const nf = row[ix - k]; if (!nf) break; const ng = geom(toothInfo(nf), z); const x = xl - 1.2 - ng.cw / 2; sites.unshift({ f: nf, x, g: ng, tooth: !miss.has(nf) }); xl = x - ng.cw / 2; if (xl < -20) break; }
+  for (let k = 1; k <= 3; k++) { const nf = row[ix + k]; if (!nf) break; const ng = geom(toothInfo(nf), z); const x = xr + 1.2 + ng.cw / 2; sites.push({ f: nf, x, g: ng, tooth: !miss.has(nf) }); xr = x + ng.cw / 2; if (xr > 420) break; }
+  const tIdx = sites.findIndex(s => s.target);
+  const contacts = [];
+  for (let i = 0; i < sites.length - 1; i++) { const a = sites[i], b = sites[i + 1]; contacts.push({ x: (a.x + a.g.cw / 2 + b.x - b.g.cw / 2) / 2, a: i, b: i + 1, full: Math.min(a.g.ch, b.g.ch) * .36 }); }
+
+  /* ---------- bone ---------- */
+  const crestPts = [[-12, CREST - 3]];
+  sites.forEach((s, i) => { crestPts.push([s.x, CREST + (s.tooth ? 1.5 : 3)]); if (contacts[i]) crestPts.push([contacts[i].x, CREST - 4.5]); });
+  crestPts.push([412, CREST - 3]);
+  crestPts.sort((a, b) => a[0] - b[0]);
+  const crestLine = smoothD(crestPts);
+  const boneD = crestLine + ' L 412 312 L -12 312 Z';
+  sv('path', { d: boneD, fill: ref('trab') }, G);
+  if (sinusY) {
+    const sp = []; for (let x = -12; x <= 412; x += 53) sp.push([x, sinusY + Math.sin(x / 47) * 5 + (Math.abs(x - CX) < 40 ? -3 : 0)]);
+    const sD = smoothD(sp);
+    sv('path', { d: sD + ' L 412 312 L -12 312 Z', fill: gSin }, G);
+    sv('path', { d: sD, fill: 'none', stroke: '#f2a1a8', 'stroke-width': 2.6, opacity: .95 }, G);
+    sv('path', { d: sD, fill: 'none', stroke: '#ffd5d8', 'stroke-width': .8, opacity: .6, transform: 'translate(0 2.2)' }, G);
+  }
+  sv('path', { d: boneD, fill: gBsh }, G);
+  sv('path', { d: crestLine, fill: 'none', stroke: '#fbf0d9', 'stroke-width': 3.2, opacity: .95 }, G);
+  if (nerveY) {
+    const nD = P('M', -12, nerveY + 5, 'C', 120, nerveY + 1, 260, nerveY - 2, 412, nerveY - 7);
+    sv('path', { d: nD, fill: 'none', stroke: '#8a6434', 'stroke-width': 13, opacity: .5 }, G);
+    sv('path', { d: nD, fill: 'none', stroke: '#e05252', 'stroke-width': 1.6, transform: 'translate(0 -3.6)' }, G);
+    sv('path', { d: nD, fill: 'none', stroke: '#4f7cd6', 'stroke-width': 1.6, transform: 'translate(0 3.6)' }, G);
+    sv('path', { d: nD, fill: 'none', stroke: '#f6c445', 'stroke-width': 4.2 }, G);
+  }
+  const eAbs = sv('circle', { cx: CX, cy: apex + 3, r: 14, fill: gAbs, opacity: 0 }, G);
+  const gSockW = sv('g', { 'clip-path': ref('sockr') }, G);
+  const eSock = sv('path', { d: socketD(g, CX, CEJ), fill: gSock, opacity: 0 }, gSockW);
+  const eRegen = sv('path', { d: socketD(g, CX, CEJ), fill: ref('trab'), opacity: 0 }, gSockW);
+  const gGraft = sv('g', { 'clip-path': ref('sock') }, gSockW);
+  const rnd = mulberry(f * 7 + 3), graft = [];
+  for (let i = 0; i < 64; i++) {
+    const c = sv('circle', { cx: F(lerp(NL - 3, NR + 3, rnd())), cy: F(lerp(CEJ - 2, apex + 3, Math.pow(rnd(), .9))), r: F(1.5 + rnd() * 1.9), fill: rnd() > .5 ? '#f6eedc' : '#e7d3a8', stroke: '#c9a96d', 'stroke-width': .4, opacity: 0 }, gGraft);
+    graft.push(c);
+  }
+  const eO1 = sv('path', { d: '', fill: '#4e1418', stroke: '#2d0a0c', 'stroke-width': .6 }, G);
+  const eO2 = sv('path', { d: '', fill: '#5a1a1d', stroke: '#2d0a0c', 'stroke-width': .6 }, G);
+  const gDeb = sv('g', null, G), debris = [];
+  for (let i = 0; i < 10; i++) debris.push(sv('circle', { r: F(.8 + rnd() * 1.3), fill: '#f4e6c8', opacity: 0 }, gDeb));
+  const envD = (pad) => P('M', CX - iw / 2 - pad, CREST - 1, 'L', CX - iw * .4 - pad, CREST + IL * .86, 'Q', CX - iw * .3 - pad, CREST + IL + pad, CX, CREST + IL + pad, 'Q', CX + iw * .3 + pad, CREST + IL + pad, CX + iw * .4 + pad, CREST + IL * .86, 'L', CX + iw / 2 + pad, CREST - 1, 'Z');
+  const eRing = sv('path', { d: envD(7), fill: '#f8e9c8', opacity: 0, filter: ref('blur') }, G);
+
+  /* ---------- neighbours ---------- */
+  const gN = sv('g', null, G);
+  sites.forEach(s => { if (s.target || !s.tooth) return; sv('path', { d: bodyD(s.g, s.x, CEJ), fill: gTooth, stroke: '#b4a280', 'stroke-width': .9 }, gN); sv('path', { d: pulpD(s.g, s.x, CEJ), fill: '#f3a6a2', opacity: .16 }, gN); sv('ellipse', { cx: s.x - s.g.cw * .23, cy: CEJ - s.g.ch * .56, rx: s.g.cw * .06, ry: s.g.ch * .26, fill: '#fff', opacity: .4 }, gN); });
+
+  /* ---------- target natural tooth ---------- */
+  const gT = sv('g', { mask: ref('tm') }, G);
+  const gTm = sv('g', null, gT);
+  const eBody = sv('path', { d: BODY, fill: gTooth, stroke: '#b4a280', 'stroke-width': .9 }, gTm);
+  const tClip = sv('g', { 'clip-path': ref('body') }, gTm);
+  sv('ellipse', { cx: CX - g.cw * .23, cy: CEJ - g.ch * .56, rx: g.cw * .07, ry: g.ch * .3, fill: '#fff', opacity: .55 }, tClip);
+  const eDisc = sv('path', { d: crownD(g, CX, CEJ, CEJ), fill: '#c7a24c', opacity: 0 }, tClip);
+  const ePulp = sv('path', { d: pulpD(g, CX, CEJ), fill: '#f19c9a', opacity: .55 }, gTm);
+  const canals = canalsD(g, CX, CEJ).map(d => {
+    const base = sv('path', { d, fill: 'none', stroke: '#f19c9a', 'stroke-width': 3, 'stroke-linecap': 'round', opacity: .55 }, gTm);
+    const irr = sv('path', { d, fill: 'none', stroke: '#7dd3fc', 'stroke-width': 3.4, 'stroke-linecap': 'round', opacity: 0 }, gTm);
+    const gpE = sv('path', { d, fill: 'none', stroke: '#f2894a', 'stroke-width': 3.6, 'stroke-linecap': 'round', opacity: 0 }, gTm);
+    return { base, irr, gp: gpE, len: 0, pts: [] };
+  });
+  const dX = CX + g.cw * .12, dY = CEJ - g.ch * .6;
+  const deep = o.proc === 'rc', bx = CX + g.cw * .05, by = T + g.ch * (deep ? .3 : .24), brx = g.cw * .17, bry = g.ch * (deep ? .36 : .26);
+  const eDecay = sv('g', { opacity: 0 }, tClip);
+  sv('path', { d: blobD(dX, dY, g.cw * .15, g.ch * .17, f + 13, 10, .3), fill: '#a8834a', opacity: .45, filter: ref('blur') }, eDecay);
+  sv('path', { d: blobD(dX, dY, g.cw * .1, g.ch * .11, f + 11), fill: gDec, opacity: .95 }, eDecay);
+  const eDecayB = sv('g', { opacity: 0 }, tClip);
+  sv('path', { d: blobD(bx, by, brx * 1.4, bry * 1.3, f + 7, 11, .3), fill: '#a8834a', opacity: .42, filter: ref('blur') }, eDecayB);
+  sv('path', { d: blobD(bx, by, brx, bry, f + 5, 12, .45), fill: gDec, opacity: .96 }, eDecayB);
+  const eCrack = sv('path', { d: P('M', CX - g.cw * .05, T + g.ch * .1, 'L', CX + g.cw * .02, T + g.ch * .3, 'L', CX - g.cw * .03, T + g.ch * .48, 'L', CX + g.cw * .04, CEJ - g.ch * .22), fill: 'none', stroke: '#5b4630', 'stroke-width': 1.3, opacity: 0, 'stroke-linejoin': 'round' }, tClip);
+  const cavD = blobD(dX, dY, g.cw * .12, g.ch * .13, f + 23, 10, .08);
+  const eCav = sv('path', { d: cavD, fill: gCav, opacity: 0 }, tClip);
+  const eComp = sv('path', { d: cavD, fill: '#f4ecdd', stroke: '#e6d8bb', 'stroke-width': .6, opacity: 0 }, tClip);
+  const eStump = sv('path', { d: stumpD(g, CX, CEJ), fill: '#ead7ab', stroke: '#c9b083', 'stroke-width': .8, opacity: 0 }, gTm);
+  const acTop = g.k === 'm' ? T + g.ch * .17 : T + g.ch * .05;
+  C.dX = dX; C.dY = dY; C.acTop = acTop;
+  const eAccess = sv('path', { d: P('M', CX - g.cw * .17, acTop, 'L', CX + g.cw * .17, acTop, 'C', CX + g.cw * .14, acTop + g.ch * .2, CX + g.nw * .13, CEJ - g.ch * .42, CX + g.nw * .1, CEJ - g.ch * .34, 'L', CX - g.nw * .1, CEJ - g.ch * .34, 'C', CX - g.nw * .13, CEJ - g.ch * .42, CX - g.cw * .14, acTop + g.ch * .2, CX - g.cw * .17, acTop, 'Z'), fill: '#2a1712', opacity: 0 }, tClip);
+  const eSeal = sv('path', { d: P('M', CX - g.cw * .17, acTop, 'L', CX + g.cw * .17, acTop, 'C', CX + g.cw * .14, acTop + g.ch * .2, CX + g.nw * .13, CEJ - g.ch * .42, CX + g.nw * .1, CEJ - g.ch * .34, 'L', CX - g.nw * .1, CEJ - g.ch * .34, 'C', CX - g.nw * .13, CEJ - g.ch * .42, CX - g.cw * .14, acTop + g.ch * .2, CX - g.cw * .17, acTop, 'Z'), fill: '#efe5d1', stroke: '#dccaa6', 'stroke-width': .6, opacity: 0 }, tClip);
+  const gFiles = sv('g', { opacity: 0 }, gTm);
+  const files = canals.map(() => ({ wire: sv('path', { fill: 'none', stroke: '#dfe5eb', 'stroke-width': 1.5, 'stroke-linecap': 'round' }, gFiles), stop: sv('ellipse', { rx: 4.2, ry: 1.7, fill: '#fb7185' }, gFiles), hdl: sv('rect', { width: 8, height: 13, rx: 2 }, gFiles) }));
+
+  /* ---------- implant parts ---------- */
+  const gImp = sv('g', { opacity: 0 }, G);
+  const eCore = sv('path', { fill: gTi, stroke: '#4b5563', 'stroke-width': .6 }, gImp);
+  const eFins = sv('path', { fill: gTi, stroke: '#4b5563', 'stroke-width': .5 }, gImp);
+  const eLines = sv('path', { fill: 'none', stroke: '#3f4752', 'stroke-width': 1.1, opacity: .55, 'clip-path': ref('core') }, gImp);
+  const eLinesH = sv('path', { fill: 'none', stroke: '#ffffff', 'stroke-width': .7, opacity: .35, 'clip-path': ref('core'), transform: 'translate(0 1.2)' }, gImp);
+  const eCollar = sv('rect', { fill: '#e6eaef', stroke: '#6b7480', 'stroke-width': .5, rx: .8 }, gImp);
+  const eConn = sv('rect', { fill: '#2f3740', opacity: 0, rx: 1 }, gImp);
+  const eCover = sv('rect', { x: CX - iw * .46, y: CREST - 3.4, width: iw * .92, height: 3.6, rx: 1.4, fill: '#9aa4af', stroke: '#5b6470', 'stroke-width': .5, opacity: 0 }, G);
+  const eOsG = sv('path', { fill: 'none', stroke: '#ffd166', 'stroke-width': 5, opacity: 0, filter: ref('blur') }, G);
+  const eOsL = sv('path', { fill: 'none', stroke: '#ffe29a', 'stroke-width': 1.3, opacity: 0 }, G);
+  const gCells = sv('g', null, G), cells = [];
+  for (let i = 0; i < 26; i++) {
+    const side = i % 2 ? 1 : -1, yy = CREST + 6 + rnd() * (IL - 10), dist = 10 + rnd() * 22;
+    cells.push({ e: sv('circle', { r: F(1.3 + rnd() * 1.2), fill: '#fff3cf', opacity: 0 }, gCells), side, yy, dist });
+  }
+  const gHeal = sv('g', { opacity: 0 }, G);
+  sv('path', { d: P('M', CX - iw * .44, CREST, 'L', CX - hwHeal, CEJ - 2, 'L', CX - hwHeal, CEJ - 4.5, 'Q', CX - hwHeal, CEJ - 7.5, CX - hwHeal + 2.8, CEJ - 7.5, 'L', CX + hwHeal - 2.8, CEJ - 7.5, 'Q', CX + hwHeal, CEJ - 7.5, CX + hwHeal, CEJ - 4.5, 'L', CX + hwHeal, CEJ - 2, 'L', CX + iw * .44, CREST, 'Z'), fill: gTi, stroke: '#4b5563', 'stroke-width': .6 }, gHeal);
+  sv('rect', { x: CX - 2.6, y: CEJ - 8.6, width: 5.2, height: 2.2, rx: .8, fill: '#2f3740' }, gHeal);
+  const eHealHi = sv('rect', { y: CEJ - 7, width: 1.6, height: CREST - CEJ + 6, fill: '#fff', opacity: .45 }, gHeal);
+  const gSB = sv('g', { opacity: 0 }, G);
+  const sbTop = CEJ - g.ch * .8;
+  sv('rect', { x: CX - iw * .36, y: sbTop, width: iw * .72, height: CREST - sbTop, rx: 1.6, fill: '#f1f5f9', stroke: '#94a3b8', 'stroke-width': .8 }, gSB);
+  sv('path', { d: P('M', CX + iw * .06, sbTop, 'L', CX + iw * .36, sbTop, 'L', CX + iw * .36, sbTop + g.ch * .22, 'Z'), fill: '#cbd5e1' }, gSB);
+  sv('rect', { x: CX - iw * .36, y: sbTop + g.ch * .34, width: iw * .72, height: 2, fill: '#22d3ee', opacity: .8 }, gSB);
+  const gAb = sv('g', { opacity: 0 }, G);
+  const abTop = CEJ - g.ch * .58, abMg = CEJ - 2;
+  sv('path', { d: P('M', CX - iw * .42, CREST, 'C', CX - iw * .42, CREST - 6, CX - abM, abMg + 6, CX - abM, abMg, 'L', CX - abM * .92, abMg - 1.6, 'L', CX - abT, abTop + 4, 'Q', CX - abT, abTop, CX - abT + 4, abTop, 'L', CX + abT - 4, abTop, 'Q', CX + abT, abTop, CX + abT, abTop + 4, 'L', CX + abM * .92, abMg - 1.6, 'L', CX + abM, abMg, 'C', CX + abM, abMg + 6, CX + iw * .42, CREST - 6, CX + iw * .42, CREST, 'Z'), fill: grAb, stroke: '#6b5420', 'stroke-width': .6 }, gAb);
+  sv('ellipse', { cx: CX, cy: abTop + 1.2, rx: abT * .32, ry: 1.5, fill: '#3a2e12' }, gAb);
+  const gScrew = sv('g', { opacity: 0 }, gAb);
+  sv('rect', { x: CX - 1.6, y: abTop + 3, width: 3.2, height: CREST + 15 - abTop - 3, fill: '#4b5563' }, gScrew);
+  sv('rect', { x: CX - abT * .42, y: abTop + 2, width: abT * .84, height: 4, rx: 1, fill: '#6b7480' }, gScrew);
+  const eSlot = sv('rect', { y: abTop + 2.8, height: 2.4, fill: '#1f2937' }, gScrew);
+  sv('rect', { x: CX - iw * .16, y: CREST - .5, width: iw * .32, height: 9, fill: '#b99a4a', opacity: .9 }, gScrew);
+
+  /* ---------- crowns & veneer ---------- */
+  const gTmp = sv('g', { opacity: 0 }, G);
+  sv('path', { d: crownD(g, CX, CEJ, CEJ + 1), fill: grTmp, stroke: '#c7b28a', 'stroke-width': .8, transform: 'translate(' + F(CX * -.03) + ' ' + F((CEJ - g.ch / 2) * -.03) + ') scale(1.03)' }, gTmp);
+  const gCr = sv('g', { opacity: 0 }, G);
+  const eCr = sv('path', { d: CROWN, fill: gZr, stroke: '#d6cdbb', 'stroke-width': .8 }, gCr);
+  sv('ellipse', { cx: CX - g.cw * .22, cy: CEJ - g.ch * .55, rx: g.cw * .065, ry: g.ch * .28, fill: '#fff', opacity: .8, 'clip-path': ref('crown') }, gCr);
+  const gVen = sv('g', { opacity: 0 }, G);
+  sv('path', { d: crownD(g, CX, CEJ, CEJ), fill: grVen, stroke: '#e2dbc9', 'stroke-width': .8 }, gVen);
+  sv('ellipse', { cx: CX - g.cw * .2, cy: CEJ - g.ch * .55, rx: g.cw * .06, ry: g.ch * .27, fill: '#fff', opacity: .85 }, gVen);
+  const eDesign = sv('path', { d: crownD(g, CX, CEJ, CEJ), fill: 'none', stroke: '#5eead4', 'stroke-width': 1.4, 'stroke-dasharray': '4 3', opacity: 0 }, G);
+  const eVprep = sv('path', { d: crownD(g, CX, CEJ, CEJ), fill: 'rgba(255,255,255,.18)', stroke: '#ffffff', 'stroke-width': 1.8, opacity: 0 }, G);
+  const gShn = sv('g', { 'clip-path': ref('crown') }, G);
+  const eShine = sv('rect', { y: T - 14, width: 18, height: g.ch + 28, fill: gShine, opacity: 0 }, gShn);
+
+  /* ---------- gum ---------- */
+  const eGumA = sv('path', { fill: gGum }, G), eGumB = sv('path', { fill: gGum }, G);
+  const eGumLA = sv('path', { fill: 'none', stroke: '#c95b68', 'stroke-width': 1, opacity: .7 }, G);
+  const eGumLB = sv('path', { fill: 'none', stroke: '#c95b68', 'stroke-width': 1, opacity: .7 }, G);
+  const eGumHi = sv('path', { fill: 'none', stroke: '#ffd5d8', 'stroke-width': 1, opacity: .45, transform: 'translate(0 1.6)' }, G);
+  const eNumb = sv('ellipse', { cx: CX + g.cw * .35, cy: CEJ + 14, rx: g.cw * 1.15, ry: 46, fill: gNumb, opacity: 0 }, G);
+  const eSut = sv('path', { fill: 'none', stroke: '#1d3f8f', 'stroke-width': 1.7, 'stroke-linecap': 'round', opacity: 0 }, G);
+
+  /* ---------- instruments ---------- */
+  // syringe
+  const gSy = sv('g', { opacity: 0 }, G);
+  const gSyI = sv('g', null, gSy);
+  sv('line', { x1: 0, y1: 0, x2: -38, y2: 0, stroke: '#e2e8f0', 'stroke-width': 1.3 }, gSyI);
+  sv('rect', { x: -44, y: -3.2, width: 7, height: 6.4, rx: 1.2, fill: '#60a5fa' }, gSyI);
+  sv('rect', { x: -112, y: -7.5, width: 69, height: 15, rx: 3.5, fill: gSt, stroke: '#5b6470', 'stroke-width': .6 }, gSyI);
+  sv('rect', { x: -103, y: -4.4, width: 50, height: 8.8, rx: 2, fill: '#d7eef9' }, gSyI);
+  const eSyL = sv('rect', { y: -4.4, height: 8.8, rx: 2, fill: '#62b4e2' }, gSyI);
+  const gSyP = sv('g', null, gSyI);
+  sv('rect', { x: -138, y: -2.2, width: 28, height: 4.4, fill: '#9aa5b1' }, gSyP);
+  sv('circle', { cx: -143, cy: 0, r: 7, fill: 'none', stroke: '#8b96a3', 'stroke-width': 3 }, gSyP);
+  const syP = [CX + g.cw * .6, CEJ + 8];
+  // forceps
+  const gFo = sv('g', { opacity: 0 }, G);
+  const beak = (sgn) => {
+    const hx = CX + sgn * 5, hy = T - 26;
+    const b = sv('g', null, gFo);
+    const d = P('M', CX + sgn * (g.nw / 2 + 1.2), CEJ - g.ch * .18, 'C', CX + sgn * (g.cw / 2 + 7), CEJ - g.ch * .46, CX + sgn * (g.cw / 2 + 5), T - 8, hx, hy, 'L', CX + sgn * 15, T - 170);
+    sv('path', { d, fill: 'none', stroke: '#9aa5b1', 'stroke-width': 6.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, b);
+    sv('path', { d, fill: 'none', stroke: '#eef2f5', 'stroke-width': 2, 'stroke-linecap': 'round', transform: 'translate(' + (-sgn * .8) + ' -.6)' }, b);
+    return { b, hx, hy, sgn };
+  };
+  const bL = beak(-1), bRt = beak(1);
+  sv('circle', { cx: CX, cy: T - 26, r: 4.5, fill: '#7d8794', stroke: '#e5e9ee', 'stroke-width': 1 }, gFo);
+  // drill (origin = tip)
+  const gDr = sv('g', { opacity: 0 }, G);
+  const CL = IL + 20;
+  const eBit = sv('path', { fill: gSt, stroke: '#4b5563', 'stroke-width': .6 }, gDr);
+  const eFl = sv('path', { fill: 'none', stroke: '#3f4752', 'stroke-width': 1.5, opacity: .65, 'clip-path': ref('drill') }, gDr);
+  const eMarks = sv('path', { fill: 'none', stroke: '#111827', 'stroke-width': 1 }, gDr);
+  sv('rect', { x: -3, y: -CL - 26, width: 6, height: 26, fill: gSt, stroke: '#4b5563', 'stroke-width': .5 }, gDr);
+  const hand = (parent, y0, s) => {
+    sv('path', { d: P('M', 6 * s, y0 - 18 * s, 'L', 92 * s, y0 - 128 * s), stroke: '#a3adb8', 'stroke-width': 17 * s, 'stroke-linecap': 'round' }, parent);
+    sv('path', { d: P('M', 2 * s, y0 - 20 * s, 'L', 88 * s, y0 - 131 * s), stroke: '#e8edf1', 'stroke-width': 4 * s, 'stroke-linecap': 'round', opacity: .8 }, parent);
+    sv('rect', { x: -15 * s, y: y0 - 27 * s, width: 30 * s, height: 27 * s, rx: 9 * s, fill: gSt, stroke: '#5b6470', 'stroke-width': .7 }, parent);
+    sv('circle', { cx: 10 * s, cy: y0 - 3 * s, r: 2.2 * s, fill: '#7dd3fc' }, parent);
+  };
+  hand(gDr, -CL - 26, 1);
+  const drops = []; for (let i = 0; i < 12; i++) drops.push(sv('circle', { r: F(1 + rnd() * 1.1), fill: '#9bdcff', opacity: 0 }, G));
+  // bur (origin = tip)
+  const gBu = sv('g', { opacity: 0 }, G);
+  sv('rect', { x: -2.8, y: -22, width: 5.6, height: 22, rx: 2.8, fill: '#d5dbe1', stroke: '#6b7480', 'stroke-width': .5 }, gBu);
+  const eGrit = sv('path', { fill: 'none', stroke: '#8a939e', 'stroke-width': .8, 'stroke-dasharray': '1 1.6' }, gBu);
+  sv('rect', { x: -1.6, y: -34, width: 3.2, height: 12, fill: gSt }, gBu);
+  hand(gBu, -34, .62);
+  // endo handled in tooth; scanner
+  const gSc = sv('g', { opacity: 0 }, G);
+  const beamH = CEJ + 10 - (T - 22);
+  sv('path', { d: P('M', -13, 9, 'L', 13, 9, 'L', 34, beamH, 'L', -34, beamH, 'Z'), fill: gBeam }, gSc);
+  sv('rect', { x: -34, y: beamH - 2, width: 68, height: 2.2, fill: '#5eead4', opacity: .95 }, gSc);
+  sv('path', { d: P('M', 14, -4, 'L', 104, -112, 'L', 122, -96, 'L', 26, 10, 'Z'), fill: '#eef2f7', stroke: '#94a3b8', 'stroke-width': .8 }, gSc);
+  sv('rect', { x: -25, y: -10, width: 50, height: 20, rx: 8, fill: '#f8fafc', stroke: '#94a3b8', 'stroke-width': .9 }, gSc);
+  sv('rect', { x: -16, y: 6.5, width: 32, height: 3.6, rx: 1.5, fill: '#22d3ee' }, gSc);
+  const eMesh = sv('rect', { x: CX - 80, y: T - 8, width: 160, height: CEJ + 18 - (T - 8), fill: ref('mesh'), opacity: 0, 'clip-path': 'url(#' + id + 'meshc)' }, G);
+  // curing light
+  const gCu = sv('g', { opacity: 0 }, G);
+  sv('path', { d: P('M', -7, 0, 'L', 7, 0, 'L', 25, 42, 'L', -25, 42, 'Z'), fill: gCure }, gCu);
+  sv('ellipse', { cx: 0, cy: 44, rx: 20, ry: 12, fill: gBlue }, gCu);
+  sv('rect', { x: -6, y: -74, width: 12, height: 66, rx: 4, fill: '#334155', stroke: '#1e293b', 'stroke-width': .8 }, gCu);
+  sv('rect', { x: -8, y: -12, width: 16, height: 12, rx: 3, fill: '#1e293b' }, gCu);
+  sv('rect', { x: -5.5, y: -2, width: 11, height: 2.4, rx: 1, fill: '#60a5fa' }, gCu);
+  // gauze
+  const eGz = sv('rect', { x: CX - g.cw * .78, y: CEJ - 22, width: g.cw * 1.56, height: 22, rx: 6, fill: ref('gz'), stroke: '#cbd5e1', 'stroke-width': .8, opacity: 0 }, G);
+  // polish cup
+  const gPo = sv('g', { opacity: 0 }, G);
+  sv('path', { d: P('M', -6, 0, 'L', 6, 0, 'L', 8.5, -10, 'L', -8.5, -10, 'Z'), fill: '#e2e8f0', stroke: '#94a3b8', 'stroke-width': .7 }, gPo);
+  const ePoL = sv('path', { fill: 'none', stroke: '#94a3b8', 'stroke-width': .8 }, gPo);
+  sv('rect', { x: -1.3, y: -22, width: 2.6, height: 12, fill: gSt }, gPo);
+  hand(gPo, -22, .58);
+  // filling instrument
+  const gIn = sv('g', { opacity: 0 }, G);
+  sv('path', { d: P('M', 0, 0, 'L', 6, -14, 'L', 52, -86), fill: 'none', stroke: '#cfd6dd', 'stroke-width': 2.6, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, gIn);
+  sv('path', { d: P('M', 34, -58, 'L', 70, -118), fill: 'none', stroke: '#64748b', 'stroke-width': 6, 'stroke-linecap': 'round' }, gIn);
+  sv('ellipse', { cx: 0, cy: 0, rx: 3, ry: 1.6, fill: '#e2e8f0' }, gIn);
+  // cement + sparkles
+  const eCem = sv('path', { d: P('M', NL - 4, CEJ - 4.5, 'q', 3, -3.4, 6, 0, 'q', -3, 2.6, -6, 0, 'M', NR - 2, CEJ - 4.5, 'q', 3, -3.4, 6, 0, 'q', -3, 2.6, -6, 0), fill: '#fffbea', stroke: '#e5dcc0', 'stroke-width': .5, opacity: 0 }, G);
+  const gSp = sv('g', { opacity: 0 }, G);
+  const spark = (x, y, s) => sv('path', { d: P('M', x, y - 6 * s, 'Q', x + 1 * s, y - 1 * s, x + 6 * s, y, 'Q', x + 1 * s, y + 1 * s, x, y + 6 * s, 'Q', x - 1 * s, y + 1 * s, x - 6 * s, y, 'Q', x - 1 * s, y - 1 * s, x, y - 6 * s, 'Z'), fill: '#fff' }, gSp);
+  const sps = [spark(CX + g.cw * .38, T + 4, 1), spark(CX - g.cw * .3, T - 6, .7), spark(CX + g.cw * .05, T - 14, .55)];
+
+  /* ---------- overlay (not flipped) ---------- */
+  const gOv = sv('g', { opacity: 0 }, svg);
+  const coList = [];
+  const addCo = (text, ax, ay, side, ly) => coList.push({ text, ax, ay: Y(ay), side, sy: Y(ly != null ? ly : ay) });
+  function layoutCo() {
+    [-1, 1].forEach(side => {
+      const L = coList.filter(c => c.side === side).sort((a, b) => a.sy - b.sy);
+      for (let i = 1; i < L.length; i++) if (L[i].sy - L[i - 1].sy < 25) L[i].sy = L[i - 1].sy + 25;
+      const over = L.length ? L[L.length - 1].sy - 268 : 0;
+      if (over > 0) L.forEach(c => { c.sy -= over; });
+      for (let i = L.length - 2; i >= 0; i--) if (L[i + 1].sy - L[i].sy < 25) L[i].sy = L[i + 1].sy - 25;
+      L.forEach(c => { c.sy = Math.max(18, c.sy); });
+    });
+    coList.forEach(c => {
+      const gc = sv('g', null, gOv);
+      const w = c.text.length * 6.5 + 18, lx = c.side < 0 ? 12 : 388 - w, ex = c.side < 0 ? lx + w : lx;
+      sv('path', { d: P('M', c.ax, c.ay, 'L', (ex + c.ax) / 2, c.sy, 'L', ex, c.sy), fill: 'none', stroke: 'rgba(255,255,255,.75)', 'stroke-width': 1 }, gc);
+      sv('circle', { cx: c.ax, cy: c.ay, r: 2.6, fill: '#00b4d8', stroke: '#fff', 'stroke-width': 1 }, gc);
+      sv('rect', { x: lx, y: c.sy - 10, width: w, height: 20, rx: 10, fill: 'rgba(6,22,42,.86)', stroke: 'rgba(255,255,255,.28)' }, gc);
+      const tx = sv('text', { x: lx + w / 2, y: c.sy + 4, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, fill: '#fff', 'font-family': 'Inter,system-ui,sans-serif' }, gc);
+      tx.textContent = c.text;
+    });
+  }
+  const pr = o.proc;
+  if (pr === 'imp') {
+    addCo('Kurora zirkoni', CX + g.cw * .2, CEJ - g.ch * .55, 1);
+    addCo('Abutmenti', CX - abM * .6, CEJ - 8, -1, CEJ - 20);
+    addCo('Mishi (gingiva)', CX - g.cw * .58, CEJ + 4, -1, CEJ + 14);
+    addCo('Implanti prej titani', CX + iw * .35, CREST + IL * .45, 1);
+    addCo('Kocka', CX - iw * .9 - 10, CREST + IL * .8, -1);
+    if (nerveY) addCo('Nervi – distancë sigurie', CX - 30, nerveY + 1, -1, nerveY - 4);
+    if (sinusY) addCo('Sinusi maksilar', CX + 40, sinusY + 18, 1);
+  } else if (pr === 'cr' || (pr === 'rc' && o.rcCr)) {
+    addCo('Kurora zirkoni', CX + g.cw * .2, CEJ - g.ch * .55, 1);
+    if (pr === 'rc') addCo('Kanalet e mbushura', canalsMid(), CEJ + g.rl * .45, -1);
+    else addCo('Dhëmbi natyral', CX - g.nw * .2, CEJ + g.rl * .3, -1);
+    addCo('Mishi (gingiva)', CX - g.cw * .58, CEJ + 4, -1, CEJ + 14);
+  } else if (pr === 'rc') {
+    addCo('Mbushja kompozite', CX + g.cw * .1, acTop + 4, 1);
+    addCo('Kanalet e mbushura', canalsMid(), CEJ + g.rl * .45, -1);
+    addCo('Infeksioni shërohet', CX + 6, apex + 4, 1);
+  } else if (pr === 'fil') {
+    addCo('Mbushje kompozite', dX + 2, dY, 1);
+  } else if (pr === 'ven') {
+    addCo('Fasetë qeramike', CX + g.cw * .2, CEJ - g.ch * .55, 1);
+  } else if (pr === 'ext') {
+    addCo('Mishi i shëruar', CX, CEJ + 3, 1, CEJ + 6);
+    addCo('Kockë e re', CX - 4, CEJ + g.rl * .55, -1);
+  }
+  function canalsMid() { return g.nr === 2 ? NL + g.nw * .24 : CX - 1; }
+  layoutCo();
+  const eTq = sv('g', { opacity: 0 }, svg);
+  { const ty = Y(abTop - 10), tx = CX + abT + 28; sv('rect', { x: tx - 4, y: ty - 10, width: 66, height: 20, rx: 10, fill: 'rgba(6,22,42,.86)', stroke: 'rgba(255,209,102,.6)' }, eTq); const t = sv('text', { x: tx + 29, y: ty + 4, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, fill: '#ffd166', 'font-family': 'Inter,system-ui,sans-serif' }, eTq); t.textContent = '⟳ 35 Ncm'; }
+
+  /* measure canals (needed for files & gutta-percha fill) */
+  function measure() {
+    canals.forEach(c => {
+      if (c.len) return;
+      try { const L = c.base.getTotalLength(); if (!L) return; c.len = L; c.pts = []; for (let i = 0; i <= 24; i++) { const p = c.base.getPointAtLength(L * i / 24); c.pts.push([p.x, p.y]); } c.gp.setAttribute('stroke-dasharray', F(L) + ' ' + F(L)); } catch (e) { /* ignore */ }
+    });
+  }
+  measure();
+
+  /* ---------- gum geometry ---------- */
+  function gum(S) {
+    const zen = s => s.target ? lerp(CEJ - 4, CEJ + 4, S.ridge) : (s.tooth ? CEJ - 4 : CEJ + 4);
+    const hw = s => s.target ? lerp(s.g.nw / 2, s.g.cw * .42, S.ridge) : (s.tooth ? s.g.nw / 2 : s.g.cw * .42);
+    const cy = c => { const a = sites[c.a], b = sites[c.b]; const ha = a.target ? lerp(1, .32, S.ridge) : (a.tooth ? 1 : .32); const hb = b.target ? lerp(1, .32, S.ridge) : (b.tooth ? 1 : .32); return CEJ - 4 - c.full * Math.min(ha, hb); };
+    const pts = []; // anchors: {t:'z'|'c'|'e', x, y, hw}
+    sites.forEach((s, i) => { pts.push({ t: 'z', x: s.x, y: zen(s), hw: hw(s), target: s.target }); if (contacts[i]) pts.push({ t: 'c', x: contacts[i].x, y: cy(contacts[i]) }); });
+    const seq = [{ t: 'e', x: -12, y: pts[0].y }].concat(pts, [{ t: 'e', x: 412, y: pts[pts.length - 1].y }]);
+    const curve = (a, b) => {
+      if (a.t === 'c') return P('C', a.x + 3, a.y + (b.y - a.y) * .75, b.x - (b.hw || 6) * .9, b.y, b.x, b.y);
+      if (b.t === 'c') return P('C', a.x + (a.hw || 6) * .9, a.y, b.x - 3, b.y + (a.y - b.y) * .75, b.x, b.y);
+      return P('L', b.x, b.y);
+    };
+    const gw = S.gw, ti2 = seq.findIndex(p => p.target), zt = seq[ti2].y;
+    let A = P('M', -12, BOT, 'L', -12, seq[0].y), LA = P('M', -12, seq[0].y), B = '', LB = '';
+    if (gw <= .35) {
+      for (let i = 1; i < seq.length; i++) { const c = curve(seq[i - 1], seq[i]); A += ' ' + c; LA += ' ' + c; }
+      A += ' ' + P('L', 412, BOT, 'Z');
+    } else {
+      for (let i = 1; i < ti2; i++) { const c = curve(seq[i - 1], seq[i]); A += ' ' + c; LA += ' ' + c; }
+      const pv = seq[ti2 - 1], nx = seq[ti2 + 1], ex = CX - gw, sx = CX + gw;
+      let cL = pv.t === 'c' ? P('C', pv.x + 3, pv.y + (zt - pv.y) * .75, ex - Math.max(2, (ex - pv.x) * .35), zt, ex - 2.5, zt) : P('L', ex - 2.5, zt);
+      cL += ' ' + P('Q', ex, zt, ex, zt + 2.5);
+      A += ' ' + cL + ' ' + P('L', ex, BOT, 'Z'); LA += ' ' + cL;
+      B = P('M', sx, BOT, 'L', sx, zt + 2.5, 'Q', sx, zt, sx + 2.5, zt); LB = P('M', sx, zt + 2.5, 'Q', sx, zt, sx + 2.5, zt);
+      const cR = nx.t === 'c' ? P('C', sx + Math.max(2, (nx.x - sx) * .35), zt, nx.x - 3, nx.y + (zt - nx.y) * .75, nx.x, nx.y) : P('L', nx.x, nx.y);
+      B += ' ' + cR; LB += ' ' + cR;
+      for (let i = ti2 + 2; i < seq.length; i++) { const c = curve(seq[i - 1], seq[i]); B += ' ' + c; LB += ' ' + c; }
+      B += ' ' + P('L', 412, BOT, 'Z');
+    }
+    return { A, B, LA, LB, zt };
+  }
+
+  /* ---------- per-frame implant geometry ---------- */
+  const pitch = Math.max(5, .78 * z), dep = Math.max(2, iw * .085), col = Math.max(4, .7 * z);
+  function impGeo(dy, ph) {
+    const top = CREST + dy, hw0 = iw / 2 - 1.4, taper = iw * .1;
+    const hwAt = y => hw0 - taper * clamp((y - top) / IL, 0, 1);
+    const yA = top + IL * .86, hA = hwAt(yA);
+    const core = P('M', CX - hw0, top, 'L', CX - hA, yA, 'Q', CX - hA * .82, top + IL, CX, top + IL, 'Q', CX + hA * .82, top + IL, CX + hA, yA, 'L', CX + hw0, top, 'Z');
+    let fins = '', lines = '';
+    const off = frac(ph) * pitch, ok = y => !(y - pitch * .42 < top + col - .5 || y + pitch * .22 > top + IL * .9);
+    for (let k = -1; k < IL / pitch + 1; k++) {
+      const y = top + col + k * pitch + off, y2 = y + pitch / 2;
+      if (ok(y)) { const h = hwAt(y); fins += P('M', CX - h + .4, y - pitch * .42, 'L', CX - h - dep, y - pitch * .1, 'L', CX - h - dep, y + pitch * .04, 'L', CX - h + .4, y + pitch * .22, 'Z') + ' '; }
+      if (ok(y2)) { const h = hwAt(y2); fins += P('M', CX + h - .4, y2 - pitch * .42, 'L', CX + h + dep, y2 - pitch * .1, 'L', CX + h + dep, y2 + pitch * .04, 'L', CX + h - .4, y2 + pitch * .22, 'Z') + ' '; }
+      if (y > top + col - pitch && y < top + IL) { const h = hwAt(y); lines += P('M', CX - h - 1, y, 'L', CX + h + 1, y + pitch * .5) + ' '; }
+    }
+    return { core, fins, lines, top, hw0 };
+  }
+  let lastDW = -1;
+
+  /* ---------- draw ---------- */
+  function draw(S, x) {
+    const xray = x ? 1 : 0;
+    if (!canals[0].len) measure();
+    // bone-level
+    setA(eAbs, { opacity: F(S.abscess * (.75 + .25 * S.pulse)), r: F(12 + 3 * S.pulse) });
+    cpSockR.setAttribute('y', F(lerp(CEJ + 6, CEJ - 6, clamp(S.gw / 4, 0, 1))));
+    eSock.setAttribute('opacity', F(S.socket * (1 - S.regen)));
+    eRegen.setAttribute('opacity', F(S.regen * .95));
+    const gn = graft.length;
+    graft.forEach((c, i) => c.setAttribute('opacity', F(clamp(S.graft * gn - i, 0, 1) * (1 - S.regen * .85))));
+    const o1 = S.o1D > .5 ? P('M', CX - S.o1W / 2, CREST - 3, 'L', CX - S.o1W / 2, CREST + S.o1D - S.o1W * .4, 'Q', CX - S.o1W / 2, CREST + S.o1D + 1, CX, CREST + S.o1D + 1, 'Q', CX + S.o1W / 2, CREST + S.o1D + 1, CX + S.o1W / 2, CREST + S.o1D - S.o1W * .4, 'L', CX + S.o1W / 2, CREST - 3, 'Z') : '';
+    const o2 = S.o2D > .5 ? P('M', CX - S.o2W / 2, CREST - 3, 'L', CX - S.o2W / 2, CREST + S.o2D - S.o2W * .3, 'Q', CX - S.o2W / 2, CREST + S.o2D + 1, CX, CREST + S.o2D + 1, 'Q', CX + S.o2W / 2, CREST + S.o2D + 1, CX + S.o2W / 2, CREST + S.o2D - S.o2W * .3, 'L', CX + S.o2W / 2, CREST - 3, 'Z') : '';
+    eO1.setAttribute('d', o1); eO2.setAttribute('d', o2); eO1.setAttribute('opacity', F(1 - S.oFade)); eO2.setAttribute('opacity', F(1 - S.oFade));
+    debris.forEach((d, i) => { const u = frac(S.drillPh * .09 + i / debris.length); const sgn = i % 2 ? 1 : -1; setA(d, { cx: F(CX + sgn * (S.drillW * .5 + u * 22)), cy: F(CREST - 2 - u * 26 + u * u * 20), opacity: F(S.debris * (1 - u)) }); });
+    eRing.setAttribute('opacity', F(S.osseo * .55));
+    // natural tooth
+    gT.setAttribute('opacity', F(S.tooth * (xray ? .6 : 1)));
+    gTm.setAttribute('transform', 'translate(0 ' + F(S.tDy) + ') rotate(' + F(S.tRot) + ' ' + CX + ' ' + F(CEJ + g.rl * .55) + ')');
+    mCrown.setAttribute('opacity', F(S.prep)); mStump.setAttribute('opacity', F(S.prep)); mChip.setAttribute('opacity', F(S.chip));
+    eStump.setAttribute('opacity', F(S.prep * .92));
+    eDisc.setAttribute('opacity', F(S.discolor * .42));
+    const pa = mixA(mixA(PULP_N, PULP_I, S.pulpRed * (.8 + .2 * S.pulse)), PULP_E, S.canalClean), pc = rgbS(pa);
+    setA(ePulp, { fill: rgbS(mixA(pa, PULP_S, S.seal)), opacity: F(lerp(S.pulpOp, 1, S.seal)) });
+    canals.forEach((c, i) => {
+      setA(c.base, { stroke: pc, opacity: F(S.pulpOp) });
+      c.irr.setAttribute('opacity', F(S.irrig * (.75 + .25 * Math.sin(S.irrigPh * 6 + i))));
+      c.gp.setAttribute('opacity', S.gp > 0 ? 1 : 0);
+      if (c.len) c.gp.setAttribute('stroke-dashoffset', F(c.len * (1 - S.gp)));
+    });
+    eDecay.setAttribute('opacity', F(S.decay)); eDecayB.setAttribute('opacity', F(S.decayBig));
+    eCrack.setAttribute('opacity', F(S.crack));
+    eCav.setAttribute('opacity', F(S.cavity)); eComp.setAttribute('opacity', F(S.composite * (1 - .6 * S.blend)));
+    eAccess.setAttribute('opacity', F(S.access * (1 - S.seal))); eSeal.setAttribute('opacity', F(S.seal));
+    // endo files
+    gFiles.setAttribute('opacity', F(S.files));
+    if (S.files > 0) {
+      const cols = ['#facc15', '#ef4444', '#3b82f6'], colr = cols[Math.min(2, Math.floor(S.filesCol))];
+      canals.forEach((c, i) => {
+        if (!c.pts.length) return;
+        const n = c.pts.length - 1, st = Math.round(n * (1 - clamp(S.filesD + (i ? .02 : 0), 0, 1) * .97));
+        let d = P('M', c.pts[st][0], c.pts[st][1]);
+        for (let k = st + 1; k <= n; k++) d += ' ' + P('L', c.pts[k][0], c.pts[k][1]);
+        const tx = c.pts[n][0] + (i === 0 && canals.length > 1 ? -2 : canals.length > 1 ? 2 : 0), shift = (1 - S.filesD) * 30;
+        d += ' ' + P('L', tx, T - 22 - shift * .2);
+        const fw = files[i];
+        fw.wire.setAttribute('d', d);
+        setA(fw.stop, { cx: F(tx), cy: F(acTop + 1) });
+        setA(fw.hdl, { x: F(tx - 4), y: F(T - 35 - shift * .2), fill: colr });
+      });
+    }
+    // implant
+    gImp.setAttribute('opacity', F(S.imp));
+    if (S.imp > 0) {
+      const ig = impGeo(S.impDy, S.impPh);
+      eCore.setAttribute('d', ig.core); cpCore.setAttribute('d', ig.core);
+      eFins.setAttribute('d', ig.fins); eLines.setAttribute('d', ig.lines); eLinesH.setAttribute('d', ig.lines);
+      setA(eCollar, { x: F(CX - ig.hw0 - .4), y: F(ig.top - .2), width: F(ig.hw0 * 2 + .8), height: F(col) });
+      setA(eConn, { x: F(CX - iw * .17), y: F(ig.top + .6), width: F(iw * .34), height: F(IL * .26), opacity: xray });
+      if (S.osseo > 0) { eOsG.setAttribute('d', ig.core); eOsL.setAttribute('d', ig.core); }
+    }
+    eOsG.setAttribute('opacity', F(S.osseo * .55)); eOsL.setAttribute('opacity', F(S.osseo * .8));
+    cells.forEach((c, i) => {
+      const u = eOut(clamp(S.osseo * 1.25 - i / cells.length * .25, 0, 1));
+      const hwy = iw / 2 - iw * .1 * clamp((c.yy - CREST) / IL, 0, 1);
+      setA(c.e, { cx: F(CX + c.side * (hwy + dep + 1 + c.dist * (1 - u))), cy: F(c.yy), opacity: F(S.osseo > 0 ? Math.min(1, S.osseo * 4) * (.35 + .65 * u) * (1 - S.osseo * .3) : 0) });
+    });
+    eCover.setAttribute('opacity', F(S.cover));
+    gHeal.setAttribute('opacity', F(S.heal)); gHeal.setAttribute('transform', 'translate(0 ' + F(S.healDy) + ')');
+    eHealHi.setAttribute('x', F(CX - hwHeal + 1 + frac(S.healPh) * (hwHeal * 2 - 3)));
+    gSB.setAttribute('opacity', F(S.sb)); gSB.setAttribute('transform', 'translate(0 ' + F(S.sbDy) + ')');
+    gAb.setAttribute('opacity', F(S.abut)); gAb.setAttribute('transform', 'translate(0 ' + F(S.abDy) + ')');
+    gScrew.setAttribute('opacity', F(Math.max(xray, S.torque) * S.abut));
+    { const w = Math.abs(Math.cos(S.screw * Math.PI * 2)) * abT * .7 + .6; setA(eSlot, { x: F(CX - w / 2), width: F(w) }); }
+    // crowns
+    gTmp.setAttribute('opacity', F(S.temp)); gTmp.setAttribute('transform', 'translate(0 ' + F(S.tempDy) + ')');
+    gCr.setAttribute('opacity', F(S.crown * (xray ? .38 : 1))); gCr.setAttribute('transform', 'translate(0 ' + F(S.crDy) + ')');
+    gVen.setAttribute('opacity', F(S.veneer * (xray ? .5 : 1)));
+    gVen.setAttribute('transform', 'translate(' + F(CX * (1 - S.vnScale)) + ' ' + F((CEJ - g.ch / 2) * (1 - S.vnScale)) + ') scale(' + F(S.vnScale * 1000) / 1000 + ')');
+    eDesign.setAttribute('opacity', F(S.design));
+    eVprep.setAttribute('opacity', F(S.vprepO));
+    { const sc = 1 + .14 * S.vprepP; eVprep.setAttribute('transform', 'translate(' + F(CX * (1 - sc)) + ' ' + F((CEJ - g.ch / 2) * (1 - sc) - 6 * S.vprepP) + ') scale(' + F(sc * 1000) / 1000 + ')'); }
+    if (S.shine >= 0 && S.shine <= 1) { setA(eShine, { x: F(lerp(CX - g.cw * .9, CX + g.cw * .7, S.shine)), opacity: F(Math.sin(S.shine * Math.PI) * .9), transform: 'rotate(18 ' + CX + ' ' + F(CEJ - g.ch / 2) + ')' }); }
+    else eShine.setAttribute('opacity', 0);
+    // gum
+    const gm = gum(S);
+    eGumA.setAttribute('d', gm.A); eGumLA.setAttribute('d', gm.LA);
+    eGumB.setAttribute('d', gm.B || ''); eGumLB.setAttribute('d', gm.LB || '');
+    eGumHi.setAttribute('d', gm.LA + (gm.LB ? ' ' + gm.LB : ''));
+    const gop = xray ? .38 : 1;
+    [eGumA, eGumB].forEach(e => e.setAttribute('opacity', gop));
+    eNumb.setAttribute('opacity', F(S.numb * .75));
+    if (S.sutures > 0) {
+      const n = g.cw > 50 ? 3 : 2, sp = Math.min(9, g.cw * .16); let d = '';
+      for (let k = 0; k < n; k++) { const xx = CX + (k - (n - 1) / 2) * sp * 1.25, yy = gm.zt + 3; d += P('M', xx - 3, yy - 3.6, 'L', xx + 3, yy + 3.6, 'M', xx + 3, yy - 3.6, 'L', xx - 3, yy + 3.6) + ' '; }
+      eSut.setAttribute('d', d);
+    }
+    eSut.setAttribute('opacity', F(S.sutures));
+    // syringe
+    gSy.setAttribute('opacity', F(S.syr));
+    if (S.syr > 0) {
+      gSy.setAttribute('transform', 'translate(' + F(syP[0]) + ' ' + F(syP[1]) + ') rotate(140)');
+      gSyI.setAttribute('transform', 'translate(' + F(-(1 - S.syrP) * 30) + ' 0)');
+      setA(eSyL, { x: F(-53 - 50 * S.syrL), width: F(50 * S.syrL) });
+      gSyP.setAttribute('transform', 'translate(' + F((1 - S.syrL) * 40) + ' 0)');
+    }
+    // forceps
+    gFo.setAttribute('opacity', F(S.forc));
+    if (S.forc > 0) {
+      gFo.setAttribute('transform', 'translate(0 ' + F(S.forcDy) + ') rotate(' + F(S.tRot) + ' ' + CX + ' ' + F(CEJ + g.rl * .55) + ')');
+      [bL, bRt].forEach(b => b.b.setAttribute('transform', 'rotate(' + F(b.sgn * (1 - S.forcClose) * 9) + ' ' + F(b.hx) + ' ' + F(b.hy) + ')'));
+    }
+    // drill
+    gDr.setAttribute('opacity', F(S.drill));
+    if (S.drill > 0) {
+      const w = S.drillW;
+      if (w !== lastDW) { lastDW = w; const bd = P('M', -w / 2, -CL, 'L', -w / 2, -w * .45, 'Q', -w / 2, 0, 0, 1.8, 'Q', w / 2, 0, w / 2, -w * .45, 'L', w / 2, -CL, 'Z'); eBit.setAttribute('d', bd); cpDrill.setAttribute('d', bd); let mk = ''; [8, 10, 12].forEach(mm => { const yy = -mm * z; if (-yy < CL - 4) mk += P('M', -w / 2, yy, 'L', w / 2, yy) + ' '; }); eMarks.setAttribute('d', mk); }
+      let fl = ''; const o = frac(S.drillPh) * 6;
+      for (let yy = -CL - 6 + o; yy < 6; yy += 6) fl += P('M', -w / 2 - 1, yy, 'L', w / 2 + 1, yy - w * .6) + ' ';
+      eFl.setAttribute('d', fl);
+      gDr.setAttribute('transform', 'translate(' + CX + ' ' + F(CREST + S.drillDy) + ')');
+    }
+    // water spray (drill or bur)
+    const wsrc = S.drill > 0 && S.water > 0 ? [CX + 10, CREST + S.drillDy - CL - 29, CX + S.drillW * .5, CREST - 1, S.water] : (S.bur > 0 && S.burWater > 0 ? [S.burX + 6.2, S.burY - 36, S.burX + 2, S.burY - 3, S.burWater] : null);
+    drops.forEach((d, i) => {
+      if (!wsrc) { d.setAttribute('opacity', 0); return; }
+      const u = frac((S.drill > 0 ? S.drillPh : S.burPh) * .13 + i / drops.length), j = Math.sin(i * 12.9) * 4;
+      setA(d, { cx: F(lerp(wsrc[0], wsrc[2] + j, u)), cy: F(lerp(wsrc[1], wsrc[3] + j * .5, u)), opacity: F(wsrc[4] * (1 - u) * .9) });
+    });
+    // bur
+    gBu.setAttribute('opacity', F(S.bur));
+    if (S.bur > 0) {
+      gBu.setAttribute('transform', 'translate(' + F(S.burX) + ' ' + F(S.burY) + ')');
+      let gr = ''; const o = frac(S.burPh) * 3; for (let yy = -21 + o; yy < -1; yy += 3) gr += P('M', -2.4, yy, 'L', 2.4, yy - 1.4) + ' ';
+      eGrit.setAttribute('d', gr);
+    }
+    // scanner & mesh
+    gSc.setAttribute('opacity', F(S.scan));
+    if (S.scan > 0) gSc.setAttribute('transform', 'translate(' + F(S.scanX) + ' ' + F(T - 22) + ')');
+    eMesh.setAttribute('opacity', F(S.mesh * .5));
+    setA(cpMeshR, { x: CX - 80, width: F(Math.max(0, S.meshX - (CX - 80))) });
+    // curing light
+    gCu.setAttribute('opacity', F(S.cure));
+    if (S.cure > 0) gCu.setAttribute('transform', 'translate(' + F(S.cureX) + ' ' + F(S.cureY - 44) + ') rotate(-16 0 44)');
+    eGz.setAttribute('opacity', F(S.gauze));
+    gPo.setAttribute('opacity', F(S.pol));
+    if (S.pol > 0) { gPo.setAttribute('transform', 'translate(' + F(S.polX) + ' ' + F(S.polY) + ')'); const o = frac(S.polPh) * 17; ePoL.setAttribute('d', P('M', -8 + o % 17 * .95, -10, 'L', -5.5 + o % 17 * .65, 0)); }
+    gIn.setAttribute('opacity', F(S.inst));
+    if (S.inst > 0) gIn.setAttribute('transform', 'translate(' + F(S.instX) + ' ' + F(S.instY) + ')');
+    eCem.setAttribute('opacity', F(S.cement));
+    gSp.setAttribute('opacity', F(S.sparkle));
+    if (S.sparkle > 0) sps.forEach((s, i) => s.setAttribute('opacity', F(.55 + .45 * Math.sin(S.sparkle * 7 + i * 2.1))));
+    gOv.setAttribute('opacity', F(S.callouts));
+    eTq.setAttribute('opacity', F(S.torque));
+  }
+  return { draw, C, Y };
+}
+
+/* ═════════ Clinical step flows (one per procedure) ═════════ */
+const timerTxt = (p, unit, n, fin) => p >= .995 ? fin : unit + ' ' + (1 + Math.floor(p * (n - 1)));
+function stStart(title, desc, chips) { return { k: 'start', title, desc, chips, dur: 2600, rep: .5, a(S, t) { S.pulse = .5 + .5 * Math.sin(t * Math.PI * 6); } }; }
+function stAnest(desc, title) {
+  return {
+    k: 'anest', title: title || 'Anestezioni lokal', dur: 3000, rep: .52, chips: ['⏱ ≈ 5 min', '✓ Pa dhimbje'],
+    desc: desc || 'Zona mpihet plotësisht me anestezi lokale. Gjatë procedurës nuk ndjeni dhimbje – vetëm pak shtypje.',
+    a(S, t) { S.syr = bell(t, 0, .12, .78, .92); S.syrP = ease(seg(t, .1, .3)) * (1 - ease(seg(t, .72, .86))); S.syrL = 1 - seg(t, .32, .68); S.numb = bell(t, .3, .55, .82, 1); }
+  };
+}
+function stExtract(C) {
+  const lift = C.g.rl + C.g.ch * .5 + 60;
+  return {
+    k: 'ext', title: 'Nxjerrja e dhëmbit', dur: 4000, rep: .7, chips: ['⏱ ≈ 15–20 min', 'Teknikë atraumatike'],
+    desc: 'Dhëmbi lirohet me kujdes dhe largohet në mënyrë atraumatike, duke ruajtur kockën dhe mishin përreth.',
+    a(S, t) {
+      S.forc = bell(t, 0, .1, .84, .97);
+      S.forcDy = lerp(-120, 0, eOut(seg(t, 0, .2)));
+      S.forcClose = ease(seg(t, .2, .3));
+      const w = seg(t, .3, .6); S.tRot = w > 0 && w < 1 ? Math.sin(w * Math.PI * 6) * 5 * (1 - w * .4) : 0;
+      const l = ease(seg(t, .6, .92)); S.tDy = -l * lift; S.forcDy -= l * lift;
+      S.tooth = 1 - seg(t, .84, .97);
+      S.socket = Math.max(S.socket, seg(t, .6, .72));
+      S.gw = Math.max(S.gw, C.g.nw / 2 * seg(t, .58, .7));
+      S.abscess *= 1 - seg(t, .7, 1);
+    }
+  };
+}
+function stGraftHeal(C, graft) {
+  return {
+    k: 'heal1', title: graft ? 'Grafti kockor & shërimi' : 'Shërimi i alveolës', dur: 4600, chips: graft ? ['⏱ ≈ 10 min', '⏳ Shërim 2–3 muaj'] : ['⏳ Shërim 2–3 muaj'],
+    desc: graft ? 'Alveola pastrohet dhe mbushet me graft kockor që ruan vëllimin e kockës. Brenda 2–3 muajve formohet kockë e re dhe mishi mbyllet plotësisht.' : 'Alveola shërohet natyrshëm: brenda 2–3 muajve formohet kockë e re dhe mishi mbyllet plotësisht.',
+    a(S, t) {
+      if (graft) S.graft = ease(seg(t, .02, .32));
+      const c = ease(seg(t, .34, .62)); S.gw = lerp(S.gw, 0, c);
+      S.ridge = Math.max(S.ridge, ease(seg(t, .34, .8)));
+      S.sutures = graft ? bell(t, .3, .38, .62, .72) : 0;
+      S.regen = ease(seg(t, .4, 1));
+      S.timer = t > .34 ? { p: seg(t, .34, 1), txt: timerTxt(seg(t, .34, 1), 'Java', 12, '≈ 2–3 muaj') } : null;
+    }
+  };
+}
+function stDrill(C, inSocket) {
+  const D = C.IL, pw = 2.2 * C.z, fw = Math.max(pw + 4, C.iw - .6 * C.z);
+  return {
+    k: 'drill', title: 'Përgatitja e shtratit (osteotomia)', dur: 4800, rep: .72, chips: ['⏱ ≈ 15 min', '💧 Ftohje me ujë', '🧭 Sipas planit 3D'],
+    desc: inSocket ? 'Në alveolën e pastruar, me frezë precize dhe ftohje të vazhdueshme me ujë, shtrati zgjatet në kockën e shëndoshë për stabilitet maksimal.' : 'Bëhet një prerje e vogël në mish dhe, me frezë precize nën ftohje të vazhdueshme me ujë, krijohet shtrati i implantit sipas planit digjital 3D.',
+    a(S, t) {
+      const g0 = S.gw; S.gw = lerp(g0, Math.max(g0, C.iw / 2 + 5), ease(seg(t, 0, .1)));
+      const p1 = t < .5;
+      const d1 = t < .4 ? lerp(-80, D, ease(seg(t, .1, .36))) : lerp(D, -80, ease(seg(t, .4, .48)));
+      const d2 = t < .82 ? lerp(-80, D, ease(seg(t, .53, .79))) : lerp(D, -80, ease(seg(t, .82, .94)));
+      S.drill = p1 ? bell(t, .06, .1, .46, .5) : bell(t, .5, .54, .93, .97);
+      S.drillW = p1 ? pw : fw; S.drillDy = p1 ? d1 : d2; S.drillPh = t * 46;
+      S.o1W = pw; S.o1D = t < .36 ? Math.max(0, d1) : D;
+      S.o2W = fw; S.o2D = t < .53 ? 0 : (t < .79 ? Math.max(0, d2) : D);
+      S.water = S.drillDy > -45 ? S.drill : 0;
+      S.debris = S.drillDy > 0 ? S.drill : 0;
+    }
+  };
+}
+function stImplant(C) {
+  const pitch = Math.max(5, .78 * C.z), L = C.IL, s0 = -(L + 70), s1 = -L * .82;
+  return {
+    k: 'imp', title: 'Vendosja e implantit', dur: 4400, chips: ['⏱ ≈ 10 min', 'Titan biokompatibil'],
+    desc: 'Implanti prej titani vidhoset me kujdes në kockë. Ai zëvendëson rrënjën e dhëmbit dhe arrin stabilitet të menjëhershëm.',
+    a(S, t) {
+      S.imp = seg(t, 0, .08);
+      const dy = t < .28 ? lerp(s0, s1, ease(seg(t, 0, .28))) : lerp(s1, 0, ease(seg(t, .3, .88)));
+      S.impDy = dy; S.impPh = t < .3 ? 0 : -(dy - s1) / pitch; S.oFade = .5 * seg(t, .86, 1);
+    }
+  };
+}
+function stClose(C, graftAround) {
+  return {
+    k: 'close', title: graftAround ? 'Grafti, mbyllja & qepja' : 'Mbyllja & qepja', dur: 3200, chips: ['⏱ ≈ 10 min', 'Qepjet hiqen pas 7–10 ditësh'],
+    desc: graftAround ? 'Hapësira rreth implantit mbushet me graft kockor, vendoset vida mbrojtëse dhe mishi qepet.' : 'Implanti mbyllet me vidë mbrojtëse dhe mishi qepet me kujdes mbi të.',
+    a(S, t) {
+      S.cover = ease(seg(t, 0, .2)); S.oFade = lerp(.5, 1, seg(t, 0, .4));
+      if (graftAround) S.graft = Math.max(S.graft, ease(seg(t, .1, .4)));
+      const g0 = S.gw, r0 = S.ridge; S.gw = lerp(g0, 0, ease(seg(t, .38, .72))); S.ridge = lerp(r0, 1, ease(seg(t, .38, .72)));
+      S.sutures = ease(seg(t, .7, .86));
+    }
+  };
+}
+function stOsseo(C) {
+  const up = C.upper, front = C.ti.p <= 3;
+  return {
+    k: 'osseo', title: 'Osteointegrimi', dur: 5000, chips: [up ? '⏳ ≈ 4–6 muaj' : '⏳ ≈ 3 muaj', 'Jetë normale'],
+    desc: 'Kocka rritet dhe bashkohet fort me sipërfaqen e implantit. Gjatë kësaj kohe jetoni normalisht' + (front ? '; për estetikë mund të vendoset dhëmb i përkohshëm.' : '.'),
+    a(S, t) {
+      S.sutures *= 1 - seg(t, .06, .16);
+      S.osseo = ease(seg(t, .1, .95));
+      if (S.socket > 0) S.regen = Math.max(S.regen, ease(seg(t, .1, .9)));
+      const p = seg(t, .06, .96);
+      S.timer = { p, txt: up ? timerTxt(p, 'Muaji', 6, '≈ 4–6 muaj') : timerTxt(p, 'Java', 12, '≈ 3 muaj') };
+    }
+  };
+}
+function stHealCap(C) {
+  return {
+    k: 'heal', title: 'Formuesi i mishit', dur: 3800, chips: ['⏱ ≈ 15 min', '⏳ 2 javë'],
+    desc: 'Mishi hapet lehtë dhe vendoset formuesi i gingivës. Për rreth 2 javë mishi merr një kontur natyral rreth dhëmbit të ardhshëm.',
+    a(S, t) {
+      S.gw = lerp(0, C.hwHeal + .5, ease(seg(t, 0, .16)));
+      S.cover *= 1 - seg(t, .14, .24);
+      S.heal = seg(t, .22, .3); S.healDy = lerp(-60, 0, ease(seg(t, .22, .52))); S.healPh = t < .52 ? t * 9 : .52 * 9;
+      S.ridge = lerp(1, .3, ease(seg(t, .55, 1)));
+      S.timer = t > .55 ? { p: seg(t, .55, 1), txt: timerTxt(seg(t, .55, 1), 'Dita', 14, '2 javë') } : null;
+    }
+  };
+}
+function stScanImp(C) {
+  return {
+    k: 'scan', title: 'Skanimi digjital 3D', dur: 4000, rep: .62, chips: ['⏱ ≈ 10 min', 'Pa masa me pastë'],
+    desc: 'Në implant vendoset një “scan body” dhe me skaner intraoral merret masa digjitale 3D – shpejt dhe pa masa të pakëndshme.',
+    a(S, t) {
+      S.healDy = lerp(0, -70, ease(seg(t, 0, .14))); S.heal = 1 - seg(t, .08, .16);
+      S.sb = seg(t, .16, .22); S.sbDy = lerp(-60, 0, ease(seg(t, .16, .32)));
+      S.scan = bell(t, .32, .4, .86, .94); S.scanX = lerp(C.CX - 74, C.CX + 74, ease(seg(t, .38, .86)));
+      S.meshX = S.scanX; S.mesh = bell(t, .38, .44, .9, 1);
+    }
+  };
+}
+function stAbut(C) {
+  return {
+    k: 'abut', title: 'Abutmenti (pjesa protetike)', dur: 4000, rep: .8, chips: ['⏱ ≈ 10 min', '⟳ 35 Ncm'],
+    desc: 'Abutmenti – lidhësi mes implantit dhe kurorës – vendoset në implant dhe fiksohet me vidë precize, me forcë të kontrolluar.',
+    a(S, t) {
+      S.sbDy = lerp(0, -60, ease(seg(t, 0, .14))); S.sb = 1 - seg(t, .08, .16);
+      S.abut = seg(t, .16, .22); S.abDy = lerp(-80, 0, ease(seg(t, .18, .5)));
+      S.screw = ease(seg(t, .55, .86)) * 4; S.torque = bell(t, .6, .68, .94, 1);
+      S.gw = lerp(C.hwHeal + .5, C.abM, seg(t, .3, .5));
+    }
+  };
+}
+function stCrownImp(C, mat) {
+  return {
+    k: 'crown', title: 'Kurora përfundimtare', dur: 4200, chips: ['⏱ ≈ 30 min', mat === 'z' ? 'Zirkon' : 'Zirkon premium', 'CAD/CAM në klinikë'],
+    desc: 'Kurora prej zirkoni, e dizajnuar dhe e frezuar në laboratorin tonë digjital, vendoset mbi abutment dhe përshtatet saktë me kafshimin.',
+    a(S, t) {
+      S.crown = seg(t, 0, .08);
+      S.crDy = lerp(-150, 0, ease(seg(t, 0, .52))) - 3 * Math.sin(Math.PI * seg(t, .52, .62));
+      S.cement = bell(t, .5, .58, .72, .82);
+      const g0 = S.gw, r0 = S.ridge; S.gw = lerp(g0, 0, ease(seg(t, .45, .7))); S.ridge = lerp(r0, 0, ease(seg(t, .45, .85)));
+      S.shine = t > .72 ? seg(t, .72, 1) : -1; S.sparkle = bell(t, .8, .86, .96, 1);
+    }
+  };
+}
+function stDone(title, desc, chips, extra) {
+  return { k: 'done', title, desc, chips, dur: 3000, a(S, t) { S.callouts = ease(seg(t, .12, .4)); S.sparkle = bell(t, 0, .08, .4, .6); S.shine = t < .5 ? seg(t, 0, .5) : -1; if (extra) extra(S, t); } };
+}
+/* natural tooth restorations */
+function stPrep(C) {
+  const { CX, CEJ, g, T } = C;
+  return {
+    k: 'prep', title: 'Preparimi i dhëmbit', dur: 4600, rep: .62, chips: ['⏱ ≈ 30 min', '💧 Ftohje me ujë'],
+    desc: 'Pjesa e prishur largohet dhe dhëmbi zvogëlohet në mënyrë të kontrolluar, që kurora të ulet në mënyrë të përsosur.',
+    a(S, t) {
+      S.bur = bell(t, 0, .08, .9, .98);
+      const u = seg(t, .08, .9); let x, y;
+      if (u < .35) { const k = u / .35; x = CX - g.cw / 2 - 1 + k * g.cw * .04; y = lerp(CEJ - 7, T + g.ch * .3, k); }
+      else if (u < .65) { const k = (u - .35) / .3; x = lerp(CX - g.cw * .34, CX + g.cw * .34, k); y = T + g.ch * .12 - Math.sin(k * Math.PI) * 2; }
+      else { const k = (u - .65) / .35; x = CX + g.cw / 2 + 1 - (1 - k) * g.cw * .04; y = lerp(T + g.ch * .3, CEJ - 7, k); }
+      S.burX = x; S.burY = y; S.burPh = t * 60; S.burWater = S.bur;
+      S.prep = ease(seg(t, .1, .92));
+      const k2 = 1 - S.prep; S.decay *= k2; S.decayBig *= k2; S.crack *= k2;
+    }
+  };
+}
+function stScanN(C, title, desc) {
+  return {
+    k: 'scan', title: title || 'Skanimi digjital 3D', dur: 3400, rep: .55, chips: ['⏱ ≈ 5 min', 'Pa masa me pastë'],
+    desc: desc || 'Skaneri intraoral krijon brenda pak minutash modelin 3D të dhëmbit – pa masa me pastë.',
+    a(S, t) { S.scan = bell(t, 0, .1, .84, .94); S.scanX = lerp(C.CX - 74, C.CX + 74, ease(seg(t, .08, .84))); S.meshX = S.scanX; S.mesh = bell(t, .08, .14, .88, 1); }
+  };
+}
+function stTemp() {
+  return {
+    k: 'temp', title: 'Kurora e përkohshme', dur: 3600, chips: ['⏳ 3–5 ditë', 'Laboratori ynë digjital'],
+    desc: 'Vendoset kurorë e përkohshme për mbrojtje dhe estetikë, ndërsa kurora përfundimtare prodhohet në laboratorin tonë digjital (CAD/CAM).',
+    a(S, t) { S.temp = seg(t, 0, .1); S.tempDy = lerp(-120, 0, ease(seg(t, 0, .45))); S.timer = t > .5 ? { p: seg(t, .5, 1), txt: timerTxt(seg(t, .5, 1), 'Dita', 5, '3–5 ditë') } : null; }
+  };
+}
+function stCrownN(mat) {
+  return {
+    k: 'crown', title: 'Kurora përfundimtare', dur: 4200, chips: ['⏱ ≈ 30 min', mat === 'z' ? 'Zirkon' : 'Zirkon premium'],
+    desc: 'Kurora e përkohshme hiqet; kurora prej zirkoni provohet, kontrollohen ngjyra dhe kafshimi dhe cementohet përgjithmonë.',
+    a(S, t) {
+      S.tempDy = lerp(0, -120, ease(seg(t, 0, .2))); S.temp *= 1 - seg(t, .12, .22);
+      S.crown = seg(t, .2, .28); S.crDy = lerp(-150, 0, ease(seg(t, .2, .62))) - 3 * Math.sin(Math.PI * seg(t, .62, .7));
+      S.cement = bell(t, .6, .66, .78, .86); S.shine = t > .78 ? seg(t, .78, 1) : -1; S.sparkle = bell(t, .84, .9, .97, 1);
+    }
+  };
+}
+function flowFor(tt, C) {
+  const st = [], init = {};
+  const front = C.ti.p <= 3;
+  if (tt.p === 'imp') {
+    const miss = !!tt.m, imm = !miss && !!tt.im;
+    if (miss) { init.tooth = 0; init.ridge = 1; st.push(stStart('Gjendja fillestare', 'Dhëmbi mungon. Kocka dhe mishi janë shëruar – vendi është gati për implant.', ['🧭 Planifikim 3D (CBCT)'])); }
+    else { Object.assign(init, { decayBig: .9, abscess: .75, pulpRed: .6 }); st.push(stStart('Gjendja fillestare', 'Dhëmbi është dëmtuar rëndë (karies i thellë ose infeksion) dhe nuk mund të shpëtohet. Zgjidhja më e mirë afatgjatë është implanti.', ['🧭 Diagnozë me CBCT 3D'])); }
+    st.push(stAnest());
+    if (!miss) st.push(stExtract(C));
+    if (!miss && !imm) st.push(stGraftHeal(C, !!tt.g));
+    st.push(stDrill(C, imm), stImplant(C), stClose(C, imm && !!tt.g), stOsseo(C), stHealCap(C), stScanImp(C), stAbut(C), stCrownImp(C, tt.c));
+    st.push(stDone('Rezultati', 'Dhëmb i ri, i fortë dhe natyral: përtypni, qeshni dhe flisni pa kufizime. Me higjienë të mirë zgjat dekada.', ['🔁 Kontroll çdo 6 muaj']));
+  } else if (tt.p === 'cr') {
+    Object.assign(init, { decayBig: .85, crack: .9 });
+    st.push(stStart('Gjendja fillestare', 'Dhëmbi ka karies të madh ose plasaritje dhe një mbushje e thjeshtë nuk mjafton. Kurora e mbron dhe i rikthen formën e plotë.', ['🔍 Diagnozë & rentgen']));
+    st.push(stAnest(), stPrep(C), stScanN(C), stTemp(), stCrownN(tt.c));
+    st.push(stDone('Rezultati', 'Dhëmbi është i mbrojtur, i fortë dhe estetik – i padallueshëm nga dhëmbët natyralë.', ['🔁 Kontroll çdo 6 muaj']));
+  } else if (tt.p === 'rc') {
+    Object.assign(init, { decayBig: 1, pulpRed: 1, abscess: 1, pulpOp: .95 });
+    st.push(stStart('Infeksion në pulpë', 'Kariesi ka arritur deri te nervi (pulpa). Infeksioni shkakton dhimbje dhe mund të përhapet në majë të rrënjës.', ['🔍 Rentgen periapikal']));
+    st.push(stAnest());
+    st.push({
+      k: 'access', title: 'Hapja e dhëmbit', dur: 3300, rep: .7, chips: ['⏱ ≈ 10 min', 'Izolim i plotë'],
+      desc: 'Pas izolimit, bëhet një hapje e vogël në kurorë për të arritur te dhoma e pulpës dhe kanalet.',
+      a(S, t) { S.bur = bell(t, 0, .1, .82, .92); S.burX = C.CX; S.burY = lerp(C.T - 36, C.acTop + (C.CEJ - C.g.ch * .36 - C.acTop) * .85, ease(seg(t, .08, .7))) + Math.sin(t * 60) * .6; S.burPh = t * 60; S.burWater = S.bur; S.access = ease(seg(t, .25, .8)); S.decayBig *= 1 - seg(t, .3, .85); }
+    });
+    st.push({
+      k: 'clean', title: 'Pastrimi i kanaleve', dur: 4800, rep: .52, chips: ['⏱ ≈ 30–45 min', 'Instrumente rrotulluese'],
+      desc: 'Me instrumente shumë të holla, nervi i infektuar largohet dhe kanalet pastrohen e formësohen deri në majë të rrënjës.',
+      a(S, t) { S.files = bell(t, 0, .06, .9, .98); const osc = t > .1 && t < .86 ? Math.sin(t * 90) * .05 : 0; S.filesD = clamp(.25 + .72 * ease(seg(t, .04, .45)) + osc, 0, 1); S.filesCol = t < .33 ? 0 : t < .62 ? 1 : 2; S.canalClean = ease(seg(t, .12, .85)); S.pulpRed *= 1 - seg(t, .1, .6); }
+    });
+    st.push({ k: 'irrig', title: 'Dezinfektimi', dur: 3000, rep: .45, chips: ['⏱ ≈ 10 min'], desc: 'Kanalet shpëlahen me solucione dezinfektuese që shkatërrojnë bakteret edhe në degëzimet më të vogla.', a(S, t) { S.irrig = bell(t, .05, .25, .7, .9); S.irrigPh = t * 10; } });
+    st.push({ k: 'obt', title: 'Mbushja e kanaleve', dur: 3600, chips: ['⏱ ≈ 15 min', 'Gutaperkë'], desc: 'Kanalet mbushen hermetikisht me gutaperkë, nga maja e rrënjës deri lart, që bakteret të mos rikthehen.', a(S, t) { S.gp = ease(seg(t, .08, .85)); } });
+    st.push({
+      k: 'seal', title: 'Mbyllja e dhëmbit', dur: 3400, rep: .72, chips: ['⏱ ≈ 15 min'],
+      desc: tt.rcCr ? 'Hapja mbyllet me kompozit. Meqë dhëmbi i trajtuar dobësohet, në hapat e radhës mbrohet me kurorë.' : 'Hapja mbyllet me mbushje kompozite të ngurtësuar me dritë. Për dhëmbët e pasmë shpesh rekomandohet kurorë mbrojtëse.',
+      a(S, t) { S.inst = bell(t, 0, .1, .5, .6); S.instX = C.CX + 2; S.instY = C.acTop + 4 + Math.sin(t * 30) * 1.2; S.seal = ease(seg(t, .12, .5)); S.cure = bell(t, .55, .62, .86, .94); S.cureX = C.CX; S.cureY = C.acTop + 6; S.abscess *= 1 - .3 * t; }
+    });
+    if (tt.rcCr) st.push(stPrep(C), stScanN(C), stCrownN(tt.c));
+    st.push(stDone('Rezultati', 'Dhëmbi natyral është shpëtuar. Infeksioni në majë të rrënjës shërohet gradualisht brenda disa muajve.', ['🔁 Kontroll me rentgen pas 6 muajsh'], (S, t) => { S.abscess *= 1 - ease(seg(t, 0, .7)); }));
+  } else if (tt.p === 'fil') {
+    init.decay = 1;
+    st.push(stStart('Kariesi', 'Kariesi (prishja) ka dëmtuar smaltin dhe po përparon drejt shtresave më të thella të dhëmbit.', ['🔍 Diagnozë e hershme']));
+    st.push(stAnest('Për karieset më të thella zona mpihet, që procedura të jetë plotësisht pa dhimbje.', 'Anestezioni (sipas nevojës)'));
+    st.push({ k: 'remove', title: 'Largimi i kariesit', dur: 3400, rep: .55, chips: ['⏱ ≈ 10 min'], desc: 'Pjesa e prishur largohet me kujdes, duke ruajtur sa më shumë dhëmb të shëndetshëm.', a(S, t) { S.bur = bell(t, 0, .1, .84, .94); const a = t * Math.PI * 8; S.burX = C.dX + Math.cos(a) * C.g.cw * .05; S.burY = C.dY + 2 + Math.sin(a) * C.g.ch * .04; S.burPh = t * 60; S.burWater = S.bur; const r = ease(seg(t, .12, .8)); S.decay = 1 - r; S.cavity = r; } });
+    st.push({ k: 'fill', title: 'Mbushja me kompozit', dur: 3800, rep: .76, chips: ['⏱ ≈ 10 min', 'Ngjyra e dhëmbit tuaj'], desc: 'Kompoziti estetik, në ngjyrën e dhëmbit tuaj, vendoset shtresë pas shtrese dhe modelohet sipas formës natyrale.', a(S, t) { S.inst = bell(t, 0, .08, .86, .94); S.instX = C.dX + Math.sin(t * 20) * 2; S.instY = C.dY + Math.cos(t * 20) * 1.5; S.composite = .34 * ease(seg(t, .08, .32)) + .33 * ease(seg(t, .38, .6)) + .33 * ease(seg(t, .66, .88)); } });
+    st.push({ k: 'cure', title: 'Ngurtësimi me dritë LED', dur: 3000, rep: .5, chips: ['⏱ 20 sek. / shtresë'], desc: 'Çdo shtresë ngurtësohet me dritë LED blu brenda pak sekondash – mbushja bëhet menjëherë e fortë.', a(S, t) { S.cure = bell(t, .04, .14, .84, .94); S.cureX = C.dX; S.cureY = C.dY; S.timer = t > .14 && t < .86 ? { p: seg(t, .14, .84), txt: Math.max(1, Math.ceil(20 * (1 - seg(t, .14, .84)))) + ' sek.' } : null; } });
+    st.push({ k: 'polish', title: 'Lustrimi', dur: 3000, rep: .5, chips: ['⏱ ≈ 5 min'], desc: 'Mbushja rregullohet sipas kafshimit dhe lustrohet deri në shkëlqim natyral.', a(S, t) { S.pol = bell(t, 0, .1, .7, .8); S.polX = C.dX + Math.sin(t * 14) * 3; S.polY = C.dY + 1; S.polPh = t * 30; S.cavity *= 1 - seg(t, 0, .3); S.blend = ease(seg(t, .2, .9)); S.shine = t > .7 ? seg(t, .7, 1) : -1; } });
+    st.push(stDone('Rezultati', 'Dhëmbi është rikthyer në formë dhe funksion – mbushja nuk dallohet nga dhëmbi natyral.', ['🔁 Kontroll çdo 6 muaj']));
+  } else if (tt.p === 'ven') {
+    Object.assign(init, { discolor: 1, chip: 1 });
+    st.push(stStart('Gjendja fillestare', 'Dhëmbi ka ngjyrë të errët, formë jo të rregullt ose një cep të thyer.', ['📸 Fotografi & analizë estetike']));
+    st.push({ k: 'design', title: 'Dizajni digjital i buzëqeshjes', dur: 3800, chips: ['⏱ ≈ 30 min', 'E shihni rezultatin paraprakisht'], desc: 'Skanojmë dhëmbët dhe dizajnojmë digjitalisht formën dhe ngjyrën e re – e shihni rezultatin para se të fillojmë.', a(S, t) { S.scan = bell(t, 0, .08, .6, .7); S.scanX = lerp(C.CX - 74, C.CX + 74, ease(seg(t, .06, .6))); S.meshX = S.scanX; S.mesh = bell(t, .06, .12, .62, .75); S.design = ease(seg(t, .6, .85)); } });
+    st.push({ k: 'vprep', title: 'Preparimi minimal', dur: 3400, rep: .5, chips: ['⏱ ≈ 20 min / dhëmb', '0,3–0,5 mm'], desc: 'Hiqet vetëm një shtresë shumë e hollë smalti (0,3–0,5 mm) – shpesh edhe pa anestezi.', a(S, t) { S.vprepO = bell(t, .05, .2, .6, .85); S.vprepP = ease(seg(t, .2, .85)); S.design *= 1 - seg(t, .7, 1) * .5; } });
+    st.push({ k: 'bond', title: 'Vendosja e fasetës', dur: 4200, rep: .72, chips: ['⏱ ≈ 30 min / dhëmb', 'Qeramikë e hollë'], desc: 'Faseta qeramike, e hollë sa një lente kontakti, ngjitet përgjithmonë në sipërfaqen e dhëmbit dhe forcohet me dritë.', a(S, t) { S.veneer = ease(seg(t, .05, .42)); S.vnScale = lerp(1.32, 1, ease(seg(t, .05, .5))); S.cure = bell(t, .55, .62, .86, .94); S.cureX = C.CX; S.cureY = C.CEJ - C.g.ch * .5; S.design *= 1 - seg(t, 0, .3); } });
+    st.push(stDone('Rezultati', 'Buzëqeshje e bardhë, simetrike dhe natyrale, rezistente ndaj njollave.', ['🔁 Kontroll çdo 6 muaj']));
+  } else if (tt.p === 'ext') {
+    Object.assign(init, { decayBig: .9, abscess: .7, pulpRed: .5 });
+    st.push(stStart('Gjendja fillestare', 'Dhëmbi është dëmtuar rëndë ose i infektuar dhe nuk mund të shpëtohet.', ['🔍 Diagnozë me rentgen']));
+    st.push(stAnest(), stExtract(C));
+    st.push({ k: 'healx', title: 'Shërimi', dur: 4600, chips: ['⏳ Plaga: 1–2 javë', 'Kocka: 2–3 muaj'], desc: 'Kafshoni garzën për 30 minuta. Plaga mbyllet brenda 1–2 javësh dhe kocka rigjenerohet gradualisht.', a(S, t) { S.gauze = bell(t, 0, .08, .3, .4); const g0 = S.gw; S.gw = lerp(g0, 0, ease(seg(t, .38, .65))); S.ridge = Math.max(S.ridge, ease(seg(t, .38, .85))); S.regen = ease(seg(t, .42, 1)); S.timer = t > .38 ? { p: seg(t, .38, 1), txt: timerTxt(seg(t, .38, 1), 'Java', 8, '≈ 2 muaj') } : null; } });
+    st.push(stDone('Rezultati', 'Zona është shëruar plotësisht. Hapësira mund të plotësohet më vonë me implant' + (front ? ' për estetikë të plotë.' : '.'), ['🦷 Opsion: implant']));
+  }
+  return { init, stages: st };
+}
+
+/* ═════════ Player (tabs, timeline, controls) ═════════ */
+const Player = (() => {
+  const HOLD = 1400;
+  let teeth = [], missing = new Set(), cur = null, scene = null, flow = null, starts = [], total = 0, T = 0;
+  let playing = false, raf = 0, last = 0, shownK = -1, xray = false, userPaused = false, visible = false, onSel = null, io = null, bound = false;
+  const svg = () => $('#plSvg');
+  function bind() {
+    if (bound) return; bound = true;
+    $('#plPlay').addEventListener('click', () => { if (playing) { userPaused = true; pause(); } else { userPaused = false; play(); } });
+    $('#plPrev').addEventListener('click', () => step(-1));
+    $('#plNext').addEventListener('click', () => step(1));
+    $('#plXray').addEventListener('click', () => { xray = !xray; $('#plXray').setAttribute('aria-pressed', xray ? 'true' : 'false'); render(true); });
+    $('#secPlayer').addEventListener('keydown', e => {
+      if (e.target.closest('input,select,textarea')) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); step(1); } else if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+    });
+    io = new IntersectionObserver(es => es.forEach(en => { visible = en.isIntersecting; if (visible && !userPaused && !REDUCED && T < total) play(); else if (!visible) pause(); }), { threshold: .45 });
+    io.observe($('#plStage'));
+    document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+  }
+  function load(list, miss, cb) {
+    bind();
+    teeth = list; missing = miss || new Set(); onSel = cb || null;
+    const tabs = $('#plTabs'); tabs.textContent = '';
+    list.forEach(t => {
+      const pc = PROC[t.p];
+      const b = el('button', { class: 'pl-tab', type: 'button', role: 'tab', 'aria-selected': 'false', 'data-f': t.f, onclick: () => { userPaused = false; select(t.f, true); } },
+        el('span', { class: 'tnum' + (pc.dark ? ' dk' : ''), style: { background: pc.hex } }, String(t.f)), pc.label);
+      tabs.append(b);
+    });
+    tabs.hidden = list.length < 2;
+    if (list.length) select(list[0].f, false);
+  }
+  function select(f, auto) {
+    const t = teeth.find(x => x.f === f); if (!t) return;
+    pause(); cur = t; xray = false; $('#plXray').setAttribute('aria-pressed', 'false');
+    scene = createScene(svg(), f, { proc: t.p, missing, rcCr: !!t.rcCr });
+    flow = flowFor(t, scene.C);
+    starts = []; let acc = 0; flow.stages.forEach(s => { starts.push(acc); acc += s.dur + HOLD; }); total = acc - HOLD;
+    T = REDUCED ? 0 : 0; shownK = -1;
+    $$('#plTabs .pl-tab').forEach(b => { const on = +b.dataset.f === f; b.setAttribute('aria-selected', on ? 'true' : 'false'); if (on && auto) b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: REDUCED ? 'auto' : 'smooth' }); });
+    const pc = PROC[t.p];
+    const badge = $('#plBadge'); badge.textContent = '';
+    badge.append(el('span', { class: 'tnum' + (pc.dark ? ' dk' : ''), style: { background: pc.hex } }, String(f)), el('span', { class: 'bt' }, procTitle(t)));
+    $('#plXray').hidden = !(t.p === 'imp' || t.p === 'cr' || t.p === 'rc');
+    buildSegs(); render(true);
+    if (onSel) onSel(f);
+    if (auto !== false && (visible || auto) && !REDUCED && !userPaused) play();
+  }
+  function buildSegs() {
+    const segs = $('#plSegs'); segs.textContent = '';
+    const steps = $('#plSteps'); steps.textContent = '';
+    flow.stages.forEach((s, i) => {
+      segs.append(el('button', { class: 'seg', type: 'button', 'aria-label': 'Hapi ' + (i + 1) + ': ' + s.title, onclick: () => go(i) }, el('i')));
+      steps.append(el('button', { class: 'step', type: 'button', onclick: () => go(i) }, el('b', null, String(i + 1)), s.title));
+    });
+  }
+  function stageAt(t) { let k = 0; for (let i = 0; i < starts.length; i++) if (t >= starts[i]) k = i; return k; }
+  function stateAt(t) {
+    const k = stageAt(t), S = S0(); Object.assign(S, flow.init);
+    for (let i = 0; i < k; i++) { flow.stages[i].a(S, 1); S.timer = null; }
+    const lt = clamp((t - starts[k]) / flow.stages[k].dur, 0, 1);
+    flow.stages[k].a(S, lt);
+    return { S, k, lt };
+  }
+  function render(force) {
+    if (!scene) return;
+    const { S, k } = stateAt(T);
+    scene.draw(S, xray);
+    if (k !== shownK || force) {
+      shownK = k; const s = flow.stages[k], n = flow.stages.length;
+      $('#plK').textContent = 'Hapi ' + (k + 1) + ' nga ' + n;
+      $('#plTitle').textContent = s.title;
+      $('#plDesc').textContent = s.desc;
+      const ch = $('#plChips'); ch.textContent = ''; (s.chips || []).forEach((c, i) => ch.append(el('span', { class: 'chip' + (i === 0 ? ' t' : '') }, c)));
+      $('#plCount').textContent = (k + 1) + ' / ' + n;
+      $$('#plSteps .step').forEach((b, i) => { b.className = 'step' + (i === k ? ' cur' : i < k ? ' done' : ''); if (i === k) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
+      const cs = $$('#plSteps .step')[k]; if (cs && cs.parentNode) { const p = cs.parentNode; const x = cs.offsetLeft - p.clientWidth / 2 + cs.clientWidth / 2; p.scrollTo({ left: Math.max(0, x), behavior: REDUCED ? 'auto' : 'smooth' }); }
+    }
+    $$('#plSegs .seg').forEach((b, i) => { const p = i < k ? 1 : i > k ? 0 : clamp((T - starts[i]) / flow.stages[i].dur, 0, 1); b.style.setProperty('--p', p.toFixed(3)); b.classList.toggle('cur', i === k); });
+    const tm = $('#plTimer');
+    if (S.timer) { tm.hidden = false; $('#plTimerTxt').textContent = S.timer.txt; $('#plRing').setAttribute('stroke-dashoffset', (87.96 * (1 - S.timer.p)).toFixed(2)); }
+    else tm.hidden = true;
+  }
+  function tick(now) {
+    if (!playing) return;
+    const dt = Math.min(64, now - last); last = now; T += dt;
+    if (T >= total) { T = total; render(); pause(); return; }
+    render(); raf = requestAnimationFrame(tick);
+  }
+  function setIcon() {
+    const ico = $('#plPlayIco'), btn = $('#plPlay');
+    if (playing) { ico.innerHTML = '<path d="M6 4h4v16H6zM14 4h4v16h-4z"/>'; btn.setAttribute('aria-label', 'Pauzë'); }
+    else if (T >= total && total > 0) { ico.innerHTML = '<path d="M12 5V1L7 6l5 5V7a6 6 0 11-6 6H4a8 8 0 108-8z"/>'; btn.setAttribute('aria-label', 'Përsërit'); }
+    else { ico.innerHTML = '<path d="M7 4v16l13-8z"/>'; btn.setAttribute('aria-label', 'Luaj'); }
+  }
+  function play() { if (!scene || playing) return; if (T >= total) { T = 0; shownK = -1; } playing = true; last = performance.now(); raf = requestAnimationFrame(tick); setIcon(); }
+  function pause() { playing = false; cancelAnimationFrame(raf); setIcon(); }
+  function go(i) {
+    if (!flow) return; i = clamp(i, 0, flow.stages.length - 1);
+    const was = playing; pause();
+    T = was && !REDUCED ? starts[i] : starts[i] + flow.stages[i].dur * (flow.stages[i].rep == null ? 1 : flow.stages[i].rep);
+    render(true); if (was && !REDUCED) play(); else setIcon();
+  }
+  function step(d) { if (!flow) return; go(stageAt(T) + d); }
+  function stop() { pause(); }
+  return { load, select, stop, current: () => cur && cur.f };
+})();
+
+/* ═════════ Plan data → patient view ═════════ */
+function decodeHash(h) {
+  if (!h) return null;
+  let s = h.replace(/^#/, '');
+  if (s.indexOf('%') >= 0) { try { s = decodeURIComponent(s); } catch (e) { /* keep */ } }
+  if (s.startsWith('t=')) return { v: 2, data: JSON.parse(b64uDec(s.slice(2))) };
+  if (s.startsWith('p=')) return { v: 1, data: JSON.parse(decodeURIComponent(escape(atob(s.slice(2).replace(/ /g, '+'))))) };
+  return null;
+}
+function normPlan(d) {
+  const teeth = (Array.isArray(d.t) ? d.t : []).map(a => {
+    const f = +a[0], p = String(a[1] || ''), op = a[2] || {}, pr = Array.isArray(a[3]) ? a[3] : [];
+    return { f, p, m: op.m ? 1 : 0, im: op.im ? 1 : 0, g: op.g ? 1 : 0, c: op.c === 'z' ? 'z' : 'hz', rcCr: op.rc ? 1 : 0, comps: pr.filter(x => Array.isArray(x) && PRICE_LBL[x[0]]).map(x => [x[0], Math.max(0, +x[1] || 0)]) };
+  }).filter(t => ALL_TEETH.includes(t.f) && PROC[t.p]);
+  const extras = (Array.isArray(d.x) ? d.x : []).map(a => ({ label: String(a[0] || '').slice(0, 120), pr: Math.max(0, +a[1] || 0), k: String(a[2] || '') })).filter(x => x.label);
+  return { name: String(d.n || '').slice(0, 80), date: /^\d{4}-\d{2}-\d{2}$/.test(d.d || '') ? d.d : '', doc: String(d.dr || '').slice(0, 80), no: String(d.no || '').slice(0, 40), teeth, extras, disc: clamp(+d.dc || 0, 0, 100), valid: clamp(Math.round(+d.va || 30), 1, 365), note: String(d.nt || '').slice(0, 1200) };
+}
+function planTotals(pl) {
+  let sub = 0;
+  pl.teeth.forEach(t => t.comps.forEach(c => { sub += c[1]; }));
+  pl.extras.forEach(x => { sub += x.pr; });
+  const disc = Math.round(sub * pl.disc) / 100;
+  return { sub, disc, total: Math.max(0, sub - disc) };
+}
+function whenLabel(a, b) {
+  a = Math.round(a); b = Math.round(b);
+  if (b <= 21) return a === b ? 'Dita ' + a : 'Ditët ' + a + '–' + b;
+  if (b <= 63) { const wa = Math.ceil(a / 7), wb = Math.ceil(b / 7); return wa === wb ? 'Java ' + wa : 'Java ' + wa + '–' + wb; }
+  const ma = Math.max(1, Math.round(a / 30)), mb = Math.max(1, Math.round(b / 30));
+  return ma === mb ? 'Muaji ' + ma : 'Muaji ' + ma + '–' + mb;
+}
+function durLabel(a, b) {
+  if (b <= 1) return '1 ditë';
+  if (b <= 14) return b + ' ditë';
+  if (b <= 60) return '~' + Math.ceil(b / 7) + ' javë';
+  const ma = Math.max(1, Math.round(a / 30)), mb = Math.max(1, Math.round(b / 30));
+  return ma === mb ? '~' + ma + ' muaj' : ma + '–' + mb + ' muaj';
+}
+function buildPhases(pl) {
+  const T = pl.teeth.filter(t => t.p !== 'mis');
+  const ex = k => pl.extras.some(x => x.k === k);
+  const by = p => T.filter(t => t.p === p);
+  const imp = by('imp'), cr = by('cr'), rc = by('rc'), fil = by('fil'), ven = by('ven'), ext = by('ext');
+  const impE = imp.filter(t => !t.m), impImm = impE.filter(t => t.im), impDel = impE.filter(t => !t.im), impMis = imp.filter(t => t.m);
+  const rcCr = rc.filter(t => t.rcCr), resto = cr.concat(ven, rcCr);
+  const items = [];
+  const V = (title, mins, desc, teeth, d0, d1, key) => items.push({ kind: 'v', title, mins, desc, teeth: teeth.map(t => t.f), d0, d1, key: key == null ? d0 : key });
+  const W = (title, desc, label, e0) => items.push({ kind: 'w', title, desc, label, key: e0 - .5 });
+  V('Konsulta & plani digjital', 40, 'Ekzaminim klinik, rentgen panoramik ose CBCT 3D, skanim intraoral dhe planifikim digjital i trajtimit.', [], 1, 1, 0);
+  if (ex('cl')) V('Pastrimi profesional', 30, 'Largimi i gurëzave dhe pllakës me ultratinguj, lustrim dhe udhëzime për higjienën e përditshme.', [], 1, 1, .1);
+  let d = 1;
+  if (fil.length) { d++; V('Mbushjet estetike', Math.min(120, 30 * fil.length), 'Largimi i kariesit dhe mbushja me kompozit estetik në ngjyrën e dhëmbit – pa dhimbje.', fil, d, d); }
+  if (rc.length) { d++; V('Trajtimi i kanaleve', Math.min(180, 70 * rc.length), 'Pastrimi, dezinfektimi dhe mbushja hermetike e kanaleve nën anestezi lokale. Rastet e ndërlikuara mund të kërkojnë 2 seanca.', rc, d, d); }
+  if (ex('wh')) { d++; V('Zbardhimi profesional', 60, resto.length ? 'Zbardhim klinik me xhel profesional dhe dritë LED. Bëhet para kurorave/fasetave, që ngjyra e tyre të përputhet me dhëmbët e zbardhur.' : 'Zbardhim klinik me xhel profesional dhe dritë LED – disa nuanca më i bardhë, pa dëmtuar smaltin.', [], d, d); }
+  let s0 = null, end0 = d, end1 = d;
+  if (ext.length || impE.length || impMis.length) {
+    d++; s0 = d;
+    const now = impImm.length + impMis.length, mins = 20 * (ext.length + impE.length) + 50 * now;
+    let title, desc;
+    if (now && (ext.length || impE.length)) { title = 'Kirurgjia: nxjerrje & implante'; desc = 'Nën anestezi lokale: nxjerrje atraumatike' + (impImm.length ? ', implante të menjëhershme në të njëjtën seancë' : '') + (impMis.length ? ', implante në vendet bosh' : '') + '.'; }
+    else if (now) { title = 'Vendosja e implanteve'; desc = 'Shpimi i udhëzuar dhe vendosja e implanteve prej titani nën anestezi lokale, me qepje të mishit.'; }
+    else { title = 'Nxjerrja e dhëmbëve'; desc = 'Nxjerrje e kujdesshme nën anestezi lokale, duke ruajtur kockën' + (impDel.some(t => t.g) ? '; alveola mbushet me graft kockor për implantin e ardhshëm.' : '.'); }
+    V(title, Math.min(240, mins), desc, ext.concat(impE, impMis), d, d);
+    end0 = end1 = d;
+    if (ext.length && !imp.length) { W('Shërimi i plagës', 'Plaga mbyllet brenda 1–2 javësh; kocka rigjenerohet gradualisht. Ndiqni udhëzimet pas nxjerrjes.', '1–2 javë', d + 7); end0 = d + 7; end1 = d + 14; }
+  }
+  if (resto.length) {
+    const p0 = ex('wh') ? d + 14 : d + 1;
+    const onlyVen = ven.length && !cr.length && !rcCr.length;
+    V('Preparimi & skanimi digjital', Math.min(180, 40 * resto.length), 'Preparimi i dhëmbëve nën anestezi, skanimi 3D dhe vendosja e ' + (onlyVen ? 'fasetave' : 'kurorave') + ' të përkohshme.', resto, p0, p0);
+    V(onlyVen ? 'Vendosja e fasetave' : 'Vendosja e kurorave' + (ven.length ? ' & fasetave' : ''), Math.min(150, 30 * resto.length), 'Restaurimet përfundimtare – të dizajnuara dhe frezuara në laboratorin tonë digjital – provohen dhe fiksohen; kontrollohen kafshimi dhe estetika.', resto, p0 + 3, p0 + 7);
+    end0 = Math.max(end0, p0 + 3); end1 = Math.max(end1, p0 + 7);
+  }
+  if (imp.length) {
+    let i0 = s0, i1 = s0;
+    if (impDel.length) {
+      W('Shërimi i alveolës', 'Kocka rigjenerohet në vendin e dhëmbit të nxjerrë. Jeta e përditshme vazhdon normalisht.', '2–3 muaj', i0 + 60);
+      i0 += 60; i1 += 90;
+      V('Vendosja e implanteve', Math.min(200, 50 * impDel.length), 'Shpimi i udhëzuar dhe vendosja e implanteve prej titani nën anestezi lokale, me qepje të mishit.', impDel, i0, i1);
+    }
+    const up = imp.some(t => Math.floor(t.f / 10) <= 2), oa = up ? 120 : 84, ob = up ? 180 : 105;
+    W('Osteointegrimi', 'Implanti bashkohet me kockën. Qepjet hiqen pas 7–10 ditësh; gjatë kësaj kohe jetoni normalisht.', up ? '4–6 muaj' : '≈ 3 muaj', i0 + oa);
+    i0 += oa; i1 += ob;
+    V('Formuesi i mishit', Math.min(60, 15 * imp.length), 'Vendoset formuesi i gingivës, që mishi të formojë kontur natyral rreth dhëmbit të ri.', imp, i0, i1);
+    W('Formimi i mishit', 'Mishi shërohet dhe merr formën përfundimtare rreth formuesit.', '≈ 2 javë', i0 + 14);
+    i0 += 14; i1 += 14;
+    V('Skanimi digjital 3D', 20, 'Masë digjitale me “scan body”; kurora dizajnohet dhe frezohet në laboratorin tonë.', imp, i0, i1);
+    i0 += 5; i1 += 7;
+    V('Abutmenti & kurorat mbi implant', Math.min(150, 40 * imp.length), 'Fiksimi i abutmentit dhe i kurorës përfundimtare prej zirkoni; kontrollohet kafshimi.', imp, i0, i1);
+    end0 = Math.max(end0, i0); end1 = Math.max(end1, i1);
+  }
+  if (ex('al')) {
+    V('Linea Aligners: skanimi & simulimi', 30, 'Skanim 3D dhe simulim digjital – e shihni buzëqeshjen e re para fillimit.', [], 1, 1, .2);
+    V('Marrja e aligners', 30, 'Dorëzohen setet e para dhe udhëzimet. Aligners mbahen 20–22 orë në ditë.', [], 14, 21);
+    W('Trajtimi ortodontik', 'Ndërroni setet çdo 1–2 javë; kontroll çdo 6–8 javë.', '6–12 muaj', 194);
+    V('Retainerët & përfundimi', 20, 'Skanim përfundimtar dhe retainer transparent për ruajtjen e rezultatit.', [], 194, 386);
+    end0 = Math.max(end0, 194); end1 = Math.max(end1, 386);
+  }
+  const visits = items.filter(i => i.kind === 'v').length;
+  V('Kontrolli & mirëmbajtja', 20, 'Kontroll pas 1 jave, pastaj çdo 6 muaj me pastrim profesional.', [], end0 + 7, end1 + 7);
+  items.sort((a, b) => a.key - b.key);
+  items.forEach(i => { if (i.kind === 'v') i.when = whenLabel(i.d0, i.d1); });
+  return { items, visits, dur: durLabel(end0, end1), d1: end1 };
+}
+
+/* ---------- render ---------- */
+function statTile(v, l) { return el('div', { class: 'stat' }, el('b', null, v), el('span', null, l)); }
+function renderTimeline(host, items) {
+  host.textContent = '';
+  const maxM = Math.max(30, ...items.filter(i => i.kind === 'v').map(i => i.mins || 0));
+  let n = 0;
+  items.forEach(it => {
+    const isW = it.kind === 'w';
+    const dot = isW ? el('div', { class: 'ph-dot', 'aria-hidden': 'true' }) : el('div', { class: 'ph-dot', 'aria-hidden': 'true' }, String(++n));
+    if (isW) dot.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 2h12M6 22h12M7 2c0 6 10 6 10 10S7 16 7 22M17 2c0 6-10 6-10 10"/></svg>';
+    const card = el('div', { class: 'ph-card' },
+      el('div', { class: 'ph-top' },
+        el('div', null, el('div', { class: 'ph-when' }, isW ? 'Periudhë pritjeje' : it.when), el('div', { class: 'ph-title' }, it.title)),
+        el('span', { class: 'ph-dur' }, isW ? it.label : (it.mins >= 60 ? '≈ ' + r1(it.mins / 60).toString().replace('.', ',') + ' orë' : '≈ ' + it.mins + ' min'))),
+      el('p', { class: 'ph-desc' }, it.desc),
+      it.teeth && it.teeth.length ? el('div', { class: 'ph-teeth' }, it.teeth.map(f => { const tt = it._map && it._map.get(f); const pc = PROC[tt ? tt.p : 'imp']; return el('span', { class: 'tnum' + (pc.dark ? ' dk' : ''), style: { background: pc.hex }, title: toothLabel(f) }, String(f)); })) : null,
+      isW ? null : el('div', { class: 'ph-bar', 'aria-hidden': 'true' }, el('i', { dataset: { w: Math.round(clamp(it.mins / maxM, .08, 1) * 100) } })));
+    host.append(el('div', { class: 'ph' + (isW ? ' wait' : '') }, dot, card));
+  });
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); const b = e.target.querySelector('.ph-bar i'); if (b) b.style.width = b.dataset.w + '%'; io.unobserve(e.target); } }), { threshold: .12 }) : null;
+  $$('.ph', host).forEach(p => { if (io && !REDUCED) io.observe(p); else { p.classList.add('in'); const b = p.querySelector('.ph-bar i'); if (b) b.style.width = b.dataset.w + '%'; } });
+}
+function waLink(text) { return 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(text); }
+function renderPatient(pl, preview) {
+  $('#gen').hidden = true; $('#pv').hidden = false; $('#pvBar').hidden = !preview;
+  ['secOdo', 'secPlayer', 'secInv'].forEach(i => { $('#' + i).hidden = false; });
+  document.title = (pl.name ? pl.name + ' · ' : '') + 'Plani i trajtimit · Medident';
+  $('#pvName').textContent = pl.name || 'Plani juaj i trajtimit';
+  const meta = $('#pvMeta'); meta.textContent = '';
+  [pl.no && 'Nr. ' + pl.no, pl.date && fmtDate(pl.date), pl.doc].filter(Boolean).forEach((m, i) => { if (i) meta.append(el('span', { 'aria-hidden': 'true' }, '·')); meta.append(el('span', null, m)); });
+  const treated = pl.teeth.filter(t => t.p !== 'mis');
+  const map = new Map(pl.teeth.map(t => [t.f, t]));
+  const missing = new Set(pl.teeth.filter(t => t.p === 'mis' || (t.p === 'imp' && t.m)).map(t => t.f));
+  const ph = buildPhases(pl), tot = planTotals(pl);
+  const st = $('#pvStats'); st.textContent = '';
+  st.append(statTile(String(treated.length), treated.length === 1 ? 'Dhëmb' : 'Dhëmbë'), statTile(String(ph.visits), 'Vizita'), statTile(ph.dur, 'Kohëzgjatja'), statTile(fmtEUR(tot.total), 'Totali'));
+  /* odontogram + player */
+  const hasT = treated.length > 0;
+  $('#secOdo').hidden = !hasT; $('#secPlayer').hidden = !hasT;
+  const drawOdo = () => buildOdo($('#pvOdo'), { interactive: false, get: f => map.get(f), sel: new Set([Player.current()]), onTap: f => { Player.select(f, true); $('#secPlayer').scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'start' }); } });
+  if (hasT) {
+    legendInto($('#pvLegend'), PROC_ORDER.filter(k => pl.teeth.some(t => t.p === k)));
+    Player.load(treated.slice().sort((a, b) => a.f - b.f), missing, () => drawOdo());
+    drawOdo();
+  }
+  /* timeline */
+  ph.items.forEach(i => { i._map = map; });
+  renderTimeline($('#pvTl'), ph.items);
+  const ts = $('#pvTlSum'); ts.textContent = '';
+  ts.append(el('span', { class: 'chip t' }, '📅 Kohëzgjatja: ' + ph.dur), el('span', { class: 'chip' }, '🏥 ' + ph.visits + ' vizita'));
+  /* invoice */
+  const im = $('#invMeta'); im.textContent = '';
+  const line = (k, v) => v ? im.append(el('div', null, k + ': ', el('b', null, v))) : null;
+  line('Nr.', pl.no); line('Data', fmtDate(pl.date)); line('Pacienti', pl.name); line('Mjeku', pl.doc);
+  const tb = $('#invTbl tbody'); tb.textContent = '';
+  const priceCell = v => el('td', { class: 'r' }, v > 0 ? fmtEUR(v) : el('span', { class: 'incl' }, 'i përfshirë'));
+  treated.slice().sort((a, b) => a.f - b.f).forEach(t => {
+    const pc = PROC[t.p], sum = t.comps.reduce((s, c) => s + c[1], 0);
+    const num = el('span', { class: 'tnum' + (pc.dark ? ' dk' : ''), style: { background: pc.hex } }, String(t.f));
+    if (t.comps.length > 1) {
+      tb.append(el('tr', { class: 'grp' }, el('td', null, procTitle(t), el('small', null, toothLabel(t.f))), el('td', null, num), el('td', { class: 'r' }, fmtEUR(sum))));
+      t.comps.forEach(c => tb.append(el('tr', { class: 'it' }, el('td', null, c[0] === 'hz' || c[0] === 'z' ? (t.p === 'imp' ? 'Kurorë ' + (c[0] === 'z' ? 'zirkoni' : 'zirkoni premium') + ' mbi implant' : PRICE_LBL[c[0]]) : PRICE_LBL[c[0]]), el('td'), priceCell(c[1]))));
+    } else {
+      tb.append(el('tr', null, el('td', null, el('b', null, procTitle(t)), el('small', { style: { display: 'block', color: 'var(--muted)', fontSize: '12px' } }, toothLabel(t.f))), el('td', null, num), priceCell(sum)));
+    }
+  });
+  pl.extras.forEach(x => tb.append(el('tr', null, el('td', null, el('b', null, x.label)), el('td', null, '—'), priceCell(x.pr))));
+  if (!treated.length && !pl.extras.length) tb.append(el('tr', null, el('td', { colspan: 3, style: { color: 'var(--muted)' } }, 'Nuk ka zëra në këtë plan.')));
+  const sm = $('#invSum'); sm.textContent = '';
+  sm.append(el('div', null, el('span', null, 'Nëntotali'), el('span', null, fmtEUR(tot.sub))));
+  if (tot.disc > 0) sm.append(el('div', { class: 'disc' }, el('span', null, 'Zbritje (' + String(pl.disc).replace('.', ',') + '%)'), el('span', null, '−' + fmtEUR(tot.disc))));
+  sm.append(el('div', { class: 'inv-total' }, el('span', null, 'Totali'), el('span', null, fmtEUR(tot.total))));
+  const nt = $('#invNote'); nt.hidden = !pl.note; nt.textContent = pl.note;
+  $('#invFine').textContent = 'Profatura vlen ' + pl.valid + ' ditë' + (pl.date ? ' (deri më ' + fmtDate(addDays(pl.date, pl.valid)) + ')' : '') + '. Çmimet janë në euro (€). Plani mund të përshtatet pas ekzaminimit klinik – çdo ndryshim diskutohet paraprakisht me ju. Lendita Islami Nallbani B.I. · N.SH. “Medident” · NUI 810421735.';
+  /* CTA */
+  $('#ctaWa').href = waLink('Përshëndetje Medident! ' + (pl.name ? 'Jam ' + pl.name + '. ' : '') + 'Kam një pyetje për planin tim të trajtimit' + (pl.no ? ' (' + pl.no + ')' : '') + '.');
+  $('#ctaPrint').onclick = () => window.print();
+  window.scrollTo(0, 0);
+}
+function renderLegacy(d) {
+  $('#gen').hidden = true; $('#pv').hidden = false; $('#pvBar').hidden = true;
+  $('#secOdo').hidden = true; $('#secPlayer').hidden = true;
+  const name = String(d.patient || '');
+  document.title = (name ? name + ' · ' : '') + 'Plani i trajtimit · Medident';
+  $('#pvName').textContent = name || 'Plani juaj i trajtimit';
+  const meta = $('#pvMeta'); meta.textContent = '';
+  [d.treatment, d.date && fmtDate(d.date)].filter(Boolean).forEach((m, i) => { if (i) meta.append(el('span', { 'aria-hidden': 'true' }, '·')); meta.append(el('span', null, String(m))); });
+  const phs = Array.isArray(d.phases) ? d.phases : [];
+  const st = $('#pvStats'); st.textContent = '';
+  st.append(statTile(String(phs.length), 'Hapa'), statTile(String(d.duration || '—'), 'Kohëzgjatja'), statTile(String(d.price || '—'), 'Çmimi'), statTile('Medident', 'Pejë'));
+  const items = phs.map(p => ({ kind: 'v', title: String(p.name || ''), when: String(p.day || ''), desc: String(p.desc || ''), mins: clamp(+p.bar || 50, 5, 100), label: String(p.dur || ''), teeth: [] }));
+  renderTimeline($('#pvTl'), items.map(i => Object.assign(i, { mins: i.mins })));
+  $$('#pvTl .ph-dur').forEach((e, i) => { e.textContent = items[i].label || e.textContent; });
+  $('#pvTlSum').textContent = '';
+  const im = $('#invMeta'); im.textContent = ''; im.append(el('div', null, 'Data: ', el('b', null, fmtDate(d.date || ''))));
+  const tb = $('#invTbl tbody'); tb.textContent = '';
+  tb.append(el('tr', null, el('td', null, el('b', null, String(d.treatment || 'Plan trajtimi'))), el('td', null, '—'), el('td', { class: 'r' }, String(d.price || '—'))));
+  $('#invSum').textContent = '';
+  const nt = $('#invNote'); nt.hidden = !d.note; nt.textContent = String(d.note || '');
+  $('#invFine').textContent = 'Çmimi mund të ndryshojë pas ekzaminimit klinik.';
+  $('#ctaWa').href = waLink('Përshëndetje Medident! ' + (name ? 'Jam ' + name + '. ' : '') + 'Doja të konfirmoja planin tim të trajtimit.');
+  $('#ctaPrint').onclick = () => window.print();
+}
+function renderBroken() {
+  $('#gen').hidden = true; $('#pv').hidden = false; $('#pvBar').hidden = true;
+  ['secOdo', 'secPlayer', 'secTl', 'secInv'].forEach(i => { $('#' + i).hidden = true; });
+  $('#pvName').textContent = 'Linku nuk u hap plotësisht';
+  $('#pvMeta').textContent = 'Ndoshta linku është prerë gjatë kopjimit. Na shkruani dhe ua dërgojmë sërish.';
+  $('#pvStats').textContent = '';
+  $('#ctaWa').href = waLink('Përshëndetje Medident! Linku i planit tim të trajtimit nuk po hapet. A mund të ma dërgoni sërish?');
+  $('#ctaPrint').hidden = true;
+}
+
+/* ═════════ Staff generator ═════════ */
+const Gen = (() => {
+  const K_DRAFT = 'medident_plan_draft_v2', K_PRICE = 'medident_plan_prices_v2';
+  let PR = Object.assign({}, PRICE_DEF, LS.get(K_PRICE, {}));
+  let S, SEL = new Set(), flashF = [], saveT, focusF = null;
+  const SHORT = { e: 'Nxjerrje', g: 'Graft', i: 'Implant', a: 'Abutment', hz: 'Kurorë', z: 'Kurorë', rc: 'Kanal', f: 'Mbushje', v: 'Fasetë' };
+  const newNo = () => 'PF-' + todayISO().replace(/-/g, '') + '-' + String(Math.floor(100 + Math.random() * 900));
+  function fresh() { return { n: '', d: todayISO(), dr: '', ph: '', no: newNo(), teeth: {}, x: EXTRA_DEF.map(e => ({ k: e.k, label: e.label, on: false, pr: e.pr })), dc: 0, va: 30, nt: '' }; }
+  function save() { clearTimeout(saveT); saveT = setTimeout(() => LS.set(K_DRAFT, S), 250); }
+  function encode() {
+    const t = Object.keys(S.teeth).map(Number).sort((a, b) => a - b).map(f => {
+      const s = S.teeth[f], op = {};
+      if (s.p === 'imp') { if (s.m) op.m = 1; if (s.im && !s.m) op.im = 1; if (s.g) op.g = 1; op.c = s.c; }
+      if (s.p === 'cr') op.c = s.c;
+      if (s.p === 'rc' && s.rcCr) { op.rc = 1; op.c = s.c; }
+      return [f, s.p, op, compList(s, PR)];
+    });
+    const x = S.x.filter(e => e.on && String(e.label).trim()).map(e => [String(e.label).trim(), Math.max(0, +e.pr || 0), e.k || '']);
+    return { v: 2, n: S.n.trim(), d: S.d, dr: S.dr.trim(), no: S.no.trim(), t, x, dc: clamp(+S.dc || 0, 0, 100), va: clamp(Math.round(+S.va || 30), 1, 365), nt: S.nt.trim() };
+  }
+  const base = () => /(^|\.)medident-ks\.com$/.test(location.hostname) ? location.origin + '/plan' : 'https://medident-ks.com/plan';
+  const link = () => base() + '#t=' + b64uEnc(JSON.stringify(encode()));
+
+  /* ---------- odontogram & selection ---------- */
+  function drawOdo() {
+    buildOdo($('#gOdo'), { interactive: true, get: f => S.teeth[f] || null, sel: SEL, focusF, onTap: f => { focusF = f; if (SEL.has(f)) SEL.delete(f); else SEL.add(f); drawOdo(); drawSel(); } });
+    focusF = null;
+    legendInto($('#gLegend'), PROC_ORDER);
+  }
+  function drawSel() {
+    const h = $('#gSel'); h.textContent = '';
+    const arr = [...SEL].sort((a, b) => a - b);
+    if (!arr.length) h.append(el('span', { class: 'sub', style: { margin: 0 } }, 'asnjë – kliko dhëmbët në odontogram'));
+    arr.forEach(f => h.append(el('span', { class: 'selchip' }, String(f))));
+    $$('#gProcBtns .pbtn').forEach(b => { b.disabled = !arr.length; });
+  }
+  function assign(p) {
+    if (!SEL.size) { toast('Zgjidh fillimisht një ose më shumë dhëmbë'); return; }
+    const done = [];
+    SEL.forEach(f => {
+      const cur = S.teeth[f];
+      if (p === 'clear') { delete S.teeth[f]; return; }
+      if (cur && cur.p === p) { done.push(f); return; }
+      const t = { p, m: 0, im: 0, g: 0, c: 'hz', rcCr: 0, pr: {} };
+      if (p === 'imp') t.m = cur && cur.p === 'mis' ? 1 : 0;
+      S.teeth[f] = t; done.push(f);
+    });
+    flashF = done; SEL.clear(); refresh();
+    if (p !== 'clear' && done.length) toast(PROC[p].label + ' → ' + done.sort((a, b) => a - b).join(', '));
+  }
+  function procButtons() {
+    const h = $('#gProcBtns'); h.textContent = '';
+    PROC_ORDER.forEach(k => h.append(el('button', { class: 'pbtn', type: 'button', onclick: () => assign(k) }, el('i', { style: k === 'mis' ? { border: '1.5px dashed ' + PROC[k].hex } : { background: PROC[k].hex } }), PROC[k].label)));
+    h.append(el('button', { class: 'pbtn clear', type: 'button', onclick: () => assign('clear') }, '✕ Hiq trajtimin'));
+  }
+
+  /* ---------- per-tooth list ---------- */
+  function chk(label, on, fn, dis) { const i = el('input', { type: 'checkbox' }); i.checked = !!on; if (dis) i.disabled = true; i.addEventListener('change', () => fn(i.checked)); return el('label', { class: 'opt' }, i, label); }
+  function matSel(t) {
+    const s = el('select', { 'aria-label': 'Materiali i kurorës' });
+    Object.keys(CROWN_MAT).forEach(k => { const o = el('option', { value: k }, CROWN_MAT[k] + ' (' + fmtEUR(PR[k]) + ')'); if (t.c === k) o.selected = true; s.append(o); });
+    s.addEventListener('change', () => { t.c = s.value; delete t.pr.hz; delete t.pr.z; refresh(); });
+    return el('label', { class: 'opt' }, 'Kurora:', s);
+  }
+  function drawList() {
+    const h = $('#gList'); h.textContent = '';
+    const fs = Object.keys(S.teeth).map(Number).filter(f => S.teeth[f].p !== 'mis').sort((a, b) => a - b);
+    if (!fs.length) h.append(el('div', { class: 'empty' }, 'Ende nuk ka trajtime. Zgjidh dhëmbët në odontogram dhe kliko një trajtim.'));
+    fs.forEach(f => {
+      const t = S.teeth[f], pc = PROC[t.p], comps = compList(t, PR), sum = comps.reduce((a, c) => a + c[1], 0);
+      const ps = el('select', { 'aria-label': 'Trajtimi për dhëmbin ' + f });
+      PROC_ORDER.filter(k => k !== 'mis').forEach(k => { const o = el('option', { value: k }, PROC[k].label); if (k === t.p) o.selected = true; ps.append(o); });
+      ps.addEventListener('change', () => { const was = t.p; S.teeth[f] = { p: ps.value, m: 0, im: 0, g: 0, c: t.c || 'hz', rcCr: 0, pr: {} }; if (ps.value === 'imp' && was === 'imp') S.teeth[f].m = t.m; flashF = [f]; refresh(); });
+      const opts = el('div', { class: 'opts' });
+      if (t.p === 'imp') {
+        opts.append(chk('Dhëmbi mungon (pa nxjerrje)', t.m, v => { t.m = v ? 1 : 0; if (v) t.im = 0; delete t.pr.e; refresh(); }));
+        opts.append(chk('Implant i menjëhershëm', t.im, v => { t.im = v ? 1 : 0; refresh(); }, !!t.m));
+        opts.append(chk('Graft kockor', t.g, v => { t.g = v ? 1 : 0; refresh(); }));
+        opts.append(matSel(t));
+      } else if (t.p === 'cr') opts.append(matSel(t));
+      else if (t.p === 'rc') { opts.append(chk('+ Kurorë pas kanalit', t.rcCr, v => { t.rcCr = v ? 1 : 0; refresh(); })); if (t.rcCr) opts.append(matSel(t)); }
+      const prices = el('div', { class: 'prices' });
+      comps.forEach(c => {
+        const inp = el('input', { type: 'number', min: 0, step: 1, inputmode: 'decimal', value: c[1], 'aria-label': PRICE_LBL[c[0]] + ' – dhëmbi ' + f });
+        inp.addEventListener('input', () => { t.pr[c[0]] = inp.value === '' ? null : Math.max(0, +inp.value || 0); if (t.pr[c[0]] == null) delete t.pr[c[0]]; updSums(); save(); });
+        prices.append(el('label', { class: 'pr', title: PRICE_LBL[c[0]] }, SHORT[c[0]], inp, '€'));
+      });
+      const row = el('div', { class: 'trow' + (flashF.includes(f) ? ' flash' : ''), 'data-f': f },
+        el('div', { class: 'trow-top' },
+          el('span', { class: 'tnum' + (pc.dark ? ' dk' : ''), style: { background: pc.hex } }, String(f)),
+          el('div', { class: 'trow-name' }, el('b', null, procTitle(t)), el('span', null, toothLabel(f))),
+          ps,
+          el('div', { class: 'trow-sum', 'data-sum': f }, fmtEUR(sum)),
+          el('button', { class: 'xbtn', type: 'button', 'aria-label': 'Hiq dhëmbin ' + f, onclick: () => { delete S.teeth[f]; refresh(); } }, '✕')),
+        opts.childNodes.length ? opts : null, prices);
+      h.append(row);
+    });
+    if (flashF.length) { const f0 = flashF[0]; const n = h.querySelector('[data-f="' + f0 + '"]'); setTimeout(() => $$('.trow.flash', h).forEach(r => r.classList.remove('flash')), 1600); if (n && n.getBoundingClientRect().top > innerHeight) n.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+    flashF = [];
+    const mis = Object.keys(S.teeth).map(Number).filter(f => S.teeth[f].p === 'mis').sort((a, b) => a - b);
+    const mh = $('#gMis'); mh.hidden = !mis.length; mh.textContent = mis.length ? 'Dhëmbë që mungojnë (pa trajtim): ' + mis.join(', ') : '';
+  }
+  function drawExtras() {
+    const h = $('#gExtras'); h.textContent = '';
+    S.x.forEach((x, i) => {
+      const cb = el('input', { type: 'checkbox' }); cb.checked = !!x.on;
+      cb.addEventListener('change', () => { x.on = cb.checked; refresh(false); });
+      const pi = el('input', { class: 'pinp', type: 'number', min: 0, step: 1, inputmode: 'decimal', value: x.pr, 'aria-label': 'Çmimi – ' + x.label });
+      pi.addEventListener('input', () => { x.pr = Math.max(0, +pi.value || 0); updSums(); save(); });
+      const row = el('div', { class: 'xrow' }, el('label', null, cb, x.label), pi, el('span', null, '€'));
+      if (!x.k) row.append(el('button', { class: 'xbtn', type: 'button', 'aria-label': 'Hiq ' + x.label, onclick: () => { S.x.splice(i, 1); refresh(false); } }, '✕'));
+      h.append(row);
+    });
+  }
+  function updSums() {
+    const pl = normPlan(encode()), tot = planTotals(pl), ph = buildPhases(pl);
+    $('#gTotal').textContent = fmtEUR(tot.total); $('#gTotalM').textContent = fmtEUR(tot.total);
+    Object.keys(S.teeth).forEach(f => { const n = document.querySelector('[data-sum="' + f + '"]'); if (n) n.textContent = fmtEUR(compList(S.teeth[f], PR).reduce((a, c) => a + c[1], 0)); });
+    const st = $('#gStats'); st.textContent = '';
+    const nT = pl.teeth.filter(t => t.p !== 'mis').length;
+    [[String(nT), 'Dhëmbë'], [String(ph.visits), 'Vizita'], [ph.dur, 'Kohëzgjatja']].forEach(a => st.append(el('div', null, el('b', null, a[0]), el('span', null, a[1]))));
+    const mt = $('#gMiniTl'); mt.textContent = '';
+    ph.items.forEach(i => mt.append(el('div', { class: i.kind === 'w' ? 'w' : '' }, el('em', null, i.kind === 'w' ? '⏳ ' + i.label : i.when), el('span', null, i.title + (i.teeth && i.teeth.length ? ' (' + i.teeth.join(', ') + ')' : '')))));
+    $('#gLinkBox').hidden = true;
+  }
+  function refresh(odo) { if (odo !== false) drawOdo(); drawSel(); drawList(); drawExtras(); updSums(); save(); }
+
+  /* ---------- fields ---------- */
+  function bindField(id, key, num) {
+    const n = $(id); n.value = S[key] == null ? '' : S[key];
+    n.addEventListener('input', () => { S[key] = num ? n.value : n.value; updSums(); save(); });
+  }
+  function preview(thenPrint) {
+    if (!S.n.trim()) toast('Shto emrin e pacientit');
+    renderPatient(normPlan(encode()), true);
+    if (thenPrint) setTimeout(() => window.print(), 400);
+  }
+  function back() { Player.stop(); $('#pv').hidden = true; $('#gen').hidden = false; window.scrollTo(0, 0); }
+  function waPhone() {
+    let d = (S.ph || '').replace(/\D/g, '');
+    if (!d) return '';
+    if (d.startsWith('00')) d = d.slice(2); else if (d.startsWith('0')) d = '383' + d.slice(1); else if (d.length <= 9) d = '383' + d;
+    return d;
+  }
+  function make() {
+    if (!Object.keys(S.teeth).length && !S.x.some(x => x.on)) { toast('Shto të paktën një trajtim'); return; }
+    if (!S.n.trim()) { toast('Shto emrin e pacientit'); $('#gName').focus(); return; }
+    const L = link();
+    $('#gLink').value = L; $('#gLinkBox').hidden = false;
+    const msg = 'Përshëndetje ' + S.n.trim().split(/\s+/)[0] + '! Ky është plani juaj i trajtimit nga Medident Dental Clinic – me odontogram, animacion për çdo dhëmb dhe profaturë:\n' + L + '\n\nPër çdo pyetje, na shkruani këtu.';
+    const ph = waPhone();
+    $('#gWa').href = 'https://wa.me/' + ph + '?text=' + encodeURIComponent(msg);
+    $('#gLinkBox').scrollIntoView({ block: innerWidth < 1000 ? 'center' : 'nearest', behavior: REDUCED ? 'auto' : 'smooth' });
+  }
+  async function copy() {
+    const v = $('#gLink').value;
+    try { await navigator.clipboard.writeText(v); toast('✓ Linku u kopjua'); }
+    catch (e) { const i = $('#gLink'); i.select(); try { document.execCommand('copy'); toast('✓ Linku u kopjua'); } catch (e2) { toast('Kopjo manualisht linkun'); } }
+  }
+  function pricesDialog() {
+    const dlg = $('#dlgPrices'), grid = $('#gPriceGrid'); grid.textContent = '';
+    Object.keys(PRICE_DEF).forEach(k => grid.append(el('label', { class: 'prow' }, el('span', null, PRICE_LBL[k]), el('input', { type: 'number', min: 0, step: 1, value: PR[k], 'data-k': k, inputmode: 'decimal' }))));
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    dlg.onclose = () => {
+      if (dlg.returnValue === 'ok') { $$('input[data-k]', grid).forEach(i => { PR[i.dataset.k] = Math.max(0, +i.value || 0); }); LS.set(K_PRICE, PR); toast('✓ Çmimet u ruajtën'); }
+      else if (dlg.returnValue === 'reset') { PR = Object.assign({}, PRICE_DEF); LS.set(K_PRICE, {}); toast('Çmimet standarde u rikthyen'); }
+      refresh();
+    };
+  }
+  let newArm = 0;
+  function newPlan() {
+    const b = $('#gNewBtn');
+    if (!newArm) { newArm = setTimeout(() => { newArm = 0; b.textContent = '＋ Plan i ri'; }, 3000); b.textContent = 'Kliko sërish për të pastruar'; return; }
+    clearTimeout(newArm); newArm = 0; b.textContent = '＋ Plan i ri';
+    S = fresh(); SEL.clear(); fillFields(); refresh(); toast('Plan i ri');
+  }
+  function fillFields() {
+    [['#gName', 'n'], ['#gDate', 'd'], ['#gDoc', 'dr'], ['#gPhone', 'ph'], ['#gNo', 'no'], ['#gDisc', 'dc'], ['#gValid', 'va'], ['#gNote', 'nt']].forEach(a => { $(a[0]).value = S[a[1]] == null ? '' : S[a[1]]; });
+  }
+  function init() {
+    $('#pv').hidden = true; $('#gen').hidden = false;
+    S = Object.assign(fresh(), LS.get(K_DRAFT, {}));
+    if (!S.teeth || typeof S.teeth !== 'object') S.teeth = {};
+    if (!Array.isArray(S.x) || !S.x.length) S.x = fresh().x;
+    EXTRA_DEF.forEach(e => { if (!S.x.some(x => x.k === e.k)) S.x.push({ k: e.k, label: e.label, on: false, pr: e.pr }); });
+    [['#gName', 'n'], ['#gDate', 'd'], ['#gDoc', 'dr'], ['#gPhone', 'ph'], ['#gNo', 'no'], ['#gDisc', 'dc', 1], ['#gValid', 'va', 1], ['#gNote', 'nt']].forEach(a => bindField(a[0], a[1], a[2]));
+    procButtons();
+    $$('.qs').forEach(b => b.addEventListener('click', () => { const v = b.dataset.qs; SEL = new Set(v ? v.split(',').map(Number) : []); drawOdo(); drawSel(); }));
+    $('#gCustAdd').addEventListener('click', () => { const n = $('#gCustName').value.trim(); if (!n) { $('#gCustName').focus(); return; } S.x.push({ k: '', label: n, on: true, pr: Math.max(0, +$('#gCustPrice').value || 0) }); $('#gCustName').value = ''; $('#gCustPrice').value = ''; refresh(false); });
+    $('#gPreview').addEventListener('click', () => preview(false)); $('#gPreviewM').addEventListener('click', () => preview(false));
+    $('#gMake').addEventListener('click', make); $('#gMakeM').addEventListener('click', make);
+    $('#gCopy').addEventListener('click', copy);
+    $('#gPrint').addEventListener('click', () => preview(true));
+    $('#gPricesBtn').addEventListener('click', pricesDialog);
+    $('#gNewBtn').addEventListener('click', newPlan);
+    $('#pvBack').addEventListener('click', back);
+    document.title = 'Gjeneruesi i planit · Medident';
+    refresh();
+  }
+  return { init };
+})();
+
+/* ═════════ Boot ═════════ */
+(function boot() {
+  let dec = null, bad = false;
+  try { dec = decodeHash(location.hash); } catch (e) { bad = true; }
+  if (dec && dec.v === 2) renderPatient(normPlan(dec.data), false);
+  else if (dec && dec.v === 1) renderLegacy(dec.data);
+  else if (bad) renderBroken();
+  else Gen.init();
+  window.addEventListener('hashchange', () => location.reload());
+})();
+
 })();
 </script>
 </body>
