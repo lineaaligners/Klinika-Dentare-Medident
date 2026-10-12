@@ -142,7 +142,7 @@ const App: React.FC = () => {
   // Update page title per view
   useEffect(() => {
     const titles: Record<View, string> = {
-      home: 'Klinika Dentare Medident | Dental Implants & Oral Surgery — Pejë, Kosovo',
+      home: 'Klinika Dentare Medident Pejë – Implante, Kurora Zirkoni, Faseta',
       blog: 'Blog — Klinika Dentare Medident',
       academy: 'Medident Academy — Clinical Courses, Pejë',
       tourism: 'Dental Tourism Kosovo — Medident, Pejë',
