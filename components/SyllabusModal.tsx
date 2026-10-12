@@ -95,6 +95,27 @@ const SyllabusModal: React.FC<SyllabusModalProps> = ({ course, onClose, lang, au
               </p>
             </section>
 
+            {course.syllabus && (
+              <section>
+                <h3 className="text-[10px] font-black text-slate-900 uppercase tracking-[0.3em] mb-6">{lang === 'en' ? 'Programme' : 'Programi'}</h3>
+                <div className="space-y-8">
+                  {course.syllabus.map((d, di) => (
+                    <div key={di}>
+                      <p className="font-bold text-slate-900 mb-3">{d.day[lang]}</p>
+                      <div className="space-y-2">
+                        {d.items.map((it, ii) => (
+                          <div key={ii} className="flex gap-4 text-sm">
+                            <span className="font-black text-blue-600 w-12 shrink-0">{it.time}</span>
+                            <span className="text-slate-600 leading-relaxed">{it.text[lang]}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
             {/* Modules Grid */}
             <section className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
