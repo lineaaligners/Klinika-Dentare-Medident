@@ -615,6 +615,23 @@ export const TECHNOLOGIES: Technology[] = [
 
 export const ACADEMY_COURSES: Course[] = [
   {
+    id: 'c3',
+    title: { en: 'Guided Implant Surgery & Immediate Loading (1-on-1)', sq: 'Kirurgjia e udhëhequr me guidë & ngarkimi i menjëhershëm (1-on-1)' },
+    description: {
+      en: 'Two-day one-on-one hands-on course with Dr. Lendita Islami Nallbani: case planning, guide design, 3D printing and sterilisation of the guide, preparing the guided surgery kit, implant placement and immediate loading on a real case. Full programme: medident-ks.com/kurs-guided-surgery.html',
+      sq: 'Kurs praktik 2-ditor one-on-one me Dr. Lendita Islami Nallbani: planifikimi i rastit, dizajnimi i guidës, printimi 3D dhe sterilizimi i saj, përgatitja e kitit të kirurgjisë së udhëhequr, vendosja e implantit dhe ngarkimi i menjëhershëm në rast real. Programi i plotë: medident-ks.com/kurs-guided-surgery.html'
+    },
+    duration: { en: '2 days · 1 participant · dates on request', sq: '2 ditë · 1 pjesëmarrës · datat sipas marrëveshjes' },
+    curriculum: ['Case Planning (CBCT + intraoral scan)', 'Surgical Guide Design', '3D Printing of the Guide', 'Guide Sterilisation', 'Guided Surgery Kit Preparation', 'Guided Implant Placement', 'Immediate Loading'],
+    keyTakeaways: {
+      en: ['Plan a prosthetically driven implant case in 3D', 'Design, print and sterilise your own surgical guide', 'Prepare and use a guided surgery kit', 'Place implants through the guide on a real patient', 'Deliver an immediate temporary restoration'],
+      sq: ['Planifikon një rast implanti në 3D, të drejtuar nga protetika', 'Dizajnon, printon dhe sterilizon vetë guidën kirurgjike', 'Përgatit dhe përdor kitin e kirurgjisë së udhëhequr', 'Vendos implantin përmes guidës në pacient real', 'Bën ngarkimin e menjëhershëm me restaurim të përkohshëm']
+    },
+    image: '/photos/surgical-guide.jpg',
+    category: '1-on-1',
+    instructorId: '1',
+  },
+  {
     id: 'c1',
     title: { en: 'Implantology & Sinus Lift', sq: 'Implantologji & Sinus Lift' },
     description: {
