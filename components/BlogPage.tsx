@@ -25,6 +25,7 @@ interface BlogPageProps {
 
 const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavigatePost }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [copied, setCopied] = useState(false);
   const [activePost, setActivePost] = useState<BlogPost | null>(() => {
     if (initialPostId) return BLOG_POSTS.find(p => p.id === initialPostId) ?? null;
     return null;
@@ -110,20 +111,31 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
                        <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest text-center">Klinika Dentare Medident · Pejë</p>
                     </div>
                   </div>
+                  <div className="grid grid-cols-2 gap-3">
                   <button
                     onClick={() => {
-                      const url = window.location.href;
+                      const url = `${window.location.origin}/blog/${activePost.id}?lang=${lang}`;
                       const title = activePost.title[lang] || activePost.title['en'];
                       if (navigator.share) {
                         navigator.share({ title, url }).catch(() => {});
                       } else {
-                        navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+                        navigator.clipboard.writeText(url).then(() => alert(lang === 'en' ? 'Link copied!' : 'Linku u kopjua!'));
                       }
                     }}
                     className="w-full flex items-center justify-center space-x-3 bg-slate-900 text-white py-4 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all">
                     <Share2 size={16} />
-                    <span>{lang === 'en' ? 'Share Article' : 'Shpërndaje'}</span>
+                    <span>{lang === 'en' ? 'Share' : 'Shpërndaje'}</span>
                   </button>
+                  <button
+                    onClick={() => {
+                      const url = `${window.location.origin}/blog/${activePost.id}?lang=${lang}`;
+                      const done = () => { setCopied(true); setTimeout(() => setCopied(false), 2000); };
+                      if (navigator.clipboard) { navigator.clipboard.writeText(url).then(done).catch(() => window.prompt('Copy link:', url)); } else { window.prompt('Copy link:', url); }
+                    }}
+                    className="w-full flex items-center justify-center space-x-3 border border-slate-300 text-slate-900 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest hover:border-blue-600 hover:text-blue-600 transition-all">
+                    <span>{copied ? (lang === 'en' ? 'Copied ✓' : 'U kopjua ✓') : (lang === 'en' ? 'Copy link' : 'Kopjo linkun')}</span>
+                  </button>
+                  </div>
                 </div>
               </div>
             </div>
