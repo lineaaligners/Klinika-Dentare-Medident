@@ -630,6 +630,30 @@ export const ACADEMY_COURSES: Course[] = [
     image: '/photos/surgical-guide.jpg',
     category: '1-on-1',
     instructorId: '1',
+    syllabus: [
+      {
+        day: { en: 'Day 1 · From CBCT to guide in hand (09:00–17:00)', sq: 'Dita 1 · Nga CBCT te guida në dorë (09:00–17:00)' },
+        items: [
+          { time: '09:00', text: { en: 'Diagnosis: reading the CBCT (Sirona Orthophos SL 3D) — bone, inferior alveolar nerve, sinus, density. Selecting the right case for guided surgery.', sq: 'Diagnostikimi: leximi i CBCT-së (Sirona Orthophos SL 3D) — kocka, nervi alveolar, sinusi, densiteti. Përzgjedhja e rastit për guidë.' } },
+          { time: '10:30', text: { en: 'Intraoral scan with Primescan 2 and merging the data (CBCT + STL).', sq: 'Skanimi intraoral me Primescan 2 dhe bashkimi i të dhënave (CBCT + STL).' } },
+          { time: '11:30', text: { en: 'Prosthetically driven planning: future tooth first, then implant diameter, length, angle and depth (MegaGen BlueDiamond / Hiossen).', sq: 'Plani i drejtuar nga protetika: pozicioni i dhëmbit, pastaj implanti — diametri, gjatësia, këndi, thellësia (MegaGen BlueDiamond / Hiossen).' } },
+          { time: '13:30', text: { en: 'Guide design: support type (tooth / mucosa / bone), sleeves, inspection windows, stability.', sq: 'Dizajnimi i guidës: mbështetja (dhëmbë / mukozë / kockë), sleeve-at, dritaret e inspektimit, stabiliteti.' } },
+          { time: '15:00', text: { en: '3D printing, washing and post-curing. Fit check on the model.', sq: 'Printimi 3D, pastrimi dhe post-curing. Kontrolli i përshtatjes në model.' } },
+          { time: '16:15', text: { en: 'Guide sterilisation and guided surgery kit preparation: drill sequence and depth stops.', sq: 'Sterilizimi i guidës dhe përgatitja e kitit: sekuenca e frezave dhe ndalesat e thellësisë.' } },
+        ],
+      },
+      {
+        day: { en: 'Day 2 · Surgery and immediate loading (09:00–16:00)', sq: 'Dita 2 · Kirurgjia dhe ngarkimi i menjëhershëm (09:00–16:00)' },
+        items: [
+          { time: '09:00', text: { en: 'Case briefing and intraoral guide try-in.', sq: 'Briefing i rastit dhe kontrolli i guidës në gojë.' } },
+          { time: '09:45', text: { en: 'Live guided surgery: anaesthesia, guide fixation, guided drilling sequence, implant placement. Participant assists and, case permitting, works under supervision.', sq: 'Kirurgji live me guidë: anestezia, fiksimi i guidës, sekuenca e udhëhequr, vendosja e implantit. Pjesëmarrësi asiston dhe, sipas rastit, punon nën mbikëqyrje.' } },
+          { time: '11:30', text: { en: 'Primary stability (torque / ISQ) and the immediate loading decision.', sq: 'Stabiliteti primar (torku / ISQ) dhe vendimi për ngarkim të menjëhershëm.' } },
+          { time: '12:30', text: { en: 'Immediate loading: temporary crown or bridge, occlusion, patient instructions.', sq: 'Ngarkimi i menjëhershëm: kurora ose ura e përkohshme, okluzioni, udhëzimet për pacientin.' } },
+          { time: '14:30', text: { en: 'Case review: common mistakes, how to avoid them, follow-up protocol.', sq: 'Analiza e rastit: gabimet e shpeshta, si shmangen, protokolli i kontrolleve.' } },
+          { time: '15:30', text: { en: 'Q&A and certificate of attendance.', sq: 'Pyetje-përgjigje dhe certifikata e pjesëmarrjes.' } },
+        ],
+      },
+    ],
   },
   {
     id: 'c1',
