@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BLOG_POSTS, DOCTORS } from '../constants';
 import { BlogPost } from '../types';
 import { BLOG_EXTRAS, ReadingProgress, Reveal, BlogStats, BlogQuote, BlogTimeline } from './BlogExtras';
@@ -31,6 +30,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
     if (initialPostId) return BLOG_POSTS.find(p => p.id === initialPostId) ?? null;
     return null;
   });
+
+  // Article title in the browser tab (and for Google, which reads the rendered title).
+  // Deferred so it runs after the app-level title effect.
+  useEffect(() => {
+    if (!activePost) return;
+    const t = setTimeout(() => { document.title = `${activePost.title[lang] || activePost.title['en']} | Medident Blog`; }, 0);
+    return () => clearTimeout(t);
+  }, [activePost, lang]);
 
   const categories = Array.from(new Set(BLOG_POSTS.map(post => post.category[lang])));
 
