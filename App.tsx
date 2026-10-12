@@ -90,6 +90,8 @@ const getInitialIdFor = (view: View) => (): string | undefined => {
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'en' | 'sq'>(() => {
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    if (urlLang === 'en' || urlLang === 'sq') return urlLang;
     const saved = localStorage.getItem('medident_lang');
     return (saved as 'en' | 'sq') || 'en';
   });
