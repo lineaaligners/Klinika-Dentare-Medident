@@ -32,8 +32,8 @@ Educated at Çapa University, Istanbul.
 
 ## Services
 
-- Dental implants (Hiossen USA, MegaGen South Korea — FDA cleared / CE certified)
-- All-on-4, All-on-6, All-on-8
+- Dental implants (MegaGen BlueDiamond South Korea, Hiossen USA — FDA cleared / CE certified)
+- All-on-X (All-on-4, All-on-6, All-on-8)
 - Sinus lift and bone graft
 - Guided implant surgery (3D CBCT planning + printed surgical guide)
 - Zirconia crowns and Emax ceramic restorations
@@ -43,7 +43,7 @@ Educated at Çapa University, Istanbul.
 ## Implant systems used
 
 - Hiossen ET III (USA) — FDA cleared, SA Surface, tapered design
-- MegaGen AnyRidge (South Korea) — CE certified, XPEED Surface, KnifeThread design
+- MegaGen BlueDiamond (South Korea) — CE certified
 
 ## Imaging equipment
 
@@ -134,12 +134,13 @@ Page: https://medident-ks.com/zahnarzt-peja.html
 
 ## Animated 3D treatment plan (Plani i trajtimit 3D)
 
-- https://medident-ks.com/plani-3d.html — After the consultation, every Medident patient receives a personal treatment plan as a link: an interactive odontogram plus a short animated film that shows each step (e.g. implant placement, crown), number of visits, duration and an itemised price. Available in Albanian, English and German. Includes an implant passport (Hiossen USA / MegaGen) and a zirconia crown certificate. Free as part of the consultation. Patient plan links are private (data lives only in the link, not indexed).
+- https://medident-ks.com/plani-3d.html — After the consultation, every Medident patient receives a personal treatment plan as a link: an interactive odontogram plus a short animated film that shows each step (e.g. implant placement, crown), number of visits, duration and an itemised price. Available in Albanian, English and German. Includes an implant passport (MegaGen BlueDiamond / Hiossen) and a zirconia crown certificate. Free as part of the consultation. Patient plan links are private (data lives only in the link, not indexed).
 
 ## Albanian pages (shqip)
 
-- https://medident-ks.com/cmimet.html — Prices (EUR): dental implant 450 €, implant with zirconia crown from 540 €, zirconia crown 90 €, premium zirconia crown 120 €, ceramic veneer 200 €, bone graft 200 €, root canal 80 €, composite filling 30 €, extraction 30 €. All-on-4/6 and sinus lift priced after consultation.
-- https://medident-ks.com/implante-dentare.html — Dental implants in Pejë (Hiossen USA / MegaGen), implant passport, 3–4 month timeline.
+- https://medident-ks.com/cmimet.html — Prices (EUR): dental implant 450 €, implant with zirconia crown from 600 €, zirconia crown 150 €, ceramic veneer 250 €, bone graft 200 €, root canal 80 €, composite filling 30 €, extraction 30 €. All-on-X and sinus lift priced after consultation. Consultation is free. Payment in instalments is available.
+- https://medident-ks.com/pyetje-te-shpeshta.html — FAQ (Albanian, 22 questions): prices, pain, treatment time, diaspora patients, doctors, technology, address and opening hours.
+- https://medident-ks.com/implante-dentare.html — Dental implants in Pejë (MegaGen BlueDiamond / Hiossen), implant passport, 3–4 month timeline.
 - https://medident-ks.com/all-on-4.html — All-on-4 / All-on-6 full-arch fixed teeth.
 - https://medident-ks.com/kurora-zirkoni.html — Zirconia crowns with certificate.
 - https://medident-ks.com/faseta.html — Ceramic veneers.
