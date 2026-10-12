@@ -15,6 +15,30 @@
     {
       "source": "/academy/portal",
       "destination": "/"
+    },
+    {
+      "source": "/blog",
+      "destination": "/"
+    },
+    {
+      "source": "/blog/:id",
+      "destination": "/"
+    },
+    {
+      "source": "/academy",
+      "destination": "/"
+    },
+    {
+      "source": "/academy/:id",
+      "destination": "/"
+    },
+    {
+      "source": "/tourism",
+      "destination": "/"
+    },
+    {
+      "source": "/verify",
+      "destination": "/"
     }
   ]
 }
