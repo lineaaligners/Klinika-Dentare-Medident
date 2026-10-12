@@ -79,6 +79,7 @@ export interface Course {
   category: 'Hands-on' | 'Online' | '1-on-1';
   instructorId: string;
   visitingFaculty?: string[];
+  syllabus?: { day: Record<string, string>; items: { time: string; text: Record<string, string> }[] }[];
 }
 
 export interface FAQ {
