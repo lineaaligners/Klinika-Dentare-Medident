@@ -279,6 +279,26 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                               </div>
                             </div>
                           </div>
+                          {course.syllabus && (
+                            <div className="pt-8 mt-8 border-t border-slate-100">
+                              <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-6">{lang === 'en' ? 'Syllabus' : 'Programi i kursit'}</p>
+                              <div className="space-y-8">
+                                {course.syllabus.map((d, di) => (
+                                  <div key={di}>
+                                    <p className="font-bold text-slate-900 mb-3">{d.day[lang]}</p>
+                                    <div className="space-y-2">
+                                      {d.items.map((it, ii) => (
+                                        <div key={ii} className="flex gap-4 text-sm">
+                                          <span className="font-black text-blue-600 w-12 shrink-0">{it.time}</span>
+                                          <span className="text-slate-600 leading-relaxed">{it.text[lang]}</span>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>
