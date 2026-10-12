@@ -130,8 +130,10 @@ const App: React.FC = () => {
     // Set initial history state. The portal and the certificate check keep their full
     // address: the portal needs the #access_token from password-reset emails, and a
     // /academy/verify/<code> link must stay shareable.
-    const keepUrl = currentView === 'portal' || currentView === 'verify';
+    // Blog posts and courses (/blog/b3, /academy/c3) also keep their full address so it can be copied and shared.
     const { pathname, search, hash } = window.location;
+    const isDeepLink = pathname.startsWith(VIEW_TO_PATH[currentView] + '/');
+    const keepUrl = currentView === 'portal' || currentView === 'verify' || isDeepLink;
     window.history.replaceState({ view: currentView }, '', keepUrl ? pathname + search + hash : VIEW_TO_PATH[currentView]);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
