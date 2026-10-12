@@ -376,7 +376,23 @@ Technology does not replace experience — it amplifies it. A 3D plan is only as
 If you are considering implants, or if you have been told your case is complicated, I would like to see your scan personally. We can talk through the plan together before anything else happens.
 
 — Dr. Lendita Islami Nallbani, Oral Surgery Specialist & Implantologist, Klinika Dentare Medident, Pejë`,
-      sq: ``
+      sq: `Ende e mbaj mend implantin e parë që vendosa në vitin 2004. Isha gruaja e parë në Kosovë që e kreu këtë procedurë. Kishim një radiografi periapikale, një sondë dhe shumë vendosmëri. Ky ishte standardi i asaj kohe — dhe funksiononte. Por "funksionon" dhe "optimale" janë dy gjëra të ndryshme.
+
+Sot, para çdo kirurgjie implanti në Medident, ulem me një skanim CBCT — një imazh i plotë 3D i nofullës së pacientit — dhe e planifikoj gjithë procedurën në mënyrë digjitale. E vendos këndin, thellësinë dhe diametrin e saktë të implantit para se ta marr në dorë qoftë edhe një instrument. E shoh ku kalon nervi. E shoh lartësinë e kockës që kemi në dispozicion. E shoh anatominë në mënyrë që një radiografi e sheshtë thjesht nuk mund ta tregojë.
+
+Rezultati është një guidë kirurgjike e printuar në 3D, e bërë posaçërisht për atë pacient. Gjatë kirurgjisë, implantin e vendos përmes asaj guide — që do të thotë se freza ndjek saktësisht rrugën që e planifikova në ekran. Nuk ka vlerësim me sy. Nuk ka hamendësim.
+
+Çka do të thotë kjo në praktikë: për pacientin, do të thotë kohë më e shkurtër e kirurgjisë — shpesh nën 45 minuta për një implant. Do të thotë prerje më e vogël ose ndonjëherë pa prerje fare (çka e quajmë kirurgji flapless). Do të thotë më pak ënjtje, më pak shqetësim dhe shërim më të shpejtë.
+
+Për mua si kirurge, do të thotë se mund t'i marr përsipër me siguri edhe rastet më komplekse — pacientë me kockë të kufizuar, pacientë që kanë pasur dështime më parë diku tjetër, pacientë të cilëve u është thënë se nuk janë kandidatë për implante. Me një plan të duhur 3D, shumë nga këto raste bëhen të mundshme.
+
+Sistemet që u besoj: punoj me implante Hiossen (SHBA) dhe MegaGen. I zgjodha për shkak të teknologjisë së sipërfaqes dhe shkallës së dokumentuar të osteointegrimit — procesit me të cilin implanti bashkohet me kockën. Një implant i vendosur mirë, në kockë të përgatitur mirë, me trajtimin e duhur të sipërfaqes, duhet të zgjasë gjithë jetën. Këtë synoj me çdo pacient.
+
+Teknologjia nuk e zëvendëson përvojën — e përforcon atë. Një plan 3D është aq i mirë sa kirurgu që e interpreton. Pas 27 vitesh dhe më shumë se 4.000 implanteve të vendosura, kam mësuar ta lexoj anatominë, t'i parashikoj komplikimet dhe të marr vendime nën presion. Puna digjitale më jep më shumë informacion. Përvoja ime më tregon çka të bëj me të.
+
+Nëse po mendoni për implante, ose nëse ju kanë thënë se rasti juaj është i komplikuar, do të doja ta shihja skanimin tuaj personalisht. Mund ta bisedojmë planin së bashku para se të ndodhë çfarëdo tjetër.
+
+— Dr. Lendita Islami Nallbani, Specialiste e Kirurgjisë Orale & Implantologe, Klinika Dentare Medident, Pejë`
     },
     authorId: '1',
     date: 'Jul 19, 2025',
@@ -420,7 +436,31 @@ If you have ever walked through our door and felt that this was a place that car
 — Arjeta Muhaxheri Morina
 Clinic Manager, Klinika Dentare Medident
 Since 1999`,
-      sq: ``
+      sq: `Në vitin 1999 kishim 16 metra katrorë. Një dentiste. Një pritore mezi sa për tri karrige. Pa sistem, pa softuer, pa manual për stafin. Vetëm Dr. Lendita, unë dhe vendosmëria se do t'ia dilnim.
+
+Atëherë nuk isha menaxhere klinike. Nuk e kisha as atë titull, as atë përgatitje. Isha dikush që vinte çdo ditë, përgjigjej në telefon, mbante librin e termineve, kujdesej që sterilizimi të bëhej dhe mësonte — ngadalë, ndonjëherë me dhimbje — çka do të thotë të udhëheqësh një praktikë mjekësore.
+
+Vitet e para ishin më të vështirat. Jo sepse nuk kishim pacientë. Kishim, që në fillim, sepse Dr. Lendita është ajo lloj mjekeje për të cilën njerëzit flasin. Por ta menaxhosh rritjen kur ende nuk e ke strukturën që ta mbajë — aty bëhet vështirë. Çdo problem që dilte, më duhej ta zgjidhja për herë të parë. Nuk kishte kë të pyesja. Nuk kishte model.
+
+E mbaj mend herën e parë kur punësuam një person të dytë. Mendova: tash do të jetë më lehtë. Dhe në disa aspekte ishte. Por në aspekte të tjera u bë më e ndërlikuar, sepse tani isha përgjegjëse jo vetëm për punën, por edhe për një njeri tjetër, për orarin e tij, pyetjet, gabimet dhe mësimin e tij. Atëherë e kuptova se menaxhimi i një klinike nuk ka të bëjë vërtet me sisteme. Ka të bëjë me njerëz.
+
+Sot jemi 200 metra katrorë. Pesëmbëdhjetë veta në staf. Disa dhoma trajtimi që punojnë njëkohësisht. Një sallë e plotë kirurgjike. Një akademi. Pacientë që udhëtojnë nga shtete të tjera. Kur kaloj nëpër klinikë në mëngjes, para se të vijë kush, dhe shoh se çfarë është bërë ky vend, ende e kam vështirë ta lidh me ata 16 metra katrorë të vitit 1999.
+
+Çka e bëri të mundur rritjen? Sinqerisht, tri gjëra.
+
+E para ishte Dr. Lendita. Një klinikë është aq e mirë sa mjeku që e udhëheq, dhe ajo kurrë nuk është ndalur. As kur ishte vështirë, as kur prisheshin pajisjet, as kur humbnim pacientë për shkak të rrethanave jashtë kontrollit tonë. Ajo e vendosi standardin, dhe gjithçka tjetër duhej ta arrinte.
+
+E dyta ishte ekipi që e ndërtuam, ngadalë, me kujdes. Gjithmonë kam besuar se personi i gabuar në vendin e gabuar të kushton më shumë se karrigia e zbrazët. Kam bërë gabime në punësim — të gjithë bëjnë. Por me kohë gjetëm njerëz që e kuptonin se çfarë klinike po përpiqej të ishte kjo, dhe që donin të ishin pjesë e saj.
+
+E treta ishte kokëfortësia. Nuk ka fjalë më të ndershme për të. Ka pasur momente — jo pak — kur gjëja më e lehtë do të kishte qenë të mbeteshim të vegjël, të mos rrezikonim, të mos e nënshkruanim qiranë, të mos i blinim pajisjet. E bëmë gjithsesi. Jo sepse ishim të sigurt se do të funksiononte. Por sepse besonim se duhej.
+
+Ende jam duke mësuar. Klinika me 200 metra katrorë ka probleme që klinika me 16 metra katrorë as nuk i imagjinonte. Por nuk do ta ndërroja asgjë prej saj.
+
+Nëse ndonjëherë keni hyrë në derën tonë dhe keni ndjerë se ky është një vend që kujdeset — kjo nuk ishte rastësi. Ishte punë 25-vjeçare.
+
+— Arjeta Muhaxheri Morina
+Menaxhere e Klinikës, Klinika Dentare Medident
+Që nga viti 1999`
     },
     authorId: '6',
     date: 'Jul 19, 2025',
@@ -462,7 +502,29 @@ I did not plan to be here. But I chose to stay. Every single day.
 — Dr. Lendita Islami Nallbani
 Oral Surgery Specialist & Implantologist
 Founder, Klinika Dentare Medident, Pejë`,
-      sq: ``
+      sq: `Isha studente e stomatologjisë në Sarajevë kur filloi lufta. Isha e re, në mes të studimeve, dhe papritmas gjithçka u ndal. Qyteti ku kisha shkuar për të ndërtuar një të ardhme u bë një vend që më duhej ta lija. Ky nuk është moment që e planifikon. Ky është moment që të planifikon ty.
+
+Studimet e stomatologjisë i përfundova në Universitetin Çapa në Stamboll — një nga fakultetet më të mira të mjekësisë në Turqi dhe një nga vendet më kërkuese ku kam qenë ndonjëherë. Nuk ishte paraparë që të isha aty. Stambollin nuk e kisha zgjedhur. Por punova, kalova provimet, u diplomova. Dhe mësova diçka që asnjë program mësimor nuk e mëson: që rrethanat që ta ndërpresin planin janë shpesh ato që ta ndërtojnë karakterin.
+
+U ktheva në Kosovë dhe e hapa këtë klinikë në vitin 1999. Gjashtëmbëdhjetë metra katrorë. Një dhomë. Pothuajse pa pajisje. Vendi sapo kishte filluar ta gjente veten pas gjithçkaje që kishte kaluar. Edhe unë sapo kisha filluar ta gjeja veten pas gjithçkaje që kisha kaluar.
+
+Në vitin 2017, e humba bashkëshortin nga kanceri. Klinika atëherë ishte tashmë tetëmbëdhjetë vjeçe. Fëmijët po rriteshin. E megjithatë, ishte një nga gjërat më të rënda që më është dashur t'i mbaj — sepse pikëllimi nuk pret momentin e mirë, dhe jeta nuk ndalet ndërsa ti kalon nëpër të. Kisha një klinikë për ta udhëhequr, pacientë me termine, staf që kishte nevojë për drejtim dhe dy fëmijë që kishin nevojë që nëna e tyre të qëndronte e fortë. Kështu që qëndrova.
+
+Këtë nuk e them për keqardhje. E them sepse mendoj se është e rëndësishme që njerëzit ta dinë se personi që i trajton, personi që ua planifikon kirurgjinë, personi që mbetet i qetë kur ndodh diçka e papritur në karrige — ai person është sprovuar. Jo në klasë. Në jetë.
+
+Çka më mbajti në këmbë? Fëmijët e mi, gjithmonë. Pacientët — sepse kur dikush ta beson shëndetin e vet, ai besim nuk është diçka që mund ta lësh mënjanë. Dhe kjo klinikë. Sepse një vend që mban 25 vite të jetës tënde nuk është vetëm biznes. Është dëshmi se nuk je ndalur.
+
+Në vitin 2004 e vendosa implantin e parë dentar që është kryer ndonjëherë nga një grua në Kosovë. E mbaj mend atë ditë. E mbaj mend se isha e vetëdijshme për çka do të thoshte — jo për egon time, por sepse përfaqësimi ka rëndësi. Nëse një vajzë e re në Kosovë e pa atë dhe mendoi se është e mundur edhe për të, atëherë ia vlente.
+
+Kam dy fëmijë që e panë nënën e tyre duke udhëhequr një klinikë, duke bërë kirurgji, duke punësuar njerëz, duke larguar njerëz, duke marrë vendime, duke mbajtur përgjegjësi dhe duke vazhduar përpara nëpër gjëra që mund ta kishin ndalur. Shpresoj se panë diçka të dobishme në këtë. Shpresoj se e dinë që qëllimi nuk është të kesh një jetë pa vështirësi. Qëllimi është të vendosësh që vështirësitë të mos e kenë fjalën e fundit.
+
+Ende jam këtu. Ende operoj. Ende e planifikoj çdo rast në 3D, ende mësoj, ende e ndërtoj këtë vend në atë që mund të bëhet.
+
+Nuk e kisha planifikuar të jem këtu. Por zgjodha të qëndroj. Çdo ditë.
+
+— Dr. Lendita Islami Nallbani
+Specialiste e Kirurgjisë Orale & Implantologe
+Themeluese, Klinika Dentare Medident, Pejë`
     },
     authorId: '1',
     date: 'Jul 19, 2025',
@@ -503,7 +565,28 @@ Medident has always been a clinic that tries to do the whole job properly — no
 
 — Dr. Faton Loci, Dentist
 Klinika Dentare Medident, Pejë`,
-      sq: ``
+      sq: `Për vite me radhë, nëse një pacient në Medident kishte nevojë për trajtim ortodontik, e dërgonim diku tjetër. Largohej, kalonte muaj me një ofrues tjetër dhe kthehej. Kurrë nuk e dinim plotësisht çka ndodhte në mes. A u menaxhua rasti ashtu siç do ta kishim menaxhuar ne. A u ndje pacienti i mbështetur. A ishte rezultati ai që e kishim biseduar me të.
+
+Ajo zbrazëti më shqetësonte.
+
+Ortodoncia gjithmonë ka qenë pjesë e pamjes së plotë në stomatologji. Një kafshim i rreshtuar mirë nuk është vetëm estetikë — ndikon në mënyrën si konsumohen dhëmbët, si ngarkohen implantet, si ulen kurorat dhe si funksionon e gjithë goja me kalimin e kohës. Kur planifikoj një rehabilitim të buzëqeshjes, më duhet ta di ku do të jenë dhëmbët, jo vetëm ku janë tani. Dërgimi i fazës ortodontike jashtë do të thoshte të planifikoja rreth një ndryshoreje që nuk e kontrolloja.
+
+Kur Linea Aligners u lansua këtu në Kosovë, vendimi për ta sjellë këtë mënyrë pune në Medident nuk ishte i ndërlikuar. Partnerja klinike, Dr. Fatbardha Mustafa, është dikush puna e së cilës më frymëzon besim dhe që e kupton si ta integrojë trajtimin me alignerë transparentë me planifikimin më të gjerë restaurues. Ky rreshtim — në të dy kuptimet — ka rëndësi.
+
+Çka ndryshoi në praktikë?
+
+Gjëja më e rëndësishme është se faza ortodontike tani është pjesë e së njëjtës bisedë klinike si gjithçka tjetër. Kur vjen një pacient me dhëmbë të shtrënguar ose me hapësira, nuk ia japim një udhëzim dhe e përshëndesim. E skanojmë, e planifikojmë dhe ia tregojmë rezultatin e parashikuar para se të fillojmë. Mënyra e punës së Linea përdor planifikim digjital të trajtimit — pacienti mund ta shohë ku do të jenë dhëmbët e tij në fund të trajtimit, çka e ndryshon tërësisht bisedën.
+
+Për rastet e kombinuara — pacientët që kanë nevojë edhe për rreshtim, edhe për punë restauruese — kjo është veçanërisht e rëndësishme. Trajtimi me alignerë mund të hapë hapësirë për një implant. Mund ta nivelojë kafshimin para se të vendosen kurorat. Mund ta korrigjojë një dhëmb të vetëm të rrotulluar që po e komprometonte restaurimin ngjitur. Këto vendime dikur përfshinin disa ofrues, disa dorëzime dhe shumë besim se gjithçka do të përputhej. Tani ndodhin në një klinikë, në një plan.
+
+Sistemi Linea prodhohet këtu në Kosovë, çka ka rëndësi për arsye praktike — rregullimet, zëvendësimet dhe komunikimi me laboratorin ndodhin shpejt. Nuk ka pritje gjashtë-javore për një set korrigjimi. Nëse diçka duhet të ndryshojë, ndryshon.
+
+Do të them edhe një gjë. Pacientët me alignerë transparentë janë ndër pacientët më të përkushtuar në çdo praktikë dentare. Vijnë rregullisht, e ndjekin përparimin e tyre, i vërejnë detajet. Të punosh me pacientë kaq të përfshirë në proces është mirë për gjithë ekipin. E ngre standardin e gjithçkaje tjetër që bëjmë.
+
+Medident gjithmonë ka qenë një klinikë që përpiqet ta bëjë gjithë punën si duhet — jo t'ia lërë pjesë të saj dikujt tjetër dhe të shpresojë për më të mirën. Sjellja e Linea në klinikë ishte pjesë e po këtij instinkti.
+
+— Dr. Faton Loci, Dentist
+Klinika Dentare Medident, Pejë`
     },
     authorId: '7',
     date: 'Jul 20, 2025',
