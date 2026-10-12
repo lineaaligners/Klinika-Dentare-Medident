@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { BLOG_POSTS, DOCTORS } from '../constants';
 import { BlogPost } from '../types';
+import { BLOG_EXTRAS, ReadingProgress, Reveal, BlogStats, BlogQuote, BlogTimeline } from './BlogExtras';
 import { 
   ArrowLeft, 
   Clock, 
@@ -62,6 +63,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
 
         <main className="pt-32 pb-32">
           <article className="max-w-4xl mx-auto px-6">
+          <ReadingProgress />
             <div className="mb-12 text-center">
               <span className="inline-block text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-8">
                 {activePost.category[lang]}
@@ -86,10 +88,20 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBack, lang, initialPostId, onNavi
                     {activePost.excerpt[lang] || activePost.excerpt['en']}
                   </p>
                   <div className="text-slate-700 leading-loose space-y-6 font-medium">
-                    {(activePost.content[lang] || activePost.content['en']).split('\n\n').map((para, i) => (
-                      <p key={i} className="text-base md:text-lg leading-relaxed">{para}</p>
-                    ))}
+                    {(() => {
+                      const paras = (activePost.content[lang] || activePost.content['en']).split('\n\n');
+                      const ex = BLOG_EXTRAS[activePost.id];
+                      const qAt = Math.min(3, paras.length - 1);
+                      return paras.map((para, i) => (
+                        <React.Fragment key={i}>
+                          <Reveal><p className="text-base md:text-lg leading-relaxed">{para}</p></Reveal>
+                          {i === 0 && <BlogStats extra={ex} lang={lang} />}
+                          {i === qAt && <BlogQuote extra={ex} lang={lang} />}
+                        </React.Fragment>
+                      ));
+                    })()}
                   </div>
+                  <BlogTimeline key={activePost.id} extra={BLOG_EXTRAS[activePost.id]} lang={lang} />
                 </div>
               </div>
 
