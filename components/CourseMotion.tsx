@@ -76,9 +76,9 @@ const CourseMotion: React.FC<{ courseId: string; lang: string }> = ({ courseId, 
   const s = steps[i];
   const label = (lang === 'sq' ? s.sq : s.en);
   return (
-    <div className="absolute right-3 top-3 w-[170px] md:top-auto md:right-8 md:bottom-8 md:w-[260px] pointer-events-none">
-      <div className="bg-slate-900/40 backdrop-blur-md border border-white/20 rounded-2xl p-3 md:p-4 text-white shadow-2xl">
-        <div className="flex items-center justify-between mb-3">
+    <div className="absolute right-3 top-3 md:right-6 md:top-5 w-[170px] md:w-[250px] pointer-events-none z-10">
+      <div className="bg-slate-900/40 backdrop-blur-md border border-white/20 rounded-2xl p-3 text-white shadow-2xl">
+        <div className="flex items-center justify-between mb-2">
           <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-200">
             {lang === 'sq' ? 'Hapi' : 'Step'} {i + 1}/{steps.length}
           </span>
@@ -86,7 +86,7 @@ const CourseMotion: React.FC<{ courseId: string; lang: string }> = ({ courseId, 
             <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" /> LIVE
           </span>
         </div>
-        <div className="h-11 md:h-14 relative overflow-hidden">
+        <div className="h-11 relative overflow-hidden">
           
             <motion.div key={courseId + i}
               initial={{ opacity: 0, y: 18, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -96,11 +96,11 @@ const CourseMotion: React.FC<{ courseId: string; lang: string }> = ({ courseId, 
                 initial={{ rotate: -20 }} animate={{ rotate: 0 }} transition={{ type: 'spring', stiffness: 200, damping: 12 }}>
                 <Icon name={s.icon} />
               </motion.span>
-              <span className="text-xs md:text-base font-bold leading-tight">{label}</span>
+              <span className="text-xs md:text-sm font-bold leading-tight">{label}</span>
             </motion.div>
           
         </div>
-        <div className="flex gap-1 mt-3">
+        <div className="flex gap-1 mt-2">
           {steps.map((_, k) => (
             <div key={k} className="h-1 flex-1 rounded-full bg-white/20 overflow-hidden">
               {k < i && <div className="h-full w-full bg-blue-400" />}
