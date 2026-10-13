@@ -60,6 +60,15 @@ const Icon: React.FC<{ name: string }> = ({ name }) => {
   }
 };
 
+
+// Short AI-generated b-roll clips (~10 s, muted, looping) shown behind each course card.
+export const COURSE_VIDEOS: Record<string, string> = {
+  c1: 'https://d8j0ntlcm91z4.cloudfront.net/user_3GK4EvYC3RV3gOLAljSryk8hjDQ/hf_20261013_100655_7546f3c5-be56-4b93-8438-1159a09d79b1.mp4',
+  c4: 'https://d8j0ntlcm91z4.cloudfront.net/user_3GK4EvYC3RV3gOLAljSryk8hjDQ/hf_20261013_100654_5e671197-3bed-441f-bf58-954c051bb8ad.mp4',
+  c3: 'https://d8j0ntlcm91z4.cloudfront.net/user_3GK4EvYC3RV3gOLAljSryk8hjDQ/hf_20261013_100708_9bb82cc0-dd94-4e2e-9923-e274a33fd845.mp4',
+  c2: 'https://d8j0ntlcm91z4.cloudfront.net/user_3GK4EvYC3RV3gOLAljSryk8hjDQ/hf_20261013_100657_67e3d30c-1f77-4e78-a4cd-9bc423165958.mp4',
+};
+
 const STEP_MS = 2600;
 
 const CourseMotion: React.FC<{ courseId: string; lang: string }> = ({ courseId, lang }) => {

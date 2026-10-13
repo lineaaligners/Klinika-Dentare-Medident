@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SyllabusModal from './SyllabusModal';
-import CourseMotion from './CourseMotion';
+import CourseMotion, { COURSE_VIDEOS } from './CourseMotion';
 import AcademyTestimonials from './AcademyTestimonials';
 import { Course } from '../types';
 
@@ -219,7 +219,11 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                   className="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-blue-300 transition-all">
                   {/* Course image strip */}
                   <div className="relative h-48 sm:h-64 overflow-hidden">
-                    <motion.img src={course.image} className="w-full h-full object-cover" alt={course.title[lang]} animate={{ scale: [1, 1.12, 1] }} transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }} />
+                    {COURSE_VIDEOS[course.id] ? (
+                      <video src={COURSE_VIDEOS[course.id]} poster={course.image} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" aria-label={course.title[lang]} />
+                    ) : (
+                      <motion.img src={course.image} className="w-full h-full object-cover" alt={course.title[lang]} animate={{ scale: [1, 1.12, 1] }} transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }} />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
                     <CourseMotion courseId={course.id} lang={lang} />
                     <div className="absolute inset-0 p-8 flex flex-col justify-between">
