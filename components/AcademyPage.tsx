@@ -126,8 +126,8 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.14 }}
                 className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed mb-10 max-w-lg">
                 {lang === 'en'
-                  ? 'Three active courses taught directly by our clinic doctors — inside the same rooms, with the same tools, on real cases.'
-                  : 'Tre kurse aktive të mësuara drejtpërsëdrejti nga mjekët tanë — brenda të njëjtave dhoma, me të njëjtat mjete, mbi raste reale.'}
+                  ? 'Four active courses taught directly by our clinic doctors — inside the same rooms, with the same tools, on real cases.'
+                  : 'Katër kurse aktive të mësuara drejtpërsëdrejti nga mjekët tanë — brenda të njëjtave dhoma, me të njëjtat mjete, mbi raste reale.'}
               </motion.p>
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
                 className="flex flex-wrap gap-4 items-center">
@@ -201,7 +201,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                 {lang === 'en' ? 'Active Courses · 2025' : 'Kurse Aktive · 2025'}
               </p>
               <h3 className="text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tighter leading-none">
-                {lang === 'en' ? <>Three courses.<br /><span className="text-blue-600">All hands-on.</span></> : <>Tre kurse.<br /><span className="text-blue-600">Të gjitha praktike.</span></>}
+                {lang === 'en' ? <>Four courses.<br /><span className="text-blue-600">All hands-on.</span></> : <>Katër kurse.<br /><span className="text-blue-600">Të gjitha praktike.</span></>}
               </h3>
             </div>
             <p className="text-slate-400 text-sm font-medium max-w-sm">
