@@ -76,7 +76,7 @@ const CourseMotion: React.FC<{ courseId: string; lang: string }> = ({ courseId, 
   const s = steps[i];
   const label = (lang === 'sq' ? s.sq : s.en);
   return (
-    <div className="absolute right-3 top-3 w-[170px] md:top-auto md:right-8 md:bottom-8 md:w-[260px] pointer-events-none">
+    <div className="absolute right-3 top-3 md:right-8 md:top-8 w-[170px] md:w-[260px] pointer-events-none z-10">
       <div className="bg-slate-900/40 backdrop-blur-md border border-white/20 rounded-2xl p-3 md:p-4 text-white shadow-2xl">
         <div className="flex items-center justify-between mb-3">
           <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-200">
