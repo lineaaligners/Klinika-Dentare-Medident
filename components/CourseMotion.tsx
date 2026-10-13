@@ -61,7 +61,10 @@ const Icon: React.FC<{ name: string }> = ({ name }) => {
 };
 
 // Optional looping videos per course (empty = show the course photo).
-export const COURSE_VIDEOS: Record<string, string> = {};
+export const COURSE_VIDEOS: Record<string, string> = {
+  c1: '/videos/kurs-implantologji.mp4',
+  c4: '/videos/kurs-sinus-lift.mp4',
+};
 
 const STEP_MS = 2600;
 
