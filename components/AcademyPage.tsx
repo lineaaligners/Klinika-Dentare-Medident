@@ -309,6 +309,17 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                       )}
                     </AnimatePresence>
 
+                    {(course.date || course.price || course.support) && (
+                      <div className="flex flex-wrap gap-2 mt-5">
+                        {course.date && <span className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 border border-blue-100 px-3 py-2 rounded-xl text-xs font-bold">📅 {course.date[lang]}</span>}
+                        {course.price && <span className="inline-flex items-center gap-2 bg-slate-900 text-white px-3 py-2 rounded-xl text-xs font-bold">{course.price}</span>}
+                        {course.support && <span className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 border border-emerald-100 px-3 py-2 rounded-xl text-xs font-bold">🤝 {course.support[lang]}</span>}
+                      </div>
+                    )}
+                    {course.requirements && (
+                      <p className="mt-4 text-xs text-slate-600 bg-amber-50 border border-amber-100 rounded-xl px-4 py-3"><b>{lang === 'en' ? 'How to apply: ' : 'Si të aplikoni: '}</b>{course.requirements[lang]}</p>
+                    )}
+
                     <div className="flex flex-wrap gap-3 mt-6">
                       <a href="https://wa.me/38349772307" target="_blank" rel="noopener"
                         className="flex items-center gap-2 bg-slate-900 hover:bg-blue-600 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">
@@ -321,6 +332,9 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                         <span>{lang === 'en' ? 'Syllabus PDF' : 'PDF Kursi'}</span>
                       </button>
                     </div>
+                    {course.disclaimer && (
+                      <p className="mt-5 text-[10px] leading-snug text-slate-400">{course.disclaimer[lang]}</p>
+                    )}
                   </div>
                 </motion.div>
               );
