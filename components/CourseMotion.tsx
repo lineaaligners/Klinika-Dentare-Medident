@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 // Short looping "video" (~12–15 s) for each Academy course: the main steps
 // of the course appear one after another with an icon and a progress bar.
@@ -76,7 +76,7 @@ const CourseMotion: React.FC<{ courseId: string; lang: string }> = ({ courseId, 
   const s = steps[i];
   const label = (lang === 'sq' ? s.sq : s.en);
   return (
-    <div className="absolute right-3 top-3 md:right-8 md:top-8 w-[170px] md:w-[260px] pointer-events-none z-10">
+    <div className="absolute right-3 top-3 w-[170px] md:top-auto md:right-8 md:bottom-8 md:w-[260px] pointer-events-none">
       <div className="bg-slate-900/40 backdrop-blur-md border border-white/20 rounded-2xl p-3 md:p-4 text-white shadow-2xl">
         <div className="flex items-center justify-between mb-3">
           <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-200">
@@ -87,9 +87,9 @@ const CourseMotion: React.FC<{ courseId: string; lang: string }> = ({ courseId, 
           </span>
         </div>
         <div className="h-11 md:h-14 relative overflow-hidden">
-          <AnimatePresence mode="wait">
+          
             <motion.div key={courseId + i}
-              initial={{ opacity: 0, y: 18, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -18 }}
+              initial={{ opacity: 0, y: 18, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.45, ease: 'easeOut' }}
               className="absolute inset-0 flex items-center gap-3">
               <motion.span className="w-11 h-11 shrink-0 rounded-xl bg-blue-600 flex items-center justify-center"
@@ -98,7 +98,7 @@ const CourseMotion: React.FC<{ courseId: string; lang: string }> = ({ courseId, 
               </motion.span>
               <span className="text-xs md:text-base font-bold leading-tight">{label}</span>
             </motion.div>
-          </AnimatePresence>
+          
         </div>
         <div className="flex gap-1 mt-3">
           {steps.map((_, k) => (
