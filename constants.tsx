@@ -719,7 +719,7 @@ export const ACADEMY_COURSES: Course[] = [
         items: [
           { time: '09:00', text: { en: 'Diagnosis: reading the CBCT (Sirona Orthophos SL 3D) — bone, inferior alveolar nerve, sinus, density. Selecting the right case for guided surgery.', sq: 'Diagnostikimi: leximi i CBCT-së (Sirona Orthophos SL 3D) — kocka, nervi alveolar, sinusi, densiteti. Përzgjedhja e rastit për guidë.' } },
           { time: '10:30', text: { en: 'Intraoral scan with Primescan 2 and merging the data (CBCT + STL).', sq: 'Skanimi intraoral me Primescan 2 dhe bashkimi i të dhënave (CBCT + STL).' } },
-          { time: '11:30', text: { en: 'Prosthetically driven planning: future tooth first, then implant diameter, length, angle and depth (MegaGen BlueDiamond / Hiossen).', sq: 'Plani i drejtuar nga protetika: pozicioni i dhëmbit, pastaj implanti — diametri, gjatësia, këndi, thellësia (MegaGen BlueDiamond / Hiossen).' } },
+          { time: '11:30', text: { en: 'Prosthetically driven planning: future tooth first, then implant diameter, length, angle and depth (MegaGen BlueDiamond).', sq: 'Plani i drejtuar nga protetika: pozicioni i dhëmbit, pastaj implanti — diametri, gjatësia, këndi, thellësia (MegaGen BlueDiamond).' } },
           { time: '13:30', text: { en: 'Guide design: support type (tooth / mucosa / bone), sleeves, inspection windows, stability.', sq: 'Dizajnimi i guidës: mbështetja (dhëmbë / mukozë / kockë), sleeve-at, dritaret e inspektimit, stabiliteti.' } },
           { time: '15:00', text: { en: '3D printing, washing and post-curing. Fit check on the model.', sq: 'Printimi 3D, pastrimi dhe post-curing. Kontrolli i përshtatjes në model.' } },
           { time: '16:15', text: { en: 'Guide sterilisation and guided surgery kit preparation: drill sequence and depth stops.', sq: 'Sterilizimi i guidës dhe përgatitja e kitit: sekuenca e frezave dhe ndalesat e thellësisë.' } },
@@ -740,17 +740,61 @@ export const ACADEMY_COURSES: Course[] = [
   },
   {
     id: 'c1',
-    title: { en: 'Implantology & Sinus Lift', sq: 'Implantologji & Sinus Lift' },
+    title: { en: "Basic Implantology Course", sq: "Kurs themelor në implantologji" },
     description: {
-      en: 'Hands-on course in implantology and sinus lift techniques, led by Dr. Lendita Islami Nallbani, oral surgery specialist with 27 years of clinical experience.',
-      sq: 'Kurs praktik në implantologji dhe teknikat e sinus lift, i udhëhequr nga Dr. Lendita Islami Nallbani, specialiste e kirurgjisë orale me 27 vite përvojë klinike.'
+      en: "Hands-on foundation course in dental implantology with Dr. Lendita Islami Nallbani, oral surgery specialist with 27 years of clinical experience. From CBCT diagnosis to placing your first implants with the MegaGen BlueDiamond system.",
+      sq: "Kurs praktik themelor në implantologji me Dr. Lendita Islami Nallbani, specialiste e kirurgjisë orale me 27 vite përvojë klinike. Nga diagnoza në CBCT deri te vendosja e implanteve të para me sistemin MegaGen BlueDiamond."
     },
-    duration: { en: 'Contact for schedule', sq: 'Kontaktoni për orarin' },
-    curriculum: ['Implant Placement', 'Sinus Lift Techniques', '3D Case Planning & Surgical Guides', 'Guided Surgery Protocol', 'Live Clinical Observation'],
+    duration: { en: '1 day (09:00–17:00)', sq: '1 ditë (09:00–17:00)' },
+    curriculum: ["CBCT Diagnosis & Case Selection","Prosthetically Driven Planning","Surgical Protocol","Live Implant Surgery","Hands-on on Models"],
     keyTakeaways: {
-      en: ['Plan and place dental implants with confidence', 'Design and use 3D-printed surgical guides', 'Perform sinus lift procedures safely', 'Assess bone and anatomical considerations', 'Observe live cases in a working clinic'],
-      sq: ['Planifikoni dhe vendosni implante dentare me siguri', 'Dizajnoni dhe përdorni udhëzues kirurgjikal të printuar në 3D', 'Kryeni procedurat e sinus lift në mënyrë të sigurt', 'Vlerësoni kockën dhe konsideratat anatomike', 'Vëzhgoni raste live në një klinikë aktive']
+      en: ["Read a CBCT and select suitable implant cases","Plan implant position from the final tooth","Follow a safe step-by-step surgical protocol","Place implants with the MegaGen BlueDiamond system","Observe a live implant surgery chairside"],
+      sq: ["Lexoni CBCT-në dhe zgjidhni rastet e përshtatshme për implant","Planifikoni pozicionin e implantit nga dhëmbi përfundimtar","Ndiqni një protokoll kirurgjik të sigurt hap pas hapi","Vendosni implante me sistemin MegaGen BlueDiamond","Vëzhgoni një kirurgji live implanti pranë karriges"]
     },
+    syllabus: [
+      {
+        day: { en: "Implantology: from diagnosis to placement (09:00–17:00)", sq: "Implantologjia: nga diagnoza te vendosja (09:00–17:00)" },
+        items: [
+          { time: '09:00', text: { en: "Diagnosis and case selection on CBCT (Sirona Orthophos SL 3D): bone volume and density, nerve, sinus, soft tissue.", sq: "Diagnoza dhe përzgjedhja e rastit në CBCT (Sirona Orthophos SL 3D): vëllimi dhe densiteti i kockës, nervi, sinusi, indet e buta." } },
+          { time: '10:30', text: { en: "Prosthetically driven planning: implant diameter, length and position with MegaGen BlueDiamond.", sq: "Planifikimi i drejtuar nga protetika: diametri, gjatësia dhe pozicioni i implantit me MegaGen BlueDiamond." } },
+          { time: '12:00', text: { en: "Surgical protocol: flap design, drilling sequence, primary stability, suturing.", sq: "Protokolli kirurgjik: dizajni i flapit, sekuenca e shpimit, stabiliteti primar, qepja." } },
+          { time: '13:00', text: { en: "Lunch break.", sq: "Pushim dreke." } },
+          { time: '14:00', text: { en: "Live surgery: implant placement — observation and assistance chairside.", sq: "Kirurgji live: vendosja e implantit — vëzhgim dhe asistim pranë karriges." } },
+          { time: '16:00', text: { en: "Hands-on on models: drilling and implant placement under supervision, Q&A.", sq: "Punë praktike në modele: shpimi dhe vendosja e implantit nën mbikëqyrje, pyetje-përgjigje." } },
+        ],
+      },
+    ],
+    image: '/photos/guided-kit.jpg',
+    category: 'Hands-on',
+    instructorId: '1',
+    visitingFaculty: ['Prof. Dr. Ales Vesnhaver', 'Prof. Dr. Giorgio Tabanella', 'Dr. Atilla Mühl', 'Prof. Dr. Samir Prohić']
+  },
+  {
+    id: 'c4',
+    title: { en: "Sinus Lift & Bone Grafting", sq: "Sinus Lift & Grafti Kockor" },
+    description: {
+      en: "Advanced hands-on course with Dr. Lendita Islami Nallbani on sinus lift (crestal and lateral window) and bone grafting — indications, technique, materials and managing complications.",
+      sq: "Kurs praktik i avancuar me Dr. Lendita Islami Nallbani për sinus lift (krestal dhe me dritare laterale) dhe graftin kockor — indikacionet, teknika, materialet dhe menaxhimi i komplikimeve."
+    },
+    duration: { en: '1 day (09:00–17:00)', sq: '1 ditë (09:00–17:00)' },
+    curriculum: ["Sinus Anatomy on CBCT","Crestal Sinus Lift","Lateral Window Sinus Lift","Bone Grafts & Membranes","Live Sinus Lift Case"],
+    keyTakeaways: {
+      en: ["Assess residual bone height and sinus anatomy on CBCT","Choose between crestal and lateral sinus lift","Select and handle graft materials and membranes","Prevent and manage membrane perforation","Observe a live sinus lift case chairside"],
+      sq: ["Vlerësoni lartësinë e mbetur të kockës dhe anatominë e sinusit në CBCT","Zgjidhni mes sinus liftit krestal dhe lateral","Zgjidhni dhe përdorni materialet e graftit dhe membranat","Parandaloni dhe menaxhoni perforimin e membranës","Vëzhgoni një rast live të sinus liftit pranë karriges"]
+    },
+    syllabus: [
+      {
+        day: { en: "Sinus lift and bone grafting (09:00–17:00)", sq: "Sinus lift dhe grafti kockor (09:00–17:00)" },
+        items: [
+          { time: '09:00', text: { en: "Sinus anatomy on CBCT: residual bone height, septa, membrane, contraindications.", sq: "Anatomia e sinusit në CBCT: lartësia e mbetur e kockës, septet, membrana, kundërindikacionet." } },
+          { time: '10:00', text: { en: "Crestal vs. lateral-window sinus lift: indications, step-by-step technique, simultaneous vs. delayed implants.", sq: "Sinus lift krestal kundrejt dritares laterale: indikacionet, teknika hap pas hapi, implant njëkohësisht apo më vonë." } },
+          { time: '11:30', text: { en: "Bone grafting materials, membranes and handling complications (membrane perforation).", sq: "Materialet e graftit kockor, membranat dhe menaxhimi i komplikimeve (perforimi i membranës)." } },
+          { time: '13:00', text: { en: "Lunch break.", sq: "Pushim dreke." } },
+          { time: '14:00', text: { en: "Live sinus lift case — observation and assistance chairside.", sq: "Rast live i sinus liftit — vëzhgim dhe asistim pranë karriges." } },
+          { time: '16:00', text: { en: "Post-op care, follow-up protocol, case review and Q&A.", sq: "Kujdesi pas operacionit, protokolli i kontrollit, rishikimi i rasteve dhe pyetje-përgjigje." } },
+        ],
+      },
+    ],
     image: '/photos/guided-kit.jpg',
     category: 'Hands-on',
     instructorId: '1',
