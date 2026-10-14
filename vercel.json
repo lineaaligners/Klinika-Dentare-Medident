@@ -29,6 +29,14 @@
       "destination": "/"
     },
     {
+      "source": "/kurs",
+      "destination": "/kurs-implantologji.html"
+    },
+    {
+      "source": "/academy/regjistrim",
+      "destination": "/kurs-implantologji.html"
+    },
+    {
       "source": "/academy/:id",
       "destination": "/"
     },

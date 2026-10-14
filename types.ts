@@ -69,6 +69,7 @@ export interface BlogPost {
 }
 
 export interface Course {
+  registerUrl?: string;
   id: string;
   title: Record<string, string>;
   description: Record<string, string>;

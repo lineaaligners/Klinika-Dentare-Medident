@@ -321,6 +321,13 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                     )}
 
                     <div className="flex flex-wrap gap-3 mt-6">
+                      {course.registerUrl && (
+                        <a href={course.registerUrl}
+                          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">
+                          <span>{lang === 'en' ? 'Register online' : 'Regjistrohu online'}</span>
+                          <ArrowUpRight size={14} />
+                        </a>
+                      )}
                       <a href="https://wa.me/38349772307" target="_blank" rel="noopener"
                         className="flex items-center gap-2 bg-slate-900 hover:bg-blue-600 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">
                         <span>{lang === 'en' ? 'Apply on WhatsApp' : 'Apliko në WhatsApp'}</span>

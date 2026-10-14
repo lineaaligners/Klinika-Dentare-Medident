@@ -740,6 +740,7 @@ export const ACADEMY_COURSES: Course[] = [
   },
   {
     id: 'c1',
+    registerUrl: '/academy/regjistrim',
     title: { en: "Basic Implantology Course", sq: "Kurs themelor në implantologji" },
     description: {
       en: "Hands-on foundation course in dental implantology with Dr. Lendita Islami Nallbani, oral surgery specialist with 27 years of clinical experience. From CBCT diagnosis to placing your first implants with the MegaGen BlueDiamond system.",

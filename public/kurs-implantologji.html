@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Regjistrimi · Implantologji Themelore · Medident Academy</title>
+<meta name="description" content="Regjistrohu në kursin praktik Implantologji Themelore me Dr. Lendita Islami Nallbani, Medident Academy, Pejë.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B1424;--navy:#14274A;--sky:#5FD4FF;--blue:#2158C4;--paper:#F3F5F9;--line:#D0D7E2;--muted:#4A5568;--err:#B4471F}
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.5}
+.hero{background:radial-gradient(ellipse at 80% 30%,#16305C 0%,var(--ink) 65%);color:#EEF2F8;padding:56px 20px 88px}
+.wrap{max-width:720px;margin:0 auto}
+.eyebrow{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--sky);font-weight:600}
+h1{font-family:'Space Grotesk',Arial,sans-serif;font-size:clamp(36px,8vw,60px);line-height:1.02;letter-spacing:-1.5px;margin:14px 0 12px}
+h1 span{color:var(--sky)}
+.hero p{color:#A9B8CF;font-size:18px}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.facts span{border:1px solid rgba(95,212,255,.45);background:rgba(95,212,255,.12);border-radius:999px;padding:8px 14px;font-size:14px}
+.card{background:#fff;border-radius:20px;box-shadow:0 16px 48px rgba(11,20,36,.08);padding:28px 22px;margin:-56px 16px 40px}
+@media(min-width:760px){.card{margin:-56px auto 48px;padding:40px}}
+h2{font-family:'Space Grotesk',Arial,sans-serif;font-size:22px;margin:28px 0 14px;color:var(--blue)}
+h2:first-child{margin-top:0}
+label{display:block;font-weight:600;font-size:15px;margin:16px 0 6px}
+.hint{font-weight:400;color:var(--muted);font-size:13px}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--sky);border-color:var(--blue)}
+textarea{min-height:96px;resize:vertical}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{margin:0;font-weight:500;border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.opts input{accent-color:var(--blue)}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px;color:var(--muted)}
+.check input{margin-top:4px;accent-color:var(--blue);width:18px;height:18px;flex:none}
+button{margin-top:28px;width:100%;font:inherit;font-weight:600;font-size:17px;border:0;border-radius:14px;padding:16px;background:var(--blue);color:#fff;cursor:pointer}
+button:hover{background:#1a47a0}
+.err{color:var(--err);font-size:14px;margin-top:12px;display:none}
+.done{display:none;text-align:center;padding:24px 0}
+.done h2{color:var(--ink);font-size:28px}
+.done p{color:var(--muted);margin-top:8px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="eyebrow">Medident Academy · Pejë</div>
+<h1>Implantologji <span>Themelore</span></h1>
+<p>Kurs praktik me Dr. Lendita Islami Nallbani: 30 vite përvojë, mbi 4000 implante.</p>
+<div class="facts"><span>2 ditë · 16 orë</span><span>Hands-on në modele</span><span>Rast live</span><span>Certifikatë</span><span>Vende të kufizuara</span></div>
+</div></header>
+
+<main class="card">
+<form id="f" novalidate>
+<h2>Të dhënat</h2>
+<label for="emri">Emri dhe mbiemri *</label>
+<input id="emri" name="Emri" type="text" required autocomplete="name">
+<label for="tel">Telefoni / WhatsApp *</label>
+<input id="tel" name="Telefoni" type="tel" required autocomplete="tel" placeholder="+383 …">
+<label for="email">Email *</label>
+<input id="email" name="Email" type="email" required autocomplete="email">
+<label for="qyteti">Qyteti dhe shteti *</label>
+<input id="qyteti" name="Qyteti" type="text" required>
+<label for="klinika">Klinika ku punoni</label>
+<input id="klinika" name="Klinika" type="text">
+
+<h2>Përvoja juaj</h2>
+<label>Sa vite punoni si stomatolog? *</label>
+<div class="opts" data-name="Vite përvojë">
+<label><input type="radio" name="vite" value="Student / i sapodiplomuar" required>Student / i sapodiplomuar</label>
+<label><input type="radio" name="vite" value="1–5 vite">1–5 vite</label>
+<label><input type="radio" name="vite" value="5–10 vite">5–10 vite</label>
+<label><input type="radio" name="vite" value="Mbi 10 vite">Mbi 10 vite</label>
+</div>
+<label>Sa implante keni vendosur deri tani? *</label>
+<div class="opts">
+<label><input type="radio" name="implante" value="Asnjë" required>Asnjë</label>
+<label><input type="radio" name="implante" value="1–10">1–10</label>
+<label><input type="radio" name="implante" value="11–50">11–50</label>
+<label><input type="radio" name="implante" value="Mbi 50">Mbi 50</label>
+</div>
+<label>A keni punuar me CBCT? *</label>
+<div class="opts">
+<label><input type="radio" name="cbct" value="Po, rregullisht" required>Po, rregullisht</label>
+<label><input type="radio" name="cbct" value="Pak">Pak</label>
+<label><input type="radio" name="cbct" value="Jo">Jo</label>
+</div>
+<label for="sistemi">Me cilin sistem implantesh punoni ose doni të punoni? <span class="hint">(opsionale)</span></label>
+<input id="sistemi" name="Sistemi" type="text" placeholder="p.sh. MegaGen, Straumann, Osstem…">
+<label for="pritjet">Çfarë prisni të mësoni në kurs? <span class="hint">(opsionale)</span></label>
+<textarea id="pritjet" name="Pritjet"></textarea>
+
+<h2>Pëlqimi</h2>
+<label class="check"><input type="checkbox" id="c1" required>Pajtohem që të dhënat e mia të përdoren nga Medident vetëm për organizimin e kursit.</label>
+<label class="check"><input type="checkbox" id="c2" required>Gjatë rastit live nuk bëj foto ose video të pacientit pa leje dhe respektoj konfidencialitetin.</label>
+
+<button type="submit">Dërgo regjistrimin në WhatsApp</button>
+<p class="err" id="err">Ju lutem plotësoni fushat me *.</p>
+</form>
+<div class="done" id="done"><h2>Faleminderit!</h2><p>U hap WhatsApp-i me regjistrimin tuaj. Shtypni “Dërgo” atje. Do t’ju kontaktojmë për konfirmim, pagesë dhe programin e plotë.</p></div>
+</main>
+<footer>Klinika Dentare Medident · Rr. Bajram Kelmendi, Pejë · medident-ks.com</footer>
+
+<script>
+var WA="38349772307";
+var f=document.getElementById("f");
+f.addEventListener("submit",function(e){
+  e.preventDefault();
+  if(!f.checkValidity()){document.getElementById("err").style.display="block";f.reportValidity();return}
+  var v=function(n){var el=f.querySelector('[name="'+n+'"]:checked')||f.querySelector('[name="'+n+'"]');return el?el.value.trim():""};
+  var rows=[["Emri",v("Emri")],["Telefoni",v("Telefoni")],["Email",v("Email")],["Qyteti",v("Qyteti")],["Klinika",v("Klinika")],["Vite përvojë",v("vite")],["Implante të vendosura",v("implante")],["CBCT",v("cbct")],["Sistemi",v("Sistemi")],["Pritjet",v("Pritjet")]];
+  var msg="REGJISTRIM · Implantologji Themelore\n\n"+rows.filter(function(r){return r[1]}).map(function(r){return r[0]+": "+r[1]}).join("\n")+"\n\nPajtohem me kushtet e të dhënave dhe konfidencialitetit.";
+  window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank");
+  f.style.display="none";document.getElementById("done").style.display="block";
+});
+</script>
+</body>
+</html>
