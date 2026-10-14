@@ -114,6 +114,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
 <input id="sistemi" name="Sistemi" type="text" placeholder="p.sh. MegaGen, Straumann, Osstem…">
 <label for="pritjet">Çfarë prisni të mësoni në kurs? <span class="hint">(opsionale)</span></label>
 <textarea id="pritjet" name="Pritjet"></textarea>
+<label for="tema">Cila temë ju intereson më shumë? <span class="hint">(opsionale, Dr. Lendita do ta trajtojë më gjerësisht)</span></label>
+<input id="tema" name="Tema" type="text" placeholder="p.sh. implantet në zonën estetike, nervi, sinusi, protetika…">
 </section>
 
 <section class="step" data-step="3">
@@ -196,7 +198,7 @@ next.onclick=function(){
   if(!valid(cur)){err.style.display="block";var bad=f.querySelector('[data-step="'+cur+'"] :invalid');if(bad)bad.reportValidity();return}
   if(cur<N){show(cur+1);return}
   var v=function(n){var el=f.querySelector('[name="'+n+'"]:checked')||f.querySelector('[name="'+n+'"]');return el?el.value.trim():""};
-  var rows=[["Emri",v("Emri")],["Telefoni",v("Telefoni")],["Email",v("Email")],["Qyteti",v("Qyteti")],["Vite përvojë",v("vite")],["Implante të vendosura",v("implante")],["CBCT",v("cbct")],["Sistemi",v("Sistemi")],["Pritjet",v("Pritjet")]];
+  var rows=[["Emri",v("Emri")],["Telefoni",v("Telefoni")],["Email",v("Email")],["Qyteti",v("Qyteti")],["Vite përvojë",v("vite")],["Implante të vendosura",v("implante")],["CBCT",v("cbct")],["Sistemi",v("Sistemi")],["Pritjet",v("Pritjet")],["Tema që i intereson",v("Tema")]];
   var msg="REGJISTRIM · Implantologji Themelore\n\n"+rows.filter(function(r){return r[1]}).map(function(r){return r[0]+": "+r[1]}).join("\n")+"\n\nPajtohem me kushtet e të dhënave dhe konfidencialitetit.";
   window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank");
   f.style.display="none";document.getElementById("done").style.display="block";window.scrollTo({top:0,behavior:"smooth"});
