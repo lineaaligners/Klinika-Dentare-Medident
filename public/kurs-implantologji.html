@@ -21,26 +21,44 @@ h1 span{color:var(--sky)}
 .facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .facts span{border:1px solid rgba(95,212,255,.45);background:rgba(95,212,255,.12);border-radius:999px;padding:8px 14px;font-size:14px}
 .card{background:#fff;border-radius:20px;box-shadow:0 16px 48px rgba(11,20,36,.08);padding:28px 22px;margin:-56px 16px 40px}
-@media(min-width:760px){.card{margin:-56px auto 48px;padding:40px}}
-h2{font-family:'Space Grotesk',Arial,sans-serif;font-size:22px;margin:28px 0 14px;color:var(--blue)}
-h2:first-child{margin-top:0}
-label{display:block;font-weight:600;font-size:15px;margin:16px 0 6px}
+@media(min-width:760px){.card{margin:-56px auto 48px;padding:40px;max-width:720px}}
+.steps{display:flex;gap:8px;margin-bottom:24px}
+.steps i{flex:1;height:4px;border-radius:4px;background:var(--line)}
+.steps i.on{background:var(--blue)}
+.stepno{font-size:13px;color:var(--muted);margin-bottom:6px}
+h2{font-family:'Space Grotesk',Arial,sans-serif;font-size:24px;color:var(--ink);margin-bottom:6px}
+.note{background:#EAF1FB;border-left:4px solid var(--blue);border-radius:10px;padding:14px 16px;font-size:15px;color:#1E3A66;margin:12px 0 4px}
+label{display:block;font-weight:600;font-size:15px;margin:18px 0 6px}
 .hint{font-weight:400;color:var(--muted);font-size:13px}
-input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--sky);border-color:var(--blue)}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+input:focus,textarea:focus{outline:2px solid var(--sky);border-color:var(--blue)}
 textarea{min-height:96px;resize:vertical}
 .opts{display:flex;flex-wrap:wrap;gap:8px}
 .opts label{margin:0;font-weight:500;border:1px solid var(--line);border-radius:999px;padding:9px 14px;cursor:pointer;display:flex;gap:8px;align-items:center}
 .opts input{accent-color:var(--blue)}
 .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px;color:var(--muted)}
 .check input{margin-top:4px;accent-color:var(--blue);width:18px;height:18px;flex:none}
-button{margin-top:28px;width:100%;font:inherit;font-weight:600;font-size:17px;border:0;border-radius:14px;padding:16px;background:var(--blue);color:#fff;cursor:pointer}
+.nav{display:flex;gap:12px;margin-top:28px}
+button{flex:1;font:inherit;font-weight:600;font-size:17px;border:0;border-radius:14px;padding:16px;background:var(--blue);color:#fff;cursor:pointer}
 button:hover{background:#1a47a0}
+button.ghost{flex:0 0 auto;background:#fff;color:var(--muted);border:1px solid var(--line);padding:16px 22px}
 .err{color:var(--err);font-size:14px;margin-top:12px;display:none}
-.done{display:none;text-align:center;padding:24px 0}
-.done h2{color:var(--ink);font-size:28px}
-.done p{color:var(--muted);margin-top:8px}
+.step{display:none}.step.on{display:block}
+.done{display:none}
+.done .ok{text-align:center;padding:4px 0 24px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.done .ok h2{font-size:28px}
+.done .ok p{color:var(--muted);margin-top:8px}
+h3{font-family:'Space Grotesk',Arial,sans-serif;font-size:20px;color:var(--blue);margin:28px 0 12px}
+dl{display:grid;gap:10px}
+dl div{border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+dt{font-weight:600}
+dd{color:var(--muted);font-size:15px;margin-top:2px}
+ol.pr{padding-left:22px;display:grid;gap:10px}
+ol.pr li{padding-left:4px}
+ol.pr b{color:var(--ink)}
+.print{margin-top:24px;background:#fff;color:var(--blue);border:1px solid var(--blue)}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
+@media print{.hero,.ok,.print,footer{display:none}.card{box-shadow:none;margin:0}}
 </style>
 </head>
 <body>
@@ -53,7 +71,11 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
 
 <main class="card">
 <form id="f" novalidate>
-<h2>Të dhënat</h2>
+<div class="steps"><i class="on"></i><i></i><i></i></div>
+
+<section class="step on" data-step="1">
+<div class="stepno">Hapi 1 nga 3</div>
+<h2>Të dhënat tuaja</h2>
 <label for="emri">Emri dhe mbiemri *</label>
 <input id="emri" name="Emri" type="text" required autocomplete="name">
 <label for="tel">Telefoni / WhatsApp *</label>
@@ -62,12 +84,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
 <input id="email" name="Email" type="email" required autocomplete="email">
 <label for="qyteti">Qyteti dhe shteti *</label>
 <input id="qyteti" name="Qyteti" type="text" required>
-<label for="klinika">Klinika ku punoni</label>
-<input id="klinika" name="Klinika" type="text">
+</section>
 
-<h2>Përvoja juaj</h2>
+<section class="step" data-step="2">
+<div class="stepno">Hapi 2 nga 3</div>
+<h2>Pyetësor i shkurtër</h2>
+<p class="note">Këto pyetje do të përdoren për të optimizuar kursin tuaj dhe janë plotësisht konfidenciale.</p>
 <label>Sa vite punoni si stomatolog? *</label>
-<div class="opts" data-name="Vite përvojë">
+<div class="opts">
 <label><input type="radio" name="vite" value="Student / i sapodiplomuar" required>Student / i sapodiplomuar</label>
 <label><input type="radio" name="vite" value="1–5 vite">1–5 vite</label>
 <label><input type="radio" name="vite" value="5–10 vite">5–10 vite</label>
@@ -90,30 +114,93 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
 <input id="sistemi" name="Sistemi" type="text" placeholder="p.sh. MegaGen, Straumann, Osstem…">
 <label for="pritjet">Çfarë prisni të mësoni në kurs? <span class="hint">(opsionale)</span></label>
 <textarea id="pritjet" name="Pritjet"></textarea>
+</section>
 
+<section class="step" data-step="3">
+<div class="stepno">Hapi 3 nga 3</div>
 <h2>Pëlqimi</h2>
-<label class="check"><input type="checkbox" id="c1" required>Pajtohem që të dhënat e mia të përdoren nga Medident vetëm për organizimin e kursit.</label>
-<label class="check"><input type="checkbox" id="c2" required>Gjatë rastit live nuk bëj foto ose video të pacientit pa leje dhe respektoj konfidencialitetin.</label>
+<label class="check"><input type="checkbox" required>Pajtohem që të dhënat e mia të përdoren nga Medident vetëm për organizimin e kursit.</label>
+<label class="check"><input type="checkbox" required>Gjatë rastit live nuk bëj foto ose video të pacientit pa leje dhe respektoj konfidencialitetin.</label>
+</section>
 
-<button type="submit">Dërgo regjistrimin në WhatsApp</button>
+<div class="nav">
+<button type="button" class="ghost" id="back" style="display:none">Prapa</button>
+<button type="button" id="next">Tjetër</button>
+</div>
 <p class="err" id="err">Ju lutem plotësoni fushat me *.</p>
 </form>
-<div class="done" id="done"><h2>Faleminderit!</h2><p>U hap WhatsApp-i me regjistrimin tuaj. Shtypni “Dërgo” atje. Do t’ju kontaktojmë për konfirmim, pagesë dhe programin e plotë.</p></div>
+
+<div class="done" id="done">
+<div class="ok"><h2>Faleminderit!</h2><p>U hap WhatsApp-i me regjistrimin tuaj. Shtypni “Dërgo” atje. Do t’ju kontaktojmë për konfirmim, pagesë dhe programin e plotë.</p></div>
+
+<div class="eyebrow" style="color:var(--blue)">Materiali para kursit</div>
+<h2 style="margin-top:8px">Lexojeni para se të vini</h2>
+<p style="color:var(--muted);margin-top:6px">Një fjalor i shkurtër dhe parimet që do t’i përdorim gjatë dy ditëve.</p>
+
+<h3>Fjalori bazë</h3>
+<dl>
+<div><dt>Implanti</dt><dd>Rrënjë artificiale prej titani që vendoset në kockë dhe zëvendëson rrënjën e dhëmbit.</dd></div>
+<div><dt>Abutmenti</dt><dd>Pjesa që lidh implantin me kurorën.</dd></div>
+<div><dt>Kurora</dt><dd>Dhëmbi që shihet në gojë, zakonisht prej zirkoni.</dd></div>
+<div><dt>Osteointegrimi</dt><dd>Lidhja e drejtpërdrejtë e kockës me sipërfaqen e implantit. Zgjat zakonisht 3–6 muaj.</dd></div>
+<div><dt>CBCT</dt><dd>Radiografi 3D që tregon sasinë e kockës, nervin dhe sinusin para kirurgjisë.</dd></div>
+<div><dt>Dendësia e kockës (D1–D4)</dt><dd>D1 kockë shumë e fortë, D4 kockë e butë. Ndikon në frezim dhe në stabilitet.</dd></div>
+<div><dt>Udhëzuesi kirurgjik</dt><dd>Shabllon i printuar 3D që e çon frezën saktë në pozicionin e planifikuar.</dd></div>
+<div><dt>Flapi</dt><dd>Hapja e gingivës me incizion për ta parë kockën. “Pa flap” do të thotë pa prerje.</dd></div>
+<div><dt>Stabiliteti primar</dt><dd>Sa fort rri implanti menjëherë pas vendosjes.</dd></div>
+<div><dt>Torku (Ncm)</dt><dd>Forca me të cilën vidhoset implanti. Matës i stabilitetit primar.</dd></div>
+<div><dt>ISQ</dt><dd>Matje e stabilitetit me rezonancë, nga 1 deri në 100.</dd></div>
+<div><dt>Cover screw</dt><dd>Vidhë e vogël që mbyll implantin gjatë shërimit nën gingivë.</dd></div>
+<div><dt>Healing abutment</dt><dd>Pjesë që del mbi gingivë dhe e formon atë rreth implantit.</dd></div>
+<div><dt>Scan body</dt><dd>Pjesë që vidhoset në implant për masën digjitale me skaner.</dd></div>
+<div><dt>Kockë bukale</dt><dd>Muri i kockës nga ana e faqes ose buzës.</dd></div>
+<div><dt>Kanali mandibular</dt><dd>Kanali në nofullën e poshtme ku kalon nervi alveolar inferior.</dd></div>
+<div><dt>Sinusi maksilar</dt><dd>Hapësira me ajër mbi dhëmbët e pasmë të sipërm.</dd></div>
+<div><dt>Subkrestal</dt><dd>Implanti vendoset pak nën nivelin e kockës.</dd></div>
+<div><dt>Ngarkimi</dt><dd>Kur vendoset dhëmbi mbi implant: i menjëhershëm (nën 1 javë), i hershëm (1 javë deri 2 muaj), konvencional (mbi 2 muaj).</dd></div>
+<div><dt>Periimplantiti</dt><dd>Inflamacion rreth implantit që shkakton humbje të kockës.</dd></div>
+</dl>
+
+<h3>Parimet bazë</h3>
+<ol class="pr">
+<li><b>Së pari pacienti, pastaj implanti.</b> Anamneza e plotë: diabeti, duhani, bisfosfonatet, higjiena.</li>
+<li><b>Çdo implant fillon në CBCT.</b> Nuk vendoset asnjë implant pa e parë kockën në 3D.</li>
+<li><b>Planifikojmë nga dhëmbi, jo nga kocka.</b> Pozicioni i kurorës së ardhshme e vendos pozicionin e implantit.</li>
+<li><b>Distancat e sigurta:</b> 1.5 mm nga dhëmbi fqinj, 3 mm mes dy implanteve, 2 mm nga nervi, të paktën 1.5 mm kockë bukale.</li>
+<li><b>Kocka nuk mbinxehet.</b> Ftohje e vazhdueshme me NaCl dhe freza të mprehta. 47 °C për 1 minutë dëmton kockën.</li>
+<li><b>Stabiliteti vendos ngarkimin.</b> Tork dhe ISQ të larta lejojnë ngarkim më të shpejtë, të ulëta kërkojnë pritje.</li>
+<li><b>Sterilitet pa kompromis.</b> Implanti nuk preket me dorë.</li>
+<li><b>Kujdesi vazhdon pas kirurgjisë.</b> Kontrolle të rregullta dhe higjienë mbrojnë implantin për vite.</li>
+</ol>
+<button type="button" class="print" onclick="window.print()">Ruaje si PDF / Printo</button>
+</div>
 </main>
 <footer>Klinika Dentare Medident · Rr. Bajram Kelmendi, Pejë · medident-ks.com</footer>
 
 <script>
-var WA="38349772307";
-var f=document.getElementById("f");
-f.addEventListener("submit",function(e){
-  e.preventDefault();
-  if(!f.checkValidity()){document.getElementById("err").style.display="block";f.reportValidity();return}
+var WA="38349772307",cur=1,N=3;
+var f=document.getElementById("f"),next=document.getElementById("next"),back=document.getElementById("back"),err=document.getElementById("err");
+function show(n){cur=n;
+  f.querySelectorAll(".step").forEach(function(s){s.classList.toggle("on",+s.dataset.step===n)});
+  f.querySelectorAll(".steps i").forEach(function(b,i){b.classList.toggle("on",i<n)});
+  back.style.display=n>1?"":"none";
+  next.textContent=n<N?"Tjetër":"Dërgo regjistrimin në WhatsApp";
+  err.style.display="none";window.scrollTo({top:0,behavior:"smooth"});
+}
+function valid(n){var ok=true;
+  f.querySelector('[data-step="'+n+'"]').querySelectorAll("input,textarea").forEach(function(el){if(!el.checkValidity()){ok=false}});
+  return ok;
+}
+back.onclick=function(){show(cur-1)};
+next.onclick=function(){
+  if(!valid(cur)){err.style.display="block";var bad=f.querySelector('[data-step="'+cur+'"] :invalid');if(bad)bad.reportValidity();return}
+  if(cur<N){show(cur+1);return}
   var v=function(n){var el=f.querySelector('[name="'+n+'"]:checked')||f.querySelector('[name="'+n+'"]');return el?el.value.trim():""};
-  var rows=[["Emri",v("Emri")],["Telefoni",v("Telefoni")],["Email",v("Email")],["Qyteti",v("Qyteti")],["Klinika",v("Klinika")],["Vite përvojë",v("vite")],["Implante të vendosura",v("implante")],["CBCT",v("cbct")],["Sistemi",v("Sistemi")],["Pritjet",v("Pritjet")]];
+  var rows=[["Emri",v("Emri")],["Telefoni",v("Telefoni")],["Email",v("Email")],["Qyteti",v("Qyteti")],["Vite përvojë",v("vite")],["Implante të vendosura",v("implante")],["CBCT",v("cbct")],["Sistemi",v("Sistemi")],["Pritjet",v("Pritjet")]];
   var msg="REGJISTRIM · Implantologji Themelore\n\n"+rows.filter(function(r){return r[1]}).map(function(r){return r[0]+": "+r[1]}).join("\n")+"\n\nPajtohem me kushtet e të dhënave dhe konfidencialitetit.";
   window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank");
-  f.style.display="none";document.getElementById("done").style.display="block";
-});
+  f.style.display="none";document.getElementById("done").style.display="block";window.scrollTo({top:0,behavior:"smooth"});
+};
 </script>
 </body>
 </html>
