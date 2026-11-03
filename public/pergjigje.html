@@ -43,6 +43,7 @@
     <input id="em" type="email" placeholder="Email" autocomplete="username">
     <input id="pw" type="password" placeholder="Fjalëkalimi" autocomplete="current-password" style="margin-top:8px">
     <button id="li" class="primary">Hyr</button>
+    <button id="ml" class="ghost" style="width:100%;margin-top:8px">Më dërgo link në email (pa fjalëkalim)</button>
     <div id="lerr" class="err hidden"></div>
   </div>
   <div id="app" class="hidden">
@@ -123,6 +124,14 @@ $('li').addEventListener('click', async () => {
   if(error){ $('lerr').textContent='Email ose fjalëkalim i gabuar.'; $('lerr').classList.remove('hidden'); }
   refresh();
 });
+$('ml').addEventListener('click', async () => {
+  await sbReady; const em=$('em').value.trim();
+  if(!em){ $('lerr').textContent='Shkruaje emailin.'; $('lerr').classList.remove('hidden'); return; }
+  const {error} = await SB.auth.signInWithOtp({email:em, options:{shouldCreateUser:false, emailRedirectTo: location.origin + '/pergjigje'}});
+  $('lerr').textContent = error ? 'Ky email nuk ka llogari.' : 'U dërgua! Hape emailin dhe kliko linkun.';
+  $('lerr').style.color = error ? '' : '#0e7c86'; $('lerr').classList.remove('hidden');
+});
+sbReady.then(()=>SB.auth.onAuthStateChange(()=>refresh()));
 $('lo').addEventListener('click', async e => { e.preventDefault(); await SB.auth.signOut(); refresh(); });
 refresh().catch(()=>{ $('lerr').textContent='Faqja nuk u lidh me serverin.'; $('lerr').classList.remove('hidden'); });
 
