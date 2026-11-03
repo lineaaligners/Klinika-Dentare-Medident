@@ -1,27 +1,12 @@
 // Vercel Serverless Function — staff WhatsApp reply drafts (/pergjigje).
-// Uses the existing GEMINI_API_KEY. Caller must be logged in (Supabase) and be
-// a portal admin or listed in STAFF_EMAILS below.
-import { createClient } from '@supabase/supabase-js';
-
-const STAFF_EMAILS = ['nallbanigeno@gmail.com'];
+// Uses the existing GEMINI_API_KEY. No login (by owner's choice).
 
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
-  const url = process.env.SUPABASE_URL, serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY, apiKey = process.env.GEMINI_API_KEY;
-  if (!url || !serviceKey || !apiKey) return res.status(500).json({ error: 'no_api_key' });
-
-  const token = String(req.headers.authorization || '').replace(/^Bearer\s+/i, '').trim();
-  if (!token) return res.status(401).json({ error: 'not_logged_in' });
-  const admin = createClient(url, serviceKey, { auth: { autoRefreshToken: false, persistSession: false } });
-  const { data: u } = await admin.auth.getUser(token);
-  const user = u?.user;
-  if (!user) return res.status(401).json({ error: 'not_logged_in' });
-  let ok = STAFF_EMAILS.includes((user.email || '').toLowerCase());
-  if (!ok) {
-    const { data: prof } = await admin.from('academy_profiles').select('role').eq('id', user.id).single();
-    ok = prof?.role === 'admin';
-  }
-  if (!ok) return res.status(403).json({ error: 'not_staff' });
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) return res.status(500).json({ error: 'no_api_key' });
+  const origin = String(req.headers.origin || req.headers.referer || '');
+  if (origin && !/medident-ks\.com|vercel\.app|localhost/.test(origin)) return res.status(403).json({ error: 'forbidden' });
 
   const { message, tone, note, info, variant } = req.body || {};
   if (!message || typeof message !== 'string' || message.length > 4000) return res.status(400).json({ error: 'bad_message' });

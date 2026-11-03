@@ -38,15 +38,7 @@
   <h1>Medident · Përgjigje për pacientët</h1>
   <p class="sub">Ngjite mesazhin e pacientit, kliko “Shkruaj përgjigjen”, kontrolloje dhe dërgoje.</p>
 
-  <div id="login" class="card">
-    <label>Hyr (vetëm stafi)</label>
-    <input id="em" type="email" placeholder="Email" autocomplete="username">
-    <input id="pw" type="password" placeholder="Fjalëkalimi" autocomplete="current-password" style="margin-top:8px">
-    <button id="li" class="primary">Hyr</button>
-    <button id="ml" class="ghost" style="width:100%;margin-top:8px">Më dërgo link në email (pa fjalëkalim)</button>
-    <div id="lerr" class="err hidden"></div>
-  </div>
-  <div id="app" class="hidden">
+  <div id="app">
   <div class="card">
     <label for="msg">Mesazhi i pacientit</label>
     <textarea id="msg" placeholder="P.sh. Përshëndetje, sa kushton proteza për të dy nofullat?"></textarea>
@@ -89,11 +81,9 @@
       <p class="hint">Ruhet në këtë shfletues. Përgjigjet përdorin vetëm këto të dhëna për çmime.</p>
     </details>
   </div>
-  <p class="hint"><a href="#" id="lo">Dil</a></p>
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const DEFAULT_INFO = `Klinika Dentare Medident, Pejë, Kosovë. Që nga viti 1999, 5 karrige dentare + laborator.
 Konsulta: FALAS. Pagesa me këste: po.
@@ -113,28 +103,6 @@ try { info = localStorage.getItem('medident_info') || DEFAULT_INFO; } catch(e){}
 $('info').value = info;
 $('info').addEventListener('input', () => { try{ localStorage.setItem('medident_info', $('info').value);}catch(e){} });
 
-let SB;
-const sbReady = fetch('/api/pergjigje-config').then(r=>r.json()).then(c=>{ SB = supabase.createClient(c.url, c.anonKey); });
-async function refresh(){ await sbReady; const {data:{session}} = await SB.auth.getSession();
-  $('login').classList.toggle('hidden', !!session); $('app').classList.toggle('hidden', !session); }
-$('li').addEventListener('click', async () => {
-  $('lerr').classList.add('hidden');
-  await sbReady;
-  const {error} = await SB.auth.signInWithPassword({email:$('em').value.trim(), password:$('pw').value});
-  if(error){ $('lerr').textContent='Email ose fjalëkalim i gabuar.'; $('lerr').classList.remove('hidden'); }
-  refresh();
-});
-$('ml').addEventListener('click', async () => {
-  await sbReady; const em=$('em').value.trim();
-  if(!em){ $('lerr').textContent='Shkruaje emailin.'; $('lerr').classList.remove('hidden'); return; }
-  const {error} = await SB.auth.signInWithOtp({email:em, options:{shouldCreateUser:false, emailRedirectTo: location.origin + '/pergjigje'}});
-  $('lerr').textContent = error ? 'Ky email nuk ka llogari.' : 'U dërgua! Hape emailin dhe kliko linkun.';
-  $('lerr').style.color = error ? '' : '#0e7c86'; $('lerr').classList.remove('hidden');
-});
-sbReady.then(()=>SB.auth.onAuthStateChange(()=>refresh()));
-$('lo').addEventListener('click', async e => { e.preventDefault(); await SB.auth.signOut(); refresh(); });
-refresh().catch(()=>{ $('lerr').textContent='Faqja nuk u lidh me serverin.'; $('lerr').classList.remove('hidden'); });
-
 function updateWa(){
   const num = $('phone').value.replace(/[^\d]/g,'');
   const txt = encodeURIComponent($('out').value);
@@ -151,13 +119,11 @@ async function generate(variant){
   showErr('');
   $('go').disabled = true; $('go').textContent = 'Duke shkruar…';
   try{
-    const {data:{session}} = await SB.auth.getSession();
-    const r = await fetch('/api/pergjigje', {method:'POST', headers:{'Content-Type':'application/json', Authorization:'Bearer '+(session?session.access_token:'')},
+    const r = await fetch('/api/pergjigje', {method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({message: msg, tone: $('tone').value, note: $('note').value.trim(), info: $('info').value, variant})});
     const d = await r.json().catch(()=>({}));
     if(!r.ok){
-      showErr(d.error==='not_staff' ? 'Ky email nuk ka leje. Kontakto Genisin.' :
-              d.error==='not_logged_in' ? 'Sesioni skadoi. Dil dhe hyr prapë.' : 'Diçka shkoi keq. Provo prapë.');
+      showErr('Diçka shkoi keq. Provo prapë.');
     } else { $('out').value = d.text; updateWa(); }
   }catch(e){ showErr('Diçka shkoi keq. Provo prapë.'); }
   finally{ $('go').disabled = false; $('go').textContent = 'Shkruaj përgjigjen'; }
