@@ -112,17 +112,19 @@ try { info = localStorage.getItem('medident_info') || DEFAULT_INFO; } catch(e){}
 $('info').value = info;
 $('info').addEventListener('input', () => { try{ localStorage.setItem('medident_info', $('info').value);}catch(e){} });
 
-const SB = supabase.createClient('https://gwzvtrikxkudostserwe.supabase.co','sb_publishable_DE9sejZ1jtqh81VsLKY0rg_DqIvX_f-');
-async function refresh(){ const {data:{session}} = await SB.auth.getSession();
+let SB;
+const sbReady = fetch('/api/pergjigje-config').then(r=>r.json()).then(c=>{ SB = supabase.createClient(c.url, c.anonKey); });
+async function refresh(){ await sbReady; const {data:{session}} = await SB.auth.getSession();
   $('login').classList.toggle('hidden', !!session); $('app').classList.toggle('hidden', !session); }
 $('li').addEventListener('click', async () => {
   $('lerr').classList.add('hidden');
+  await sbReady;
   const {error} = await SB.auth.signInWithPassword({email:$('em').value.trim(), password:$('pw').value});
   if(error){ $('lerr').textContent='Email ose fjalëkalim i gabuar.'; $('lerr').classList.remove('hidden'); }
   refresh();
 });
 $('lo').addEventListener('click', async e => { e.preventDefault(); await SB.auth.signOut(); refresh(); });
-refresh();
+refresh().catch(()=>{ $('lerr').textContent='Faqja nuk u lidh me serverin.'; $('lerr').classList.remove('hidden'); });
 
 function updateWa(){
   const num = $('phone').value.replace(/[^\d]/g,'');
