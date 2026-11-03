@@ -140,13 +140,14 @@ async function generate(variant){
   showErr('');
   $('go').disabled = true; $('go').textContent = 'Duke shkruar…';
   try{
-    const {data, error} = await SB.functions.invoke('pergjigje', {body:{
-      message: msg, tone: $('tone').value, note: $('note').value.trim(), info: $('info').value, variant}});
-    if(error){
-      let code=''; try{ code=(await error.context.json()).error; }catch(_){}
-      showErr(code==='not_staff' ? 'Ky email nuk ka leje. Kontakto Genisin.' :
-              code==='no_api_key' ? 'Mungon çelësi i AI-së në server.' : 'Diçka shkoi keq. Provo prapë.');
-    } else { $('out').value = data.text; updateWa(); }
+    const {data:{session}} = await SB.auth.getSession();
+    const r = await fetch('/api/pergjigje', {method:'POST', headers:{'Content-Type':'application/json', Authorization:'Bearer '+(session?session.access_token:'')},
+      body: JSON.stringify({message: msg, tone: $('tone').value, note: $('note').value.trim(), info: $('info').value, variant})});
+    const d = await r.json().catch(()=>({}));
+    if(!r.ok){
+      showErr(d.error==='not_staff' ? 'Ky email nuk ka leje. Kontakto Genisin.' :
+              d.error==='not_logged_in' ? 'Sesioni skadoi. Dil dhe hyr prapë.' : 'Diçka shkoi keq. Provo prapë.');
+    } else { $('out').value = d.text; updateWa(); }
   }catch(e){ showErr('Diçka shkoi keq. Provo prapë.'); }
   finally{ $('go').disabled = false; $('go').textContent = 'Shkruaj përgjigjen'; }
 }
