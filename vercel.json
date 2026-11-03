@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/pergjigje",
+      "destination": "/pergjigje.html"
+    },
+    {
       "source": "/plan",
       "destination": "/plan.html"
     },

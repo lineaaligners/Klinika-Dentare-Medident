@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Medident – Përgjigje WhatsApp</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f6f7f9;--card:#fff;--ink:#1b2430;--muted:#6b7684;--line:#e3e7ec;--acc:#0e7c86;--acc2:#e8f5f6;--wa:#1fa855}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+  .wrap{max-width:760px;margin:0 auto;padding:24px 16px 60px}
+  h1{font-size:22px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 20px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+  label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+  textarea,input,select{width:100%;font:inherit;font-size:15px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff;color:var(--ink)}
+  textarea{resize:vertical}
+  #msg{min-height:120px}
+  .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .row>*{flex:1;min-width:150px}
+  button,.btn{font:inherit;font-weight:600;font-size:15px;border:0;border-radius:10px;padding:12px 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+  .primary{background:var(--acc);color:#fff;width:100%;margin-top:14px}
+  .primary:disabled{opacity:.6;cursor:wait}
+  .ghost{background:var(--acc2);color:var(--acc)}
+  .wa{background:var(--wa);color:#fff}
+  #out{min-height:140px;white-space:pre-wrap}
+  .hint{font-size:13px;color:var(--muted);margin-top:6px}
+  details summary{cursor:pointer;font-weight:600;font-size:14px}
+  #info{min-height:220px;font-size:13px;margin-top:10px}
+  .err{color:#b42318;font-size:14px;margin-top:8px}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Medident · Përgjigje për pacientët</h1>
+  <p class="sub">Ngjite mesazhin e pacientit, kliko “Shkruaj përgjigjen”, kontrolloje dhe dërgoje.</p>
+
+  <div id="login" class="card">
+    <label>Hyr (vetëm stafi)</label>
+    <input id="em" type="email" placeholder="Email" autocomplete="username">
+    <input id="pw" type="password" placeholder="Fjalëkalimi" autocomplete="current-password" style="margin-top:8px">
+    <button id="li" class="primary">Hyr</button>
+    <div id="lerr" class="err hidden"></div>
+  </div>
+  <div id="app" class="hidden">
+  <div class="card">
+    <label for="msg">Mesazhi i pacientit</label>
+    <textarea id="msg" placeholder="P.sh. Përshëndetje, sa kushton proteza për të dy nofullat?"></textarea>
+    <div class="row">
+      <div>
+        <label for="tone">Toni</label>
+        <select id="tone">
+          <option value="ngrohtë dhe profesional">Ngrohtë & profesional</option>
+          <option value="shumë i shkurtër, 2-3 fjali">Shumë i shkurtër</option>
+          <option value="i detajuar, me shpjegim të procedurës">I detajuar</option>
+        </select>
+      </div>
+      <div>
+        <label for="note">Shënim për ty (opsional)</label>
+        <input id="note" placeholder="P.sh. ftoje të enjten në 15:00">
+      </div>
+    </div>
+    <button id="go" class="primary">Shkruaj përgjigjen</button>
+    <div id="err" class="err hidden"></div>
+  </div>
+
+  <div class="card">
+    <label for="out">Përgjigja (mund ta ndryshosh)</label>
+    <textarea id="out" placeholder="Përgjigja del këtu…"></textarea>
+    <div class="row">
+      <button id="copy" class="ghost">Kopjo</button>
+      <button id="again" class="ghost">Provo variant tjetër</button>
+    </div>
+    <div class="row">
+      <input id="phone" placeholder="Numri i pacientit, p.sh. +383 45 214 997">
+      <a id="wa" class="btn wa" href="#" target="_blank" rel="noopener">Hap në WhatsApp</a>
+    </div>
+    <p class="hint">“Hap në WhatsApp” e hap bisedën me tekstin e gatshëm. Ti vetëm e shtyp Dërgo.</p>
+  </div>
+
+  <div class="card">
+    <details>
+      <summary>Info e klinikës (çmime, orare). Ndryshoji sipas nevojës</summary>
+      <textarea id="info"></textarea>
+      <p class="hint">Ruhet në këtë shfletues. Përgjigjet përdorin vetëm këto të dhëna për çmime.</p>
+    </details>
+  </div>
+  <p class="hint"><a href="#" id="lo">Dil</a></p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const DEFAULT_INFO = `Klinika Dentare Medident, Pejë, Kosovë. Që nga viti 1999, 5 karrige dentare + laborator.
+Konsulta: FALAS. Pagesa me këste: po.
+Orari i shtunës: 14:00–18:00.
+Implant: €450 (me pasaportë implanti). Markat: MegaGen BlueDiamond, Hiossen.
+Kurorë zirkoni: €150 për njësi.
+Faseta (veneer): €250.
+All-on-4: ~€6.150 | All-on-6: ~€7.450 | All-on-8: ~€8.650 (për nofull, çmimi final pas konsultës).
+Aligners (Linea): ~€800 për rast.
+Pajisje: CBCT 3D Sirona Orthophos SL, skaner Sirona Primescan 2.
+Garanci: nuk japim garanci formale; çdo implant vjen me pasaportë implanti dhe çdo kurorë zirkoni me kartelën e materialit.
+Web: medident-ks.com`;
+
+const $ = id => document.getElementById(id);
+let info = DEFAULT_INFO;
+try { info = localStorage.getItem('medident_info') || DEFAULT_INFO; } catch(e){}
+$('info').value = info;
+$('info').addEventListener('input', () => { try{ localStorage.setItem('medident_info', $('info').value);}catch(e){} });
+
+const SB = supabase.createClient('https://gwzvtrikxkudostserwe.supabase.co','sb_publishable_DE9sejZ1jtqh81VsLKY0rg_DqIvX_f-');
+async function refresh(){ const {data:{session}} = await SB.auth.getSession();
+  $('login').classList.toggle('hidden', !!session); $('app').classList.toggle('hidden', !session); }
+$('li').addEventListener('click', async () => {
+  $('lerr').classList.add('hidden');
+  const {error} = await SB.auth.signInWithPassword({email:$('em').value.trim(), password:$('pw').value});
+  if(error){ $('lerr').textContent='Email ose fjalëkalim i gabuar.'; $('lerr').classList.remove('hidden'); }
+  refresh();
+});
+$('lo').addEventListener('click', async e => { e.preventDefault(); await SB.auth.signOut(); refresh(); });
+refresh();
+
+function updateWa(){
+  const num = $('phone').value.replace(/[^\d]/g,'');
+  const txt = encodeURIComponent($('out').value);
+  $('wa').href = num ? `https://wa.me/${num}?text=${txt}` : `https://wa.me/?text=${txt}`;
+}
+$('phone').addEventListener('input', updateWa);
+$('out').addEventListener('input', updateWa);
+
+function showErr(t){ $('err').textContent = t; $('err').classList.toggle('hidden', !t); }
+
+async function generate(variant){
+  const msg = $('msg').value.trim();
+  if(!msg){ showErr('Ngjite mesazhin e pacientit fillimisht.'); return; }
+  showErr('');
+  $('go').disabled = true; $('go').textContent = 'Duke shkruar…';
+  try{
+    const {data, error} = await SB.functions.invoke('pergjigje', {body:{
+      message: msg, tone: $('tone').value, note: $('note').value.trim(), info: $('info').value, variant}});
+    if(error){
+      let code=''; try{ code=(await error.context.json()).error; }catch(_){}
+      showErr(code==='not_staff' ? 'Ky email nuk ka leje. Kontakto Genisin.' :
+              code==='no_api_key' ? 'Mungon çelësi i AI-së në server.' : 'Diçka shkoi keq. Provo prapë.');
+    } else { $('out').value = data.text; updateWa(); }
+  }catch(e){ showErr('Diçka shkoi keq. Provo prapë.'); }
+  finally{ $('go').disabled = false; $('go').textContent = 'Shkruaj përgjigjen'; }
+}
+$('go').addEventListener('click', () => generate(false));
+$('again').addEventListener('click', () => generate(true));
+$('copy').addEventListener('click', async () => {
+  try{ await navigator.clipboard.writeText($('out').value); $('copy').textContent='U kopjua ✓'; }
+  catch(e){ $('out').select(); $('copy').textContent='Shtyp Ctrl+C'; }
+  setTimeout(()=>$('copy').textContent='Kopjo',1500);
+});
+updateWa();
+</script>
+</body>
+</html>
