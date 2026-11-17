@@ -84,6 +84,36 @@ const TourismPage: React.FC<TourismPageProps> = ({ onBack, lang, onOpenGuide, on
             </p>
           </motion.div>
 
+          {/* ── IMPLANT VIDEO ─────────────────── */}
+          <section className="mb-20 md:mb-32 grid gap-8 md:grid-cols-2 md:gap-16 items-center">
+            <div className="order-2 md:order-1">
+              <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-4">
+                {lang === 'en' ? 'Dental implants, step by step' : 'Implantet dentare, hap pas hapi'}
+              </p>
+              <h2 className="text-3xl sm:text-5xl font-display font-black text-slate-900 tracking-tighter leading-[0.95] mb-6">
+                {lang === 'en' ? <>From 3D plan<br />to final crown.</> : <>Nga plani 3D<br />te kurora finale.</>}
+              </h2>
+              <p className="text-slate-500 text-lg font-medium leading-relaxed max-w-md">
+                {lang === 'en'
+                  ? 'A surgical guide printed in 3D, 45–60 minutes per implant, a temporary crown the same day, and an implant passport for every patient.'
+                  : 'Guidë kirurgjike e printuar në 3D, 45–60 minuta për implant, kurorë temporare të njëjtën ditë dhe pasaportë implanti për çdo pacient.'}
+              </p>
+            </div>
+            <div className="order-1 md:order-2 mx-auto w-full max-w-[360px]">
+              <video
+                className="w-full aspect-[9/16] rounded-3xl bg-slate-900 shadow-2xl object-cover"
+                src="/medident-implante.mp4"
+                poster="/medident-implante-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label={lang === 'en' ? 'Dental implants at Medident, step by step (video in Albanian)' : 'Implantet dentare në Medident, hap pas hapi'}
+              />
+            </div>
+          </section>
+
           {/* ── HOW IT WORKS ──────────────────── */}
           <section className="mb-20 md:mb-32">
             <div className="grid gap-4 md:grid-cols-3 md:gap-6">
