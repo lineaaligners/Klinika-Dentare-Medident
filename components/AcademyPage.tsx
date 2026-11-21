@@ -122,7 +122,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               </motion.div>
               <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.08 }}
                 className="text-4xl sm:text-6xl md:text-[80px] font-display font-black leading-[0.88] tracking-tighter text-slate-900 mb-6 sm:mb-8">
-                {lang === 'en' ? <>Learn from<br /><span className="text-blue-600 italic">those who do.</span></> : <>Mëso nga<br /><span className="text-blue-600 italic">ata që bëjnë.</span></>}
+                {lang === 'en' ? <>Learn from<br /><span className="text-blue-600 font-normal tracking-normal" style={{ fontFamily: "'Great Vibes', cursive", fontSize: '1.12em' }}>those who do.</span></> : <>Mëso nga<br /><span className="text-blue-600 font-normal tracking-normal" style={{ fontFamily: "'Great Vibes', cursive", fontSize: '1.12em' }}>ata që bëjnë.</span></>}
               </motion.h1>
               <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.14 }}
                 className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed mb-10 max-w-lg">
