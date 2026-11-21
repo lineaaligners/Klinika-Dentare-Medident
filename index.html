@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="google-site-verification" content="71JL3z2SyKnnFjWLnRplcbJVFXYtXNlDc65tk8OfTIQ" />
     <meta name="msvalidate.01" content="D3051B5E2E63F524BEAB5194E6918A11" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <!-- ═══════════════════════════════════════════
          FAVICONS
@@ -366,7 +366,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
 
     <style>
+      html { -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; }
       body { font-family: 'Satoshi', sans-serif; -webkit-font-smoothing: antialiased; }
+      input, textarea, select { font-size: max(16px, 1em); }
+      button, a, [role="button"] { touch-action: manipulation; }
       .font-display { font-family: 'Cabinet Grotesk', sans-serif; }
       .glass-morphism { background: rgba(255,255,255,0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); }
       h1, h2, h3, h4, .logo-text { font-family: 'Cabinet Grotesk', sans-serif; }

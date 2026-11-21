@@ -6,7 +6,7 @@ import {
   BookOpen, Award as AwardIcon, Globe2, User, Users, Zap, Download,
   ChevronRight, Plus, Binary, Layers, ChevronDown
 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, MotionConfig } from 'framer-motion';
 import SyllabusModal from './SyllabusModal';
 import CourseMotion, { COURSE_VIDEOS } from './CourseMotion';
 import AcademyTestimonials from './AcademyTestimonials';
@@ -71,6 +71,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
   };
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-white selection:bg-blue-600 selection:text-white">
       {/* Subtle grid background */}
       <div className="fixed inset-0 pointer-events-none z-0" style={{
@@ -133,11 +134,11 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}
                 className="flex flex-wrap gap-4 items-center">
                 <a href="https://wa.me/38349772307" target="_blank" rel="noopener"
-                  className="bg-slate-900 hover:bg-blue-600 text-white px-10 py-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] transition-all shadow-lg hover:shadow-blue-600/20 hover:shadow-2xl active:scale-95">
+                  className="bg-slate-900 hover:bg-blue-600 text-white px-10 py-5 rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] transition-[background-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-lg hover:shadow-blue-600/20 hover:shadow-2xl active:scale-[0.97]">
                   {lang === 'en' ? 'Reserve Your Spot' : 'Rezervo Vendin'}
                 </a>
-                <button onClick={playBriefing} className="flex items-center space-x-3 px-5 py-4 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 transition-all">
-                  <div className="w-9 h-9 rounded-full bg-slate-50 flex items-center justify-center text-slate-900 hover:bg-blue-600 hover:text-white transition-all">
+                <button onClick={playBriefing} className="flex items-center space-x-3 px-5 py-4 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 transition-colors">
+                  <div className="w-9 h-9 rounded-full bg-slate-50 flex items-center justify-center text-slate-900 hover:bg-blue-600 hover:text-white transition-colors">
                     {isPlayingAudio ? <Loader2 size={14} className="animate-spin" /> : <Volume2 size={16} />}
                   </div>
                   <div className="text-left">
@@ -182,7 +183,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               { num: '04', icon: <AwardIcon size={20} className="text-blue-600" />, title: lang === 'en' ? 'Certificate' : 'Certifikatë', desc: lang === 'en' ? 'Leave with a signed course certificate.' : 'Largohesh me një certifikatë kursi të nënshkruar.' },
             ].map((step, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                className="group p-5 md:p-8 bg-white border border-slate-100 rounded-3xl hover:border-blue-200 hover:shadow-lg transition-all">
+                className="group p-5 md:p-8 bg-white border border-slate-100 rounded-3xl hover:border-blue-200 hover:shadow-lg transition-[border-color,box-shadow] duration-200">
                 <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-blue-50 transition-colors">
                   {step.icon}
                 </div>
@@ -216,13 +217,13 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               const isOpen = expandedCourse === course.id;
               return (
                 <motion.div key={course.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
-                  className="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-blue-300 transition-all">
+                  className="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-blue-300 transition-colors">
                   {/* Course image strip */}
                   <div className="relative h-48 sm:h-64 overflow-hidden">
                     {COURSE_VIDEOS[course.id] ? (
                       <video src={COURSE_VIDEOS[course.id]} poster={course.image} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" aria-label={course.title[lang]} />
                     ) : (
-                      <motion.img src={course.image} className="w-full h-full object-cover" alt={course.title[lang]} animate={{ scale: [1, 1.12, 1] }} transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }} />
+                      <img src={course.image} className="w-full h-full object-cover" alt={course.title[lang]} />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
                     <CourseMotion courseId={course.id} lang={lang} />
@@ -248,15 +249,16 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                     <div className="flex items-start justify-between gap-6">
                       <p className="text-slate-500 font-medium text-sm leading-relaxed flex-1">{course.description[lang]}</p>
                       <button onClick={() => { const next = isOpen ? null : course.id; setExpandedCourse(next); onNavigateCourse?.(next ?? ''); }}
+                        aria-expanded={isOpen}
                         className="flex-shrink-0 flex items-center space-x-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors">
                         <span>{isOpen ? (lang === 'en' ? 'Less' : 'Më pak') : (lang === 'en' ? 'Details' : 'Detaje')}</span>
-                        <ChevronDown size={14} className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+                        <ChevronDown size={14} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                       </button>
                     </div>
 
-                    <AnimatePresence>
+                    <AnimatePresence initial={false}>
                       {isOpen && (
-                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}
+                        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
                           className="overflow-hidden">
                           <div className="pt-8 mt-8 border-t border-slate-100 grid sm:grid-cols-2 gap-8">
                             <div>
@@ -323,18 +325,18 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
                     <div className="flex flex-wrap gap-3 mt-6">
                       {course.registerUrl && (
                         <a href={course.registerUrl}
-                          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">
+                          className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-[background-color,border-color,color,transform] duration-150 active:scale-[0.97]">
                           <span>{lang === 'en' ? 'Register online' : 'Regjistrohu online'}</span>
                           <ArrowUpRight size={14} />
                         </a>
                       )}
                       <a href="https://wa.me/38349772307" target="_blank" rel="noopener"
-                        className="flex items-center gap-2 bg-slate-900 hover:bg-blue-600 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">
+                        className="flex items-center gap-2 bg-slate-900 hover:bg-blue-600 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-[background-color,border-color,color,transform] duration-150 active:scale-[0.97]">
                         <span>{lang === 'en' ? 'Apply on WhatsApp' : 'Apliko në WhatsApp'}</span>
                         <ArrowUpRight size={14} />
                       </a>
                       <button onClick={() => { setShouldAutoPrint(true); setSelectedCourse(course); }}
-                        className="flex items-center gap-2 bg-white border border-slate-200 hover:border-blue-400 text-slate-600 hover:text-blue-600 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">
+                        className="flex items-center gap-2 bg-white border border-slate-200 hover:border-blue-400 text-slate-600 hover:text-blue-600 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-[background-color,border-color,color,transform] duration-150 active:scale-[0.97]">
                         <Download size={14} />
                         <span>{lang === 'en' ? 'Syllabus PDF' : 'PDF Kursi'}</span>
                       </button>
@@ -363,7 +365,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
           <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
             {academicFaculty.map((inst, i) => (
               <motion.div key={inst.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="group bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all">
+                className="group bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-[border-color,box-shadow] duration-200">
                 <div className="flex flex-col gap-6">
                   <div className="sm:w-40 flex-shrink-0">
                     <div className="aspect-[3/4] rounded-2xl overflow-hidden border border-slate-200 shadow-md">
@@ -406,7 +408,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
               </p>
             </div>
             <button onClick={onOpenMaterials}
-              className="relative flex-shrink-0 flex items-center gap-3 bg-white hover:bg-blue-600 text-slate-900 hover:text-white px-8 py-5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all">
+              className="relative flex-shrink-0 flex items-center gap-3 bg-white hover:bg-blue-600 text-slate-900 hover:text-white px-8 py-5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-[background-color,color,transform] duration-150 active:scale-[0.97]">
               <Microscope size={18} />
               <span>{lang === 'en' ? 'Material Registry' : 'Regjistri i Materialeve'}</span>
               <ChevronRight size={14} />
@@ -455,6 +457,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
 
       <SyllabusModal course={selectedCourse} onClose={() => { setSelectedCourse(null); setShouldAutoPrint(false); }} lang={lang} autoPrint={shouldAutoPrint} />
     </div>
+    </MotionConfig>
   );
 };
 
