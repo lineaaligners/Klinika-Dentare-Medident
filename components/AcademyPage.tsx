@@ -11,6 +11,7 @@ import SyllabusModal from './SyllabusModal';
 import CourseMotion, { COURSE_VIDEOS } from './CourseMotion';
 import AcademyTestimonials from './AcademyTestimonials';
 import { Course } from '../types';
+import { ACADEMY_WORST, academyDataMode } from '../dev/academyWorstCase';
 
 interface AcademyPageProps {
   onBack: () => void;
@@ -29,6 +30,9 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
   const [shouldAutoPrint, setShouldAutoPrint] = useState(false);
   const [expandedCourse, setExpandedCourse] = useState<string | null>(initialCourseId ?? null);
   const audioContextRef = useRef<AudioContext | null>(null);
+
+  const dataMode = academyDataMode();
+  const courses: Course[] = dataMode === 'worst' ? ACADEMY_WORST : dataMode === 'empty' ? [] : dataMode === 'one' ? ACADEMY_COURSES.slice(0, 1) : ACADEMY_COURSES;
 
   const academicFaculty = useMemo(() => DOCTORS.filter(d => d.id === '1' || d.id === '2'), []);
 
@@ -200,10 +204,10 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
             <div>
               <p className="text-[9px] font-black text-blue-600 uppercase tracking-[0.3em] mb-3">
-                {lang === 'en' ? 'Active Courses · 2025' : 'Kurse Aktive · 2025'}
+                {lang === 'en' ? 'Active Courses' : 'Kurse Aktive'}
               </p>
               <h3 className="text-4xl md:text-5xl font-display font-black text-slate-900 tracking-tighter leading-none">
-                {lang === 'en' ? <>Four courses.<br /><span className="text-blue-600">All hands-on.</span></> : <>Katër kurse.<br /><span className="text-blue-600">Të gjitha praktike.</span></>}
+                {lang === 'en' ? <>Hands-on courses,<br /><span className="text-blue-600">in a real clinic.</span></> : <>Kurse praktike,<br /><span className="text-blue-600">në klinikë të vërtetë.</span></>}
               </h3>
             </div>
             <p className="text-slate-400 text-sm font-medium max-w-sm">
@@ -211,46 +215,55 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
             </p>
           </div>
 
+          {courses.length === 0 && (
+            <div className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 text-center">
+              <p className="text-lg font-display font-black text-slate-900 mb-2">{lang === 'en' ? 'New course dates are coming soon.' : 'Datat e kurseve të reja publikohen së shpejti.'}</p>
+              <p className="text-slate-500 text-sm mb-6">{lang === 'en' ? 'Message us on WhatsApp and we will let you know first.' : 'Na shkruani në WhatsApp dhe ju njoftojmë të parët.'}</p>
+              <a href="https://wa.me/38349772307" target="_blank" rel="noopener" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-colors active:scale-[0.97]">
+                {lang === 'en' ? 'Message on WhatsApp' : 'Shkruani në WhatsApp'}<ArrowUpRight size={14} />
+              </a>
+            </div>
+          )}
           <div className="space-y-6">
-            {ACADEMY_COURSES.map((course, idx) => {
+            {courses.map((course, idx) => {
               const instructor = DOCTORS.find(d => d.id === course.instructorId);
               const isOpen = expandedCourse === course.id;
               return (
                 <motion.div key={course.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
                   className="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-blue-300 transition-colors">
                   {/* Course image strip */}
-                  <div className="relative h-48 sm:h-64 overflow-hidden">
+                  <div className="relative min-h-48 sm:min-h-64 overflow-hidden bg-slate-900 flex">
                     {COURSE_VIDEOS[course.id] ? (
-                      <video src={COURSE_VIDEOS[course.id]} poster={course.image} autoPlay muted loop playsInline preload="metadata" className="w-full h-full object-cover" aria-label={course.title[lang]} />
+                      <video src={COURSE_VIDEOS[course.id]} poster={course.image} autoPlay muted loop playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" aria-hidden="true" />
                     ) : (
-                      <img src={course.image} className="w-full h-full object-cover" alt={course.title[lang]} />
+                      <img src={course.image} className="absolute inset-0 w-full h-full object-cover" alt="" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/40 to-transparent" />
                     <CourseMotion courseId={course.id} lang={lang} />
-                    <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                    <div className="relative w-full p-6 sm:p-8 flex flex-col justify-between gap-6">
                       <span className="inline-flex items-center space-x-2 bg-blue-600 text-white text-[9px] px-4 py-2 rounded-full font-black uppercase tracking-widest w-fit">
                         <Zap size={12} />
                         <span>{course.category}</span>
                       </span>
                       <div>
-                        <h4 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white tracking-tight leading-tight">{course.title[lang]}</h4>
+                        <h4 className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white tracking-tight leading-tight max-w-3xl line-clamp-3 [overflow-wrap:anywhere]" title={course.title[lang]}>{course.title[lang]}</h4>
+                        {instructor && (
+                          <div className="mt-3 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-2 rounded-xl">
+                            <img src={instructor.image} className="w-7 h-7 rounded-lg object-cover object-top flex-shrink-0" alt="" />
+                            <p className="text-[9px] font-black text-white">{instructor.name}</p>
+                          </div>
+                        )}
                       </div>
                     </div>
-                    {instructor && (
-                      <div className="absolute bottom-6 right-6 flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 px-3 py-2 rounded-xl">
-                        <img src={instructor.image} className="w-7 h-7 rounded-lg object-cover object-top" alt={instructor.name} />
-                        <p className="text-[9px] font-black text-white">{instructor.name}</p>
-                      </div>
-                    )}
                   </div>
 
                   {/* Course body */}
                   <div className="p-6 sm:p-8 md:p-10">
-                    <div className="flex items-start justify-between gap-6">
-                      <p className="text-slate-500 font-medium text-sm leading-relaxed flex-1">{course.description[lang]}</p>
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 sm:gap-6">
+                      {course.description[lang] && <p className="text-slate-500 font-medium text-sm leading-relaxed flex-1 min-w-0">{course.description[lang]}</p>}
                       <button onClick={() => { const next = isOpen ? null : course.id; setExpandedCourse(next); onNavigateCourse?.(next ?? ''); }}
                         aria-expanded={isOpen}
-                        className="flex-shrink-0 flex items-center space-x-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors">
+                        className="self-start flex-shrink-0 flex items-center space-x-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-blue-600 transition-colors">
                         <span>{isOpen ? (lang === 'en' ? 'Less' : 'Më pak') : (lang === 'en' ? 'Details' : 'Detaje')}</span>
                         <ChevronDown size={14} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                       </button>
@@ -451,7 +464,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ onBack, onOpenMaterials, lang
 
       <footer className="py-16 border-t border-slate-100 text-center relative z-10 bg-white">
         <p className="text-slate-400 text-[8px] font-black uppercase tracking-[0.4em]">
-          © 2025 MEDIDENT ACADEMY · PEJË, KOSOVË
+          © {new Date().getFullYear()} MEDIDENT ACADEMY · PEJË, KOSOVË
         </p>
       </footer>
 
